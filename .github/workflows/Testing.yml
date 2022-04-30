@@ -8,5 +8,14 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - run: bundle exec fastlane carthage_bootstrap
-      - run: bundle exec fastlane tests
+      - name: Carthage Cache
+        uses: actions/cache@v2
+        with:
+          path: Carthage/Build
+          key: ${{ runner.os }}-carthageFrameworks-${{ hashFiles('**/Cartfile.resolved') }}
+          restore-keys: |
+            ${{ runner.os }}-carthageFrameworks-
+      - name: Carthage bootstrap
+        run: bundle exec fastlane carthage_bootstrap
+      - name: Run tests
+        run: bundle exec fastlane tests
