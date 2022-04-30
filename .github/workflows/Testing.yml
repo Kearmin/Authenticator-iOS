@@ -9,12 +9,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Carthage Cache
-        uses: actions/cache@v3
+      - uses: actions/cache@v3
         with:
-          path: Carthage/Build
-          key: ${{ runner.os }}-carthageFrameworks-${{ hashFiles('**/Cartfile.resolved') }}
-          restore-keys: |
-            ${{ runner.os }}-carthageFrameworks-
+        path: Carthage
+        key: ${{ runner.os }}-carthage-${{ hashFiles('**/Cartfile.resolved') }}
+        restore-keys: |
+             ${{ runner.os }}-carthage-
       - name: Carthage bootstrap
         run: bundle exec fastlane carthage_bootstrap
       - name: Run tests
