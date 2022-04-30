@@ -1,12 +1,13 @@
 project 'Authenticator-iOS/Authenticator-iOS.xcodeproj'
 
-platform :ios, '15.0'
 
+$iphoneDeploymentTarget = "15.0"
 $basePath = './Modules'
 $featurePath = $basePath + '/Feature/'
 $businessPath = $basePath + '/Business/'
 $infrastructurePath = $basePath + '/Infrastructure/'
 
+platform :ios, $iphoneDeploymentTarget
 use_frameworks!
 
 def featureModules 
@@ -36,5 +37,13 @@ target 'Authenticator-iOS' do
 
   target 'Authenticator-iOSTests' do
     inherit! :search_paths
+  end
+end
+
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = $iphoneDeploymentTarget
+    end
   end
 end
