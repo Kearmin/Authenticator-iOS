@@ -8,4 +8,5 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
+      - run: bundle exec fastlane carthage_bootstrap
       - run: bundle exec fastlane tests

@@ -1,3 +1,7 @@
 lane :tests do 
   run_tests(scheme: "Authenticator-iOS")
 end
+
+lane :carthage_bootstrap do
+  carthage(use_xcframeworks: true)
+end
