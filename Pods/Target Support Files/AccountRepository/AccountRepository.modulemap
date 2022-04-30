@@ -1,6 +1,0 @@
-framework module AccountRepository {
-  umbrella header "AccountRepository-umbrella.h"
-
-  export *
-  module * { export * }
-}
