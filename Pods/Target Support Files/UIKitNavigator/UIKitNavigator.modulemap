@@ -1,0 +1,6 @@
+framework module UIKitNavigator {
+  umbrella header "UIKitNavigator-umbrella.h"
+
+  export *
+  module * { export * }
+}

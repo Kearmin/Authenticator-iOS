@@ -1,0 +1,6 @@
+framework module AddAccountView {
+  umbrella header "AddAccountView-umbrella.h"
+
+  export *
+  module * { export * }
+}

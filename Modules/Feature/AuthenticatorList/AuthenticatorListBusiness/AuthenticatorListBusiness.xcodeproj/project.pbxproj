@@ -1,0 +1,904 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B0A906612812DA2600F72F87 /* AuthenticatorListBusiness.h in Headers */ = {isa = PBXBuildFile; fileRef = B0A906602812DA2600F72F87 /* AuthenticatorListBusiness.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B0A906712812DA9C00F72F87 /* AuthenticatorListBusiness_MacOs.h in Headers */ = {isa = PBXBuildFile; fileRef = B0A906702812DA9C00F72F87 /* AuthenticatorListBusiness_MacOs.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B0A906822812DB1300F72F87 /* AuthenticatorListBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A9066E2812DA9C00F72F87 /* AuthenticatorListBusiness.framework */; };
+		B0A906892812DB2200F72F87 /* AuthenticatorListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A906882812DB2200F72F87 /* AuthenticatorListTests.swift */; };
+		B0A906912812DD1D00F72F87 /* AuthenticatorListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9068F2812DD0F00F72F87 /* AuthenticatorListPresenter.swift */; };
+		B0A906922812DD2100F72F87 /* AuthenticatorListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9068F2812DD0F00F72F87 /* AuthenticatorListPresenter.swift */; };
+		B0A906A92812E66000F72F87 /* AuthenticatorListBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A9065D2812DA2600F72F87 /* AuthenticatorListBusiness.framework */; platformFilter = ios; };
+		B0A906B22812E6D100F72F87 /* AuthenticatorListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A906882812DB2200F72F87 /* AuthenticatorListTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B0A906832812DB1300F72F87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B0A906542812DA2500F72F87 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B0A9066D2812DA9C00F72F87;
+			remoteInfo = AuthenticatorListBusiness_MacOs;
+		};
+		B0A906AA2812E66000F72F87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B0A906542812DA2500F72F87 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B0A9065C2812DA2600F72F87;
+			remoteInfo = AuthenticatorListBusiness_iOS;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B0A9065D2812DA2600F72F87 /* AuthenticatorListBusiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AuthenticatorListBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0A906602812DA2600F72F87 /* AuthenticatorListBusiness.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthenticatorListBusiness.h; sourceTree = "<group>"; };
+		B0A9066E2812DA9C00F72F87 /* AuthenticatorListBusiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AuthenticatorListBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0A906702812DA9C00F72F87 /* AuthenticatorListBusiness_MacOs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthenticatorListBusiness_MacOs.h; sourceTree = "<group>"; };
+		B0A9067E2812DB1300F72F87 /* AuthenticatorListBusinessTests_MacOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AuthenticatorListBusinessTests_MacOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0A906882812DB2200F72F87 /* AuthenticatorListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticatorListTests.swift; sourceTree = "<group>"; };
+		B0A9068F2812DD0F00F72F87 /* AuthenticatorListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticatorListPresenter.swift; sourceTree = "<group>"; };
+		B0A906A52812E66000F72F87 /* AuthenticatorListBusinessTests_iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AuthenticatorListBusinessTests_iOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B0A9065A2812DA2600F72F87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0A9066B2812DA9C00F72F87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0A9067B2812DB1300F72F87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0A906822812DB1300F72F87 /* AuthenticatorListBusiness.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0A906A22812E66000F72F87 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0A906A92812E66000F72F87 /* AuthenticatorListBusiness.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B0A906532812DA2500F72F87 = {
+			isa = PBXGroup;
+			children = (
+				B0A9068E2812DD0F00F72F87 /* Shared */,
+				B0A9065F2812DA2600F72F87 /* AuthenticatorListBusiness_iOS */,
+				B0A9066F2812DA9C00F72F87 /* AuthenticatorListBusiness_MacOs */,
+				B0A9067F2812DB1300F72F87 /* AuthenticatorListBusinessTests */,
+				B0A906A62812E66000F72F87 /* AuthenticatorListBusinessTests_iOS */,
+				B0A9065E2812DA2600F72F87 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B0A9065E2812DA2600F72F87 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B0A9065D2812DA2600F72F87 /* AuthenticatorListBusiness.framework */,
+				B0A9066E2812DA9C00F72F87 /* AuthenticatorListBusiness.framework */,
+				B0A9067E2812DB1300F72F87 /* AuthenticatorListBusinessTests_MacOS.xctest */,
+				B0A906A52812E66000F72F87 /* AuthenticatorListBusinessTests_iOS.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B0A9065F2812DA2600F72F87 /* AuthenticatorListBusiness_iOS */ = {
+			isa = PBXGroup;
+			children = (
+				B0A906602812DA2600F72F87 /* AuthenticatorListBusiness.h */,
+			);
+			path = AuthenticatorListBusiness_iOS;
+			sourceTree = "<group>";
+		};
+		B0A9066F2812DA9C00F72F87 /* AuthenticatorListBusiness_MacOs */ = {
+			isa = PBXGroup;
+			children = (
+				B0A906702812DA9C00F72F87 /* AuthenticatorListBusiness_MacOs.h */,
+			);
+			path = AuthenticatorListBusiness_MacOs;
+			sourceTree = "<group>";
+		};
+		B0A9067F2812DB1300F72F87 /* AuthenticatorListBusinessTests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AuthenticatorListBusinessTests;
+			sourceTree = "<group>";
+		};
+		B0A9068E2812DD0F00F72F87 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				B0A906B02812E6B600F72F87 /* Source */,
+				B0A906B12812E6BB00F72F87 /* Tests */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		B0A906A62812E66000F72F87 /* AuthenticatorListBusinessTests_iOS */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AuthenticatorListBusinessTests_iOS;
+			sourceTree = "<group>";
+		};
+		B0A906B02812E6B600F72F87 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				B0A9068F2812DD0F00F72F87 /* AuthenticatorListPresenter.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		B0A906B12812E6BB00F72F87 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				B0A906882812DB2200F72F87 /* AuthenticatorListTests.swift */,
+			);
+			path = Tests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		B0A906582812DA2600F72F87 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0A906612812DA2600F72F87 /* AuthenticatorListBusiness.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0A906692812DA9C00F72F87 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0A906712812DA9C00F72F87 /* AuthenticatorListBusiness_MacOs.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		B0A9065C2812DA2600F72F87 /* AuthenticatorListBusiness_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0A906642812DA2600F72F87 /* Build configuration list for PBXNativeTarget "AuthenticatorListBusiness_iOS" */;
+			buildPhases = (
+				B0A906582812DA2600F72F87 /* Headers */,
+				B0A906592812DA2600F72F87 /* Sources */,
+				B0A9065A2812DA2600F72F87 /* Frameworks */,
+				B0A9065B2812DA2600F72F87 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AuthenticatorListBusiness_iOS;
+			productName = AuthenticatorListBusiness;
+			productReference = B0A9065D2812DA2600F72F87 /* AuthenticatorListBusiness.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B0A9066D2812DA9C00F72F87 /* AuthenticatorListBusiness_MacOs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0A906722812DA9C00F72F87 /* Build configuration list for PBXNativeTarget "AuthenticatorListBusiness_MacOs" */;
+			buildPhases = (
+				B0A906692812DA9C00F72F87 /* Headers */,
+				B0A9066A2812DA9C00F72F87 /* Sources */,
+				B0A9066B2812DA9C00F72F87 /* Frameworks */,
+				B0A9066C2812DA9C00F72F87 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AuthenticatorListBusiness_MacOs;
+			productName = AuthenticatorListBusiness_MacOs;
+			productReference = B0A9066E2812DA9C00F72F87 /* AuthenticatorListBusiness.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B0A9067D2812DB1300F72F87 /* AuthenticatorListBusinessTests_MacOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0A906852812DB1300F72F87 /* Build configuration list for PBXNativeTarget "AuthenticatorListBusinessTests_MacOS" */;
+			buildPhases = (
+				B0A9067A2812DB1300F72F87 /* Sources */,
+				B0A9067B2812DB1300F72F87 /* Frameworks */,
+				B0A9067C2812DB1300F72F87 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B0A906842812DB1300F72F87 /* PBXTargetDependency */,
+			);
+			name = AuthenticatorListBusinessTests_MacOS;
+			productName = AuthenticatorListBusinessTests;
+			productReference = B0A9067E2812DB1300F72F87 /* AuthenticatorListBusinessTests_MacOS.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B0A906A42812E66000F72F87 /* AuthenticatorListBusinessTests_iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0A906AC2812E66000F72F87 /* Build configuration list for PBXNativeTarget "AuthenticatorListBusinessTests_iOS" */;
+			buildPhases = (
+				B0A906A12812E66000F72F87 /* Sources */,
+				B0A906A22812E66000F72F87 /* Frameworks */,
+				B0A906A32812E66000F72F87 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B0A906AB2812E66000F72F87 /* PBXTargetDependency */,
+			);
+			name = AuthenticatorListBusinessTests_iOS;
+			productName = AuthenticatorListBusinessTests_iOS;
+			productReference = B0A906A52812E66000F72F87 /* AuthenticatorListBusinessTests_iOS.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B0A906542812DA2500F72F87 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1330;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					B0A9065C2812DA2600F72F87 = {
+						CreatedOnToolsVersion = 13.3.1;
+					};
+					B0A9066D2812DA9C00F72F87 = {
+						CreatedOnToolsVersion = 13.3.1;
+					};
+					B0A9067D2812DB1300F72F87 = {
+						CreatedOnToolsVersion = 13.3.1;
+					};
+					B0A906A42812E66000F72F87 = {
+						CreatedOnToolsVersion = 13.3.1;
+					};
+				};
+			};
+			buildConfigurationList = B0A906572812DA2500F72F87 /* Build configuration list for PBXProject "AuthenticatorListBusiness" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B0A906532812DA2500F72F87;
+			productRefGroup = B0A9065E2812DA2600F72F87 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B0A9065C2812DA2600F72F87 /* AuthenticatorListBusiness_iOS */,
+				B0A906A42812E66000F72F87 /* AuthenticatorListBusinessTests_iOS */,
+				B0A9066D2812DA9C00F72F87 /* AuthenticatorListBusiness_MacOs */,
+				B0A9067D2812DB1300F72F87 /* AuthenticatorListBusinessTests_MacOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B0A9065B2812DA2600F72F87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0A9066C2812DA9C00F72F87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0A9067C2812DB1300F72F87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0A906A32812E66000F72F87 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B0A906592812DA2600F72F87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0A906912812DD1D00F72F87 /* AuthenticatorListPresenter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0A9066A2812DA9C00F72F87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0A906922812DD2100F72F87 /* AuthenticatorListPresenter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0A9067A2812DB1300F72F87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0A906892812DB2200F72F87 /* AuthenticatorListTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0A906A12812E66000F72F87 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0A906B22812E6D100F72F87 /* AuthenticatorListTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B0A906842812DB1300F72F87 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B0A9066D2812DA9C00F72F87 /* AuthenticatorListBusiness_MacOs */;
+			targetProxy = B0A906832812DB1300F72F87 /* PBXContainerItemProxy */;
+		};
+		B0A906AB2812E66000F72F87 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = B0A9065C2812DA2600F72F87 /* AuthenticatorListBusiness_iOS */;
+			targetProxy = B0A906AA2812E66000F72F87 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		B066DA53281C8CA400773A85 /* Mock */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Mock;
+		};
+		B066DA54281C8CA400773A85 /* Mock */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jenci.AuthenticatorListBusiness-iOS";
+				PRODUCT_NAME = AuthenticatorListBusiness;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Mock;
+		};
+		B066DA55281C8CA400773A85 /* Mock */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4W92454MDD;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jenci.AuthenticatorListBusinessTests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Mock;
+		};
+		B066DA56281C8CA400773A85 /* Mock */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 4W92454MDD;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jenci.AuthenticatorListBusiness-MacOs";
+				PRODUCT_NAME = AuthenticatorListBusiness;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Mock;
+		};
+		B066DA57281C8CA400773A85 /* Mock */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4W92454MDD;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jenci.AuthenticatorListBusinessTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Mock;
+		};
+		B0A906622812DA2600F72F87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B0A906632812DA2600F72F87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B0A906652812DA2600F72F87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jenci.AuthenticatorListBusiness-iOS";
+				PRODUCT_NAME = AuthenticatorListBusiness;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B0A906662812DA2600F72F87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jenci.AuthenticatorListBusiness-iOS";
+				PRODUCT_NAME = AuthenticatorListBusiness;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B0A906732812DA9C00F72F87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 4W92454MDD;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jenci.AuthenticatorListBusiness-MacOs";
+				PRODUCT_NAME = AuthenticatorListBusiness;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		B0A906742812DA9C00F72F87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 4W92454MDD;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jenci.AuthenticatorListBusiness-MacOs";
+				PRODUCT_NAME = AuthenticatorListBusiness;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		B0A906862812DB1300F72F87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4W92454MDD;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jenci.AuthenticatorListBusinessTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		B0A906872812DB1300F72F87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4W92454MDD;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jenci.AuthenticatorListBusinessTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		B0A906AD2812E66000F72F87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4W92454MDD;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jenci.AuthenticatorListBusinessTests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B0A906AE2812E66000F72F87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4W92454MDD;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jenci.AuthenticatorListBusinessTests-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B0A906572812DA2500F72F87 /* Build configuration list for PBXProject "AuthenticatorListBusiness" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0A906622812DA2600F72F87 /* Debug */,
+				B066DA53281C8CA400773A85 /* Mock */,
+				B0A906632812DA2600F72F87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B0A906642812DA2600F72F87 /* Build configuration list for PBXNativeTarget "AuthenticatorListBusiness_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0A906652812DA2600F72F87 /* Debug */,
+				B066DA54281C8CA400773A85 /* Mock */,
+				B0A906662812DA2600F72F87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B0A906722812DA9C00F72F87 /* Build configuration list for PBXNativeTarget "AuthenticatorListBusiness_MacOs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0A906732812DA9C00F72F87 /* Debug */,
+				B066DA56281C8CA400773A85 /* Mock */,
+				B0A906742812DA9C00F72F87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B0A906852812DB1300F72F87 /* Build configuration list for PBXNativeTarget "AuthenticatorListBusinessTests_MacOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0A906862812DB1300F72F87 /* Debug */,
+				B066DA57281C8CA400773A85 /* Mock */,
+				B0A906872812DB1300F72F87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B0A906AC2812E66000F72F87 /* Build configuration list for PBXNativeTarget "AuthenticatorListBusinessTests_iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0A906AD2812E66000F72F87 /* Debug */,
+				B066DA55281C8CA400773A85 /* Mock */,
+				B0A906AE2812E66000F72F87 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B0A906542812DA2500F72F87 /* Project object */;
+}

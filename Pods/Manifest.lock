@@ -1,0 +1,62 @@
+PODS:
+  - AccountRepository (1.0.0)
+  - AddAccountBusiness (1.0.0)
+  - AddAccountView (1.0.0)
+  - AuthenticatorListBusiness (1.0.0)
+  - AuthenticatorListView (1.0.0)
+  - Clock (1.0.0)
+  - FileSystemPersistentStorage (1.0.0)
+  - Resolver (1.5.0)
+  - SwiftOTP (3.0.0)
+  - UIKitNavigator (1.0.0)
+
+DEPENDENCIES:
+  - AccountRepository (from `./Modules/Business/AccountRepository`)
+  - AddAccountBusiness (from `./Modules/Feature/AddAccount/AddAccountBusiness`)
+  - AddAccountView (from `./Modules/Feature/AddAccount/AddAccountView`)
+  - AuthenticatorListBusiness (from `./Modules/Feature/AuthenticatorList/AuthenticatorListBusiness`)
+  - AuthenticatorListView (from `./Modules/Feature/AuthenticatorList/AuthenticatorListView`)
+  - Clock (from `./Modules/Business/Clock`)
+  - FileSystemPersistentStorage (from `./Modules/Infrastructure/FileSystemPersistentStorage`)
+  - Resolver (~> 1.5.0)
+  - SwiftOTP (~> 3.0.0)
+  - UIKitNavigator (from `./Modules/Infrastructure/UIKitNavigator`)
+
+SPEC REPOS:
+  trunk:
+    - Resolver
+    - SwiftOTP
+
+EXTERNAL SOURCES:
+  AccountRepository:
+    :path: "./Modules/Business/AccountRepository"
+  AddAccountBusiness:
+    :path: "./Modules/Feature/AddAccount/AddAccountBusiness"
+  AddAccountView:
+    :path: "./Modules/Feature/AddAccount/AddAccountView"
+  AuthenticatorListBusiness:
+    :path: "./Modules/Feature/AuthenticatorList/AuthenticatorListBusiness"
+  AuthenticatorListView:
+    :path: "./Modules/Feature/AuthenticatorList/AuthenticatorListView"
+  Clock:
+    :path: "./Modules/Business/Clock"
+  FileSystemPersistentStorage:
+    :path: "./Modules/Infrastructure/FileSystemPersistentStorage"
+  UIKitNavigator:
+    :path: "./Modules/Infrastructure/UIKitNavigator"
+
+SPEC CHECKSUMS:
+  AccountRepository: 48d14354e2c84e781951e2f49831ec2aab33ba40
+  AddAccountBusiness: c0e00272bb5e1f70a8da86c31cd5c749155833b6
+  AddAccountView: b1d60199fa0985afd740e159569ebdbe4b14d3a2
+  AuthenticatorListBusiness: 3498e4bf1d4b93d14bf54cb89f5ff0ad4669cc14
+  AuthenticatorListView: 314104f2eb07b437fb4b1f0c3e369cf57589ee2c
+  Clock: b61160079298986b87ccfe2814ad8a80005dec89
+  FileSystemPersistentStorage: f0b6a6112278aac4f9cf1911f7c27f7fefb1514b
+  Resolver: 68984624572763018fd8ec7b8e3e8df0e3b6bba5
+  SwiftOTP: ec3848f12a4541f29d96f6a0fe63dcbb8448d96f
+  UIKitNavigator: 879873460b825a1d3975e3da63cd3f8ee8becce7
+
+PODFILE CHECKSUM: e79df38eccfb0126fc2c2f0001868139102beb79
+
+COCOAPODS: 1.11.2

@@ -1,0 +1,891 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B022ECD828133EAD000C8F23 /* AddAccountBusiness.h in Headers */ = {isa = PBXBuildFile; fileRef = B022ECCC28133EAD000C8F23 /* AddAccountBusiness.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B022ECE528133F93000C8F23 /* AddAccountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B022ECE428133F93000C8F23 /* AddAccountUseCase.swift */; };
+		B022ECF928133FB8000C8F23 /* AddAccountBusiness_MacOs.h in Headers */ = {isa = PBXBuildFile; fileRef = B022ECED28133FB8000C8F23 /* AddAccountBusiness_MacOs.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B022ED0028133FCF000C8F23 /* AddAccountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B022ECE428133F93000C8F23 /* AddAccountUseCase.swift */; };
+		B022ED0F281340B1000C8F23 /* AddAccountBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B022ECC928133EAD000C8F23 /* AddAccountBusiness.framework */; platformFilter = ios; };
+		B022ED1D281340CD000C8F23 /* AddAccountBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B022ECEB28133FB8000C8F23 /* AddAccountBusiness.framework */; };
+		B022ED23281341AF000C8F23 /* AddAccountUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B022ED0428134026000C8F23 /* AddAccountUseCaseTests.swift */; };
+		B022ED24281341B3000C8F23 /* AddAccountUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B022ED0428134026000C8F23 /* AddAccountUseCaseTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B022ED10281340B1000C8F23 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B022ECC028133EAD000C8F23 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B022ECC828133EAD000C8F23;
+			remoteInfo = "AddAccountBusiness-iOS";
+		};
+		B022ED1E281340CD000C8F23 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B022ECC028133EAD000C8F23 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B022ECEA28133FB8000C8F23;
+			remoteInfo = "AddAccountBusiness-MacOs";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B022ECC928133EAD000C8F23 /* AddAccountBusiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AddAccountBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B022ECCC28133EAD000C8F23 /* AddAccountBusiness.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddAccountBusiness.h; sourceTree = "<group>"; };
+		B022ECE428133F93000C8F23 /* AddAccountUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountUseCase.swift; sourceTree = "<group>"; };
+		B022ECEB28133FB8000C8F23 /* AddAccountBusiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AddAccountBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B022ECED28133FB8000C8F23 /* AddAccountBusiness_MacOs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddAccountBusiness_MacOs.h; sourceTree = "<group>"; };
+		B022ED0428134026000C8F23 /* AddAccountUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountUseCaseTests.swift; sourceTree = "<group>"; };
+		B022ED0B281340B1000C8F23 /* AddAccountBusinessTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AddAccountBusinessTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B022ED19281340CD000C8F23 /* AddAccountBusinessTests-MacOs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AddAccountBusinessTests-MacOs.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B022ECC628133EAD000C8F23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B022ECE828133FB8000C8F23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B022ED08281340B1000C8F23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B022ED0F281340B1000C8F23 /* AddAccountBusiness.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B022ED16281340CD000C8F23 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B022ED1D281340CD000C8F23 /* AddAccountBusiness.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B022ECBF28133EAD000C8F23 = {
+			isa = PBXGroup;
+			children = (
+				B022ECE128133F56000C8F23 /* Shared */,
+				B022ECCB28133EAD000C8F23 /* AddAccountBusiness */,
+				B022ECEC28133FB8000C8F23 /* AddAccountBusiness-MacOs */,
+				B022ECCA28133EAD000C8F23 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B022ECCA28133EAD000C8F23 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B022ECC928133EAD000C8F23 /* AddAccountBusiness.framework */,
+				B022ECEB28133FB8000C8F23 /* AddAccountBusiness.framework */,
+				B022ED0B281340B1000C8F23 /* AddAccountBusinessTests-iOS.xctest */,
+				B022ED19281340CD000C8F23 /* AddAccountBusinessTests-MacOs.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B022ECCB28133EAD000C8F23 /* AddAccountBusiness */ = {
+			isa = PBXGroup;
+			children = (
+				B022ECCC28133EAD000C8F23 /* AddAccountBusiness.h */,
+			);
+			path = AddAccountBusiness;
+			sourceTree = "<group>";
+		};
+		B022ECE128133F56000C8F23 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				B022ECE228133F59000C8F23 /* Source */,
+				B022ECE328133F63000C8F23 /* Tests */,
+			);
+			name = Shared;
+			sourceTree = "<group>";
+		};
+		B022ECE228133F59000C8F23 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				B022ECE428133F93000C8F23 /* AddAccountUseCase.swift */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		B022ECE328133F63000C8F23 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				B022ED0428134026000C8F23 /* AddAccountUseCaseTests.swift */,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
+		B022ECEC28133FB8000C8F23 /* AddAccountBusiness-MacOs */ = {
+			isa = PBXGroup;
+			children = (
+				B022ECED28133FB8000C8F23 /* AddAccountBusiness_MacOs.h */,
+			);
+			path = "AddAccountBusiness-MacOs";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		B022ECC428133EAD000C8F23 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B022ECD828133EAD000C8F23 /* AddAccountBusiness.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B022ECE628133FB8000C8F23 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B022ECF928133FB8000C8F23 /* AddAccountBusiness_MacOs.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		B022ECC828133EAD000C8F23 /* AddAccountBusiness-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B022ECDB28133EAD000C8F23 /* Build configuration list for PBXNativeTarget "AddAccountBusiness-iOS" */;
+			buildPhases = (
+				B022ECC428133EAD000C8F23 /* Headers */,
+				B022ECC528133EAD000C8F23 /* Sources */,
+				B022ECC628133EAD000C8F23 /* Frameworks */,
+				B022ECC728133EAD000C8F23 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AddAccountBusiness-iOS";
+			productName = AddAccountBusiness;
+			productReference = B022ECC928133EAD000C8F23 /* AddAccountBusiness.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B022ECEA28133FB8000C8F23 /* AddAccountBusiness-MacOs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B022ECFA28133FB8000C8F23 /* Build configuration list for PBXNativeTarget "AddAccountBusiness-MacOs" */;
+			buildPhases = (
+				B022ECE628133FB8000C8F23 /* Headers */,
+				B022ECE728133FB8000C8F23 /* Sources */,
+				B022ECE828133FB8000C8F23 /* Frameworks */,
+				B022ECE928133FB8000C8F23 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "AddAccountBusiness-MacOs";
+			productName = "AddAccountBusiness-MacOs";
+			productReference = B022ECEB28133FB8000C8F23 /* AddAccountBusiness.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B022ED0A281340B1000C8F23 /* AddAccountBusinessTests-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B022ED12281340B1000C8F23 /* Build configuration list for PBXNativeTarget "AddAccountBusinessTests-iOS" */;
+			buildPhases = (
+				B022ED07281340B1000C8F23 /* Sources */,
+				B022ED08281340B1000C8F23 /* Frameworks */,
+				B022ED09281340B1000C8F23 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B022ED11281340B1000C8F23 /* PBXTargetDependency */,
+			);
+			name = "AddAccountBusinessTests-iOS";
+			productName = AddAccountBusiness;
+			productReference = B022ED0B281340B1000C8F23 /* AddAccountBusinessTests-iOS.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		B022ED18281340CD000C8F23 /* AddAccountBusinessTests-MacOs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B022ED20281340CD000C8F23 /* Build configuration list for PBXNativeTarget "AddAccountBusinessTests-MacOs" */;
+			buildPhases = (
+				B022ED15281340CD000C8F23 /* Sources */,
+				B022ED16281340CD000C8F23 /* Frameworks */,
+				B022ED17281340CD000C8F23 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B022ED1F281340CD000C8F23 /* PBXTargetDependency */,
+			);
+			name = "AddAccountBusinessTests-MacOs";
+			productName = AddAccountUseCaseTests;
+			productReference = B022ED19281340CD000C8F23 /* AddAccountBusinessTests-MacOs.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B022ECC028133EAD000C8F23 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1330;
+				LastUpgradeCheck = 1330;
+				TargetAttributes = {
+					B022ECC828133EAD000C8F23 = {
+						CreatedOnToolsVersion = 13.3.1;
+						LastSwiftMigration = 1330;
+					};
+					B022ECEA28133FB8000C8F23 = {
+						CreatedOnToolsVersion = 13.3.1;
+					};
+					B022ED0A281340B1000C8F23 = {
+						CreatedOnToolsVersion = 13.3.1;
+					};
+					B022ED18281340CD000C8F23 = {
+						CreatedOnToolsVersion = 13.3.1;
+					};
+				};
+			};
+			buildConfigurationList = B022ECC328133EAD000C8F23 /* Build configuration list for PBXProject "AddAccountBusiness" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B022ECBF28133EAD000C8F23;
+			productRefGroup = B022ECCA28133EAD000C8F23 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B022ECC828133EAD000C8F23 /* AddAccountBusiness-iOS */,
+				B022ED0A281340B1000C8F23 /* AddAccountBusinessTests-iOS */,
+				B022ECEA28133FB8000C8F23 /* AddAccountBusiness-MacOs */,
+				B022ED18281340CD000C8F23 /* AddAccountBusinessTests-MacOs */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B022ECC728133EAD000C8F23 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B022ECE928133FB8000C8F23 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B022ED09281340B1000C8F23 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B022ED17281340CD000C8F23 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B022ECC528133EAD000C8F23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B022ECE528133F93000C8F23 /* AddAccountUseCase.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B022ECE728133FB8000C8F23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B022ED0028133FCF000C8F23 /* AddAccountUseCase.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B022ED07281340B1000C8F23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B022ED23281341AF000C8F23 /* AddAccountUseCaseTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B022ED15281340CD000C8F23 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B022ED24281341B3000C8F23 /* AddAccountUseCaseTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B022ED11281340B1000C8F23 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = B022ECC828133EAD000C8F23 /* AddAccountBusiness-iOS */;
+			targetProxy = B022ED10281340B1000C8F23 /* PBXContainerItemProxy */;
+		};
+		B022ED1F281340CD000C8F23 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B022ECEA28133FB8000C8F23 /* AddAccountBusiness-MacOs */;
+			targetProxy = B022ED1E281340CD000C8F23 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		B022ECD928133EAD000C8F23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B022ECDA28133EAD000C8F23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B022ECDC28133EAD000C8F23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jenci.AddAccountBusiness;
+				PRODUCT_NAME = AddAccountBusiness;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B022ECDD28133EAD000C8F23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jenci.AddAccountBusiness;
+				PRODUCT_NAME = AddAccountBusiness;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B022ECFB28133FB8000C8F23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 4W92454MDD;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jenci.AddAccountBusiness-MacOs";
+				PRODUCT_NAME = AddAccountBusiness;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		B022ECFC28133FB8000C8F23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 4W92454MDD;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jenci.AddAccountBusiness-MacOs";
+				PRODUCT_NAME = AddAccountBusiness;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		B022ED13281340B1000C8F23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4W92454MDD;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jenci.AddAccountBusiness;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B022ED14281340B1000C8F23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4W92454MDD;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jenci.AddAccountBusiness;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B022ED21281340CD000C8F23 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4W92454MDD;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jenci.AddAccountUseCaseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		B022ED22281340CD000C8F23 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4W92454MDD;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jenci.AddAccountUseCaseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		B066DA5A281C8CB200773A85 /* Mock */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Mock;
+		};
+		B066DA5B281C8CB200773A85 /* Mock */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = "";
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jenci.AddAccountBusiness;
+				PRODUCT_NAME = AddAccountBusiness;
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SKIP_INSTALL = YES;
+				SUPPORTS_MACCATALYST = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Mock;
+		};
+		B066DA5C281C8CB200773A85 /* Mock */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4W92454MDD;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jenci.AddAccountBusiness;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Mock;
+		};
+		B066DA5D281C8CB200773A85 /* Mock */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 4W92454MDD;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jenci.AddAccountBusiness-MacOs";
+				PRODUCT_NAME = AddAccountBusiness;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Mock;
+		};
+		B066DA5E281C8CB200773A85 /* Mock */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4W92454MDD;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jenci.AddAccountUseCaseTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Mock;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B022ECC328133EAD000C8F23 /* Build configuration list for PBXProject "AddAccountBusiness" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B022ECD928133EAD000C8F23 /* Debug */,
+				B066DA5A281C8CB200773A85 /* Mock */,
+				B022ECDA28133EAD000C8F23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B022ECDB28133EAD000C8F23 /* Build configuration list for PBXNativeTarget "AddAccountBusiness-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B022ECDC28133EAD000C8F23 /* Debug */,
+				B066DA5B281C8CB200773A85 /* Mock */,
+				B022ECDD28133EAD000C8F23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B022ECFA28133FB8000C8F23 /* Build configuration list for PBXNativeTarget "AddAccountBusiness-MacOs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B022ECFB28133FB8000C8F23 /* Debug */,
+				B066DA5D281C8CB200773A85 /* Mock */,
+				B022ECFC28133FB8000C8F23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B022ED12281340B1000C8F23 /* Build configuration list for PBXNativeTarget "AddAccountBusinessTests-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B022ED13281340B1000C8F23 /* Debug */,
+				B066DA5C281C8CB200773A85 /* Mock */,
+				B022ED14281340B1000C8F23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B022ED20281340CD000C8F23 /* Build configuration list for PBXNativeTarget "AddAccountBusinessTests-MacOs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B022ED21281340CD000C8F23 /* Debug */,
+				B066DA5E281C8CB200773A85 /* Mock */,
+				B022ED22281340CD000C8F23 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B022ECC028133EAD000C8F23 /* Project object */;
+}

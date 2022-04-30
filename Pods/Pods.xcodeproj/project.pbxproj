@@ -1,0 +1,2591 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		02DF311C3B354A6AFA31D4DCE5C64840 /* AccountRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5208053691D658ECF664F15019F72606 /* AccountRepository.swift */; };
+		0C08AEBE76172DF1A55C4C65B9C717AA /* Pods-Authenticator-iOSTests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 3CD89F8BCAD73F1CEC51F16EEA546B59 /* Pods-Authenticator-iOSTests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0C0B5AFED2710D56515382C464755AD9 /* AddAccountBusiness-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 2E1B11C68ABDDEE6D8D90F30B5C09B09 /* AddAccountBusiness-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0E28D681B18E9CBF123F93907E6A0AA4 /* UInt64+Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E2BD913C6DE35B9F5186EB0FBE0120 /* UInt64+Data.swift */; };
+		0F1B5951970415A18604760872A884FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
+		101302B02A81AE36D43DEA589F3AB223 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FA3A05BC1FF7572AC60635DF4C68B3A /* Account.swift */; };
+		1379E6B6A20E41830F80D17CCF4CA371 /* AccountRepository-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CE359C333C87785A3BA042F1DB75B104 /* AccountRepository-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		15ED7C2287C231F7A18F22FA66A9806D /* AddAccountView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 21301A14334FB724F3A1C7909F512863 /* AddAccountView-dummy.m */; };
+		223F275D4B01344409EEB15DC220F696 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
+		2698C0E815E0EF654C9BD54C534503F4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
+		2B6BD37487C1F9A62BE6EB687B1B2889 /* UIKitNavigator-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0FD976629EA659086CE675AFBC0D9A15 /* UIKitNavigator-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2F01344FAFFEC5DDF0622A910C972C62 /* Generator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5AB6761A7C5DC63CEA5660277D09F0D /* Generator.swift */; };
+		301889C4A7003B141A5BE04F21750FF9 /* TOTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E21338CC628B7001285509E02CE0135 /* TOTP.swift */; };
+		3383F484AB431F4C666DCF18B40BE6B9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
+		37B97F70DB36E821DD6564B585260DD6 /* FileSystemPersistentStorage-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 60DFD99F5EDB07F29090FB18BCD4E3DE /* FileSystemPersistentStorage-dummy.m */; };
+		37FC775DF200C289BA2B9BA79DADFAB0 /* JSONFileSystemPersistanceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BFBB87FE42B97DAD170F7463D5FA372 /* JSONFileSystemPersistanceProvider.swift */; };
+		39FB9CA56013629EE11AE894667CCED5 /* SwiftOTP-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 42809A25980101D5494C791F7FB647FA /* SwiftOTP-dummy.m */; };
+		3F6D6527148E1DA504F68810EF5D25DD /* Clock-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = E6DCBAD7A635A1C44150EE8A83309DA4 /* Clock-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4251156D493EEACE0A6F164256E2348B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
+		4B243A09CB4EE0D0CC7DB5F066372CD8 /* Clock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CFE33181A08947D2D3F28CD49BD96DE /* Clock.swift */; };
+		4E7A3D59A3B536753CAD3688CDB0BFE9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
+		5576F9C3894EB7AC279C2D93F64D9826 /* HOTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BCD137B19324495F86026BAA0C096CD /* HOTP.swift */; };
+		59073C36273E71CE681D4268A577E03A /* Pods-Authenticator-iOS-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CB3C18F022F847A4512D143F349EC9C0 /* Pods-Authenticator-iOS-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5AF9152344EAFDA14E622353B66A03C7 /* Base32.swift in Sources */ = {isa = PBXBuildFile; fileRef = E60E9C54CEA4A5A0BAA745B534A2EB18 /* Base32.swift */; };
+		678543F1D9D9B1AE8E7794BBA3E44267 /* Pods-Authenticator-iOSTests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D4FCEE479C97CA97B639CDE971CD8A7 /* Pods-Authenticator-iOSTests-dummy.m */; };
+		6D4649A0D5533651173DBBF4E270E666 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
+		6E14375E401C45EDA47E299DC7DD0953 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0313AE4FFCBAA31C0AF2DCF156DBD6 /* Navigator.swift */; };
+		6F3A8D2AF966AF6FCA09A4B677BFD1EC /* AuthenticatorListBusiness-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 983292A698D55BB0ED16D69B7986C460 /* AuthenticatorListBusiness-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		70CCBD2E76AA2BD2533E063D8E3220FA /* AddAccountBusiness-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D5313F68ADEE87372FDFC699C1C603FA /* AddAccountBusiness-dummy.m */; };
+		73BE0DB74959EAE14BF6E6F8E1AAFC72 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
+		73FC16DC5E3FF103B25DCC14E4F0450F /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEC5036C139B93F2DCFA8258CE6940C /* StringExtension.swift */; };
+		7667495CDD1ADE2ADEA771BFCE6955C8 /* SwiftOTP-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F0F713C26048E526C505756FBB99D78D /* SwiftOTP-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8428321A9E07E7C84B5F0193E7F7060E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */; };
+		8737245352C8EE20ABD4EA85EF62C08B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
+		883B7F713E2578E19CD297C6D9E7C8B8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
+		8C992EDE836BFC2604D54C54BD3E1612 /* JSONFileSystemPersistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD0624ED42049F9F14E86054DFDBBFA1 /* JSONFileSystemPersistance.swift */; };
+		9080C95E97DC959F00E304D8F75F4442 /* SwiftOTP.h in Headers */ = {isa = PBXBuildFile; fileRef = 9491E79D57D559419356796E9C2A33FA /* SwiftOTP.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		99849E885BDF2203A1E62FA3B9E86E38 /* UIKitNavigator-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D2F720C97B3C3E89BB6E955EEE2FC632 /* UIKitNavigator-dummy.m */; };
+		A4154BF9F932A881417F0A737D6B95CB /* AccountRepository-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = CD7695F76079CBE0E9172EBF5E571232 /* AccountRepository-dummy.m */; };
+		A5C582022D50A719E4DD1E782830458B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
+		AFAC3DDA326A754245210A2178F3AE93 /* AuthenticatorListView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 90B6F3F30BE83C70E9A91E0B5F8993BD /* AuthenticatorListView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AFAFB850EF4D5B22BF8D41B5CD813765 /* SystemJSONFileSystemPersistanceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E6783B81C4A8EB74AA9BCDB5BBA173 /* SystemJSONFileSystemPersistanceProvider.swift */; };
+		AFC351BDBCC6F5BA864231A3EEE1EE25 /* AuthenticatorListBusiness-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E7047D4440C40A6947A7A4A397D5D31 /* AuthenticatorListBusiness-dummy.m */; };
+		B06EFADD23835BE712E9BAC872F1F303 /* AddAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186B5ABBF6536EC49C2BB838C236C286 /* AddAccountViewController.swift */; };
+		B965CFC7B975246D4713C48610B1D5A4 /* OTPAlgorithm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86CE829EA0A89FEAC745317D63407704 /* OTPAlgorithm.swift */; };
+		BEC385E62575ABA041A00F34EB6F61DA /* FileSystemPersistentStorage-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 4CE6C87F752317DE974621BE852E2A2C /* FileSystemPersistentStorage-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C0ADA5DCB0563EFC190F73098F5CC54F /* AuthenticatorListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59942DC88FE687001A1248FCA15C9CA /* AuthenticatorListView.swift */; };
+		C9F01FD0D33E076FC38BDD1C40CA427A /* AuthenticatorListViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78525E08E0075BC6FF17A7074A4836F6 /* AuthenticatorListViewModels.swift */; };
+		CA58D45E4E7FE47D980E0F596716E4F4 /* AddAccountView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B6E8FA057CC5F5FECAAEA77917F06359 /* AddAccountView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CD137F5FB7A1B26CD1B5F89DD02E2587 /* Pods-Authenticator-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E737E10D6EE4D476BCB27FCF25811F5 /* Pods-Authenticator-iOS-dummy.m */; };
+		D42243A1BD1A8EC79F70C22DE9CFA2D8 /* Clock-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 564D49E9FE19B589042F5DD697B9BEC4 /* Clock-dummy.m */; };
+		D7A9FD56DAC0C2545309E861BE953311 /* AuthenticatorListView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D69DDA9D6EAA56F4CE9015305E3D5C53 /* AuthenticatorListView-dummy.m */; };
+		D9982C429AC123445F4800EEE7751ACC /* Resolver-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 04A611010FA40319AC0ECE1D4466A8D9 /* Resolver-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E549B45C2A9F2DE6AB0C07C1C83F504F /* Resolver-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 44CF8C880F29658A734792D425056A25 /* Resolver-dummy.m */; };
+		ED4619ABFD95B683F8B17BE6AE233658 /* AuthenticatorListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798CCC8FFD47C6ED79A47482D492F88D /* AuthenticatorListPresenter.swift */; };
+		EDB21D99FE84B687AD383BADEC7F0CCC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
+		F122D5C4A4123513CCC31C3B93A71732 /* Resolver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132AAD15A6B120E342397A70F4C66A59 /* Resolver.swift */; };
+		F6E6027D66E1AE97B8C6ABE22D8F1983 /* AddAccountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF3DCF173D00B1534C389BFC14A0A269 /* AddAccountUseCase.swift */; };
+		FD5AB3F10529100E28001C45D7E69B9B /* Data+Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB74AFD63538EAD1D00C300EA5668DA /* Data+Utilities.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		272210AB681C855984B75069085975BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D620E17A55913376935AB295825DC91C;
+			remoteInfo = "Pods-Authenticator-iOS";
+		};
+		3DFF630FD771CCD47B0BC8649485369A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CB1DAC30C4616AB564BDA7FAFB02E135;
+			remoteInfo = AuthenticatorListView;
+		};
+		3ECC34D83CD4CDD4F67396137A4B65B9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9437E48E6B93616EBA14982DBC77B2A9;
+			remoteInfo = AddAccountBusiness;
+		};
+		43EFAEFF78A2D82295A8EE23DA92070B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AB7391F954F212B063454408CB7980E2;
+			remoteInfo = AuthenticatorListBusiness;
+		};
+		49AD8A93B2AFDEF27FB4DFBEE3D2836C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9C8D40C1E1E2C6B51046DD36E0865DA6;
+			remoteInfo = Clock;
+		};
+		647FB45D7B7DDAACF0FC8DCE0358A3F1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = ADE5EB42126A868BFA8CE552B59B955D;
+			remoteInfo = UIKitNavigator;
+		};
+		BC9E5769905DA3353633A92B73F7CB08 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 58B9AD85FE03CF119B42720114874474;
+			remoteInfo = SwiftOTP;
+		};
+		BEACD1B90FD0DC528C784F0E1BC38B2F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3AF1A4FE1808CDAE51281F7A31DB2A13;
+			remoteInfo = Resolver;
+		};
+		C1DB79064ECC6642348B46D8A1F9987E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F89F2D6F726F8B93BAFCD847A7EC8640;
+			remoteInfo = AddAccountView;
+		};
+		D89B41FB4A4517E19752C91B0D6001B7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 763B0CB2A1D58970BC5316A865FD0D6C;
+			remoteInfo = AccountRepository;
+		};
+		F6C08FEC1C6F3871750D27F483EF492C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E3F8472CF6F52122D30B40B365423565;
+			remoteInfo = FileSystemPersistentStorage;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		034D49751AA223E099D11BC9DFF1482E /* AuthenticatorListBusiness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AuthenticatorListBusiness.release.xcconfig; sourceTree = "<group>"; };
+		03837B69EF408E6256209A16A7B42751 /* AccountRepository */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AccountRepository; path = AccountRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		04A611010FA40319AC0ECE1D4466A8D9 /* Resolver-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Resolver-umbrella.h"; sourceTree = "<group>"; };
+		069D12E88DE75C076A0F90168A308722 /* AccountRepository-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "AccountRepository-Info.plist"; sourceTree = "<group>"; };
+		08B819A14587208614D170C3CD627684 /* AddAccountView.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = AddAccountView.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		0B81E828169802D8689A0D6B5520428E /* Pods-Authenticator-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Authenticator-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
+		0D4171BE4FEE210E93E860709A1DB16E /* AddAccountBusiness-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "AddAccountBusiness-Info.plist"; sourceTree = "<group>"; };
+		0FD976629EA659086CE675AFBC0D9A15 /* UIKitNavigator-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIKitNavigator-umbrella.h"; sourceTree = "<group>"; };
+		11ACA1EDB2D5AD05A2698A797092AE9B /* Resolver.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Resolver.debug.xcconfig; sourceTree = "<group>"; };
+		11DA2907B648F5C30483F3F0565A97FF /* AuthenticatorListBusiness-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AuthenticatorListBusiness-prefix.pch"; sourceTree = "<group>"; };
+		1257488526FFD411314CD6148D1728F6 /* FileSystemPersistentStorage.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FileSystemPersistentStorage.modulemap; sourceTree = "<group>"; };
+		132AAD15A6B120E342397A70F4C66A59 /* Resolver.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Resolver.swift; path = Sources/Resolver/Resolver.swift; sourceTree = "<group>"; };
+		1490CF44BC2E7367CEBCA4862927F29C /* Resolver.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Resolver.release.xcconfig; sourceTree = "<group>"; };
+		1588B2EF91F958C75B4F5C5E474FD82C /* AuthenticatorListView */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AuthenticatorListView; path = AuthenticatorListView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		17724BBB862E8E502CE7641EB0B16F9E /* FileSystemPersistentStorage.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FileSystemPersistentStorage.release.xcconfig; sourceTree = "<group>"; };
+		186B5ABBF6536EC49C2BB838C236C286 /* AddAccountViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AddAccountViewController.swift; path = AddAccountView/AddAccountViewController.swift; sourceTree = "<group>"; };
+		1A1FA5CA20EA3C86A2BF1642B3F21913 /* SwiftOTP-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwiftOTP-Info.plist"; sourceTree = "<group>"; };
+		1E7047D4440C40A6947A7A4A397D5D31 /* AuthenticatorListBusiness-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AuthenticatorListBusiness-dummy.m"; sourceTree = "<group>"; };
+		1EC1224D982EE8E0A38229F9E3BDFA31 /* AccountRepository.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AccountRepository.debug.xcconfig; sourceTree = "<group>"; };
+		1EFA7F5CE42DD9C29460CEED59FB3FAC /* Pods-Authenticator-iOS.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Authenticator-iOS.modulemap"; sourceTree = "<group>"; };
+		1FA3A05BC1FF7572AC60635DF4C68B3A /* Account.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Account.swift; path = Shared/Source/Account.swift; sourceTree = "<group>"; };
+		21301A14334FB724F3A1C7909F512863 /* AddAccountView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AddAccountView-dummy.m"; sourceTree = "<group>"; };
+		265753EE8F13DD8E9AEA6D2BE44EEE7A /* UIKitNavigator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = UIKitNavigator.release.xcconfig; sourceTree = "<group>"; };
+		2CDBB44933030981759AAFE6E631DC0F /* Resolver-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Resolver-Info.plist"; sourceTree = "<group>"; };
+		2DEB5B6957704D9958D1642ACA238059 /* SwiftOTP-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftOTP-prefix.pch"; sourceTree = "<group>"; };
+		2DFDEB58DD04FA0B6E4E2A5043E0C4B3 /* AddAccountBusiness.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = AddAccountBusiness.modulemap; sourceTree = "<group>"; };
+		2E1B11C68ABDDEE6D8D90F30B5C09B09 /* AddAccountBusiness-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AddAccountBusiness-umbrella.h"; sourceTree = "<group>"; };
+		2E2922C098B2D59743E42DB73EFC5DEF /* Pods-Authenticator-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Authenticator-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		30A37AB0B6B6035850A71D73064311B3 /* AuthenticatorListBusiness-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "AuthenticatorListBusiness-Info.plist"; sourceTree = "<group>"; };
+		3239A66F4A7AB26183F226F9FCE1F15A /* FileSystemPersistentStorage.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = FileSystemPersistentStorage.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		37B715FD3B1185A931B53D42750EF9ED /* Pods-Authenticator-iOS-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Authenticator-iOS-acknowledgements.markdown"; sourceTree = "<group>"; };
+		3BCD137B19324495F86026BAA0C096CD /* HOTP.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HOTP.swift; path = SwiftOTP/HOTP.swift; sourceTree = "<group>"; };
+		3CD89F8BCAD73F1CEC51F16EEA546B59 /* Pods-Authenticator-iOSTests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Authenticator-iOSTests-umbrella.h"; sourceTree = "<group>"; };
+		3E737E10D6EE4D476BCB27FCF25811F5 /* Pods-Authenticator-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Authenticator-iOS-dummy.m"; sourceTree = "<group>"; };
+		419550113AF6A32F06C57B3C973BA827 /* AccountRepository.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = AccountRepository.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		42809A25980101D5494C791F7FB647FA /* SwiftOTP-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwiftOTP-dummy.m"; sourceTree = "<group>"; };
+		44CF8C880F29658A734792D425056A25 /* Resolver-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Resolver-dummy.m"; sourceTree = "<group>"; };
+		49A17B310EC9C7D3D2389D327F70E01D /* FileSystemPersistentStorage-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FileSystemPersistentStorage-prefix.pch"; sourceTree = "<group>"; };
+		4CE6C87F752317DE974621BE852E2A2C /* FileSystemPersistentStorage-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FileSystemPersistentStorage-umbrella.h"; sourceTree = "<group>"; };
+		4F3644929BE898640FDE009493F3589F /* Pods-Authenticator-iOSTests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Authenticator-iOSTests-acknowledgements.plist"; sourceTree = "<group>"; };
+		51517627CC35ABC536C3974267F22204 /* AddAccountBusiness */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AddAccountBusiness; path = AddAccountBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5208053691D658ECF664F15019F72606 /* AccountRepository.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AccountRepository.swift; path = Shared/Source/AccountRepository.swift; sourceTree = "<group>"; };
+		55297F26D3CCBD73A60125E88F1E0DA3 /* AddAccountBusiness.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AddAccountBusiness.release.xcconfig; sourceTree = "<group>"; };
+		564D49E9FE19B589042F5DD697B9BEC4 /* Clock-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Clock-dummy.m"; sourceTree = "<group>"; };
+		582DD843986BF3A5FADFB0301BA458A9 /* UIKitNavigator.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = UIKitNavigator.modulemap; sourceTree = "<group>"; };
+		58D671AFEC9A86E932C99AE85FF17A99 /* UIKitNavigator-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIKitNavigator-prefix.pch"; sourceTree = "<group>"; };
+		594F5626FBA948BE4D0717086BA6D544 /* Pods-Authenticator-iOSTests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Authenticator-iOSTests-acknowledgements.markdown"; sourceTree = "<group>"; };
+		59EF9878291FF5727474657242FA9CDD /* FileSystemPersistentStorage.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FileSystemPersistentStorage.debug.xcconfig; sourceTree = "<group>"; };
+		606A20EFCC43A28F23AB3FBC0425EF67 /* AuthenticatorListView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AuthenticatorListView.release.xcconfig; sourceTree = "<group>"; };
+		60DFD99F5EDB07F29090FB18BCD4E3DE /* FileSystemPersistentStorage-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FileSystemPersistentStorage-dummy.m"; sourceTree = "<group>"; };
+		61CEA315E54619066340F586D4D05724 /* Pods-Authenticator-iOS-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Authenticator-iOS-frameworks.sh"; sourceTree = "<group>"; };
+		656E01B42E57C021BE0146C657B86291 /* Pods-Authenticator-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Authenticator-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		6BFBB87FE42B97DAD170F7463D5FA372 /* JSONFileSystemPersistanceProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONFileSystemPersistanceProvider.swift; path = Shared/Source/JSONFileSystemPersistanceProvider.swift; sourceTree = "<group>"; };
+		6C0313AE4FFCBAA31C0AF2DCF156DBD6 /* Navigator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Navigator.swift; path = UIKitNavigator/Navigator.swift; sourceTree = "<group>"; };
+		6CFE33181A08947D2D3F28CD49BD96DE /* Clock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Clock.swift; path = Clock/Clock.swift; sourceTree = "<group>"; };
+		723DBBFE197EEFF9C5BCB342EC586F91 /* AuthenticatorListView.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = AuthenticatorListView.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		773351C59E1DACCD37990C3669C2D12A /* FileSystemPersistentStorage */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FileSystemPersistentStorage; path = FileSystemPersistentStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		78525E08E0075BC6FF17A7074A4836F6 /* AuthenticatorListViewModels.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AuthenticatorListViewModels.swift; path = AuthenticatorListView/AuthenticatorListViewModels.swift; sourceTree = "<group>"; };
+		79827E13538179D6B44B94812F2416D7 /* Pods-Authenticator-iOSTests */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Authenticator-iOSTests"; path = Pods_Authenticator_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		798CCC8FFD47C6ED79A47482D492F88D /* AuthenticatorListPresenter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AuthenticatorListPresenter.swift; path = Shared/Source/AuthenticatorListPresenter.swift; sourceTree = "<group>"; };
+		7D4FCEE479C97CA97B639CDE971CD8A7 /* Pods-Authenticator-iOSTests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Authenticator-iOSTests-dummy.m"; sourceTree = "<group>"; };
+		7E21338CC628B7001285509E02CE0135 /* TOTP.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TOTP.swift; path = SwiftOTP/TOTP.swift; sourceTree = "<group>"; };
+		81911ABF120735ED1F24980EB08CFC70 /* Clock.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Clock.release.xcconfig; sourceTree = "<group>"; };
+		86CE829EA0A89FEAC745317D63407704 /* OTPAlgorithm.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = OTPAlgorithm.swift; path = SwiftOTP/OTPAlgorithm.swift; sourceTree = "<group>"; };
+		88092517F607B440971C4413248BE46E /* AuthenticatorListBusiness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AuthenticatorListBusiness.debug.xcconfig; sourceTree = "<group>"; };
+		883B42D6944B236F6113E2868846534E /* AuthenticatorListView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AuthenticatorListView-prefix.pch"; sourceTree = "<group>"; };
+		8A21CD44422216838714CC6614276079 /* Pods-Authenticator-iOS-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Authenticator-iOS-acknowledgements.plist"; sourceTree = "<group>"; };
+		8A4317146657CE814B7DB4A73B91D1B3 /* AuthenticatorListView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = AuthenticatorListView.modulemap; sourceTree = "<group>"; };
+		8C6E466F05EFF981F2C35CD4166AFBEA /* AddAccountView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AddAccountView-prefix.pch"; sourceTree = "<group>"; };
+		906B4F8881E1F47CA253F59EDEBDC66C /* SwiftOTP */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwiftOTP; path = SwiftOTP.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9079B267D3488DC1A732DD686D1698CE /* Pods-Authenticator-iOSTests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-Authenticator-iOSTests.modulemap"; sourceTree = "<group>"; };
+		90B6F3F30BE83C70E9A91E0B5F8993BD /* AuthenticatorListView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AuthenticatorListView-umbrella.h"; sourceTree = "<group>"; };
+		93E71CB199477953565D0641734A7F49 /* Clock.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = Clock.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		940AD23AAF961E725AB164301BCE3AB8 /* Resolver.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Resolver.modulemap; sourceTree = "<group>"; };
+		9491E79D57D559419356796E9C2A33FA /* SwiftOTP.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SwiftOTP.h; path = SwiftOTP/SwiftOTP.h; sourceTree = "<group>"; };
+		97F353C9758FD9C777A7A7FCD399A934 /* Resolver-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Resolver-prefix.pch"; sourceTree = "<group>"; };
+		983292A698D55BB0ED16D69B7986C460 /* AuthenticatorListBusiness-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AuthenticatorListBusiness-umbrella.h"; sourceTree = "<group>"; };
+		9A62BBA6BF740A3035B4DE1D80B49CE2 /* AuthenticatorListView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AuthenticatorListView.debug.xcconfig; sourceTree = "<group>"; };
+		9D1220904A66C8A87A5C031008FA6329 /* AccountRepository.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AccountRepository.release.xcconfig; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9E4E0DCFE50BB79232532280AE2C2C0E /* AuthenticatorListView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "AuthenticatorListView-Info.plist"; sourceTree = "<group>"; };
+		A0FC7A1AB79EC81FD6F08B83D0A7AD53 /* AddAccountBusiness-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AddAccountBusiness-prefix.pch"; sourceTree = "<group>"; };
+		A63C9772126E062B7836347998827DE2 /* Clock-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Clock-prefix.pch"; sourceTree = "<group>"; };
+		ABF1D66CE309B35B8EDD5C9074FD338A /* UIKitNavigator */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = UIKitNavigator; path = UIKitNavigator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF3DCF173D00B1534C389BFC14A0A269 /* AddAccountUseCase.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AddAccountUseCase.swift; path = Shared/Source/AddAccountUseCase.swift; sourceTree = "<group>"; };
+		AF747F51198641913FB0A63DCD90BDFB /* Pods-Authenticator-iOSTests-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Authenticator-iOSTests-Info.plist"; sourceTree = "<group>"; };
+		B1A5A0758244DF29D76D9DC60073F629 /* Pods-Authenticator-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Authenticator-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		B37A3964B49CD2B6AAB87EBE9880275A /* AddAccountView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AddAccountView.release.xcconfig; sourceTree = "<group>"; };
+		B38C57A6041F07F1509645A2922FE94D /* AccountRepository-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AccountRepository-prefix.pch"; sourceTree = "<group>"; };
+		B59942DC88FE687001A1248FCA15C9CA /* AuthenticatorListView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AuthenticatorListView.swift; path = AuthenticatorListView/AuthenticatorListView.swift; sourceTree = "<group>"; };
+		B5AB6761A7C5DC63CEA5660277D09F0D /* Generator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Generator.swift; path = SwiftOTP/Generator.swift; sourceTree = "<group>"; };
+		B603A3FC6EFC5814B87E69E219FED9D4 /* AddAccountView */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AddAccountView; path = AddAccountView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B60434886BBE6988BC6C8A721A6A64F3 /* AuthenticatorListBusiness.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = AuthenticatorListBusiness.modulemap; sourceTree = "<group>"; };
+		B6E8FA057CC5F5FECAAEA77917F06359 /* AddAccountView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AddAccountView-umbrella.h"; sourceTree = "<group>"; };
+		B8E2BD913C6DE35B9F5186EB0FBE0120 /* UInt64+Data.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UInt64+Data.swift"; path = "SwiftOTP/UInt64+Data.swift"; sourceTree = "<group>"; };
+		BBEEB869BBAC6E32CE2433019254484B /* AuthenticatorListBusiness.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = AuthenticatorListBusiness.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		BCB74AFD63538EAD1D00C300EA5668DA /* Data+Utilities.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Data+Utilities.swift"; path = "SwiftOTP/Data+Utilities.swift"; sourceTree = "<group>"; };
+		BEE963BCD608EF79408D669258B360FE /* AddAccountBusiness.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = AddAccountBusiness.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C04400774B34F1886C470A8B21188AC8 /* Pods-Authenticator-iOS */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-Authenticator-iOS"; path = Pods_Authenticator_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C327D255F89C18FD695A4982233FB916 /* UIKitNavigator.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = UIKitNavigator.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		C641AB2D6CE36564337E524313752748 /* SwiftOTP.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwiftOTP.modulemap; sourceTree = "<group>"; };
+		C77E30A60866AB225FC04B4BC3A1C416 /* AuthenticatorListBusiness */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = AuthenticatorListBusiness; path = AuthenticatorListBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB3C18F022F847A4512D143F349EC9C0 /* Pods-Authenticator-iOS-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Authenticator-iOS-umbrella.h"; sourceTree = "<group>"; };
+		CB8619541C2477133468781AAE883D28 /* FileSystemPersistentStorage-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "FileSystemPersistentStorage-Info.plist"; sourceTree = "<group>"; };
+		CD0624ED42049F9F14E86054DFDBBFA1 /* JSONFileSystemPersistance.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = JSONFileSystemPersistance.swift; path = Shared/Source/JSONFileSystemPersistance.swift; sourceTree = "<group>"; };
+		CD7695F76079CBE0E9172EBF5E571232 /* AccountRepository-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AccountRepository-dummy.m"; sourceTree = "<group>"; };
+		CE313934FBC5708FB4D0D895707D8D12 /* Clock.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Clock.debug.xcconfig; sourceTree = "<group>"; };
+		CE359C333C87785A3BA042F1DB75B104 /* AccountRepository-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AccountRepository-umbrella.h"; sourceTree = "<group>"; };
+		CE9045B9D17D6ACDF004F2490877CC67 /* Clock */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Clock; path = Clock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0E489A92425595DB3DB7BE2B4A8AB39 /* Pods-Authenticator-iOS-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Authenticator-iOS-Info.plist"; sourceTree = "<group>"; };
+		D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		D250724C1C9A110DF8BFC2B40C495942 /* SwiftOTP.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftOTP.release.xcconfig; sourceTree = "<group>"; };
+		D2F720C97B3C3E89BB6E955EEE2FC632 /* UIKitNavigator-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIKitNavigator-dummy.m"; sourceTree = "<group>"; };
+		D5313F68ADEE87372FDFC699C1C603FA /* AddAccountBusiness-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AddAccountBusiness-dummy.m"; sourceTree = "<group>"; };
+		D69DDA9D6EAA56F4CE9015305E3D5C53 /* AuthenticatorListView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AuthenticatorListView-dummy.m"; sourceTree = "<group>"; };
+		D8DE317D870D916D825B0126C273423F /* UIKitNavigator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = UIKitNavigator.debug.xcconfig; sourceTree = "<group>"; };
+		DD764DD2021B14CFF573AB8C1A0FEB47 /* AddAccountView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = AddAccountView.modulemap; sourceTree = "<group>"; };
+		DDFD6E1EE7FB75CC6E6CEB7213F706BD /* Resolver */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Resolver; path = Resolver.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DF18245CFAE0A220D09E766E67944233 /* AddAccountView-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "AddAccountView-Info.plist"; sourceTree = "<group>"; };
+		DF6E853D36E9C4560246683F4BA2FBA6 /* SwiftOTP.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwiftOTP.debug.xcconfig; sourceTree = "<group>"; };
+		E073E2B1A6DF5EF1067A39BA40C47D1D /* Clock.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Clock.modulemap; sourceTree = "<group>"; };
+		E1293FD0C00C901D524834907B82872F /* AddAccountBusiness.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AddAccountBusiness.debug.xcconfig; sourceTree = "<group>"; };
+		E1E6783B81C4A8EB74AA9BCDB5BBA173 /* SystemJSONFileSystemPersistanceProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SystemJSONFileSystemPersistanceProvider.swift; path = Shared/Source/SystemJSONFileSystemPersistanceProvider.swift; sourceTree = "<group>"; };
+		E60E9C54CEA4A5A0BAA745B534A2EB18 /* Base32.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Base32.swift; path = SwiftOTP/Base32/Base32.swift; sourceTree = "<group>"; };
+		E675ABB8A5811BA1A9B83FE454872275 /* UIKitNavigator-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "UIKitNavigator-Info.plist"; sourceTree = "<group>"; };
+		E6DCBAD7A635A1C44150EE8A83309DA4 /* Clock-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Clock-umbrella.h"; sourceTree = "<group>"; };
+		EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		F0F713C26048E526C505756FBB99D78D /* SwiftOTP-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwiftOTP-umbrella.h"; sourceTree = "<group>"; };
+		F1EBA31AAD5E9C9A81941A798BAC1094 /* Clock-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Clock-Info.plist"; sourceTree = "<group>"; };
+		F75BAF98CA2A59EC038F617675451CAB /* AddAccountView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AddAccountView.debug.xcconfig; sourceTree = "<group>"; };
+		FBCD3B31C7A6A42DF91912987367B2ED /* AccountRepository.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = AccountRepository.modulemap; sourceTree = "<group>"; };
+		FFEC5036C139B93F2DCFA8258CE6940C /* StringExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StringExtension.swift; path = SwiftOTP/Base32/StringExtension.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1B2B1B788D57EBE9D4220D9B577CABFC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6D4649A0D5533651173DBBF4E270E666 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2EC2B4DFAD1646A448D9E6575A19003F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3383F484AB431F4C666DCF18B40BE6B9 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4FDBC10BC763FF0EE0A5AB889B54BCAC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8737245352C8EE20ABD4EA85EF62C08B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6BA7AB5AE13C21038FCB2D9015102321 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4251156D493EEACE0A6F164256E2348B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		771FBB147D87C9274EDF88FB255E8005 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EDB21D99FE84B687AD383BADEC7F0CCC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		80FD0818098E6A8F2FCBE24831400E9F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				73BE0DB74959EAE14BF6E6F8E1AAFC72 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8B576FA1F2CBB84F46F84E3AAC4BF833 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				223F275D4B01344409EEB15DC220F696 /* Foundation.framework in Frameworks */,
+				8428321A9E07E7C84B5F0193E7F7060E /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A4DA7B135DC5CFEB6505D49102087DEC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A5C582022D50A719E4DD1E782830458B /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AA2D858360662F1AD63200611CFCB20F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0F1B5951970415A18604760872A884FC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AE454CEE96166FD5F32CD8242199E234 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				883B7F713E2578E19CD297C6D9E7C8B8 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C9EFD081236B2A28F8DA1732515D45F8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4E7A3D59A3B536753CAD3688CDB0BFE9 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CA187C0515CB14F7B4A3C97A16DD9323 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2698C0E815E0EF654C9BD54C534503F4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		11E1F46C2049501533AC9E9A432DEB91 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				723DBBFE197EEFF9C5BCB342EC586F91 /* AuthenticatorListView.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		1275216C33D3D36254669890FD4E932D /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				419550113AF6A32F06C57B3C973BA827 /* AccountRepository.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				59DA5C1F72E1D5BABC43EACBA672C3BA /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1CC669C119B5E183B12724EC005F2D29 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				E073E2B1A6DF5EF1067A39BA40C47D1D /* Clock.modulemap */,
+				564D49E9FE19B589042F5DD697B9BEC4 /* Clock-dummy.m */,
+				F1EBA31AAD5E9C9A81941A798BAC1094 /* Clock-Info.plist */,
+				A63C9772126E062B7836347998827DE2 /* Clock-prefix.pch */,
+				E6DCBAD7A635A1C44150EE8A83309DA4 /* Clock-umbrella.h */,
+				CE313934FBC5708FB4D0D895707D8D12 /* Clock.debug.xcconfig */,
+				81911ABF120735ED1F24980EB08CFC70 /* Clock.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../../../Pods/Target Support Files/Clock";
+			sourceTree = "<group>";
+		};
+		25868B9FF4FC31DD56B96D330681A3E1 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				940AD23AAF961E725AB164301BCE3AB8 /* Resolver.modulemap */,
+				44CF8C880F29658A734792D425056A25 /* Resolver-dummy.m */,
+				2CDBB44933030981759AAFE6E631DC0F /* Resolver-Info.plist */,
+				97F353C9758FD9C777A7A7FCD399A934 /* Resolver-prefix.pch */,
+				04A611010FA40319AC0ECE1D4466A8D9 /* Resolver-umbrella.h */,
+				11ACA1EDB2D5AD05A2698A797092AE9B /* Resolver.debug.xcconfig */,
+				1490CF44BC2E7367CEBCA4862927F29C /* Resolver.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/Resolver";
+			sourceTree = "<group>";
+		};
+		2594C07433CB64C57E1BE3DD9CD49AAD /* AddAccountView */ = {
+			isa = PBXGroup;
+			children = (
+				186B5ABBF6536EC49C2BB838C236C286 /* AddAccountViewController.swift */,
+				75A142F261E347EB0102111895CEA58F /* Pod */,
+				E82873E210699BFC6A6B6FADBE475C30 /* Support Files */,
+			);
+			name = AddAccountView;
+			path = ../Modules/Feature/AddAccount/AddAccountView;
+			sourceTree = "<group>";
+		};
+		3B7EDBEDB0D9377B737C4EC9C5945BC8 /* Clock */ = {
+			isa = PBXGroup;
+			children = (
+				6CFE33181A08947D2D3F28CD49BD96DE /* Clock.swift */,
+				53C99BD51A4E41F4901C853BDDE5A31C /* Pod */,
+				1CC669C119B5E183B12724EC005F2D29 /* Support Files */,
+			);
+			name = Clock;
+			path = ../Modules/Business/Clock;
+			sourceTree = "<group>";
+		};
+		440ACCBE35C72D7C6F1A50251F1F571C /* AccountRepository */ = {
+			isa = PBXGroup;
+			children = (
+				1FA3A05BC1FF7572AC60635DF4C68B3A /* Account.swift */,
+				5208053691D658ECF664F15019F72606 /* AccountRepository.swift */,
+				1275216C33D3D36254669890FD4E932D /* Pod */,
+				F4A220E39753E448F4CDE8DA58E61326 /* Support Files */,
+			);
+			name = AccountRepository;
+			path = ../Modules/Business/AccountRepository;
+			sourceTree = "<group>";
+		};
+		489857C26DBFA707C10EB1331F7F815C /* Pods-Authenticator-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				1EFA7F5CE42DD9C29460CEED59FB3FAC /* Pods-Authenticator-iOS.modulemap */,
+				37B715FD3B1185A931B53D42750EF9ED /* Pods-Authenticator-iOS-acknowledgements.markdown */,
+				8A21CD44422216838714CC6614276079 /* Pods-Authenticator-iOS-acknowledgements.plist */,
+				3E737E10D6EE4D476BCB27FCF25811F5 /* Pods-Authenticator-iOS-dummy.m */,
+				61CEA315E54619066340F586D4D05724 /* Pods-Authenticator-iOS-frameworks.sh */,
+				D0E489A92425595DB3DB7BE2B4A8AB39 /* Pods-Authenticator-iOS-Info.plist */,
+				CB3C18F022F847A4512D143F349EC9C0 /* Pods-Authenticator-iOS-umbrella.h */,
+				2E2922C098B2D59743E42DB73EFC5DEF /* Pods-Authenticator-iOS.debug.xcconfig */,
+				B1A5A0758244DF29D76D9DC60073F629 /* Pods-Authenticator-iOS.release.xcconfig */,
+			);
+			name = "Pods-Authenticator-iOS";
+			path = "Target Support Files/Pods-Authenticator-iOS";
+			sourceTree = "<group>";
+		};
+		49131465612FC3D96166C5928F312BE5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C2D22A4D4583771EA5296E21C215E0A8 /* Resolver */,
+				9DCA9226CD6433FF0329044ACB31BB4A /* SwiftOTP */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4A126E9132D0943DBC7BE5C39166E4A9 /* AddAccountBusiness */ = {
+			isa = PBXGroup;
+			children = (
+				AF3DCF173D00B1534C389BFC14A0A269 /* AddAccountUseCase.swift */,
+				9E064856FE6D251110435BE79E6BC12A /* Pod */,
+				84FC7A7E1B7F21FFAF9AF79539FE0544 /* Support Files */,
+			);
+			name = AddAccountBusiness;
+			path = ../Modules/Feature/AddAccount/AddAccountBusiness;
+			sourceTree = "<group>";
+		};
+		4D91105FEE8BA541007C41A527CCCFA5 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				C327D255F89C18FD695A4982233FB916 /* UIKitNavigator.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		53C99BD51A4E41F4901C853BDDE5A31C /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				93E71CB199477953565D0641734A7F49 /* Clock.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		59DA5C1F72E1D5BABC43EACBA672C3BA /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */,
+				D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		75A142F261E347EB0102111895CEA58F /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				08B819A14587208614D170C3CD627684 /* AddAccountView.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		7E89E539FA891803BDA2538BE8625670 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B60434886BBE6988BC6C8A721A6A64F3 /* AuthenticatorListBusiness.modulemap */,
+				1E7047D4440C40A6947A7A4A397D5D31 /* AuthenticatorListBusiness-dummy.m */,
+				30A37AB0B6B6035850A71D73064311B3 /* AuthenticatorListBusiness-Info.plist */,
+				11DA2907B648F5C30483F3F0565A97FF /* AuthenticatorListBusiness-prefix.pch */,
+				983292A698D55BB0ED16D69B7986C460 /* AuthenticatorListBusiness-umbrella.h */,
+				88092517F607B440971C4413248BE46E /* AuthenticatorListBusiness.debug.xcconfig */,
+				034D49751AA223E099D11BC9DFF1482E /* AuthenticatorListBusiness.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../../../../Pods/Target Support Files/AuthenticatorListBusiness";
+			sourceTree = "<group>";
+		};
+		7E9A80B20A4CCFFCC830B46954F901ED /* UIKitNavigator */ = {
+			isa = PBXGroup;
+			children = (
+				6C0313AE4FFCBAA31C0AF2DCF156DBD6 /* Navigator.swift */,
+				4D91105FEE8BA541007C41A527CCCFA5 /* Pod */,
+				97967F2E32D7A16D6C569662972AD742 /* Support Files */,
+			);
+			name = UIKitNavigator;
+			path = ../Modules/Infrastructure/UIKitNavigator;
+			sourceTree = "<group>";
+		};
+		84FC7A7E1B7F21FFAF9AF79539FE0544 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				2DFDEB58DD04FA0B6E4E2A5043E0C4B3 /* AddAccountBusiness.modulemap */,
+				D5313F68ADEE87372FDFC699C1C603FA /* AddAccountBusiness-dummy.m */,
+				0D4171BE4FEE210E93E860709A1DB16E /* AddAccountBusiness-Info.plist */,
+				A0FC7A1AB79EC81FD6F08B83D0A7AD53 /* AddAccountBusiness-prefix.pch */,
+				2E1B11C68ABDDEE6D8D90F30B5C09B09 /* AddAccountBusiness-umbrella.h */,
+				E1293FD0C00C901D524834907B82872F /* AddAccountBusiness.debug.xcconfig */,
+				55297F26D3CCBD73A60125E88F1E0DA3 /* AddAccountBusiness.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../../../../Pods/Target Support Files/AddAccountBusiness";
+			sourceTree = "<group>";
+		};
+		97967F2E32D7A16D6C569662972AD742 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				582DD843986BF3A5FADFB0301BA458A9 /* UIKitNavigator.modulemap */,
+				D2F720C97B3C3E89BB6E955EEE2FC632 /* UIKitNavigator-dummy.m */,
+				E675ABB8A5811BA1A9B83FE454872275 /* UIKitNavigator-Info.plist */,
+				58D671AFEC9A86E932C99AE85FF17A99 /* UIKitNavigator-prefix.pch */,
+				0FD976629EA659086CE675AFBC0D9A15 /* UIKitNavigator-umbrella.h */,
+				D8DE317D870D916D825B0126C273423F /* UIKitNavigator.debug.xcconfig */,
+				265753EE8F13DD8E9AEA6D2BE44EEE7A /* UIKitNavigator.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../../../Pods/Target Support Files/UIKitNavigator";
+			sourceTree = "<group>";
+		};
+		9DCA9226CD6433FF0329044ACB31BB4A /* SwiftOTP */ = {
+			isa = PBXGroup;
+			children = (
+				E60E9C54CEA4A5A0BAA745B534A2EB18 /* Base32.swift */,
+				BCB74AFD63538EAD1D00C300EA5668DA /* Data+Utilities.swift */,
+				B5AB6761A7C5DC63CEA5660277D09F0D /* Generator.swift */,
+				3BCD137B19324495F86026BAA0C096CD /* HOTP.swift */,
+				86CE829EA0A89FEAC745317D63407704 /* OTPAlgorithm.swift */,
+				FFEC5036C139B93F2DCFA8258CE6940C /* StringExtension.swift */,
+				9491E79D57D559419356796E9C2A33FA /* SwiftOTP.h */,
+				7E21338CC628B7001285509E02CE0135 /* TOTP.swift */,
+				B8E2BD913C6DE35B9F5186EB0FBE0120 /* UInt64+Data.swift */,
+				BE47475BD7B1483E1B8B4ADE86076C59 /* Support Files */,
+			);
+			name = SwiftOTP;
+			path = SwiftOTP;
+			sourceTree = "<group>";
+		};
+		9DFF1A79462AD00B3DA3BD12BD6F051A /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				8A4317146657CE814B7DB4A73B91D1B3 /* AuthenticatorListView.modulemap */,
+				D69DDA9D6EAA56F4CE9015305E3D5C53 /* AuthenticatorListView-dummy.m */,
+				9E4E0DCFE50BB79232532280AE2C2C0E /* AuthenticatorListView-Info.plist */,
+				883B42D6944B236F6113E2868846534E /* AuthenticatorListView-prefix.pch */,
+				90B6F3F30BE83C70E9A91E0B5F8993BD /* AuthenticatorListView-umbrella.h */,
+				9A62BBA6BF740A3035B4DE1D80B49CE2 /* AuthenticatorListView.debug.xcconfig */,
+				606A20EFCC43A28F23AB3FBC0425EF67 /* AuthenticatorListView.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../../../../Pods/Target Support Files/AuthenticatorListView";
+			sourceTree = "<group>";
+		};
+		9E064856FE6D251110435BE79E6BC12A /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				BEE963BCD608EF79408D669258B360FE /* AddAccountBusiness.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		9E1CD9BDB53B48D310646D78FF5CE0DA /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				440ACCBE35C72D7C6F1A50251F1F571C /* AccountRepository */,
+				4A126E9132D0943DBC7BE5C39166E4A9 /* AddAccountBusiness */,
+				2594C07433CB64C57E1BE3DD9CD49AAD /* AddAccountView */,
+				E09978A6799621822E3C4138A648FF0C /* AuthenticatorListBusiness */,
+				D60E5AF4267BEA13A8457387D7494D81 /* AuthenticatorListView */,
+				3B7EDBEDB0D9377B737C4EC9C5945BC8 /* Clock */,
+				AC8AF3032E5A9635278CA52A19567DDA /* FileSystemPersistentStorage */,
+				7E9A80B20A4CCFFCC830B46954F901ED /* UIKitNavigator */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		AC8AF3032E5A9635278CA52A19567DDA /* FileSystemPersistentStorage */ = {
+			isa = PBXGroup;
+			children = (
+				CD0624ED42049F9F14E86054DFDBBFA1 /* JSONFileSystemPersistance.swift */,
+				6BFBB87FE42B97DAD170F7463D5FA372 /* JSONFileSystemPersistanceProvider.swift */,
+				E1E6783B81C4A8EB74AA9BCDB5BBA173 /* SystemJSONFileSystemPersistanceProvider.swift */,
+				E0D2A31D3790BA0128F7C9C4A626BD8A /* Pod */,
+				C7A4947C867E302765D7613C387B9FF1 /* Support Files */,
+			);
+			name = FileSystemPersistentStorage;
+			path = ../Modules/Infrastructure/FileSystemPersistentStorage;
+			sourceTree = "<group>";
+		};
+		BE47475BD7B1483E1B8B4ADE86076C59 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				C641AB2D6CE36564337E524313752748 /* SwiftOTP.modulemap */,
+				42809A25980101D5494C791F7FB647FA /* SwiftOTP-dummy.m */,
+				1A1FA5CA20EA3C86A2BF1642B3F21913 /* SwiftOTP-Info.plist */,
+				2DEB5B6957704D9958D1642ACA238059 /* SwiftOTP-prefix.pch */,
+				F0F713C26048E526C505756FBB99D78D /* SwiftOTP-umbrella.h */,
+				DF6E853D36E9C4560246683F4BA2FBA6 /* SwiftOTP.debug.xcconfig */,
+				D250724C1C9A110DF8BFC2B40C495942 /* SwiftOTP.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwiftOTP";
+			sourceTree = "<group>";
+		};
+		C2D22A4D4583771EA5296E21C215E0A8 /* Resolver */ = {
+			isa = PBXGroup;
+			children = (
+				132AAD15A6B120E342397A70F4C66A59 /* Resolver.swift */,
+				25868B9FF4FC31DD56B96D330681A3E1 /* Support Files */,
+			);
+			name = Resolver;
+			path = Resolver;
+			sourceTree = "<group>";
+		};
+		C7A4947C867E302765D7613C387B9FF1 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1257488526FFD411314CD6148D1728F6 /* FileSystemPersistentStorage.modulemap */,
+				60DFD99F5EDB07F29090FB18BCD4E3DE /* FileSystemPersistentStorage-dummy.m */,
+				CB8619541C2477133468781AAE883D28 /* FileSystemPersistentStorage-Info.plist */,
+				49A17B310EC9C7D3D2389D327F70E01D /* FileSystemPersistentStorage-prefix.pch */,
+				4CE6C87F752317DE974621BE852E2A2C /* FileSystemPersistentStorage-umbrella.h */,
+				59EF9878291FF5727474657242FA9CDD /* FileSystemPersistentStorage.debug.xcconfig */,
+				17724BBB862E8E502CE7641EB0B16F9E /* FileSystemPersistentStorage.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../../../Pods/Target Support Files/FileSystemPersistentStorage";
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				9E1CD9BDB53B48D310646D78FF5CE0DA /* Development Pods */,
+				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
+				49131465612FC3D96166C5928F312BE5 /* Pods */,
+				F622BBCE2F1B28103A383F77BFA20BE5 /* Products */,
+				E2F0E226BF3BD2E645FD80A8294D327D /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D315618FBBC32F611A7DEC319D7B0C13 /* Pods-Authenticator-iOSTests */ = {
+			isa = PBXGroup;
+			children = (
+				9079B267D3488DC1A732DD686D1698CE /* Pods-Authenticator-iOSTests.modulemap */,
+				594F5626FBA948BE4D0717086BA6D544 /* Pods-Authenticator-iOSTests-acknowledgements.markdown */,
+				4F3644929BE898640FDE009493F3589F /* Pods-Authenticator-iOSTests-acknowledgements.plist */,
+				7D4FCEE479C97CA97B639CDE971CD8A7 /* Pods-Authenticator-iOSTests-dummy.m */,
+				AF747F51198641913FB0A63DCD90BDFB /* Pods-Authenticator-iOSTests-Info.plist */,
+				3CD89F8BCAD73F1CEC51F16EEA546B59 /* Pods-Authenticator-iOSTests-umbrella.h */,
+				0B81E828169802D8689A0D6B5520428E /* Pods-Authenticator-iOSTests.debug.xcconfig */,
+				656E01B42E57C021BE0146C657B86291 /* Pods-Authenticator-iOSTests.release.xcconfig */,
+			);
+			name = "Pods-Authenticator-iOSTests";
+			path = "Target Support Files/Pods-Authenticator-iOSTests";
+			sourceTree = "<group>";
+		};
+		D60E5AF4267BEA13A8457387D7494D81 /* AuthenticatorListView */ = {
+			isa = PBXGroup;
+			children = (
+				B59942DC88FE687001A1248FCA15C9CA /* AuthenticatorListView.swift */,
+				78525E08E0075BC6FF17A7074A4836F6 /* AuthenticatorListViewModels.swift */,
+				11E1F46C2049501533AC9E9A432DEB91 /* Pod */,
+				9DFF1A79462AD00B3DA3BD12BD6F051A /* Support Files */,
+			);
+			name = AuthenticatorListView;
+			path = ../Modules/Feature/AuthenticatorList/AuthenticatorListView;
+			sourceTree = "<group>";
+		};
+		E09978A6799621822E3C4138A648FF0C /* AuthenticatorListBusiness */ = {
+			isa = PBXGroup;
+			children = (
+				798CCC8FFD47C6ED79A47482D492F88D /* AuthenticatorListPresenter.swift */,
+				F68AE66CE446AD59963F4D2E26D2510B /* Pod */,
+				7E89E539FA891803BDA2538BE8625670 /* Support Files */,
+			);
+			name = AuthenticatorListBusiness;
+			path = ../Modules/Feature/AuthenticatorList/AuthenticatorListBusiness;
+			sourceTree = "<group>";
+		};
+		E0D2A31D3790BA0128F7C9C4A626BD8A /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				3239A66F4A7AB26183F226F9FCE1F15A /* FileSystemPersistentStorage.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		E2F0E226BF3BD2E645FD80A8294D327D /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				489857C26DBFA707C10EB1331F7F815C /* Pods-Authenticator-iOS */,
+				D315618FBBC32F611A7DEC319D7B0C13 /* Pods-Authenticator-iOSTests */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		E82873E210699BFC6A6B6FADBE475C30 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				DD764DD2021B14CFF573AB8C1A0FEB47 /* AddAccountView.modulemap */,
+				21301A14334FB724F3A1C7909F512863 /* AddAccountView-dummy.m */,
+				DF18245CFAE0A220D09E766E67944233 /* AddAccountView-Info.plist */,
+				8C6E466F05EFF981F2C35CD4166AFBEA /* AddAccountView-prefix.pch */,
+				B6E8FA057CC5F5FECAAEA77917F06359 /* AddAccountView-umbrella.h */,
+				F75BAF98CA2A59EC038F617675451CAB /* AddAccountView.debug.xcconfig */,
+				B37A3964B49CD2B6AAB87EBE9880275A /* AddAccountView.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../../../../Pods/Target Support Files/AddAccountView";
+			sourceTree = "<group>";
+		};
+		F4A220E39753E448F4CDE8DA58E61326 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				FBCD3B31C7A6A42DF91912987367B2ED /* AccountRepository.modulemap */,
+				CD7695F76079CBE0E9172EBF5E571232 /* AccountRepository-dummy.m */,
+				069D12E88DE75C076A0F90168A308722 /* AccountRepository-Info.plist */,
+				B38C57A6041F07F1509645A2922FE94D /* AccountRepository-prefix.pch */,
+				CE359C333C87785A3BA042F1DB75B104 /* AccountRepository-umbrella.h */,
+				1EC1224D982EE8E0A38229F9E3BDFA31 /* AccountRepository.debug.xcconfig */,
+				9D1220904A66C8A87A5C031008FA6329 /* AccountRepository.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../../../Pods/Target Support Files/AccountRepository";
+			sourceTree = "<group>";
+		};
+		F622BBCE2F1B28103A383F77BFA20BE5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				03837B69EF408E6256209A16A7B42751 /* AccountRepository */,
+				51517627CC35ABC536C3974267F22204 /* AddAccountBusiness */,
+				B603A3FC6EFC5814B87E69E219FED9D4 /* AddAccountView */,
+				C77E30A60866AB225FC04B4BC3A1C416 /* AuthenticatorListBusiness */,
+				1588B2EF91F958C75B4F5C5E474FD82C /* AuthenticatorListView */,
+				CE9045B9D17D6ACDF004F2490877CC67 /* Clock */,
+				773351C59E1DACCD37990C3669C2D12A /* FileSystemPersistentStorage */,
+				C04400774B34F1886C470A8B21188AC8 /* Pods-Authenticator-iOS */,
+				79827E13538179D6B44B94812F2416D7 /* Pods-Authenticator-iOSTests */,
+				DDFD6E1EE7FB75CC6E6CEB7213F706BD /* Resolver */,
+				906B4F8881E1F47CA253F59EDEBDC66C /* SwiftOTP */,
+				ABF1D66CE309B35B8EDD5C9074FD338A /* UIKitNavigator */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F68AE66CE446AD59963F4D2E26D2510B /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				BBEEB869BBAC6E32CE2433019254484B /* AuthenticatorListBusiness.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		0C95826809896BDF2CFFCDE26E3E3A7B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA58D45E4E7FE47D980E0F596716E4F4 /* AddAccountView-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		12B693481E8B3C0B84688CEA2E70D321 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1379E6B6A20E41830F80D17CCF4CA371 /* AccountRepository-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1824AE311BF7AB25DBF4340AD2458F73 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BEC385E62575ABA041A00F34EB6F61DA /* FileSystemPersistentStorage-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1D98D90BB1478229D59A6273A943AF00 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFAC3DDA326A754245210A2178F3AE93 /* AuthenticatorListView-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		68025135B3AF738B6AABF627E3F7FFF4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C08AEBE76172DF1A55C4C65B9C717AA /* Pods-Authenticator-iOSTests-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CAB59996CC96089708A3228D63B06D2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0C0B5AFED2710D56515382C464755AD9 /* AddAccountBusiness-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		876983A3CC83F8DA0DEB5836149A0CC2 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3F6D6527148E1DA504F68810EF5D25DD /* Clock-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DDF9F6921B4E369014C8E62F48CE63D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D9982C429AC123445F4800EEE7751ACC /* Resolver-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B4D3F260043D40A5CF5A3F27F39A4242 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F3A8D2AF966AF6FCA09A4B677BFD1EC /* AuthenticatorListBusiness-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E069AB8A41CD23BB8BFAD46B7E9E3A06 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B6BD37487C1F9A62BE6EB687B1B2889 /* UIKitNavigator-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F15B18E3FA24C91CB942EEE92245765E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				59073C36273E71CE681D4268A577E03A /* Pods-Authenticator-iOS-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9BDCB7C9552B954E6466F42DBA5C67E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9080C95E97DC959F00E304D8F75F4442 /* SwiftOTP.h in Headers */,
+				7667495CDD1ADE2ADEA771BFCE6955C8 /* SwiftOTP-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		2208679CB34698318F88951CC7A192EA /* Pods-Authenticator-iOSTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5722A33B45B1D095B891637A20F4FA47 /* Build configuration list for PBXNativeTarget "Pods-Authenticator-iOSTests" */;
+			buildPhases = (
+				68025135B3AF738B6AABF627E3F7FFF4 /* Headers */,
+				437A543BDEA5F40F79A23CBF58249723 /* Sources */,
+				80FD0818098E6A8F2FCBE24831400E9F /* Frameworks */,
+				7C3BA5B67CE1DBE8A185B8F9E15125AF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				69ABF939291EDBC3A4BCF57BDF20F86C /* PBXTargetDependency */,
+			);
+			name = "Pods-Authenticator-iOSTests";
+			productName = Pods_Authenticator_iOSTests;
+			productReference = 79827E13538179D6B44B94812F2416D7 /* Pods-Authenticator-iOSTests */;
+			productType = "com.apple.product-type.framework";
+		};
+		3AF1A4FE1808CDAE51281F7A31DB2A13 /* Resolver */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 719B8ECE0A61372D328821BDCA59D90B /* Build configuration list for PBXNativeTarget "Resolver" */;
+			buildPhases = (
+				8DDF9F6921B4E369014C8E62F48CE63D /* Headers */,
+				4C933F69DD0E8AF423F0AE75372F6C9B /* Sources */,
+				8B576FA1F2CBB84F46F84E3AAC4BF833 /* Frameworks */,
+				7275BE2CEC7260E5DA1B7A4975E4E93B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Resolver;
+			productName = Resolver;
+			productReference = DDFD6E1EE7FB75CC6E6CEB7213F706BD /* Resolver */;
+			productType = "com.apple.product-type.framework";
+		};
+		58B9AD85FE03CF119B42720114874474 /* SwiftOTP */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C5BD5F55F16940B917840FC7873AB454 /* Build configuration list for PBXNativeTarget "SwiftOTP" */;
+			buildPhases = (
+				F9BDCB7C9552B954E6466F42DBA5C67E /* Headers */,
+				F2268F7B4C326104A26C36612EE414B6 /* Sources */,
+				A4DA7B135DC5CFEB6505D49102087DEC /* Frameworks */,
+				FDC6F722C71482803089283A643F989C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwiftOTP;
+			productName = SwiftOTP;
+			productReference = 906B4F8881E1F47CA253F59EDEBDC66C /* SwiftOTP */;
+			productType = "com.apple.product-type.framework";
+		};
+		763B0CB2A1D58970BC5316A865FD0D6C /* AccountRepository */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 843A85BFB7BD061A5D86C0CCED9911BF /* Build configuration list for PBXNativeTarget "AccountRepository" */;
+			buildPhases = (
+				12B693481E8B3C0B84688CEA2E70D321 /* Headers */,
+				3913661D5686F2CFBE13481C82A516DC /* Sources */,
+				4FDBC10BC763FF0EE0A5AB889B54BCAC /* Frameworks */,
+				A6F893986EBB3099CF9176A1311DC36A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AccountRepository;
+			productName = AccountRepository;
+			productReference = 03837B69EF408E6256209A16A7B42751 /* AccountRepository */;
+			productType = "com.apple.product-type.framework";
+		};
+		9437E48E6B93616EBA14982DBC77B2A9 /* AddAccountBusiness */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7C07600C01048A52B9A7134248FFD0B2 /* Build configuration list for PBXNativeTarget "AddAccountBusiness" */;
+			buildPhases = (
+				6CAB59996CC96089708A3228D63B06D2 /* Headers */,
+				8523B8C894EE214CA8DEACB4BE7D60CF /* Sources */,
+				6BA7AB5AE13C21038FCB2D9015102321 /* Frameworks */,
+				E83DE4E8AF15D547AA5A6F81BF1F0A74 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AddAccountBusiness;
+			productName = AddAccountBusiness;
+			productReference = 51517627CC35ABC536C3974267F22204 /* AddAccountBusiness */;
+			productType = "com.apple.product-type.framework";
+		};
+		9C8D40C1E1E2C6B51046DD36E0865DA6 /* Clock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5D785337D221E48CB4FF3CE140602D62 /* Build configuration list for PBXNativeTarget "Clock" */;
+			buildPhases = (
+				876983A3CC83F8DA0DEB5836149A0CC2 /* Headers */,
+				DFBD0E671F0B174434DF8CB94A09D449 /* Sources */,
+				C9EFD081236B2A28F8DA1732515D45F8 /* Frameworks */,
+				7C5A85121B3FE15F962B5FE89AB34514 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Clock;
+			productName = Clock;
+			productReference = CE9045B9D17D6ACDF004F2490877CC67 /* Clock */;
+			productType = "com.apple.product-type.framework";
+		};
+		AB7391F954F212B063454408CB7980E2 /* AuthenticatorListBusiness */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F028F2A79852DE864294F54EDDE3ED6E /* Build configuration list for PBXNativeTarget "AuthenticatorListBusiness" */;
+			buildPhases = (
+				B4D3F260043D40A5CF5A3F27F39A4242 /* Headers */,
+				6050E3CD26F8D915BCC1CC703AC42922 /* Sources */,
+				771FBB147D87C9274EDF88FB255E8005 /* Frameworks */,
+				A99EE39E16EB4A2779C43EEB7CF17BFC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AuthenticatorListBusiness;
+			productName = AuthenticatorListBusiness;
+			productReference = C77E30A60866AB225FC04B4BC3A1C416 /* AuthenticatorListBusiness */;
+			productType = "com.apple.product-type.framework";
+		};
+		ADE5EB42126A868BFA8CE552B59B955D /* UIKitNavigator */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B56645558FE42B54B685EA43BC0CD3EB /* Build configuration list for PBXNativeTarget "UIKitNavigator" */;
+			buildPhases = (
+				E069AB8A41CD23BB8BFAD46B7E9E3A06 /* Headers */,
+				B8563CAC5427CEF0C270D5DB468B9257 /* Sources */,
+				AE454CEE96166FD5F32CD8242199E234 /* Frameworks */,
+				A3908FC9CC8D923037D451D2F3BC63DF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UIKitNavigator;
+			productName = UIKitNavigator;
+			productReference = ABF1D66CE309B35B8EDD5C9074FD338A /* UIKitNavigator */;
+			productType = "com.apple.product-type.framework";
+		};
+		CB1DAC30C4616AB564BDA7FAFB02E135 /* AuthenticatorListView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 33231644202E34580686B5F2AA0FE9DA /* Build configuration list for PBXNativeTarget "AuthenticatorListView" */;
+			buildPhases = (
+				1D98D90BB1478229D59A6273A943AF00 /* Headers */,
+				E79A4A8C980BD81C26DC77070194BD77 /* Sources */,
+				AA2D858360662F1AD63200611CFCB20F /* Frameworks */,
+				8D89861FCEEF1A2A28E5301CFC2B6B4F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AuthenticatorListView;
+			productName = AuthenticatorListView;
+			productReference = 1588B2EF91F958C75B4F5C5E474FD82C /* AuthenticatorListView */;
+			productType = "com.apple.product-type.framework";
+		};
+		D620E17A55913376935AB295825DC91C /* Pods-Authenticator-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 34C71A6872E013054BAF4F84F2B059AB /* Build configuration list for PBXNativeTarget "Pods-Authenticator-iOS" */;
+			buildPhases = (
+				F15B18E3FA24C91CB942EEE92245765E /* Headers */,
+				F637A2B580016F8427FB7EB810EC008A /* Sources */,
+				CA187C0515CB14F7B4A3C97A16DD9323 /* Frameworks */,
+				697C6DA34FE7C32CB505765A503A81CB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B515DB82413A6780ED3C92B56F56125D /* PBXTargetDependency */,
+				26C742978C51AB36022434F6921D5B1E /* PBXTargetDependency */,
+				5717DB1772D6FDA28C7D061999028200 /* PBXTargetDependency */,
+				9F80BFE36590EEB97482C78000B725BC /* PBXTargetDependency */,
+				C1768623BBF2F0C0421F36CB05252B88 /* PBXTargetDependency */,
+				502A455CBD88A38B826A6D0F42C9DF37 /* PBXTargetDependency */,
+				7E9D810D074A4F4EED2D9F245E358614 /* PBXTargetDependency */,
+				55E0A37F3411775D1BDCEBEF88AEC261 /* PBXTargetDependency */,
+				AC1151CBCD870C9EF4AE1FAD8DAB7909 /* PBXTargetDependency */,
+				FF646E0535634945BEF4CF8D9AEB9A47 /* PBXTargetDependency */,
+			);
+			name = "Pods-Authenticator-iOS";
+			productName = Pods_Authenticator_iOS;
+			productReference = C04400774B34F1886C470A8B21188AC8 /* Pods-Authenticator-iOS */;
+			productType = "com.apple.product-type.framework";
+		};
+		E3F8472CF6F52122D30B40B365423565 /* FileSystemPersistentStorage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4DA54231F2DD69731E5C4EA8B07220E3 /* Build configuration list for PBXNativeTarget "FileSystemPersistentStorage" */;
+			buildPhases = (
+				1824AE311BF7AB25DBF4340AD2458F73 /* Headers */,
+				F7AE918299C4076DB669D4CEBA0E1095 /* Sources */,
+				1B2B1B788D57EBE9D4220D9B577CABFC /* Frameworks */,
+				2640FF7C51591B493F6526F60F7BD6ED /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FileSystemPersistentStorage;
+			productName = FileSystemPersistentStorage;
+			productReference = 773351C59E1DACCD37990C3669C2D12A /* FileSystemPersistentStorage */;
+			productType = "com.apple.product-type.framework";
+		};
+		F89F2D6F726F8B93BAFCD847A7EC8640 /* AddAccountView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E6C80237A2310CCD23C744F4D0FFF949 /* Build configuration list for PBXNativeTarget "AddAccountView" */;
+			buildPhases = (
+				0C95826809896BDF2CFFCDE26E3E3A7B /* Headers */,
+				C65E89D8CA1BD910029AE9C95265D14D /* Sources */,
+				2EC2B4DFAD1646A448D9E6575A19003F /* Frameworks */,
+				3F1772B37D46B4E19E375E08D000F35E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AddAccountView;
+			productName = AddAccountView;
+			productReference = B603A3FC6EFC5814B87E69E219FED9D4 /* AddAccountView */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1240;
+				LastUpgradeCheck = 1240;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = F622BBCE2F1B28103A383F77BFA20BE5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				763B0CB2A1D58970BC5316A865FD0D6C /* AccountRepository */,
+				9437E48E6B93616EBA14982DBC77B2A9 /* AddAccountBusiness */,
+				F89F2D6F726F8B93BAFCD847A7EC8640 /* AddAccountView */,
+				AB7391F954F212B063454408CB7980E2 /* AuthenticatorListBusiness */,
+				CB1DAC30C4616AB564BDA7FAFB02E135 /* AuthenticatorListView */,
+				9C8D40C1E1E2C6B51046DD36E0865DA6 /* Clock */,
+				E3F8472CF6F52122D30B40B365423565 /* FileSystemPersistentStorage */,
+				D620E17A55913376935AB295825DC91C /* Pods-Authenticator-iOS */,
+				2208679CB34698318F88951CC7A192EA /* Pods-Authenticator-iOSTests */,
+				3AF1A4FE1808CDAE51281F7A31DB2A13 /* Resolver */,
+				58B9AD85FE03CF119B42720114874474 /* SwiftOTP */,
+				ADE5EB42126A868BFA8CE552B59B955D /* UIKitNavigator */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2640FF7C51591B493F6526F60F7BD6ED /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3F1772B37D46B4E19E375E08D000F35E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		697C6DA34FE7C32CB505765A503A81CB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7275BE2CEC7260E5DA1B7A4975E4E93B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7C3BA5B67CE1DBE8A185B8F9E15125AF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7C5A85121B3FE15F962B5FE89AB34514 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8D89861FCEEF1A2A28E5301CFC2B6B4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A3908FC9CC8D923037D451D2F3BC63DF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A6F893986EBB3099CF9176A1311DC36A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A99EE39E16EB4A2779C43EEB7CF17BFC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E83DE4E8AF15D547AA5A6F81BF1F0A74 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FDC6F722C71482803089283A643F989C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3913661D5686F2CFBE13481C82A516DC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				101302B02A81AE36D43DEA589F3AB223 /* Account.swift in Sources */,
+				02DF311C3B354A6AFA31D4DCE5C64840 /* AccountRepository.swift in Sources */,
+				A4154BF9F932A881417F0A737D6B95CB /* AccountRepository-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		437A543BDEA5F40F79A23CBF58249723 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				678543F1D9D9B1AE8E7794BBA3E44267 /* Pods-Authenticator-iOSTests-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C933F69DD0E8AF423F0AE75372F6C9B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F122D5C4A4123513CCC31C3B93A71732 /* Resolver.swift in Sources */,
+				E549B45C2A9F2DE6AB0C07C1C83F504F /* Resolver-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6050E3CD26F8D915BCC1CC703AC42922 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AFC351BDBCC6F5BA864231A3EEE1EE25 /* AuthenticatorListBusiness-dummy.m in Sources */,
+				ED4619ABFD95B683F8B17BE6AE233658 /* AuthenticatorListPresenter.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8523B8C894EE214CA8DEACB4BE7D60CF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70CCBD2E76AA2BD2533E063D8E3220FA /* AddAccountBusiness-dummy.m in Sources */,
+				F6E6027D66E1AE97B8C6ABE22D8F1983 /* AddAccountUseCase.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B8563CAC5427CEF0C270D5DB468B9257 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E14375E401C45EDA47E299DC7DD0953 /* Navigator.swift in Sources */,
+				99849E885BDF2203A1E62FA3B9E86E38 /* UIKitNavigator-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C65E89D8CA1BD910029AE9C95265D14D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				15ED7C2287C231F7A18F22FA66A9806D /* AddAccountView-dummy.m in Sources */,
+				B06EFADD23835BE712E9BAC872F1F303 /* AddAccountViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFBD0E671F0B174434DF8CB94A09D449 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4B243A09CB4EE0D0CC7DB5F066372CD8 /* Clock.swift in Sources */,
+				D42243A1BD1A8EC79F70C22DE9CFA2D8 /* Clock-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E79A4A8C980BD81C26DC77070194BD77 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C0ADA5DCB0563EFC190F73098F5CC54F /* AuthenticatorListView.swift in Sources */,
+				D7A9FD56DAC0C2545309E861BE953311 /* AuthenticatorListView-dummy.m in Sources */,
+				C9F01FD0D33E076FC38BDD1C40CA427A /* AuthenticatorListViewModels.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F2268F7B4C326104A26C36612EE414B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5AF9152344EAFDA14E622353B66A03C7 /* Base32.swift in Sources */,
+				FD5AB3F10529100E28001C45D7E69B9B /* Data+Utilities.swift in Sources */,
+				2F01344FAFFEC5DDF0622A910C972C62 /* Generator.swift in Sources */,
+				5576F9C3894EB7AC279C2D93F64D9826 /* HOTP.swift in Sources */,
+				B965CFC7B975246D4713C48610B1D5A4 /* OTPAlgorithm.swift in Sources */,
+				73FC16DC5E3FF103B25DCC14E4F0450F /* StringExtension.swift in Sources */,
+				39FB9CA56013629EE11AE894667CCED5 /* SwiftOTP-dummy.m in Sources */,
+				301889C4A7003B141A5BE04F21750FF9 /* TOTP.swift in Sources */,
+				0E28D681B18E9CBF123F93907E6A0AA4 /* UInt64+Data.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F637A2B580016F8427FB7EB810EC008A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD137F5FB7A1B26CD1B5F89DD02E2587 /* Pods-Authenticator-iOS-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7AE918299C4076DB669D4CEBA0E1095 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				37B97F70DB36E821DD6564B585260DD6 /* FileSystemPersistentStorage-dummy.m in Sources */,
+				8C992EDE836BFC2604D54C54BD3E1612 /* JSONFileSystemPersistance.swift in Sources */,
+				37FC775DF200C289BA2B9BA79DADFAB0 /* JSONFileSystemPersistanceProvider.swift in Sources */,
+				AFAFB850EF4D5B22BF8D41B5CD813765 /* SystemJSONFileSystemPersistanceProvider.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		26C742978C51AB36022434F6921D5B1E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AddAccountBusiness;
+			target = 9437E48E6B93616EBA14982DBC77B2A9 /* AddAccountBusiness */;
+			targetProxy = 3ECC34D83CD4CDD4F67396137A4B65B9 /* PBXContainerItemProxy */;
+		};
+		502A455CBD88A38B826A6D0F42C9DF37 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Clock;
+			target = 9C8D40C1E1E2C6B51046DD36E0865DA6 /* Clock */;
+			targetProxy = 49AD8A93B2AFDEF27FB4DFBEE3D2836C /* PBXContainerItemProxy */;
+		};
+		55E0A37F3411775D1BDCEBEF88AEC261 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Resolver;
+			target = 3AF1A4FE1808CDAE51281F7A31DB2A13 /* Resolver */;
+			targetProxy = BEACD1B90FD0DC528C784F0E1BC38B2F /* PBXContainerItemProxy */;
+		};
+		5717DB1772D6FDA28C7D061999028200 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AddAccountView;
+			target = F89F2D6F726F8B93BAFCD847A7EC8640 /* AddAccountView */;
+			targetProxy = C1DB79064ECC6642348B46D8A1F9987E /* PBXContainerItemProxy */;
+		};
+		69ABF939291EDBC3A4BCF57BDF20F86C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-Authenticator-iOS";
+			target = D620E17A55913376935AB295825DC91C /* Pods-Authenticator-iOS */;
+			targetProxy = 272210AB681C855984B75069085975BC /* PBXContainerItemProxy */;
+		};
+		7E9D810D074A4F4EED2D9F245E358614 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = FileSystemPersistentStorage;
+			target = E3F8472CF6F52122D30B40B365423565 /* FileSystemPersistentStorage */;
+			targetProxy = F6C08FEC1C6F3871750D27F483EF492C /* PBXContainerItemProxy */;
+		};
+		9F80BFE36590EEB97482C78000B725BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AuthenticatorListBusiness;
+			target = AB7391F954F212B063454408CB7980E2 /* AuthenticatorListBusiness */;
+			targetProxy = 43EFAEFF78A2D82295A8EE23DA92070B /* PBXContainerItemProxy */;
+		};
+		AC1151CBCD870C9EF4AE1FAD8DAB7909 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwiftOTP;
+			target = 58B9AD85FE03CF119B42720114874474 /* SwiftOTP */;
+			targetProxy = BC9E5769905DA3353633A92B73F7CB08 /* PBXContainerItemProxy */;
+		};
+		B515DB82413A6780ED3C92B56F56125D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AccountRepository;
+			target = 763B0CB2A1D58970BC5316A865FD0D6C /* AccountRepository */;
+			targetProxy = D89B41FB4A4517E19752C91B0D6001B7 /* PBXContainerItemProxy */;
+		};
+		C1768623BBF2F0C0421F36CB05252B88 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AuthenticatorListView;
+			target = CB1DAC30C4616AB564BDA7FAFB02E135 /* AuthenticatorListView */;
+			targetProxy = 3DFF630FD771CCD47B0BC8649485369A /* PBXContainerItemProxy */;
+		};
+		FF646E0535634945BEF4CF8D9AEB9A47 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = UIKitNavigator;
+			target = ADE5EB42126A868BFA8CE552B59B955D /* UIKitNavigator */;
+			targetProxy = 647FB45D7B7DDAACF0FC8DCE0358A3F1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		01009AF2CFE3DC78E8E4D59BFA3ACB5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1490CF44BC2E7367CEBCA4862927F29C /* Resolver.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Resolver/Resolver-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Resolver/Resolver-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Resolver/Resolver.modulemap";
+				PRODUCT_MODULE_NAME = Resolver;
+				PRODUCT_NAME = Resolver;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		34E21A7A5030F0A6DF68B797CFAA1251 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 656E01B42E57C021BE0146C657B86291 /* Pods-Authenticator-iOSTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Authenticator-iOSTests/Pods-Authenticator-iOSTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Authenticator-iOSTests/Pods-Authenticator-iOSTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3ADEAF2136BF3CFDDE3195C7CA3B5312 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9D1220904A66C8A87A5C031008FA6329 /* AccountRepository.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/AccountRepository/AccountRepository-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AccountRepository/AccountRepository-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/AccountRepository/AccountRepository.modulemap";
+				PRODUCT_MODULE_NAME = AccountRepository;
+				PRODUCT_NAME = AccountRepository;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		3F74025FE8B38B480265E9B81EB50D2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E2922C098B2D59743E42DB73EFC5DEF /* Pods-Authenticator-iOS.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Authenticator-iOS/Pods-Authenticator-iOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Authenticator-iOS/Pods-Authenticator-iOS.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		3F8F5F94874E9A69348E40A284AFCDDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1EC1224D982EE8E0A38229F9E3BDFA31 /* AccountRepository.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/AccountRepository/AccountRepository-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AccountRepository/AccountRepository-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/AccountRepository/AccountRepository.modulemap";
+				PRODUCT_MODULE_NAME = AccountRepository;
+				PRODUCT_NAME = AccountRepository;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5667BB1D15F63516E0B124C9D654B688 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 59EF9878291FF5727474657242FA9CDD /* FileSystemPersistentStorage.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/FileSystemPersistentStorage/FileSystemPersistentStorage-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FileSystemPersistentStorage/FileSystemPersistentStorage-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/FileSystemPersistentStorage/FileSystemPersistentStorage.modulemap";
+				PRODUCT_MODULE_NAME = FileSystemPersistentStorage;
+				PRODUCT_NAME = FileSystemPersistentStorage;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5D47542FFDC42DA57FE3842A6F19EB02 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B37A3964B49CD2B6AAB87EBE9880275A /* AddAccountView.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/AddAccountView/AddAccountView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AddAccountView/AddAccountView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/AddAccountView/AddAccountView.modulemap";
+				PRODUCT_MODULE_NAME = AddAccountView;
+				PRODUCT_NAME = AddAccountView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		63A30FD08C9F64F1EB5C9F0938843A5D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17724BBB862E8E502CE7641EB0B16F9E /* FileSystemPersistentStorage.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/FileSystemPersistentStorage/FileSystemPersistentStorage-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/FileSystemPersistentStorage/FileSystemPersistentStorage-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/FileSystemPersistentStorage/FileSystemPersistentStorage.modulemap";
+				PRODUCT_MODULE_NAME = FileSystemPersistentStorage;
+				PRODUCT_NAME = FileSystemPersistentStorage;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		67AFEDA8AAFDE4AA2466D17290013616 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F75BAF98CA2A59EC038F617675451CAB /* AddAccountView.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/AddAccountView/AddAccountView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AddAccountView/AddAccountView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/AddAccountView/AddAccountView.modulemap";
+				PRODUCT_MODULE_NAME = AddAccountView;
+				PRODUCT_NAME = AddAccountView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		6EA2AC72707429A3B73FE88794BA973E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E1293FD0C00C901D524834907B82872F /* AddAccountBusiness.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/AddAccountBusiness/AddAccountBusiness-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AddAccountBusiness/AddAccountBusiness-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/AddAccountBusiness/AddAccountBusiness.modulemap";
+				PRODUCT_MODULE_NAME = AddAccountBusiness;
+				PRODUCT_NAME = AddAccountBusiness;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		72671926190CA5911E3191381F607FA6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0B81E828169802D8689A0D6B5520428E /* Pods-Authenticator-iOSTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Authenticator-iOSTests/Pods-Authenticator-iOSTests-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Authenticator-iOSTests/Pods-Authenticator-iOSTests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		82CFE690E3ACB15687BEFE50A651413F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 55297F26D3CCBD73A60125E88F1E0DA3 /* AddAccountBusiness.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/AddAccountBusiness/AddAccountBusiness-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AddAccountBusiness/AddAccountBusiness-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/AddAccountBusiness/AddAccountBusiness.modulemap";
+				PRODUCT_MODULE_NAME = AddAccountBusiness;
+				PRODUCT_NAME = AddAccountBusiness;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		90D4D09BCB6A4660E43ACBE9ECB6FE9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		9553C89E183877A5CB2F3C6801BEC129 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		9CC24FB88243DB2DDD6EA0385D73FB86 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 265753EE8F13DD8E9AEA6D2BE44EEE7A /* UIKitNavigator.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/UIKitNavigator/UIKitNavigator-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/UIKitNavigator/UIKitNavigator-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/UIKitNavigator/UIKitNavigator.modulemap";
+				PRODUCT_MODULE_NAME = UIKitNavigator;
+				PRODUCT_NAME = UIKitNavigator;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B65909EBF2A3085B79AD329CE37A53AF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D250724C1C9A110DF8BFC2B40C495942 /* SwiftOTP.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftOTP/SwiftOTP-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftOTP/SwiftOTP-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftOTP/SwiftOTP.modulemap";
+				PRODUCT_MODULE_NAME = SwiftOTP;
+				PRODUCT_NAME = SwiftOTP;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		B6F8074466993301D8A1C04FAAEEDA56 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF6E853D36E9C4560246683F4BA2FBA6 /* SwiftOTP.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwiftOTP/SwiftOTP-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwiftOTP/SwiftOTP-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwiftOTP/SwiftOTP.modulemap";
+				PRODUCT_MODULE_NAME = SwiftOTP;
+				PRODUCT_NAME = SwiftOTP;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BA05E0B7FFAD25448B23FA9FA9769994 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CE313934FBC5708FB4D0D895707D8D12 /* Clock.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Clock/Clock-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Clock/Clock-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Clock/Clock.modulemap";
+				PRODUCT_MODULE_NAME = Clock;
+				PRODUCT_NAME = Clock;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		BFAB9573964B72ECB30B1FDDA47870D6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B1A5A0758244DF29D76D9DC60073F629 /* Pods-Authenticator-iOS.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-Authenticator-iOS/Pods-Authenticator-iOS-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Authenticator-iOS/Pods-Authenticator-iOS.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CA7B389AA4A5432ACFDA90DE93DD9BDC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 034D49751AA223E099D11BC9DFF1482E /* AuthenticatorListBusiness.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/AuthenticatorListBusiness/AuthenticatorListBusiness-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AuthenticatorListBusiness/AuthenticatorListBusiness-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/AuthenticatorListBusiness/AuthenticatorListBusiness.modulemap";
+				PRODUCT_MODULE_NAME = AuthenticatorListBusiness;
+				PRODUCT_NAME = AuthenticatorListBusiness;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DDDAC3623277475377A1174F9F23DF3F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 606A20EFCC43A28F23AB3FBC0425EF67 /* AuthenticatorListView.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/AuthenticatorListView/AuthenticatorListView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AuthenticatorListView/AuthenticatorListView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/AuthenticatorListView/AuthenticatorListView.modulemap";
+				PRODUCT_MODULE_NAME = AuthenticatorListView;
+				PRODUCT_NAME = AuthenticatorListView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		DE1542F7ED9F13F25917133ECF049E77 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88092517F607B440971C4413248BE46E /* AuthenticatorListBusiness.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/AuthenticatorListBusiness/AuthenticatorListBusiness-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AuthenticatorListBusiness/AuthenticatorListBusiness-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/AuthenticatorListBusiness/AuthenticatorListBusiness.modulemap";
+				PRODUCT_MODULE_NAME = AuthenticatorListBusiness;
+				PRODUCT_NAME = AuthenticatorListBusiness;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DE4C917F0BF723C235934480610665B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 11ACA1EDB2D5AD05A2698A797092AE9B /* Resolver.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Resolver/Resolver-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Resolver/Resolver-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Resolver/Resolver.modulemap";
+				PRODUCT_MODULE_NAME = Resolver;
+				PRODUCT_NAME = Resolver;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.1;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		DF6788C7EA95EF6596298B2CA253397F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D8DE317D870D916D825B0126C273423F /* UIKitNavigator.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/UIKitNavigator/UIKitNavigator-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/UIKitNavigator/UIKitNavigator-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/UIKitNavigator/UIKitNavigator.modulemap";
+				PRODUCT_MODULE_NAME = UIKitNavigator;
+				PRODUCT_NAME = UIKitNavigator;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		F128B57DED3274C78EE63A9F73D4AA73 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81911ABF120735ED1F24980EB08CFC70 /* Clock.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Clock/Clock-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Clock/Clock-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Clock/Clock.modulemap";
+				PRODUCT_MODULE_NAME = Clock;
+				PRODUCT_NAME = Clock;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F71603AD12D8BC173531D5500BCF899C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9A62BBA6BF740A3035B4DE1D80B49CE2 /* AuthenticatorListView.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/AuthenticatorListView/AuthenticatorListView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/AuthenticatorListView/AuthenticatorListView-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/AuthenticatorListView/AuthenticatorListView.modulemap";
+				PRODUCT_MODULE_NAME = AuthenticatorListView;
+				PRODUCT_NAME = AuthenticatorListView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		33231644202E34580686B5F2AA0FE9DA /* Build configuration list for PBXNativeTarget "AuthenticatorListView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F71603AD12D8BC173531D5500BCF899C /* Debug */,
+				DDDAC3623277475377A1174F9F23DF3F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		34C71A6872E013054BAF4F84F2B059AB /* Build configuration list for PBXNativeTarget "Pods-Authenticator-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F74025FE8B38B480265E9B81EB50D2E /* Debug */,
+				BFAB9573964B72ECB30B1FDDA47870D6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				90D4D09BCB6A4660E43ACBE9ECB6FE9A /* Debug */,
+				9553C89E183877A5CB2F3C6801BEC129 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4DA54231F2DD69731E5C4EA8B07220E3 /* Build configuration list for PBXNativeTarget "FileSystemPersistentStorage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5667BB1D15F63516E0B124C9D654B688 /* Debug */,
+				63A30FD08C9F64F1EB5C9F0938843A5D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5722A33B45B1D095B891637A20F4FA47 /* Build configuration list for PBXNativeTarget "Pods-Authenticator-iOSTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				72671926190CA5911E3191381F607FA6 /* Debug */,
+				34E21A7A5030F0A6DF68B797CFAA1251 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5D785337D221E48CB4FF3CE140602D62 /* Build configuration list for PBXNativeTarget "Clock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BA05E0B7FFAD25448B23FA9FA9769994 /* Debug */,
+				F128B57DED3274C78EE63A9F73D4AA73 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		719B8ECE0A61372D328821BDCA59D90B /* Build configuration list for PBXNativeTarget "Resolver" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE4C917F0BF723C235934480610665B6 /* Debug */,
+				01009AF2CFE3DC78E8E4D59BFA3ACB5E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7C07600C01048A52B9A7134248FFD0B2 /* Build configuration list for PBXNativeTarget "AddAccountBusiness" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6EA2AC72707429A3B73FE88794BA973E /* Debug */,
+				82CFE690E3ACB15687BEFE50A651413F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		843A85BFB7BD061A5D86C0CCED9911BF /* Build configuration list for PBXNativeTarget "AccountRepository" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3F8F5F94874E9A69348E40A284AFCDDD /* Debug */,
+				3ADEAF2136BF3CFDDE3195C7CA3B5312 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B56645558FE42B54B685EA43BC0CD3EB /* Build configuration list for PBXNativeTarget "UIKitNavigator" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DF6788C7EA95EF6596298B2CA253397F /* Debug */,
+				9CC24FB88243DB2DDD6EA0385D73FB86 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C5BD5F55F16940B917840FC7873AB454 /* Build configuration list for PBXNativeTarget "SwiftOTP" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B6F8074466993301D8A1C04FAAEEDA56 /* Debug */,
+				B65909EBF2A3085B79AD329CE37A53AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E6C80237A2310CCD23C744F4D0FFF949 /* Build configuration list for PBXNativeTarget "AddAccountView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67AFEDA8AAFDE4AA2466D17290013616 /* Debug */,
+				5D47542FFDC42DA57FE3842A6F19EB02 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F028F2A79852DE864294F54EDDE3ED6E /* Build configuration list for PBXNativeTarget "AuthenticatorListBusiness" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE1542F7ED9F13F25917133ECF049E77 /* Debug */,
+				CA7B389AA4A5432ACFDA90DE93DD9BDC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

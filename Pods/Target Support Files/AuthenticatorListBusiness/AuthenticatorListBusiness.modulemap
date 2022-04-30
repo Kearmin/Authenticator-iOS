@@ -1,0 +1,6 @@
+framework module AuthenticatorListBusiness {
+  umbrella header "AuthenticatorListBusiness-umbrella.h"
+
+  export *
+  module * { export * }
+}
