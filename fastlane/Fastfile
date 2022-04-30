@@ -3,5 +3,5 @@ lane :tests do
 end
 
 lane :carthage_bootstrap do
-  carthage(use_xcframeworks: true)
+  carthage(cache_builds: true, use_xcframeworks: true)
 end
