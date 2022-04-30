@@ -8,13 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		B022ECD828133EAD000C8F23 /* AddAccountBusiness.h in Headers */ = {isa = PBXBuildFile; fileRef = B022ECCC28133EAD000C8F23 /* AddAccountBusiness.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B022ECE528133F93000C8F23 /* AddAccountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B022ECE428133F93000C8F23 /* AddAccountUseCase.swift */; };
 		B022ECF928133FB8000C8F23 /* AddAccountBusiness_MacOs.h in Headers */ = {isa = PBXBuildFile; fileRef = B022ECED28133FB8000C8F23 /* AddAccountBusiness_MacOs.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B022ED0028133FCF000C8F23 /* AddAccountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B022ECE428133F93000C8F23 /* AddAccountUseCase.swift */; };
 		B022ED0F281340B1000C8F23 /* AddAccountBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B022ECC928133EAD000C8F23 /* AddAccountBusiness.framework */; platformFilter = ios; };
 		B022ED1D281340CD000C8F23 /* AddAccountBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B022ECEB28133FB8000C8F23 /* AddAccountBusiness.framework */; };
-		B022ED23281341AF000C8F23 /* AddAccountUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B022ED0428134026000C8F23 /* AddAccountUseCaseTests.swift */; };
-		B022ED24281341B3000C8F23 /* AddAccountUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B022ED0428134026000C8F23 /* AddAccountUseCaseTests.swift */; };
+		B0B2D4FF281DB00900ADF159 /* AddAccountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B2D4FC281DB00900ADF159 /* AddAccountUseCase.swift */; };
+		B0B2D501281DB01600ADF159 /* AddAccountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B2D4FC281DB00900ADF159 /* AddAccountUseCase.swift */; };
+		B0B2D502281DB01A00ADF159 /* AddAccountUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B2D4FE281DB00900ADF159 /* AddAccountUseCaseTests.swift */; };
+		B0B2D503281DB01E00ADF159 /* AddAccountUseCaseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B2D4FE281DB00900ADF159 /* AddAccountUseCaseTests.swift */; };
+		B0B2D505281DB04D00ADF159 /* CreateAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B2D504281DB04D00ADF159 /* CreateAccountModel.swift */; };
+		B0B2D506281DB05700ADF159 /* CreateAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B2D504281DB04D00ADF159 /* CreateAccountModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,12 +39,13 @@
 /* Begin PBXFileReference section */
 		B022ECC928133EAD000C8F23 /* AddAccountBusiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AddAccountBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B022ECCC28133EAD000C8F23 /* AddAccountBusiness.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddAccountBusiness.h; sourceTree = "<group>"; };
-		B022ECE428133F93000C8F23 /* AddAccountUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountUseCase.swift; sourceTree = "<group>"; };
 		B022ECEB28133FB8000C8F23 /* AddAccountBusiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AddAccountBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B022ECED28133FB8000C8F23 /* AddAccountBusiness_MacOs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddAccountBusiness_MacOs.h; sourceTree = "<group>"; };
-		B022ED0428134026000C8F23 /* AddAccountUseCaseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountUseCaseTests.swift; sourceTree = "<group>"; };
 		B022ED0B281340B1000C8F23 /* AddAccountBusinessTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AddAccountBusinessTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B022ED19281340CD000C8F23 /* AddAccountBusinessTests-MacOs.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "AddAccountBusinessTests-MacOs.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0B2D4FC281DB00900ADF159 /* AddAccountUseCase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAccountUseCase.swift; sourceTree = "<group>"; };
+		B0B2D4FE281DB00900ADF159 /* AddAccountUseCaseTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAccountUseCaseTests.swift; sourceTree = "<group>"; };
+		B0B2D504281DB04D00ADF159 /* CreateAccountModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateAccountModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,7 +85,7 @@
 		B022ECBF28133EAD000C8F23 = {
 			isa = PBXGroup;
 			children = (
-				B022ECE128133F56000C8F23 /* Shared */,
+				B0B2D4FA281DB00900ADF159 /* Shared */,
 				B022ECCB28133EAD000C8F23 /* AddAccountBusiness */,
 				B022ECEC28133FB8000C8F23 /* AddAccountBusiness-MacOs */,
 				B022ECCA28133EAD000C8F23 /* Products */,
@@ -108,37 +111,38 @@
 			path = AddAccountBusiness;
 			sourceTree = "<group>";
 		};
-		B022ECE128133F56000C8F23 /* Shared */ = {
-			isa = PBXGroup;
-			children = (
-				B022ECE228133F59000C8F23 /* Source */,
-				B022ECE328133F63000C8F23 /* Tests */,
-			);
-			name = Shared;
-			sourceTree = "<group>";
-		};
-		B022ECE228133F59000C8F23 /* Source */ = {
-			isa = PBXGroup;
-			children = (
-				B022ECE428133F93000C8F23 /* AddAccountUseCase.swift */,
-			);
-			name = Source;
-			sourceTree = "<group>";
-		};
-		B022ECE328133F63000C8F23 /* Tests */ = {
-			isa = PBXGroup;
-			children = (
-				B022ED0428134026000C8F23 /* AddAccountUseCaseTests.swift */,
-			);
-			name = Tests;
-			sourceTree = "<group>";
-		};
 		B022ECEC28133FB8000C8F23 /* AddAccountBusiness-MacOs */ = {
 			isa = PBXGroup;
 			children = (
 				B022ECED28133FB8000C8F23 /* AddAccountBusiness_MacOs.h */,
 			);
 			path = "AddAccountBusiness-MacOs";
+			sourceTree = "<group>";
+		};
+		B0B2D4FA281DB00900ADF159 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				B0B2D4FB281DB00900ADF159 /* Source */,
+				B0B2D4FD281DB00900ADF159 /* Tests */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		B0B2D4FB281DB00900ADF159 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				B0B2D504281DB04D00ADF159 /* CreateAccountModel.swift */,
+				B0B2D4FC281DB00900ADF159 /* AddAccountUseCase.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		B0B2D4FD281DB00900ADF159 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				B0B2D4FE281DB00900ADF159 /* AddAccountUseCaseTests.swift */,
+			);
+			path = Tests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,7 +321,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B022ECE528133F93000C8F23 /* AddAccountUseCase.swift in Sources */,
+				B0B2D4FF281DB00900ADF159 /* AddAccountUseCase.swift in Sources */,
+				B0B2D505281DB04D00ADF159 /* CreateAccountModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,7 +330,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B022ED0028133FCF000C8F23 /* AddAccountUseCase.swift in Sources */,
+				B0B2D506281DB05700ADF159 /* CreateAccountModel.swift in Sources */,
+				B0B2D501281DB01600ADF159 /* AddAccountUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,7 +339,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B022ED23281341AF000C8F23 /* AddAccountUseCaseTests.swift in Sources */,
+				B0B2D502281DB01A00ADF159 /* AddAccountUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,7 +347,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B022ED24281341B3000C8F23 /* AddAccountUseCaseTests.swift in Sources */,
+				B0B2D503281DB01E00ADF159 /* AddAccountUseCaseTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -610,6 +616,7 @@
 		B022ED13281340B1000C8F23 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4W92454MDD;
@@ -626,6 +633,7 @@
 		B022ED14281340B1000C8F23 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4W92454MDD;
@@ -642,6 +650,7 @@
 		B022ED21281340CD000C8F23 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4W92454MDD;
@@ -659,6 +668,7 @@
 		B022ED22281340CD000C8F23 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4W92454MDD;
@@ -772,6 +782,7 @@
 		B066DA5C281C8CB200773A85 /* Mock */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4W92454MDD;
@@ -818,6 +829,7 @@
 		B066DA5E281C8CB200773A85 /* Mock */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4W92454MDD;

@@ -10,7 +10,7 @@ import FileSystemPersistentStorage
 import AddAccountBusiness
 
 
-extension AccountRepository: AddAccountService {
+extension AccountRepository: AddAccountSaveService {
     public func save(account: CreatAccountModel) throws {
         try add(account: account.asAccount)
     }

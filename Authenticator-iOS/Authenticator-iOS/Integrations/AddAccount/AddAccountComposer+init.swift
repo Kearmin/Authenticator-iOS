@@ -10,7 +10,7 @@ import Resolver
 
 extension AddAccountComposer {
     convenience init() {
-        let useCase = AddAccountUseCase(service: Resolver.resolve())
+        let useCase = AddAccountUseCase(saveService: Resolver.resolve())
         self.init(useCase: useCase)
     }
 }

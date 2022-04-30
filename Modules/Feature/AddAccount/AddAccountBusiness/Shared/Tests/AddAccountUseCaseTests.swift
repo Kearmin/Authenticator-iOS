@@ -57,7 +57,7 @@ class AddAccountUseCaseTests: XCTestCase {
     }
 
     func makeSUT(spy: AddAccountServiceSpy = .init()) -> AddAccountUseCase {
-        .init(service: spy)
+        .init(saveService: spy)
     }
 
     private func validShortURL(issuer: String = "issuer", secret: String = "secret", username: String = "username") -> String {
@@ -65,7 +65,7 @@ class AddAccountUseCaseTests: XCTestCase {
     }
 }
 
-final class AddAccountServiceSpy: AddAccountService {
+final class AddAccountServiceSpy: AddAccountSaveService {
     var savedAccounts: [CreatAccountModel] = []
     var savedCount: Int {
         savedAccounts.count

@@ -67,7 +67,7 @@ extension Resolver {
         register(AccountRepository.self) { resolver in
             AccountRepository(provider: resolver.resolve(), queue: Queues.fileIOBackgroundQueue)
         }
-        .implements(AddAccountService.self)
+        .implements(AddAccountSaveService.self)
         .scope(.cached)
 
         register(TimerAuthenticatorListPresenterService.self) { resolver in

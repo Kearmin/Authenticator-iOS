@@ -7,20 +7,8 @@
 
 import Foundation
 
-public protocol AddAccountService {
+public protocol AddAccountSaveService {
     func save(account: CreatAccountModel) throws
-}
-
-public struct CreatAccountModel: Equatable {
-    public let issuer: String
-    public let secret: String
-    public let username: String
-
-    public init(issuer: String, secret: String, username: String) {
-        self.issuer = issuer
-        self.secret = secret
-        self.username = username
-    }
 }
 
 public enum AddAccountUseCaseErrors: Error {
@@ -32,60 +20,74 @@ public enum AddAccountUseCaseErrors: Error {
 }
 
 public final class AddAccountUseCase {
-    private let service: AddAccountService
+    private let saveService: AddAccountSaveService
 
-    public init(service: AddAccountService) {
-        self.service = service
-    }
-
-    private func parse(urlString: String) throws -> CreatAccountModel {
-        guard let urlComponents = URLComponents(string: urlString),
-              urlComponents.scheme?.lowercased() == "otpauth",
-              let issuer = urlComponents.queryItems?.first(where: { $0.name.lowercased() == "issuer" })?.value,
-              let secret = urlComponents.queryItems?.first(where: { $0.name.lowercased() == "secret" })?.value
-        else {
-            throw AddAccountUseCaseErrors.invalidURL
-        }
-        if let method = urlComponents.host {
-            if !method.lowercased().contains("totp") {
-                throw AddAccountUseCaseErrors.notSupportedOTPMethod
-            }
-        }
-        if let algorithm = urlComponents.queryItems?.first(where: { $0.name.lowercased() == "algorithm" })?.value {
-            if algorithm.lowercased() != "sha1" {
-                throw AddAccountUseCaseErrors.notSupportedAlgorithm
-            }
-        }
-        if let digits = urlComponents.queryItems?.first(where: { $0.name.lowercased() == "digits" })?.value {
-            if digits.lowercased() != "6" {
-                throw AddAccountUseCaseErrors.notSupportedDigitCount
-            }
-        }
-        if let period = urlComponents.queryItems?.first(where: { $0.name.lowercased() == "period" })?.value {
-            if period.lowercased() != "30" {
-                throw AddAccountUseCaseErrors.notSupportedPeriod
-            }
-        }
-        let username: String = {
-            if urlComponents.path.contains(":") {
-                let substring = urlComponents.path
-                    .drop(while: { $0 != ":" })
-                    .dropFirst()
-                return String(substring)
-            } else {
-                return String(urlComponents.path.dropFirst())
-            }
-        }()
-        return .init(
-            issuer: issuer,
-            secret: secret,
-            username: username)
+    public init(saveService: AddAccountSaveService) {
+        self.saveService = saveService
     }
 
     @discardableResult
     public func createAccount(urlString: String) throws -> CreatAccountModel {
         let account = try parse(urlString: urlString)
-        try service.save(account: account)
+        try saveService.save(account: account)
         return account
+    }
+}
+
+// MARK: - Private
+private extension AddAccountUseCase {
+    func parse(urlString: String) throws -> CreatAccountModel {
+        guard let urlComponents = URLComponents(string: urlString),
+              urlComponents.scheme?.lowercased() == "otpauth",
+              let issuer = urlComponents.lowerCasedQueryItemValue(for: "issuer"),
+              let secret = urlComponents.lowerCasedQueryItemValue(for: "secret")
+        else {
+            throw AddAccountUseCaseErrors.invalidURL
+        }
+        guard let method = urlComponents.host, method == "totp" else {
+                throw AddAccountUseCaseErrors.notSupportedOTPMethod
+        }
+        try validateNonEssentialQueryItems(urlComponents: urlComponents)
+        let username = username(from: urlComponents)
+        return CreatAccountModel(issuer: issuer, secret: secret, username: username)
+    }
+
+    func username(from urlComponents: URLComponents) -> String {
+        if urlComponents.path.contains(":") {
+            let substring = urlComponents.path
+                .drop(while: { $0 != ":" })
+                .dropFirst()
+            return String(substring)
+        } else {
+            return String(urlComponents.path.dropFirst())
+        }
+    }
+
+    func validateNonEssentialQueryItems(urlComponents: URLComponents) throws {
+        try urlComponents.queryItemValueIfExists(
+            matches: "sha1",
+            forKey: "algorithm",
+            elseThrow: AddAccountUseCaseErrors.notSupportedAlgorithm)
+        try urlComponents.queryItemValueIfExists(
+            matches: "30",
+            forKey: "period",
+            elseThrow: AddAccountUseCaseErrors.notSupportedPeriod)
+        try urlComponents.queryItemValueIfExists(
+            matches: "6",
+            forKey: "digits",
+            elseThrow: AddAccountUseCaseErrors.notSupportedDigitCount)
+    }
+}
+
+private extension URLComponents {
+    func lowerCasedQueryItemValue(for key: String) -> String? {
+        self.queryItems?.first(where: { $0.name.lowercased() == key.lowercased() })?.value
+    }
+
+    func queryItemValueIfExists(matches value: String, forKey key: String, elseThrow error: Error) throws {
+        guard let queryItemValue = lowerCasedQueryItemValue(for: key) else { return }
+        if queryItemValue != value {
+            throw error
+        }
     }
 }
