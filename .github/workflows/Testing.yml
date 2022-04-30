@@ -1,4 +1,4 @@
-name: test-ios-app
+name: Testing
 on:
   push:
     branches:
