@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		29B8EF0D513D4617DC205EAA /* Pods_Authenticator_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F663F2877E8CDF7EC6F8CA14 /* Pods_Authenticator_iOSTests.framework */; };
 		B00CED622811DF01001CB090 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00CED612811DF01001CB090 /* AppDelegate.swift */; };
 		B00CED642811DF01001CB090 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00CED632811DF01001CB090 /* SceneDelegate.swift */; };
 		B00CED662811DF01001CB090 /* AuthenticatorListComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00CED652811DF01001CB090 /* AuthenticatorListComposer.swift */; };
@@ -16,6 +15,26 @@
 		B047DFC628122403007EF575 /* AuthenticatorListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B047DFC528122403007EF575 /* AuthenticatorListService.swift */; };
 		B047DFC82812243A007EF575 /* AuthenticationList+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = B047DFC72812243A007EF575 /* AuthenticationList+Init.swift */; };
 		B050D26F281B97D000117364 /* AuthenticatorList2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050D26E281B97D000117364 /* AuthenticatorList2.swift */; };
+		B056F75D281DD4D000617F42 /* Resolver.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2D4E4281D6AFC00ADF159 /* Resolver.xcframework */; };
+		B056F75E281DD4D000617F42 /* Resolver.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2D4E4281D6AFC00ADF159 /* Resolver.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B056F75F281DD4D000617F42 /* SwiftOTP.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2D4E8281D6B3700ADF159 /* SwiftOTP.xcframework */; };
+		B056F760281DD4D000617F42 /* SwiftOTP.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2D4E8281D6B3700ADF159 /* SwiftOTP.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B056F76A281DD6F000617F42 /* AccountRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B056F762281DD6F000617F42 /* AccountRepository.framework */; };
+		B056F76B281DD6F000617F42 /* AccountRepository.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B056F762281DD6F000617F42 /* AccountRepository.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B056F76C281DD6F000617F42 /* AddAccountBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B056F763281DD6F000617F42 /* AddAccountBusiness.framework */; };
+		B056F76D281DD6F000617F42 /* AddAccountBusiness.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B056F763281DD6F000617F42 /* AddAccountBusiness.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B056F76E281DD6F000617F42 /* AddAccountView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B056F764281DD6F000617F42 /* AddAccountView.framework */; };
+		B056F76F281DD6F000617F42 /* AddAccountView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B056F764281DD6F000617F42 /* AddAccountView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B056F770281DD6F000617F42 /* AuthenticatorListBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B056F765281DD6F000617F42 /* AuthenticatorListBusiness.framework */; };
+		B056F771281DD6F000617F42 /* AuthenticatorListBusiness.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B056F765281DD6F000617F42 /* AuthenticatorListBusiness.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B056F772281DD6F000617F42 /* AuthenticatorListView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B056F766281DD6F000617F42 /* AuthenticatorListView.framework */; };
+		B056F773281DD6F000617F42 /* AuthenticatorListView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B056F766281DD6F000617F42 /* AuthenticatorListView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B056F774281DD6F000617F42 /* Clock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B056F767281DD6F000617F42 /* Clock.framework */; };
+		B056F775281DD6F000617F42 /* Clock.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B056F767281DD6F000617F42 /* Clock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B056F776281DD6F000617F42 /* FileSystemPersistentStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B056F768281DD6F000617F42 /* FileSystemPersistentStorage.framework */; };
+		B056F777281DD6F000617F42 /* FileSystemPersistentStorage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B056F768281DD6F000617F42 /* FileSystemPersistentStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B056F778281DD6F000617F42 /* UIKitNavigator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B056F769281DD6F000617F42 /* UIKitNavigator.framework */; };
+		B056F779281DD6F000617F42 /* UIKitNavigator.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B056F769281DD6F000617F42 /* UIKitNavigator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B05F8F5328145B1800CBECB8 /* AddAccountComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05F8F5228145B1800CBECB8 /* AddAccountComposer.swift */; };
 		B07979BD28156BEE0009CCF0 /* Threading.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07979BC28156BEE0009CCF0 /* Threading.swift */; };
 		B07979BF28156D2E0009CCF0 /* Navigator+AppEventObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07979BE28156D2E0009CCF0 /* Navigator+AppEventObserver.swift */; };
@@ -31,7 +50,6 @@
 		B0F423F72814C76E00C9D138 /* Resolver+GlobalDepencencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F423F62814C76E00C9D138 /* Resolver+GlobalDepencencies.swift */; };
 		B0F423FA2814CAF900C9D138 /* Navigator+AuthenticatorListComposerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F423F92814CAF900C9D138 /* Navigator+AuthenticatorListComposerDelegate.swift */; };
 		B0F423FF2814ED5900C9D138 /* AppEventObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F423FE2814ED5900C9D138 /* AppEventObservable.swift */; };
-		DAF6DA59EBA1A071D8FA74DF /* Pods_Authenticator_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72DD9EA7532760AC3B695A42 /* Pods_Authenticator_iOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,10 +62,31 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		B056F761281DD4D000617F42 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B056F777281DD6F000617F42 /* FileSystemPersistentStorage.framework in Embed Frameworks */,
+				B056F76F281DD6F000617F42 /* AddAccountView.framework in Embed Frameworks */,
+				B056F76B281DD6F000617F42 /* AccountRepository.framework in Embed Frameworks */,
+				B056F773281DD6F000617F42 /* AuthenticatorListView.framework in Embed Frameworks */,
+				B056F771281DD6F000617F42 /* AuthenticatorListBusiness.framework in Embed Frameworks */,
+				B056F75E281DD4D000617F42 /* Resolver.xcframework in Embed Frameworks */,
+				B056F76D281DD6F000617F42 /* AddAccountBusiness.framework in Embed Frameworks */,
+				B056F760281DD4D000617F42 /* SwiftOTP.xcframework in Embed Frameworks */,
+				B056F775281DD6F000617F42 /* Clock.framework in Embed Frameworks */,
+				B056F779281DD6F000617F42 /* UIKitNavigator.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		0F3227966BABADD43D5A36EC /* Pods-Authenticator-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Authenticator-iOS.debug.xcconfig"; path = "Target Support Files/Pods-Authenticator-iOS/Pods-Authenticator-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		72DD9EA7532760AC3B695A42 /* Pods_Authenticator_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Authenticator_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		AFD0F228685232C1400F346E /* Pods-Authenticator-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Authenticator-iOSTests.release.xcconfig"; path = "Target Support Files/Pods-Authenticator-iOSTests/Pods-Authenticator-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		B00CED5E2811DF01001CB090 /* Authenticator-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Authenticator-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B00CED612811DF01001CB090 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B00CED632811DF01001CB090 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -61,6 +100,14 @@
 		B047DFC528122403007EF575 /* AuthenticatorListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorListService.swift; sourceTree = "<group>"; };
 		B047DFC72812243A007EF575 /* AuthenticationList+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticationList+Init.swift"; sourceTree = "<group>"; };
 		B050D26E281B97D000117364 /* AuthenticatorList2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorList2.swift; sourceTree = "<group>"; };
+		B056F762281DD6F000617F42 /* AccountRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AccountRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B056F763281DD6F000617F42 /* AddAccountBusiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AddAccountBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B056F764281DD6F000617F42 /* AddAccountView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AddAccountView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B056F765281DD6F000617F42 /* AuthenticatorListBusiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AuthenticatorListBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B056F766281DD6F000617F42 /* AuthenticatorListView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AuthenticatorListView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B056F767281DD6F000617F42 /* Clock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Clock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B056F768281DD6F000617F42 /* FileSystemPersistentStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FileSystemPersistentStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B056F769281DD6F000617F42 /* UIKitNavigator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIKitNavigator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B05F8F5228145B1800CBECB8 /* AddAccountComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountComposer.swift; sourceTree = "<group>"; };
 		B07979BC28156BEE0009CCF0 /* Threading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Threading.swift; sourceTree = "<group>"; };
 		B07979BE28156D2E0009CCF0 /* Navigator+AppEventObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Navigator+AppEventObserver.swift"; sourceTree = "<group>"; };
@@ -89,8 +136,6 @@
 		B0F423F62814C76E00C9D138 /* Resolver+GlobalDepencencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+GlobalDepencencies.swift"; sourceTree = "<group>"; };
 		B0F423F92814CAF900C9D138 /* Navigator+AuthenticatorListComposerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Navigator+AuthenticatorListComposerDelegate.swift"; sourceTree = "<group>"; };
 		B0F423FE2814ED5900C9D138 /* AppEventObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEventObservable.swift; sourceTree = "<group>"; };
-		D24ACC670130ED7A327D7C1B /* Pods-Authenticator-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Authenticator-iOSTests.debug.xcconfig"; path = "Target Support Files/Pods-Authenticator-iOSTests/Pods-Authenticator-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
-		D2B496796BA01ED29B14EAAB /* Pods-Authenticator-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Authenticator-iOS.release.xcconfig"; path = "Target Support Files/Pods-Authenticator-iOS/Pods-Authenticator-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		F663F2877E8CDF7EC6F8CA14 /* Pods_Authenticator_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Authenticator_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -99,7 +144,16 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAF6DA59EBA1A071D8FA74DF /* Pods_Authenticator_iOS.framework in Frameworks */,
+				B056F776281DD6F000617F42 /* FileSystemPersistentStorage.framework in Frameworks */,
+				B056F76E281DD6F000617F42 /* AddAccountView.framework in Frameworks */,
+				B056F76A281DD6F000617F42 /* AccountRepository.framework in Frameworks */,
+				B056F772281DD6F000617F42 /* AuthenticatorListView.framework in Frameworks */,
+				B056F770281DD6F000617F42 /* AuthenticatorListBusiness.framework in Frameworks */,
+				B056F75F281DD4D000617F42 /* SwiftOTP.xcframework in Frameworks */,
+				B056F76C281DD6F000617F42 /* AddAccountBusiness.framework in Frameworks */,
+				B056F75D281DD4D000617F42 /* Resolver.xcframework in Frameworks */,
+				B056F774281DD6F000617F42 /* Clock.framework in Frameworks */,
+				B056F778281DD6F000617F42 /* UIKitNavigator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,7 +161,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				29B8EF0D513D4617DC205EAA /* Pods_Authenticator_iOSTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,7 +174,6 @@
 				B0A906BB2812E9E200F72F87 /* Authenticator-iOSTests */,
 				B00CED5F2811DF01001CB090 /* Products */,
 				B047DFA32811F2FE007EF575 /* Frameworks */,
-				F1BBA207BF39EC2D572C1FC9 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -149,6 +201,14 @@
 		B047DFA32811F2FE007EF575 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B056F762281DD6F000617F42 /* AccountRepository.framework */,
+				B056F763281DD6F000617F42 /* AddAccountBusiness.framework */,
+				B056F764281DD6F000617F42 /* AddAccountView.framework */,
+				B056F765281DD6F000617F42 /* AuthenticatorListBusiness.framework */,
+				B056F766281DD6F000617F42 /* AuthenticatorListView.framework */,
+				B056F767281DD6F000617F42 /* Clock.framework */,
+				B056F768281DD6F000617F42 /* FileSystemPersistentStorage.framework */,
+				B056F769281DD6F000617F42 /* UIKitNavigator.framework */,
 				B0B2D4E8281D6B3700ADF159 /* SwiftOTP.xcframework */,
 				B0B2D4E4281D6AFC00ADF159 /* Resolver.xcframework */,
 				B0935D8028161D5C001DE07B /* Clock.framework */,
@@ -284,18 +344,6 @@
 			path = App;
 			sourceTree = "<group>";
 		};
-		F1BBA207BF39EC2D572C1FC9 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				0F3227966BABADD43D5A36EC /* Pods-Authenticator-iOS.debug.xcconfig */,
-				D2B496796BA01ED29B14EAAB /* Pods-Authenticator-iOS.release.xcconfig */,
-				D24ACC670130ED7A327D7C1B /* Pods-Authenticator-iOSTests.debug.xcconfig */,
-				AFD0F228685232C1400F346E /* Pods-Authenticator-iOSTests.release.xcconfig */,
-			);
-			name = Pods;
-			path = ../Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -303,11 +351,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B00CED882811DF02001CB090 /* Build configuration list for PBXNativeTarget "Authenticator-iOS" */;
 			buildPhases = (
-				21B361BC2F115E60DBB8D3D6 /* [CP] Check Pods Manifest.lock */,
 				B00CED5A2811DF01001CB090 /* Sources */,
 				B00CED5B2811DF01001CB090 /* Frameworks */,
 				B00CED5C2811DF01001CB090 /* Resources */,
-				4D44D476B0CEA4191E9D2BFB /* [CP] Embed Pods Frameworks */,
+				B056F761281DD4D000617F42 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -322,7 +369,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B0A906C02812E9E200F72F87 /* Build configuration list for PBXNativeTarget "Authenticator-iOSTests" */;
 			buildPhases = (
-				3064B6AF1AB08F55A38CC85E /* [CP] Check Pods Manifest.lock */,
 				B0A906B62812E9E200F72F87 /* Sources */,
 				B0A906B72812E9E200F72F87 /* Frameworks */,
 				B0A906B82812E9E200F72F87 /* Resources */,
@@ -394,70 +440,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		21B361BC2F115E60DBB8D3D6 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Authenticator-iOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3064B6AF1AB08F55A38CC85E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Authenticator-iOSTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		4D44D476B0CEA4191E9D2BFB /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Authenticator-iOS/Pods-Authenticator-iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Authenticator-iOS/Pods-Authenticator-iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Authenticator-iOS/Pods-Authenticator-iOS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B00CED5A2811DF01001CB090 /* Sources */ = {
@@ -633,7 +615,6 @@
 		};
 		B00CED892811DF02001CB090 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0F3227966BABADD43D5A36EC /* Pods-Authenticator-iOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -668,7 +649,6 @@
 		};
 		B00CED8A2811DF02001CB090 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D2B496796BA01ED29B14EAAB /* Pods-Authenticator-iOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -703,7 +683,6 @@
 		};
 		B0A906C12812E9E200F72F87 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D24ACC670130ED7A327D7C1B /* Pods-Authenticator-iOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
@@ -734,7 +713,6 @@
 		};
 		B0A906C22812E9E200F72F87 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AFD0F228685232C1400F346E /* Pods-Authenticator-iOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;

@@ -8,17 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		B02F16A52775127B0002C2F4 /* FileSystemPersistentStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02F169C2775127B0002C2F4 /* FileSystemPersistentStorage.framework */; };
-		B02F16AA2775127B0002C2F4 /* FileSystemPersistentStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02F16A92775127B0002C2F4 /* FileSystemPersistentStorageTests.swift */; };
 		B02F16AB2775127B0002C2F4 /* FileSystemPersistentStorage.h in Headers */ = {isa = PBXBuildFile; fileRef = B02F169F2775127B0002C2F4 /* FileSystemPersistentStorage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B02F16C1277512B00002C2F4 /* FileSystemPersistentStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B02F16B9277512B00002C2F4 /* FileSystemPersistentStorage.framework */; };
 		B02F16C7277512B00002C2F4 /* FileSystemPersistentStorage_MacOs.h in Headers */ = {isa = PBXBuildFile; fileRef = B02F16BB277512B00002C2F4 /* FileSystemPersistentStorage_MacOs.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B02F16D127751C3E0002C2F4 /* FileSystemPersistentStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02F16A92775127B0002C2F4 /* FileSystemPersistentStorageTests.swift */; };
-		B0A906972812E4D000F72F87 /* SystemJSONFileSystemPersistanceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A906962812E4D000F72F87 /* SystemJSONFileSystemPersistanceProvider.swift */; };
-		B0A906982812E4D000F72F87 /* SystemJSONFileSystemPersistanceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A906962812E4D000F72F87 /* SystemJSONFileSystemPersistanceProvider.swift */; };
-		B0A9069B2812E4E200F72F87 /* JSONFileSystemPersistanceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9069A2812E4E200F72F87 /* JSONFileSystemPersistanceProvider.swift */; };
-		B0A9069C2812E4E200F72F87 /* JSONFileSystemPersistanceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9069A2812E4E200F72F87 /* JSONFileSystemPersistanceProvider.swift */; };
-		B0CB85172783944800EA7260 /* JSONFileSystemPersistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CB85162783944800EA7260 /* JSONFileSystemPersistance.swift */; };
-		B0CB85182783944800EA7260 /* JSONFileSystemPersistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CB85162783944800EA7260 /* JSONFileSystemPersistance.swift */; };
+		B0564521281DDA7B00DCBB7A /* JSONFileSystemPersistanceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B056451C281DDA7B00DCBB7A /* JSONFileSystemPersistanceProvider.swift */; };
+		B0564522281DDA7B00DCBB7A /* JSONFileSystemPersistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B056451D281DDA7B00DCBB7A /* JSONFileSystemPersistance.swift */; };
+		B0564523281DDA7B00DCBB7A /* SystemJSONFileSystemPersistanceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B056451E281DDA7B00DCBB7A /* SystemJSONFileSystemPersistanceProvider.swift */; };
+		B0564525281DDA8200DCBB7A /* JSONFileSystemPersistanceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B056451C281DDA7B00DCBB7A /* JSONFileSystemPersistanceProvider.swift */; };
+		B0564526281DDA8200DCBB7A /* JSONFileSystemPersistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = B056451D281DDA7B00DCBB7A /* JSONFileSystemPersistance.swift */; };
+		B0564527281DDA8200DCBB7A /* SystemJSONFileSystemPersistanceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B056451E281DDA7B00DCBB7A /* SystemJSONFileSystemPersistanceProvider.swift */; };
+		B0564528281DDA8700DCBB7A /* FileSystemPersistentStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0564520281DDA7B00DCBB7A /* FileSystemPersistentStorageTests.swift */; };
+		B0564529281DDA8B00DCBB7A /* FileSystemPersistentStorageTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0564520281DDA7B00DCBB7A /* FileSystemPersistentStorageTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,14 +42,14 @@
 		B02F169C2775127B0002C2F4 /* FileSystemPersistentStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FileSystemPersistentStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B02F169F2775127B0002C2F4 /* FileSystemPersistentStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileSystemPersistentStorage.h; sourceTree = "<group>"; };
 		B02F16A42775127B0002C2F4 /* FileSystemPersistentStorageTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FileSystemPersistentStorageTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		B02F16A92775127B0002C2F4 /* FileSystemPersistentStorageTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystemPersistentStorageTests.swift; sourceTree = "<group>"; };
 		B02F16B9277512B00002C2F4 /* FileSystemPersistentStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = FileSystemPersistentStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B02F16BB277512B00002C2F4 /* FileSystemPersistentStorage_MacOs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileSystemPersistentStorage_MacOs.h; sourceTree = "<group>"; };
 		B02F16C0277512B00002C2F4 /* FileSystemPersistentStorage MacOsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FileSystemPersistentStorage MacOsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B056451C281DDA7B00DCBB7A /* JSONFileSystemPersistanceProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONFileSystemPersistanceProvider.swift; sourceTree = "<group>"; };
+		B056451D281DDA7B00DCBB7A /* JSONFileSystemPersistance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONFileSystemPersistance.swift; sourceTree = "<group>"; };
+		B056451E281DDA7B00DCBB7A /* SystemJSONFileSystemPersistanceProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SystemJSONFileSystemPersistanceProvider.swift; sourceTree = "<group>"; };
+		B0564520281DDA7B00DCBB7A /* FileSystemPersistentStorageTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystemPersistentStorageTests.swift; sourceTree = "<group>"; };
 		B0A26657277DFFAB001ABCB4 /* FileSystemPersistentStorage_WatchOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FileSystemPersistentStorage_WatchOS.h; sourceTree = "<group>"; };
-		B0A906962812E4D000F72F87 /* SystemJSONFileSystemPersistanceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemJSONFileSystemPersistanceProvider.swift; sourceTree = "<group>"; };
-		B0A9069A2812E4E200F72F87 /* JSONFileSystemPersistanceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFileSystemPersistanceProvider.swift; sourceTree = "<group>"; };
-		B0CB85162783944800EA7260 /* JSONFileSystemPersistance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = JSONFileSystemPersistance.swift; path = FileSystemPersistentStorage/JSONFileSystemPersistance.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +89,7 @@
 		B02F16922775127B0002C2F4 = {
 			isa = PBXGroup;
 			children = (
-				B02F16CE277518980002C2F4 /* Shared */,
+				B056451A281DDA7B00DCBB7A /* Shared */,
 				B02F169E2775127B0002C2F4 /* FileSystemPersistentStorage */,
 				B02F16BA277512B00002C2F4 /* FileSystemPersistentStorage MacOs */,
 				B0A26656277DFFAB001ABCB4 /* FileSystemPersistentStorage WatchOS */,
@@ -124,31 +124,31 @@
 			path = "FileSystemPersistentStorage MacOs";
 			sourceTree = "<group>";
 		};
-		B02F16CE277518980002C2F4 /* Shared */ = {
+		B056451A281DDA7B00DCBB7A /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				B02F16CF2775189C0002C2F4 /* Source */,
-				B02F16D0277518A00002C2F4 /* Tests */,
+				B056451B281DDA7B00DCBB7A /* Source */,
+				B056451F281DDA7B00DCBB7A /* Tests */,
 			);
-			name = Shared;
+			path = Shared;
 			sourceTree = "<group>";
 		};
-		B02F16CF2775189C0002C2F4 /* Source */ = {
+		B056451B281DDA7B00DCBB7A /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				B0CB85162783944800EA7260 /* JSONFileSystemPersistance.swift */,
-				B0A906962812E4D000F72F87 /* SystemJSONFileSystemPersistanceProvider.swift */,
-				B0A9069A2812E4E200F72F87 /* JSONFileSystemPersistanceProvider.swift */,
+				B056451C281DDA7B00DCBB7A /* JSONFileSystemPersistanceProvider.swift */,
+				B056451D281DDA7B00DCBB7A /* JSONFileSystemPersistance.swift */,
+				B056451E281DDA7B00DCBB7A /* SystemJSONFileSystemPersistanceProvider.swift */,
 			);
-			name = Source;
+			path = Source;
 			sourceTree = "<group>";
 		};
-		B02F16D0277518A00002C2F4 /* Tests */ = {
+		B056451F281DDA7B00DCBB7A /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				B02F16A92775127B0002C2F4 /* FileSystemPersistentStorageTests.swift */,
+				B0564520281DDA7B00DCBB7A /* FileSystemPersistentStorageTests.swift */,
 			);
-			name = Tests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		B0A26656277DFFAB001ABCB4 /* FileSystemPersistentStorage WatchOS */ = {
@@ -335,9 +335,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0A906972812E4D000F72F87 /* SystemJSONFileSystemPersistanceProvider.swift in Sources */,
-				B0A9069B2812E4E200F72F87 /* JSONFileSystemPersistanceProvider.swift in Sources */,
-				B0CB85172783944800EA7260 /* JSONFileSystemPersistance.swift in Sources */,
+				B0564522281DDA7B00DCBB7A /* JSONFileSystemPersistance.swift in Sources */,
+				B0564521281DDA7B00DCBB7A /* JSONFileSystemPersistanceProvider.swift in Sources */,
+				B0564523281DDA7B00DCBB7A /* SystemJSONFileSystemPersistanceProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,7 +345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B02F16AA2775127B0002C2F4 /* FileSystemPersistentStorageTests.swift in Sources */,
+				B0564528281DDA8700DCBB7A /* FileSystemPersistentStorageTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -353,9 +353,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0A906982812E4D000F72F87 /* SystemJSONFileSystemPersistanceProvider.swift in Sources */,
-				B0A9069C2812E4E200F72F87 /* JSONFileSystemPersistanceProvider.swift in Sources */,
-				B0CB85182783944800EA7260 /* JSONFileSystemPersistance.swift in Sources */,
+				B0564525281DDA8200DCBB7A /* JSONFileSystemPersistanceProvider.swift in Sources */,
+				B0564526281DDA8200DCBB7A /* JSONFileSystemPersistance.swift in Sources */,
+				B0564527281DDA8200DCBB7A /* SystemJSONFileSystemPersistanceProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -363,7 +363,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B02F16D127751C3E0002C2F4 /* FileSystemPersistentStorageTests.swift in Sources */,
+				B0564529281DDA8B00DCBB7A /* FileSystemPersistentStorageTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
