@@ -14,5 +14,12 @@
   "platforms": {
     "ios": "15.0",
     "osx": "12.0"
-  }
+  },
+  "testspecs": [
+    {
+      "name": "Tests",
+      "test_type": "unit",
+      "source_files": "Shared/Tests/**/*.swift"
+    }
+  ]
 }
