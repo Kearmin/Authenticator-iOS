@@ -4,7 +4,10 @@ lane :tests do
       scheme: "Authenticator-iOS",
       devices: [],
       clean: true,
-      include_simulator_logs: false
+      include_simulator_logs: false,
+      force_quit_simulator: true,
+      code_coverage: true,
+      disable_concurrent_testing: true
       )
 end
 
