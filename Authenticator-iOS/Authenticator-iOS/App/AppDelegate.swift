@@ -7,11 +7,15 @@
 
 import UIKit
 import Resolver
+import FirebaseCore
+import FirebaseAnalytics
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        FirebaseApp.configure()
+        Analytics.logEvent("ApplicationDidStart", parameters: nil)
         Resolver.registerAppDependencies()
         return true
     }
