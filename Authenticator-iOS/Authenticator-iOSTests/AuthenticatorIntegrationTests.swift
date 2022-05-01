@@ -32,8 +32,11 @@ class AuthenticatorIntegrationTests: XCTestCase {
         XCTAssertNotNil(env.mock.receiveCurrentDate)
     }
 
-    func test_ComposerCallsLoadOnViewDidLoad() {
-        let env = makeSUT()
+    func test_ComposerCallsLoadOnViewDidLoad() async {
+        let mock = AuthenticatorListPresenterMock()
+        mock.expectation = expectation(description: "")
+        let env = makeSUT(mock: mock)
+        await waitForExpectations(timeout: 0.1)
         XCTAssertEqual(env.mock.loadAccountCallCount, 1)
     }
 
@@ -107,8 +110,8 @@ class AuthenticatorIntegrationTests: XCTestCase {
         XCTAssertEqual(env.mock.loadAccountCallCount, callCount)
     }
 
-    func makeSUT() -> TestEnvironment {
-        let env = TestEnvironment()
+    func makeSUT(mock: AuthenticatorListPresenterMock = .init()) -> TestEnvironment {
+        let env = TestEnvironment(mock: mock)
         weakSUT = env.sut
         env.sut.triggerLifecycleIfNeeded()
         return env
@@ -120,8 +123,8 @@ class AuthenticatorIntegrationTests: XCTestCase {
         let mock: AuthenticatorListPresenterMock
         let componentSpy: AuthenticatorListComposerDelegateSpy
 
-        init() {
-            mock = .init()
+        init(mock: AuthenticatorListPresenterMock) {
+            self.mock = mock
             appEventObservable = .init()
             componentSpy = .init()
             let viewModel = AuthenticatorListViewModel()
