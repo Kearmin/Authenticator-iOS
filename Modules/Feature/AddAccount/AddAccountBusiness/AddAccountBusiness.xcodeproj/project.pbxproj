@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		B022ECD828133EAD000C8F23 /* AddAccountBusiness.h in Headers */ = {isa = PBXBuildFile; fileRef = B022ECCC28133EAD000C8F23 /* AddAccountBusiness.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B022ECF928133FB8000C8F23 /* AddAccountBusiness_MacOs.h in Headers */ = {isa = PBXBuildFile; fileRef = B022ECED28133FB8000C8F23 /* AddAccountBusiness_MacOs.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B022ED0F281340B1000C8F23 /* AddAccountBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B022ECC928133EAD000C8F23 /* AddAccountBusiness.framework */; platformFilter = ios; };
+		B022ED0F281340B1000C8F23 /* AddAccountBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B022ECC928133EAD000C8F23 /* AddAccountBusiness.framework */; };
 		B022ED1D281340CD000C8F23 /* AddAccountBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B022ECEB28133FB8000C8F23 /* AddAccountBusiness.framework */; };
 		B0B2D4FF281DB00900ADF159 /* AddAccountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B2D4FC281DB00900ADF159 /* AddAccountUseCase.swift */; };
 		B0B2D501281DB01600ADF159 /* AddAccountUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B2D4FC281DB00900ADF159 /* AddAccountUseCase.swift */; };
@@ -356,7 +356,6 @@
 /* Begin PBXTargetDependency section */
 		B022ED11281340B1000C8F23 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			platformFilter = ios;
 			target = B022ECC828133EAD000C8F23 /* AddAccountBusiness-iOS */;
 			targetProxy = B022ED10281340B1000C8F23 /* PBXContainerItemProxy */;
 		};
