@@ -15,10 +15,10 @@ protocol AuthenticatorListComposerDelegate: AnyObject {
 }
 
 public final class AuthenticatorListComposer: UIHostingController<AuthenticatorListView> {
-    private let viewModel: AuthenticatorListViewModel
-    private let presenter: AuthenticatorListPresenter
+    let viewModel: AuthenticatorListViewModel
+    let presenter: AuthenticatorListPresenter
     weak var delegate: AuthenticatorListComposerDelegate?
-    private var appEventObservable: AppEventObservable
+    var appEventObservable: AppEventObservable
 
     init(rootView: AuthenticatorListView,
          viewModel: AuthenticatorListViewModel,
@@ -29,10 +29,6 @@ public final class AuthenticatorListComposer: UIHostingController<AuthenticatorL
         self.presenter = presenter
         self.appEventObservable = appEventObservable
         super.init(rootView: rootView)
-    }
-
-    deinit {
-        appEventObservable.removeObserver(self)
     }
 
     @available(*, unavailable)
@@ -47,7 +43,7 @@ public final class AuthenticatorListComposer: UIHostingController<AuthenticatorL
             target: self,
             action: #selector(didPressAddAccountButton))
         presenter.output = self
-        appEventObservable.observe(self)
+        appEventObservable.observeWeakly(self)
         loadPresenter()
     }
 
@@ -55,15 +51,15 @@ public final class AuthenticatorListComposer: UIHostingController<AuthenticatorL
         loadPresenter()
     }
 
+    @objc
+    func didPressAddAccountButton() {
+        self.delegate?.didPressAddAccountButton(self)
+    }
+
     private func loadPresenter() {
         Queues.generalBackgroundQueue.async {
             self.presenter.load()
         }
-    }
-
-    @objc
-    private func didPressAddAccountButton() {
-        self.delegate?.didPressAddAccountButton(self)
     }
 }
 

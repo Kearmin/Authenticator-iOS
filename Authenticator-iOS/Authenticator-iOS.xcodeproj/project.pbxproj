@@ -24,7 +24,7 @@
 		B07979CD2815DA100009CCF0 /* AddAccountDelegateComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07979CC2815DA100009CCF0 /* AddAccountDelegateComposition.swift */; };
 		B07979E32815E5730009CCF0 /* Navigator+CreateAuthenticatorListWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07979E22815E5730009CCF0 /* Navigator+CreateAuthenticatorListWindow.swift */; };
 		B07979EB2815EB040009CCF0 /* AddAccountComposer+init.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07979EA2815EB040009CCF0 /* AddAccountComposer+init.swift */; };
-		B0A906C52812EAA000F72F87 /* AuthenticatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A906C42812EAA000F72F87 /* AuthenticatorTests.swift */; };
+		B0A906C52812EAA000F72F87 /* AuthenticatorIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A906C42812EAA000F72F87 /* AuthenticatorIntegrationTests.swift */; };
 		B0C0909A281ED7BF005E1FBD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B0C09099281ED7BF005E1FBD /* GoogleService-Info.plist */; };
 		B0C090B4281ED9E8005E1FBD /* FirebaseAnalytics.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C09028281ED0EB005E1FBD /* FirebaseAnalytics.xcframework */; };
 		B0C090B5281ED9E8005E1FBD /* FirebaseCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C0902E281ED0EB005E1FBD /* FirebaseCore.xcframework */; };
@@ -58,6 +58,9 @@
 		B0C090DE281EF88F005E1FBD /* SwiftOTP.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2D4E8281D6B3700ADF159 /* SwiftOTP.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0C090DF281F013D005E1FBD /* UIKitNavigator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B056F769281DD6F000617F42 /* UIKitNavigator.framework */; };
 		B0C090E0281F013D005E1FBD /* UIKitNavigator.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B056F769281DD6F000617F42 /* UIKitNavigator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B0CF913B281F3A31000FAA94 /* UIKitHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CF913A281F3A31000FAA94 /* UIKitHelpers.swift */; };
+		B0CF913D281F3D57000FAA94 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CF913C281F3D57000FAA94 /* AppEnvironment.swift */; };
+		B0CF913F281F4407000FAA94 /* WeakBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CF913E281F4407000FAA94 /* WeakBox.swift */; };
 		B0F423E72814B71A00C9D138 /* AccountRepositoryComposer+AddAccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F423E62814B71A00C9D138 /* AccountRepositoryComposer+AddAccountService.swift */; };
 		B0F423F42814C71100C9D138 /* FileSystemPersistentStorage+AccountRepositoryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F423F32814C71100C9D138 /* FileSystemPersistentStorage+AccountRepositoryProvider.swift */; };
 		B0F423F72814C76E00C9D138 /* Resolver+GlobalDepencencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F423F62814C76E00C9D138 /* Resolver+GlobalDepencencies.swift */; };
@@ -138,7 +141,7 @@
 		B0A906B32812E95100F72F87 /* AuthenticatorListBusiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AuthenticatorListBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0A906BA2812E9E200F72F87 /* Authenticator-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Authenticator-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0A906C32812EAA000F72F87 /* Authenticator-iOSTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Authenticator-iOSTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		B0A906C42812EAA000F72F87 /* AuthenticatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorTests.swift; sourceTree = "<group>"; };
+		B0A906C42812EAA000F72F87 /* AuthenticatorIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorIntegrationTests.swift; sourceTree = "<group>"; };
 		B0A906EA28130A1700F72F87 /* AddAccountView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AddAccountView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0B2D4E4281D6AFC00ADF159 /* Resolver.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Resolver.xcframework; path = ../Carthage/Build/Resolver.xcframework; sourceTree = "<group>"; };
 		B0B2D4E8281D6B3700ADF159 /* SwiftOTP.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SwiftOTP.xcframework; path = ../Carthage/Build/SwiftOTP.xcframework; sourceTree = "<group>"; };
@@ -159,6 +162,9 @@
 		B0C090C3281EEE8D005E1FBD /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		B0C090C5281EEE96005E1FBD /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		B0C090C7281EEE9B005E1FBD /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		B0CF913A281F3A31000FAA94 /* UIKitHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitHelpers.swift; sourceTree = "<group>"; };
+		B0CF913C281F3D57000FAA94 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
+		B0CF913E281F4407000FAA94 /* WeakBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakBox.swift; sourceTree = "<group>"; };
 		B0F423E62814B71A00C9D138 /* AccountRepositoryComposer+AddAccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountRepositoryComposer+AddAccountService.swift"; sourceTree = "<group>"; };
 		B0F423E82814B74300C9D138 /* AccountRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AccountRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0F423EE2814C6E400C9D138 /* Resolver.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Resolver.xcframework; path = Carthage/Build/Resolver.xcframework; sourceTree = "<group>"; };
@@ -352,7 +358,8 @@
 		B0A906BB2812E9E200F72F87 /* Authenticator-iOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				B0A906C42812EAA000F72F87 /* AuthenticatorTests.swift */,
+				B0CF913A281F3A31000FAA94 /* UIKitHelpers.swift */,
+				B0A906C42812EAA000F72F87 /* AuthenticatorIntegrationTests.swift */,
 				B0A906C32812EAA000F72F87 /* Authenticator-iOSTests-Bridging-Header.h */,
 			);
 			path = "Authenticator-iOSTests";
@@ -399,6 +406,8 @@
 				B00CED632811DF01001CB090 /* SceneDelegate.swift */,
 				B07979BC28156BEE0009CCF0 /* Threading.swift */,
 				B0F423FE2814ED5900C9D138 /* AppEventObservable.swift */,
+				B0CF913C281F3D57000FAA94 /* AppEnvironment.swift */,
+				B0CF913E281F4407000FAA94 /* WeakBox.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -535,6 +544,7 @@
 				B047DFC628122403007EF575 /* AuthenticatorListService.swift in Sources */,
 				B00CED662811DF01001CB090 /* AuthenticatorListComposer.swift in Sources */,
 				B047DFC82812243A007EF575 /* AuthenticationList+Init.swift in Sources */,
+				B0CF913F281F4407000FAA94 /* WeakBox.swift in Sources */,
 				B0F423F72814C76E00C9D138 /* Resolver+GlobalDepencencies.swift in Sources */,
 				B00CED622811DF01001CB090 /* AppDelegate.swift in Sources */,
 				B07979BF28156D2E0009CCF0 /* Navigator+AppEventObserver.swift in Sources */,
@@ -544,6 +554,7 @@
 				B0F423FA2814CAF900C9D138 /* Navigator+AuthenticatorListComposerDelegate.swift in Sources */,
 				B07979EB2815EB040009CCF0 /* AddAccountComposer+init.swift in Sources */,
 				B0F423E72814B71A00C9D138 /* AccountRepositoryComposer+AddAccountService.swift in Sources */,
+				B0CF913D281F3D57000FAA94 /* AppEnvironment.swift in Sources */,
 				B00CED642811DF01001CB090 /* SceneDelegate.swift in Sources */,
 				B0F423FF2814ED5900C9D138 /* AppEventObservable.swift in Sources */,
 				B050D26F281B97D000117364 /* AuthenticatorList2.swift in Sources */,
@@ -557,7 +568,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0A906C52812EAA000F72F87 /* AuthenticatorTests.swift in Sources */,
+				B0CF913B281F3A31000FAA94 /* UIKitHelpers.swift in Sources */,
+				B0A906C52812EAA000F72F87 /* AuthenticatorIntegrationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
