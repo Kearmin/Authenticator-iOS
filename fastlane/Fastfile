@@ -7,7 +7,8 @@ lane :tests do
       include_simulator_logs: false,
       force_quit_simulator: true,
       code_coverage: true,
-      disable_concurrent_testing: true
+      disable_concurrent_testing: true,
+      configuration: "Debug"
       )
 end
 
