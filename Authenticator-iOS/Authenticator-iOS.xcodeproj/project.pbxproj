@@ -26,6 +26,7 @@
 		B07979E32815E5730009CCF0 /* Navigator+CreateAuthenticatorListWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07979E22815E5730009CCF0 /* Navigator+CreateAuthenticatorListWindow.swift */; };
 		B07979EB2815EB040009CCF0 /* AddAccountComposer+init.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07979EA2815EB040009CCF0 /* AddAccountComposer+init.swift */; };
 		B0A906C52812EAA000F72F87 /* AuthenticatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A906C42812EAA000F72F87 /* AuthenticatorTests.swift */; };
+		B0D29FE8281ECC26006F4692 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B0D29FE7281ECC26006F4692 /* GoogleService-Info.plist */; };
 		B0F423E72814B71A00C9D138 /* AccountRepositoryComposer+AddAccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F423E62814B71A00C9D138 /* AccountRepositoryComposer+AddAccountService.swift */; };
 		B0F423F42814C71100C9D138 /* FileSystemPersistentStorage+AccountRepositoryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F423F32814C71100C9D138 /* FileSystemPersistentStorage+AccountRepositoryProvider.swift */; };
 		B0F423F72814C76E00C9D138 /* Resolver+GlobalDepencencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F423F62814C76E00C9D138 /* Resolver+GlobalDepencencies.swift */; };
@@ -82,6 +83,7 @@
 		B0A906EA28130A1700F72F87 /* AddAccountView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AddAccountView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0B2D4E4281D6AFC00ADF159 /* Resolver.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Resolver.xcframework; path = ../Carthage/Build/Resolver.xcframework; sourceTree = "<group>"; };
 		B0B2D4E8281D6B3700ADF159 /* SwiftOTP.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SwiftOTP.xcframework; path = ../Carthage/Build/SwiftOTP.xcframework; sourceTree = "<group>"; };
+		B0D29FE7281ECC26006F4692 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B0F423E62814B71A00C9D138 /* AccountRepositoryComposer+AddAccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountRepositoryComposer+AddAccountService.swift"; sourceTree = "<group>"; };
 		B0F423E82814B74300C9D138 /* AccountRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AccountRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0F423EE2814C6E400C9D138 /* Resolver.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Resolver.xcframework; path = Carthage/Build/Resolver.xcframework; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				B00CED6A2811DF02001CB090 /* Assets.xcassets */,
 				B00CED6C2811DF02001CB090 /* LaunchScreen.storyboard */,
 				B00CED6F2811DF02001CB090 /* Info.plist */,
+				B0D29FE7281ECC26006F4692 /* GoogleService-Info.plist */,
 			);
 			path = "Authenticator-iOS";
 			sourceTree = "<group>";
@@ -383,6 +386,7 @@
 			files = (
 				B00CED6E2811DF02001CB090 /* LaunchScreen.storyboard in Resources */,
 				B00CED6B2811DF02001CB090 /* Assets.xcassets in Resources */,
+				B0D29FE8281ECC26006F4692 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,6 +6,14 @@ ${BUILT_PRODUCTS_DIR}/AuthenticatorListBusiness/AuthenticatorListBusiness.framew
 ${BUILT_PRODUCTS_DIR}/AuthenticatorListView/AuthenticatorListView.framework
 ${BUILT_PRODUCTS_DIR}/Clock/Clock.framework
 ${BUILT_PRODUCTS_DIR}/FileSystemPersistentStorage/FileSystemPersistentStorage.framework
+${BUILT_PRODUCTS_DIR}/FirebaseCore/FirebaseCore.framework
+${BUILT_PRODUCTS_DIR}/FirebaseCoreDiagnostics/FirebaseCoreDiagnostics.framework
+${BUILT_PRODUCTS_DIR}/FirebaseCrashlytics/FirebaseCrashlytics.framework
+${BUILT_PRODUCTS_DIR}/FirebaseInstallations/FirebaseInstallations.framework
+${BUILT_PRODUCTS_DIR}/GoogleDataTransport/GoogleDataTransport.framework
+${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework
+${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework
 ${BUILT_PRODUCTS_DIR}/Resolver/Resolver.framework
 ${BUILT_PRODUCTS_DIR}/SwiftOTP/SwiftOTP.framework
 ${BUILT_PRODUCTS_DIR}/UIKitNavigator/UIKitNavigator.framework
+${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework

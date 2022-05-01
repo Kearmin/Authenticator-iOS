@@ -31,6 +31,8 @@ target 'Authenticator-iOS' do
 
   pod "SwiftOTP", '~> 3.0.0'
   pod "Resolver", '~> 1.5.0'
+  pod 'Firebase/Analytics', '~> 8.11.0'
+  pod 'Firebase/Crashlytics', '~> 8.11.0'
   featureModules
   businessModules
   infrastructureModules
