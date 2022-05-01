@@ -4,7 +4,51 @@
    <FileRef
       location = "group:Authenticator-iOS/Authenticator-iOS.xcodeproj">
    </FileRef>
-   <FileRef
-      location = "group:Pods/Pods.xcodeproj">
-   </FileRef>
+   <Group
+      location = "container:"
+      name = "Modules">
+      <Group
+         location = "container:"
+         name = "Feature">
+         <FileRef
+            location = "group:Modules/Feature/AuthenticatorList/AuthenticatorListView/AuthenticatorListView.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Modules/Feature/AuthenticatorList/AuthenticatorListBusiness/AuthenticatorListBusiness.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Modules/Feature/AddAccount/AddAccountView/AddAccountView.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Modules/Feature/AddAccount/AddAccountBusiness/AddAccountBusiness.xcodeproj">
+         </FileRef>
+      </Group>
+      <Group
+         location = "container:"
+         name = "Business">
+         <FileRef
+            location = "group:Modules/Business/Clock/Clock.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Modules/Business/AccountRepository/AccountRepository.xcodeproj">
+         </FileRef>
+      </Group>
+      <Group
+         location = "container:"
+         name = "Infrastructure">
+         <FileRef
+            location = "group:Modules/Infrastructure/UIKitNavigator/UIKitNavigator.xcodeproj">
+         </FileRef>
+         <FileRef
+            location = "group:Modules/Infrastructure/FileSystemPersistentStorage/FileSystemPersistentStorage.xcodeproj">
+         </FileRef>
+      </Group>
+   </Group>
+   <Group
+      location = "container:"
+      name = "TestPlans">
+      <FileRef
+         location = "group:Authenticator-iOS.xctestplan">
+      </FileRef>
+   </Group>
 </Workspace>

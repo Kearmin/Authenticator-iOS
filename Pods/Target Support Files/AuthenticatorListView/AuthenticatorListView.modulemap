@@ -1,6 +1,0 @@
-framework module AuthenticatorListView {
-  umbrella header "AuthenticatorListView-umbrella.h"
-
-  export *
-  module * { export * }
-}

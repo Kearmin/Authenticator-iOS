@@ -1,6 +1,0 @@
-framework module FileSystemPersistentStorage {
-  umbrella header "FileSystemPersistentStorage-umbrella.h"
-
-  export *
-  module * { export * }
-}
