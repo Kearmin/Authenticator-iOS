@@ -8,8 +8,11 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ruby/setup-ruby@v1
-          bundler-cache: true #
+      - name: Setup Ruby And Gem Cache
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.0
+          bundler-cache: true # runs 'bundle install' and caches installed gems automatically
       - name: Carthage Cache
         uses: actions/cache@v3
         with:
