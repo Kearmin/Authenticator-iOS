@@ -94,14 +94,16 @@ class AuthenticatorIntegrationTests: XCTestCase {
         XCTAssertIdentical(env.componentSpy.didPressCalls.first, env.sut)
     }
 
-    func test_composerReloadsIfAppEntersForeground() {
+    func test_composerReloadsIfAppEntersForeground() async {
         let env = makeSUT()
-        let expectation = expectation(description: "")
-        env.mock.expectation = expectation
+        env.mock.expectation = expectation(description: "")
         env.appEventObservable.appDidEnterForeground()
-        waitForExpectations(timeout: 1.0) { _ in
-            XCTAssertEqual(env.mock.loadAccountCallCount, 2)
-        }
+        await waitForExpectations(timeout: 0.1)
+        XCTAssertEqual(env.mock.loadAccountCallCount, 2)
+        env.mock.expectation = expectation(description: "")
+        env.appEventObservable.appDidEnterForeground()
+        await waitForExpectations(timeout: 0.1)
+        XCTAssertEqual(env.mock.loadAccountCallCount, 3)
     }
 
     func makeSUT() -> TestEnvironment {
