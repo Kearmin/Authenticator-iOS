@@ -1,5 +1,5 @@
 lane :tests do 
-  run_tests(scheme: "Authenticator-iOS")
+  run_tests(scheme: "Authenticator-iOS", device: "iPhone 13", clean: true)
 end
 
 lane :carthage_bootstrap do
