@@ -49,7 +49,7 @@ extension Resolver {
         register(UIKitNavigator.self) { resolver in
             let appEventObservable: AppEventObservable = resolver.resolve()
             let navigator = UIKitNavigator()
-            appEventObservable.observe(navigator)
+            appEventObservable.observeWeakly(navigator)
             return navigator
         }
         .implements(AuthenticatorListComposerDelegate.self)

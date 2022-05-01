@@ -19,7 +19,12 @@ protocol AppEventObserver: AnyObject {
 
 final class AppEventObservable {
     private let notificationCenter = NotificationCenter.default
-    private var observers: [AppEventObserver] = []
+    private var _observers: [WeakBox<AnyObject>] = []
+
+    var observers: [AppEventObserver] {
+        _observers.removeAll(where: { $0.item == nil })
+        return _observers.compactMap { $0.item as? AppEventObserver }
+    }
 
     init() {
         notificationCenter.addObserver(self, selector: #selector(appDidEnterForeground), name: UIScene.didActivateNotification, object: nil)
@@ -30,23 +35,19 @@ final class AppEventObservable {
         notificationCenter.removeObserver(self)
     }
 
-    func observe(_ observer: AppEventObserver) {
-        observers.append(observer)
-    }
-
-    func removeObserver(_ observer: AppEventObserver) {
-        observers.removeAll(where: { $0 === observer })
+    func observeWeakly(_ observer: AppEventObserver) {
+        _observers.append(WeakBox(observer))
     }
 
     @objc
-    private func appDidEnterForeground() {
+    func appDidEnterForeground() {
         observers.forEach {
             $0.handle(event: .appDidEnterForeground)
         }
     }
 
     @objc
-    private func appWillEnterBackground() {
+    func appWillEnterBackground() {
         observers.forEach {
             $0.handle(event: .appWillEnterBackground)
         }

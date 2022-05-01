@@ -31,11 +31,7 @@ final class AuthenticatorListComposer2 {
         self.viewController = viewController
         viewController.delegate = self
         presenter.output = self
-        appEventObservable.observe(self)
-    }
-
-    deinit {
-        appEventObservable.removeObserver(self)
+        appEventObservable.observeWeakly(self)
     }
 
     func load() {
