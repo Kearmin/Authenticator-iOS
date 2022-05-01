@@ -42,12 +42,10 @@ public final class AuthenticatorListComposer: UIHostingController<AuthenticatorL
 
     public override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.rightBarButtonItem = .init(
-            systemItem: .add,
-            primaryAction: .init(handler: { [unowned self] _ in
-                self.delegate?.didPressAddAccountButton(self)
-            }),
-            menu: nil)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .add,
+            target: self,
+            action: #selector(didPressAddAccountButton))
         presenter.output = self
         appEventObservable.observe(self)
         loadPresenter()
@@ -61,6 +59,11 @@ public final class AuthenticatorListComposer: UIHostingController<AuthenticatorL
         Queues.generalBackgroundQueue.async {
             self.presenter.load()
         }
+    }
+
+    @objc
+    private func didPressAddAccountButton() {
+        self.delegate?.didPressAddAccountButton(self)
     }
 }
 
