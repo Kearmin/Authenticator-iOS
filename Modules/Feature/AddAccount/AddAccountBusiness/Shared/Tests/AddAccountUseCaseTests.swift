@@ -37,7 +37,6 @@ class AddAccountUseCaseTests: XCTestCase {
     }
 
     func test_useCaseFailsIfOTPMethodIsHOTP() {
-        XCTFail("Fail")
         let sut = makeSUT()
         XCTAssertThrowsError(try sut.createAccount(urlString: short.replacingOccurrences(of: "totp", with: "hotp")))
     }
