@@ -1,3 +1,7 @@
 lane :tests do 
-  run_tests(scheme: "Authenticator-iOS")
+    scan(
+      workspace: "Authenticator-iOS.xcworkspace",
+      scheme: "Authenticator-iOS",
+      devices: []
+      )
 end
