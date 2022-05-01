@@ -2,13 +2,7 @@ lane :tests do
     scan(
       workspace: "Authenticator-iOS.xcworkspace",
       scheme: "Authenticator-iOS",
-      devices: [],
-      clean: true,
-      include_simulator_logs: false,
-      force_quit_simulator: true,
-      code_coverage: true,
-      disable_concurrent_testing: true,
-      configuration: "Debug"
+      devices: []
       )
 end
 
