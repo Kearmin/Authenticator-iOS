@@ -9,6 +9,11 @@
     }
   ],
   "defaultOptions" : {
+    "commandLineArgumentEntries" : [
+      {
+        "argument" : "-isTest YES"
+      }
+    ],
     "targetForVariableExpansion" : {
       "containerPath" : "container:Authenticator-iOS.xcodeproj",
       "identifier" : "B00CED5D2811DF01001CB090",
