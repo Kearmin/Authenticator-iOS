@@ -1,5 +1,11 @@
 lane :tests do 
-  run_tests(scheme: "Authenticator-iOS", device: "iPhone 13", clean: true)
+    scan(
+      workspace: "Authenticator-iOS.xcworkspace",
+      scheme: "Authenticator-iOS",
+      devices: [],
+      clean: true,
+      include_simulator_logs: false
+      )
 end
 
 lane :carthage_bootstrap do
