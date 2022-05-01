@@ -96,14 +96,15 @@ class AuthenticatorIntegrationTests: XCTestCase {
 
     func test_composerReloadsIfAppEntersForeground() async {
         let env = makeSUT()
+        await sendAppEventAndWaitForExpectetions(env: env, callCount: 2)
+        await sendAppEventAndWaitForExpectetions(env: env, callCount: 3)
+    }
+
+    private func sendAppEventAndWaitForExpectetions(env: TestEnvironment, callCount: Int) async {
         env.mock.expectation = expectation(description: "")
         env.appEventObservable.appDidEnterForeground()
         await waitForExpectations(timeout: 0.1)
-        XCTAssertEqual(env.mock.loadAccountCallCount, 2)
-        env.mock.expectation = expectation(description: "")
-        env.appEventObservable.appDidEnterForeground()
-        await waitForExpectations(timeout: 0.1)
-        XCTAssertEqual(env.mock.loadAccountCallCount, 3)
+        XCTAssertEqual(env.mock.loadAccountCallCount, callCount)
     }
 
     func makeSUT() -> TestEnvironment {
