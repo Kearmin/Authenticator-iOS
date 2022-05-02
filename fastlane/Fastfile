@@ -23,3 +23,9 @@ lane :lint do
     strict: true,
   )
 end
+
+lane :pr do 
+  lint
+  carthage_bootstrap
+  tests
+end

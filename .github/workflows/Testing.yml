@@ -32,17 +32,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-carthage-
 
-      - name: Swiftlint
+      - name: Run fastlane
         uses: maierj/fastlane-action@v2.2.0
         with:
-          lane: 'lint'
-
-      - name: Carthage bootstrap
-        uses: maierj/fastlane-action@v2.2.0
-        with:
-          lane: 'carthage_bootstrap'
-
-      - name: Run tests
-        uses: maierj/fastlane-action@v2.2.0
-        with:
-          lane: 'tests'
+          lane: 'pr'

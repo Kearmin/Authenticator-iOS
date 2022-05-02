@@ -4,6 +4,7 @@ excluded:
   - ${PWD}/DerivedData
   - "*.Tests.swift"
   - "**/*/*.Tests.swift"
+  - vendor/bundle/
 
 disabled_rules:
   - discarded_notification_center_observer
