@@ -48,9 +48,9 @@ public final class AccountRepository {
     public func delete(accountID: UUID) throws {
         try queue.sync {
             guard var mutableInMemory = inMemory else { return }
-            mutableInMemory.removeAll(where: { inMemoryAccount in
+            mutableInMemory.removeAll { inMemoryAccount in
                 inMemoryAccount.id == accountID
-            })
+            }
             try provider.save(accounts: mutableInMemory)
             inMemory = mutableInMemory
         }
@@ -60,6 +60,6 @@ public final class AccountRepository {
 private extension AccountRepository {
     func containsAccount(with id: UUID) -> Bool {
         guard let inMemory = inMemory else { return false }
-        return inMemory.contains(where: { $0.id == id })
+        return inMemory.contains { $0.id == id }
     }
 }

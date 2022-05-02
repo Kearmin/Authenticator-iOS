@@ -21,5 +21,12 @@ lane :lint do
     mode: :lint,
     raise_if_swiftlint_error: true,
     strict: true,
+    config_file: ".swiftlint.yml", 
   )
+end
+
+lane :pr do 
+  lint
+  carthage_bootstrap
+  tests
 end

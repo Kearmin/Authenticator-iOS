@@ -16,7 +16,7 @@ public final class JSONFileSystemPersistance<T: Codable> {
 
     public init(fileName: String, fileManager: FileManager = .default, provider: JSONFileSystemPersistanceProvider) {
         self.fileManager = fileManager
-        self.url = Self.makeURL(from: fileName, with: fileManager)!
+        self.url = Self.makeURL(from: fileName, with: fileManager)! // swiftlint:disable:this force_unwrapping
         self.provider = provider
     }
 

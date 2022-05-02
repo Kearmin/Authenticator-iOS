@@ -421,6 +421,7 @@
 				B00CED5B2811DF01001CB090 /* Frameworks */,
 				B00CED5C2811DF01001CB090 /* Resources */,
 				B056F761281DD4D000617F42 /* Embed Frameworks */,
+				B08ED66E28207E8100EE593C /* Run SwiftLint */,
 				B0C090CA281EF0D5005E1FBD /* Upload dSYM to Crashlytics */,
 			);
 			buildRules = (
@@ -510,6 +511,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		B08ED66E28207E8100EE593C /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport PATH=\"$PATH:/opt/homebrew/bin\"\ncd ..\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		B0C090CA281EF0D5005E1FBD /* Upload dSYM to Crashlytics */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

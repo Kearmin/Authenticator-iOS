@@ -55,7 +55,7 @@ private extension AddAccountUseCase {
     func username(from urlComponents: URLComponents) -> String {
         if urlComponents.path.contains(":") {
             let substring = urlComponents.path
-                .drop(while: { $0 != ":" })
+                .drop { $0 != ":" }
                 .dropFirst()
             return String(substring)
         } else {
@@ -81,7 +81,8 @@ private extension AddAccountUseCase {
 
 private extension URLComponents {
     func lowerCasedQueryItemValue(for key: String) -> String? {
-        self.queryItems?.first(where: { $0.name.lowercased() == key.lowercased() })?.value
+        let queryItem = queryItems?.first { $0.name.lowercased() == key.lowercased() }
+        return queryItem?.value
     }
 
     func queryItemValueIfExists(matches value: String, forKey key: String, elseThrow error: Error) throws {

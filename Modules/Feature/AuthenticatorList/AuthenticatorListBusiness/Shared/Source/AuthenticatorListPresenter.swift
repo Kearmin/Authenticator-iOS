@@ -66,7 +66,6 @@ public final class AuthenticatorListPresenter {
     public init(service: AuthenticatorListPresenterService) {
         self.service = service
         setupSubscriptions()
-
     }
 
     public func load() {
@@ -87,7 +86,7 @@ public final class AuthenticatorListPresenter {
     public func deleteAccount(id: UUID) {
         do {
             try service.deleteAccount(id: id)
-            models.removeAll(where: { $0.id == id })
+            models.removeAll { $0.id == id }
             let rowContents = models.map { rowContent(from: $0) }
             output?.receive(rows: rowContents)
         } catch {
@@ -116,10 +115,11 @@ private extension AuthenticatorListPresenter {
             timeInterval: service.cycleLength,
             date: latestDate ?? Date())
 
-        return .init(id: model.id,
-              issuer: model.issuer,
-              username: model.username,
-              TOTPCode: totp)
+        return .init(
+            id: model.id,
+            issuer: model.issuer,
+            username: model.username,
+            TOTPCode: totp)
     }
 
     func recalculateTOTPs() {

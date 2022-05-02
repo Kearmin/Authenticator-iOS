@@ -8,6 +8,8 @@ on:
       - 'main'
 jobs:
   test:
+    if: github.event.pull_request.draft == false
+
     runs-on: macos-latest
     steps:
       - name: Checkout
@@ -30,8 +32,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-carthage-
 
-      - name: Carthage bootstrap
-        run: bundle exec fastlane carthage_bootstrap
-
-      - name: Run tests
-        run: bundle exec fastlane tests
+      - name: Run fastlane
+        uses: maierj/fastlane-action@v2.2.0
+        with:
+          lane: 'pr'

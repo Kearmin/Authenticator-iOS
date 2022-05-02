@@ -30,9 +30,9 @@ extension Resolver {
         .scope(.application)
 
         register(OverLayViewController.self) {
-            let vc = OverLayViewController()
-            vc.modalPresentationStyle = .overCurrentContext
-            return vc
+            let viewController = OverLayViewController()
+            viewController.modalPresentationStyle = .overCurrentContext
+            return viewController
         }
         .scope(.application)
 
@@ -77,7 +77,7 @@ extension Resolver {
         .implements(AddAccountSaveService.self)
         .scope(.cached)
 
-        register(TimerAuthenticatorListPresenterService.self) { resolver in
+        register(TimerAuthenticatorListPresenterService.self) { _ in
             TimerAuthenticatorListPresenterService()
         }
         .implements(AuthenticatorListPresenterService.self)

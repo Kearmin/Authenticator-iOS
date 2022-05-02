@@ -1,4 +1,4 @@
-//
+// swiftlint:disable all
 //  FileSystemPersistentStorageTests.swift
 //  FileSystemPersistentStorageTests
 //

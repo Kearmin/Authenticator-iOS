@@ -18,7 +18,7 @@ protocol AddAccountComposerDelegate: AnyObject {
 }
 
 final class AddAccountComposer: UIViewController {
-    let addAccoutView: AddAccountView = AddAccountView(frame: .zero, objectTypes: [.qr])
+    let addAccoutView = AddAccountView(frame: .zero, objectTypes: [.qr])
     let useCase: AddAccountUseCase
     var delegate: AddAccountComposerDelegate?
 

@@ -16,10 +16,10 @@ public final class Clock {
     private var observers: [ClockObserver] = []
 
     public init(timeInterval: TimeInterval = 1) {
-        self.timer = Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true, block: { [weak self] _ in
+        self.timer = Timer.scheduledTimer(withTimeInterval: timeInterval, repeats: true) { [weak self] _ in
             self?.notifyObservers(currentDate: Date())
-        })
-        RunLoop.main.add(self.timer!, forMode: .common)
+        }
+        RunLoop.main.add(self.timer!, forMode: .common) // swiftlint:disable:this force_unwrapping
     }
 
     public func notifyObservers(currentDate: Date) {
@@ -32,10 +32,10 @@ public final class Clock {
     }
 
     public func removeObserver(_ observer: ClockObserver) {
-        observers.removeAll(where: { $0 === observer })
+        observers.removeAll { $0 === observer }
     }
 
     public func containsObserver(_ observer: ClockObserver) -> Bool {
-        observers.contains(where: { $0 === observer })
+        observers.contains { $0 === observer }
     }
 }
