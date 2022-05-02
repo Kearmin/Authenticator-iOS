@@ -2,6 +2,7 @@ lane :tests do
     scan(
       workspace: "Authenticator-iOS.xcworkspace",
       scheme: "Authenticator-iOS",
+      xcodebuild_formatter: "xcbeautify",
       devices: []
     )
 end
