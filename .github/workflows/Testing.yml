@@ -8,6 +8,8 @@ on:
       - 'main'
 jobs:
   test:
+    if: github.event.pull_request.draft == false
+
     runs-on: macos-latest
     steps:
       - name: Checkout
@@ -31,10 +33,13 @@ jobs:
             ${{ runner.os }}-carthage-
 
       - name: Swiftlint
+        uses: maierj/fastlane-action@v2.2.0
         run: bundle exec fastlane lint
 
       - name: Carthage bootstrap
+        uses: maierj/fastlane-action@v2.2.0
         run: bundle exec fastlane carthage_bootstrap
 
       - name: Run tests
+        uses: maierj/fastlane-action@v2.2.0
         run: bundle exec fastlane tests
