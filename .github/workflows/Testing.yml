@@ -34,12 +34,12 @@ jobs:
 
       - name: Swiftlint
         uses: maierj/fastlane-action@v2.2.0
-        run: bundle exec fastlane lint
+        lane: 'lint'
 
       - name: Carthage bootstrap
         uses: maierj/fastlane-action@v2.2.0
-        run: bundle exec fastlane carthage_bootstrap
+        lane: 'carthage_bootstrap'
 
       - name: Run tests
         uses: maierj/fastlane-action@v2.2.0
-        run: bundle exec fastlane tests
+        lane: 'tests'
