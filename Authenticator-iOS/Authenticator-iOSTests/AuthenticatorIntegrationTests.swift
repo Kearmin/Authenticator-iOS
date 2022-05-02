@@ -12,17 +12,10 @@ import AuthenticatorListBusiness
 
 class AuthenticatorIntegrationTests: XCTestCase {
 
-    weak var weakSUT: AuthenticatorListComposer?
-
     // 2022. May 1., Sunday 20:29:00
     private let dateAt00minute = Date(timeIntervalSince1970: 1651436940)
     // 2022. May 1., Sunday 20:29:20
     private let dateAt20minute = Date(timeIntervalSince1970: 1651436960)
-
-    override func tearDown() {
-        super.tearDown()
-        XCTAssertNil(weakSUT)
-    }
 
     func test_CanInitComposer() {
         _ = makeSUT()
@@ -113,7 +106,6 @@ class AuthenticatorIntegrationTests: XCTestCase {
 
     func makeSUT(mock: AuthenticatorListPresenterMock = .init()) -> TestEnvironment {
         let env = TestEnvironment(mock: mock)
-        weakSUT = env.sut
         env.sut.triggerLifecycleIfNeeded()
         return env
     }
