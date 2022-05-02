@@ -1,4 +1,4 @@
-//
+// swiftlint:disable all
 //  AuthenticatorListTests.swift
 //  AuthenticatoriOSTests
 //
@@ -105,7 +105,7 @@ class AuthenticatorListTests: XCTestCase {
         let mock = AuthenticatorListPresenterServiceMock()
         let spy = AuthenticatorListPresenterSpy()
         let sut = makeSUT(mock: mock)
-        mock.GetTOTPResult = "totp"
+        mock.getTOTPResult = "totp"
         sut.output = spy
         let id = UUID()
         sut.receive(result: .success([
@@ -132,7 +132,7 @@ class AuthenticatorListTests: XCTestCase {
         mock.cycleLength = 30
         let spy = AuthenticatorListPresenterSpy()
         let sut = makeSUT(mock: mock)
-        mock.GetTOTPResult = "totp"
+        mock.getTOTPResult = "totp"
         sut.output = spy
         let id = UUID()
         sut.receive(result: .success([
@@ -142,7 +142,7 @@ class AuthenticatorListTests: XCTestCase {
         XCTAssertEqual(spy.receivedRows.first, [.init(id: id, issuer: "issuer", username: "username", TOTPCode: "totp")])
         mock.receiveCurrentDate?(Date(timeIntervalSince1970: april_21_2022_222505_GMT))
         XCTAssertEqual(spy.receivedRows.count, 1)
-        mock.GetTOTPResult = "totp2"
+        mock.getTOTPResult = "totp2"
         mock.receiveCurrentDate?(Date(timeIntervalSince1970: april_21_2022_222500_GMT))
         XCTAssertEqual(spy.receivedRows.count, 2)
         XCTAssertEqual(spy.receivedRows.last?[0].TOTPCode, "totp2")
@@ -222,7 +222,7 @@ class AuthenticatorListPresenterSpy: AuthenticatorListPresenterDelegate {
 class AuthenticatorListPresenterServiceMock: AuthenticatorListPresenterService {
     var loadAccountCallCount = 0
     var accountsResults: [Result<[AuthenticatorAccountModel], Error>] = []
-    var GetTOTPResult: String = ""
+    var getTOTPResult: String = ""
     var receiveCurrentDate: ((Date) -> Void)?
     var cycleLength: Int = 1
     var deleteCallIDS: [UUID] = []
@@ -239,7 +239,7 @@ class AuthenticatorListPresenterServiceMock: AuthenticatorListPresenterService {
     }
 
     func getTOTP(secret: String, timeInterval: Int, date: Date) -> String {
-        GetTOTPResult
+        getTOTPResult
     }
 
     func deleteAccount(id: UUID) {

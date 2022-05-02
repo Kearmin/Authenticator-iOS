@@ -17,9 +17,10 @@ extension AuthenticatorListComposer {
         let service = TimerAuthenticatorListPresenterService()
         let presenter = AuthenticatorListPresenter(service: service)
         service.presenter = presenter
-        self.init(rootView: authenticatorListView,
-                  viewModel: viewModel,
-                  presenter: presenter,
-                  appEventObservable: Resolver.resolve())
+        self.init(
+            rootView: authenticatorListView,
+            viewModel: viewModel,
+            presenter: presenter,
+            appEventObservable: Resolver.resolve())
     }
 }

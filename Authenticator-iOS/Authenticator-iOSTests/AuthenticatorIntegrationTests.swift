@@ -1,4 +1,4 @@
-//
+// swiftlint:disable all
 //  AuthenticatorIntegrationTests.swift
 //  Authenticator-iOSTests
 //
@@ -76,7 +76,7 @@ class AuthenticatorIntegrationTests: XCTestCase {
         let env = makeSUT()
         let id = UUID()
         env.sut.presenter.receive(result: .success([
-            .init(id: id, issuer: "issuer", username: "username", secret: "secret"),
+            .init(id: id, issuer: "issuer", username: "username", secret: "secret")
         ]))
         RunLoop.main.runUntilCurrentDate()
         env.sut.viewModel.rows[0].onTrailingSwipeAction()
@@ -120,7 +120,7 @@ class AuthenticatorIntegrationTests: XCTestCase {
 
     class TestEnvironment {
         let sut: AuthenticatorListComposer
-        let appEventObservable :AppEventObservable
+        let appEventObservable: AppEventObservable
         let mock: AuthenticatorListPresenterMock
         let componentSpy: AuthenticatorListComposerDelegateSpy
 

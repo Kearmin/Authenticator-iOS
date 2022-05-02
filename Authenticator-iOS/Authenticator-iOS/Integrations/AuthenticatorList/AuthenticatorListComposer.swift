@@ -23,8 +23,7 @@ public final class AuthenticatorListComposer: UIHostingController<AuthenticatorL
     init(rootView: AuthenticatorListView,
          viewModel: AuthenticatorListViewModel,
          presenter: AuthenticatorListPresenter,
-         appEventObservable: AppEventObservable)
-    {
+         appEventObservable: AppEventObservable) {
         self.viewModel = viewModel
         self.presenter = presenter
         self.appEventObservable = appEventObservable
@@ -77,10 +76,9 @@ extension AuthenticatorListComposer: AuthenticatorListPresenterDelegate {
                         id: row.id,
                         issuer: row.issuer,
                         username: row.username,
-                        TOTPCode: row.TOTPCode,
-                        onTrailingSwipeAction: { [weak self] in
+                        TOTPCode: row.TOTPCode) { [weak self] in
                             self?.presenter.deleteAccount(id: row.id)
-                        })
+                        }
             }
         }
     }

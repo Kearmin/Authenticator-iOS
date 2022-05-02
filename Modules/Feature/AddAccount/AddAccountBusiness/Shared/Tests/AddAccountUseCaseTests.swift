@@ -1,4 +1,4 @@
-//
+// swiftlint:disable all
 //  AddAccountUseCaseTests.swift
 //  AddAccountBusiness
 //
@@ -9,7 +9,6 @@ import XCTest
 import AddAccountBusiness
 
 class AddAccountUseCaseTests: XCTestCase {
-
     var long = "otpauth://totp/ACME%20Co:john.doe@email.com?secret=HXDMVJECJJWSRB3HWIZR4IFUGFTMXBOZ&issuer=ACME%20Co&algorithm=SHA1&digits=6&period=30"
 
     var short = "otpauth://totp/john.doe@email.com?secret=HXDMVJECJJWSRB3HWIZR4IFUGFTMXBOZ&issuer=issuer"

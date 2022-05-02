@@ -10,7 +10,6 @@ import SwiftUI
 // 35KCTE3K23SWLHPYJLNATLZVWR765ZZ4
 
 public struct AuthenticatorListView: View {
-
     @StateObject private var viewModel: AuthenticatorListViewModel
 
     public init(viewModel: AuthenticatorListViewModel) {
@@ -53,15 +52,15 @@ public struct AuthenticatorListView: View {
 
 struct AuthenticatorListView_Previews: PreviewProvider {
     static var viewModel: AuthenticatorListViewModel {
-        let vm = AuthenticatorListViewModel()
-        vm.countDownSeconds = "30"
-        vm.rows = [
+        let viewModel = AuthenticatorListViewModel()
+        viewModel.countDownSeconds = "30"
+        viewModel.rows = [
             .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456") { },
             .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456") { },
             .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456") { },
-            .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456") { },
+            .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456") { }
         ]
-        return vm
+        return viewModel
     }
     static var previews: some View {
         NavigationView {

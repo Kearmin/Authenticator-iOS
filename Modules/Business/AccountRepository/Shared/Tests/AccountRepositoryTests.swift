@@ -1,4 +1,4 @@
-//
+// swiftlint:disable all
 //  AccountRepositoryTests.swift
 //  AccountRepository
 //
@@ -14,7 +14,7 @@ class AccountRepositoryTests: XCTestCase {
         let account = self.account()
         let mock = AccountRepositoryMock()
         mock.readAccountResults = [.success([account])]
-        let _ = makeSUT(mock: mock)
+        _ = makeSUT(mock: mock)
         XCTAssertEqual(mock.readAccountResults.count, 0)
     }
 
