@@ -2,7 +2,8 @@ lane :tests do
     scan(
       workspace: "Authenticator-iOS.xcworkspace",
       scheme: "Authenticator-iOS",
-      devices: []
+      devices: [],
+      xcodebuild_formatter: "xcbeautify"
     )
 end
 
@@ -12,5 +13,13 @@ lane :carthage_bootstrap do
     cache_builds: true,
     use_xcframeworks: true,
     platform: "iOS"
+  )
+end
+
+lane :lint do 
+  swiftlint(
+    mode: :lint,
+    raise_if_swiftlint_error: true,
+    strict: true,
   )
 end
