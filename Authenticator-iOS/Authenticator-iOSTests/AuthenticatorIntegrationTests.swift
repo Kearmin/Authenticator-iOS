@@ -20,6 +20,7 @@ class AuthenticatorIntegrationTests: XCTestCase {
     private let dateAt20minute = Date(timeIntervalSince1970: 1651436960)
 
     override func tearDown() {
+        super.tearDown()
         XCTAssertNil(weakSUT)
     }
 
