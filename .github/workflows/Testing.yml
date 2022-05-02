@@ -30,6 +30,9 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-carthage-
 
+      - name: Swiftlint
+        run: bundle exec fastlane lint
+
       - name: Carthage bootstrap
         run: bundle exec fastlane carthage_bootstrap
 
