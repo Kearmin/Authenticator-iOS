@@ -13,7 +13,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
         
-      - run: brew install xcbeautify
+      - name: Setup Environment
+        run: brew install xcbeautify && brew install swiftlint
 
       - name: Setup Ruby And Gem Cache
         uses: ruby/setup-ruby@v1
