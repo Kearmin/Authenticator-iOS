@@ -12,7 +12,7 @@ class FireBaseAnalitycsAdapter: AuthenticatorAnalytics {
         logEvent(name: name, parameters: nil)
     }
 
-    func logEvent(name: String, parameters: [String : Any]?) {
+    func logEvent(name: String, parameters: [String: Any]?) {
         Analytics.logEvent(name, parameters: parameters)
     }
 }

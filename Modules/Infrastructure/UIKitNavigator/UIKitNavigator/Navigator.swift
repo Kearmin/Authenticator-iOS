@@ -41,13 +41,13 @@ public extension UIKitNavigator {
         message: String,
         source: UIViewController,
         handler: ((UIAlertAction) -> Void)? = nil) {
-        let ac = UIAlertController(
+        let alert = UIAlertController(
             title: title,
             message: message,
             preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "OK", style: .default, handler: handler))
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: handler))
         onMain {
-            source.present(ac, animated: true)
+            source.present(alert, animated: true)
         }
     }
 

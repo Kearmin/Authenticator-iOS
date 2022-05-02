@@ -15,19 +15,19 @@ public protocol AddAccountViewDelegate: AnyObject {
 
 public final class AddAccountView: UIView {
     private lazy var metaDataOutput: AVCaptureMetadataOutput = {
-        let v = AVCaptureMetadataOutput()
-        v.connection(with: .video)?.isEnabled = true
-        return v
+        let metaDataOutput = AVCaptureMetadataOutput()
+        metaDataOutput.connection(with: .video)?.isEnabled = true
+        return metaDataOutput
     }()
 
     private lazy var previewLayer: AVCaptureVideoPreviewLayer = {
-        let l = AVCaptureVideoPreviewLayer(session: session)
-        l.videoGravity = .resizeAspect
-        return l
+        let layer = AVCaptureVideoPreviewLayer(session: session)
+        layer.videoGravity = .resizeAspect
+        return layer
     }()
 
     private let captureDevice: AVCaptureDevice? = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back)
-    private lazy var session: AVCaptureSession = AVCaptureSession()
+    private lazy var session = AVCaptureSession()
 
     private let objectTypes: [AVMetadataObject.ObjectType]
     public weak var delegate: AddAccountViewDelegate?

@@ -22,8 +22,7 @@ final class AuthenticatorListComposer2 {
          viewModel: AuthenticatorListViewModel,
          presenter: AuthenticatorListPresenter,
          appEventObservable: AppEventObservable,
-         navigator: UIKitNavigator)
-    {
+         navigator: UIKitNavigator) {
         self.viewModel = viewModel
         self.presenter = presenter
         self.appEventObservable = appEventObservable
@@ -67,10 +66,9 @@ extension AuthenticatorListComposer2: AuthenticatorListPresenterDelegate {
                         id: row.id,
                         issuer: row.issuer,
                         username: row.username,
-                        TOTPCode: row.TOTPCode,
-                        onTrailingSwipeAction: { [weak self] in
+                        TOTPCode: row.TOTPCode) { [weak self] in
                             self?.presenter.deleteAccount(id: row.id)
-                        })
+                        }
             }
         }
     }
@@ -94,16 +92,15 @@ protocol AuthenticatorListViewControllerDelegate: AnyObject {
 
 
 final class AuthenticatorListViewController: UIHostingController<AuthenticatorListView> {
-
     var delegate: AuthenticatorListViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = .init(
             systemItem: .add,
-            primaryAction: .init(handler: { [unowned self] _ in
+            primaryAction: .init() { [unowned self] _ in
                 self.delegate?.didPressAddAccountButton(self)
-            }),
+            },
             menu: nil)
     }
 }

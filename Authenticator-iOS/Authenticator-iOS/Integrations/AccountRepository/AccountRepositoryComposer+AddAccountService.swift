@@ -18,9 +18,6 @@ extension AccountRepository: AddAccountSaveService {
 
 private extension CreatAccountModel {
     var asAccount: Account {
-        .init(id: UUID(),
-              issuer: issuer,
-              secret: secret,
-              username: username)
+        .init(id: UUID(), issuer: issuer, secret: secret, username: username)
     }
 }

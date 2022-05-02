@@ -14,3 +14,11 @@ lane :carthage_bootstrap do
     platform: "iOS"
   )
 end
+
+lane :lint do 
+  swiftlint(
+    mode: :lint,
+    raise_if_swiftlint_error: true,
+    strict: true,
+  )
+end

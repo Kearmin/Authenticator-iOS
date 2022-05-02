@@ -26,8 +26,16 @@ final class AppEventObservable {
     }
 
     init() {
-        notificationCenter.addObserver(self, selector: #selector(appDidEnterForeground), name: UIScene.didActivateNotification, object: nil)
-        notificationCenter.addObserver(self, selector: #selector(appWillEnterBackground), name: UIScene.willDeactivateNotification, object: nil)
+        notificationCenter.addObserver(
+            self,
+            selector: #selector(appDidEnterForeground),
+            name: UIScene.didActivateNotification,
+            object: nil)
+        notificationCenter.addObserver(
+            self,
+            selector: #selector(appWillEnterBackground),
+            name: UIScene.willDeactivateNotification,
+            object: nil)
     }
 
     deinit {
@@ -55,7 +63,7 @@ final class AppEventObservable {
 
 extension Array where Element == WeakBox<AnyObject> {
     mutating func getAllAndPrune<T>() -> [T] {
-        removeAll(where: { $0.item == nil })
+        removeAll { $0.item == nil }
         return compactMap {
             guard let item = $0.item else { return nil }
             assert((item as? T) != nil)

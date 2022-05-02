@@ -8,7 +8,6 @@
 import Foundation
 
 public class SystemJSONFileSystemPersistanceProvider: JSONFileSystemPersistanceProvider {
-
     let queue: DispatchQueue
 
     public init(queue: DispatchQueue) {
