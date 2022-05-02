@@ -12,6 +12,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        
+      - run: brew install xcbeautify
 
       - name: Setup Ruby And Gem Cache
         uses: ruby/setup-ruby@v1
