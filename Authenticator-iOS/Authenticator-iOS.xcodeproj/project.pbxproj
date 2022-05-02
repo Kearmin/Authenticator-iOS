@@ -41,25 +41,17 @@
 		B0C090BE281ED9E8005E1FBD /* PromisesObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C09026281ED0EB005E1FBD /* PromisesObjC.xcframework */; };
 		B0C090C9281EEED2005E1FBD /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C090C3281EEE8D005E1FBD /* libc++.tbd */; };
 		B0C090CB281EF85F005E1FBD /* AccountRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B056F762281DD6F000617F42 /* AccountRepository.framework */; };
-		B0C090CC281EF85F005E1FBD /* AccountRepository.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B056F762281DD6F000617F42 /* AccountRepository.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0C090CD281EF860005E1FBD /* AddAccountBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B056F763281DD6F000617F42 /* AddAccountBusiness.framework */; };
-		B0C090CE281EF860005E1FBD /* AddAccountBusiness.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B056F763281DD6F000617F42 /* AddAccountBusiness.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0C090CF281EF861005E1FBD /* AddAccountView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B056F764281DD6F000617F42 /* AddAccountView.framework */; };
-		B0C090D0281EF861005E1FBD /* AddAccountView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B056F764281DD6F000617F42 /* AddAccountView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0C090D1281EF862005E1FBD /* AuthenticatorListBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B056F765281DD6F000617F42 /* AuthenticatorListBusiness.framework */; };
-		B0C090D2281EF862005E1FBD /* AuthenticatorListBusiness.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B056F765281DD6F000617F42 /* AuthenticatorListBusiness.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0C090D3281EF863005E1FBD /* AuthenticatorListView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B056F766281DD6F000617F42 /* AuthenticatorListView.framework */; };
-		B0C090D4281EF863005E1FBD /* AuthenticatorListView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B056F766281DD6F000617F42 /* AuthenticatorListView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0C090D5281EF864005E1FBD /* Clock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B056F767281DD6F000617F42 /* Clock.framework */; };
-		B0C090D6281EF864005E1FBD /* Clock.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B056F767281DD6F000617F42 /* Clock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0C090D7281EF865005E1FBD /* FileSystemPersistentStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B056F768281DD6F000617F42 /* FileSystemPersistentStorage.framework */; };
-		B0C090D8281EF865005E1FBD /* FileSystemPersistentStorage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B056F768281DD6F000617F42 /* FileSystemPersistentStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0C090DB281EF88E005E1FBD /* Resolver.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2D4E4281D6AFC00ADF159 /* Resolver.xcframework */; };
 		B0C090DC281EF88E005E1FBD /* Resolver.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2D4E4281D6AFC00ADF159 /* Resolver.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0C090DD281EF88F005E1FBD /* SwiftOTP.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2D4E8281D6B3700ADF159 /* SwiftOTP.xcframework */; };
 		B0C090DE281EF88F005E1FBD /* SwiftOTP.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2D4E8281D6B3700ADF159 /* SwiftOTP.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0C090DF281F013D005E1FBD /* UIKitNavigator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B056F769281DD6F000617F42 /* UIKitNavigator.framework */; };
-		B0C090E0281F013D005E1FBD /* UIKitNavigator.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B056F769281DD6F000617F42 /* UIKitNavigator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0CF913B281F3A31000FAA94 /* UIKitHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CF913A281F3A31000FAA94 /* UIKitHelpers.swift */; };
 		B0CF913D281F3D57000FAA94 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CF913C281F3D57000FAA94 /* AppEnvironment.swift */; };
 		B0CF913F281F4407000FAA94 /* WeakBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CF913E281F4407000FAA94 /* WeakBox.swift */; };
@@ -87,16 +79,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B0C090CE281EF860005E1FBD /* AddAccountBusiness.framework in Embed Frameworks */,
-				B0C090CC281EF85F005E1FBD /* AccountRepository.framework in Embed Frameworks */,
-				B0C090D2281EF862005E1FBD /* AuthenticatorListBusiness.framework in Embed Frameworks */,
-				B0C090D4281EF863005E1FBD /* AuthenticatorListView.framework in Embed Frameworks */,
 				B0C090DC281EF88E005E1FBD /* Resolver.xcframework in Embed Frameworks */,
-				B0C090D0281EF861005E1FBD /* AddAccountView.framework in Embed Frameworks */,
-				B0C090D6281EF864005E1FBD /* Clock.framework in Embed Frameworks */,
-				B0C090D8281EF865005E1FBD /* FileSystemPersistentStorage.framework in Embed Frameworks */,
 				B0C090DE281EF88F005E1FBD /* SwiftOTP.xcframework in Embed Frameworks */,
-				B0C090E0281F013D005E1FBD /* UIKitNavigator.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
