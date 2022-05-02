@@ -12,6 +12,8 @@
 		B00CED662811DF01001CB090 /* AuthenticatorListComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00CED652811DF01001CB090 /* AuthenticatorListComposer.swift */; };
 		B00CED6B2811DF02001CB090 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B00CED6A2811DF02001CB090 /* Assets.xcassets */; };
 		B00CED6E2811DF02001CB090 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B00CED6C2811DF02001CB090 /* LaunchScreen.storyboard */; };
+		B021A2E5281FE8130087F883 /* AuthenticatorAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = B021A2E4281FE8130087F883 /* AuthenticatorAnalytics.swift */; };
+		B021A2E7281FE8830087F883 /* FireBaseAnalyticsAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B021A2E6281FE8830087F883 /* FireBaseAnalyticsAdapter.swift */; };
 		B047DFC628122403007EF575 /* AuthenticatorListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B047DFC528122403007EF575 /* AuthenticatorListService.swift */; };
 		B047DFC82812243A007EF575 /* AuthenticationList+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = B047DFC72812243A007EF575 /* AuthenticationList+Init.swift */; };
 		B050D26F281B97D000117364 /* AuthenticatorList2.swift in Sources */ = {isa = PBXBuildFile; fileRef = B050D26E281B97D000117364 /* AuthenticatorList2.swift */; };
@@ -110,6 +112,8 @@
 		B00CED6A2811DF02001CB090 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B00CED6D2811DF02001CB090 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B00CED6F2811DF02001CB090 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B021A2E4281FE8130087F883 /* AuthenticatorAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorAnalytics.swift; sourceTree = "<group>"; };
+		B021A2E6281FE8830087F883 /* FireBaseAnalyticsAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseAnalyticsAdapter.swift; sourceTree = "<group>"; };
 		B022ED2528134F18000C8F23 /* AuthenticatorListBusiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AuthenticatorListBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B022ED2828134F22000C8F23 /* AddAccountBusiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AddAccountBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B047DFA42811F2FE007EF575 /* SwiftOTP.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SwiftOTP.xcframework; path = Carthage/Build/SwiftOTP.xcframework; sourceTree = "<group>"; };
@@ -247,6 +251,15 @@
 			path = "Authenticator-iOS";
 			sourceTree = "<group>";
 		};
+		B021A2E3281FE8050087F883 /* Analitycs */ = {
+			isa = PBXGroup;
+			children = (
+				B021A2E4281FE8130087F883 /* AuthenticatorAnalytics.swift */,
+				B021A2E6281FE8830087F883 /* FireBaseAnalyticsAdapter.swift */,
+			);
+			path = Analitycs;
+			sourceTree = "<group>";
+		};
 		B047DFA32811F2FE007EF575 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -341,6 +354,7 @@
 		B07979C92815D5F20009CCF0 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				B021A2E3281FE8050087F883 /* Analitycs */,
 				B07979C428158EEF0009CCF0 /* TOTPGenerator */,
 			);
 			path = ThirdParty;
@@ -539,7 +553,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B021A2E7281FE8830087F883 /* FireBaseAnalyticsAdapter.swift in Sources */,
 				B07979E32815E5730009CCF0 /* Navigator+CreateAuthenticatorListWindow.swift in Sources */,
+				B021A2E5281FE8130087F883 /* AuthenticatorAnalytics.swift in Sources */,
 				B07979CB2815D61D0009CCF0 /* SwiftOTP+AuthenticatorTOTPProvider.swift in Sources */,
 				B047DFC628122403007EF575 /* AuthenticatorListService.swift in Sources */,
 				B00CED662811DF01001CB090 /* AuthenticatorListComposer.swift in Sources */,

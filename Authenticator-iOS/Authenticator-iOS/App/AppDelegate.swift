@@ -9,6 +9,7 @@ import UIKit
 import Resolver
 import FirebaseCore
 import FirebaseAnalytics
+import FirebaseCrashlytics
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,8 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         if AppEnvironment.isRunningTests { return true }
         FirebaseApp.configure()
-        Analytics.logEvent("ApplicationDidStart", parameters: nil)
         Resolver.registerAppDependencies()
+        Resolver.resolve(AuthenticatorAnalytics.self).logEvent(name: "ApplicationDidStart")
         return true
     }
 

@@ -41,9 +41,16 @@ extension Resolver {
         }
         .scope(.application)
 
-        register(AuthenticatorTOTPProvider.self) {
+        register(SwiftOTPProvider.self) {
             SwiftOTPProvider()
         }
+        .implements(AuthenticatorTOTPProvider.self)
+        .scope(.application)
+
+        register(FireBaseAnalitycsAdapter.self) {
+            FireBaseAnalitycsAdapter()
+        }
+        .implements(AuthenticatorAnalytics.self)
         .scope(.application)
 
         register(UIKitNavigator.self) { resolver in
