@@ -22,8 +22,7 @@ final class AppEventObservable {
     private var _observers: [WeakBox<AnyObject>] = []
 
     var observers: [AppEventObserver] {
-        _observers.removeAll(where: { $0.item == nil })
-        return _observers.compactMap { $0.item as? AppEventObserver }
+        _observers.getAllAndPrune()
     }
 
     init() {
@@ -50,6 +49,17 @@ final class AppEventObservable {
     func appWillEnterBackground() {
         observers.forEach {
             $0.handle(event: .appWillEnterBackground)
+        }
+    }
+}
+
+extension Array where Element == WeakBox<AnyObject> {
+    mutating func getAllAndPrune<T>() -> [T] {
+        removeAll(where: { $0.item == nil })
+        return compactMap {
+            guard let item = $0.item else { return nil }
+            assert((item as? T) != nil)
+            return item as? T
         }
     }
 }
