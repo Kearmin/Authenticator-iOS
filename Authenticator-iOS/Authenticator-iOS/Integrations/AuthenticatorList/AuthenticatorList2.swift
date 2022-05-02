@@ -98,7 +98,7 @@ final class AuthenticatorListViewController: UIHostingController<AuthenticatorLi
         super.viewDidLoad()
         navigationItem.rightBarButtonItem = .init(
             systemItem: .add,
-            primaryAction: .init() { [unowned self] _ in
+            primaryAction: .init { [unowned self] _ in
                 self.delegate?.didPressAddAccountButton(self)
             },
             menu: nil)
