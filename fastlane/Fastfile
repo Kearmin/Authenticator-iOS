@@ -3,7 +3,8 @@ lane :tests do
       workspace: "Authenticator-iOS.xcworkspace",
       scheme: "Authenticator-iOS",
       devices: [],
-      xcodebuild_formatter: "xcbeautify"
+      xcodebuild_formatter: "xcbeautify",
+      skip_package_dependencies_resolution = true
     )
 end
 
