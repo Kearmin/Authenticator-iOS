@@ -52,8 +52,8 @@ extension Resolver {
         .implements(AuthenticatorAnalytics.self)
         .scope(.application)
 
-        register(UIKitNavigator.self) { resolver in
-            let appEventObservable: AppEventObservable = resolver.resolve()
+        register(UIKitNavigator.self) {
+            let appEventObservable: AppEventObservable = resolve()
             let navigator = UIKitNavigator()
             appEventObservable.observeWeakly(navigator)
             return navigator
@@ -75,9 +75,9 @@ extension Resolver {
         }
         .scope(.cached)
 
-        register(AddAccountSaveService.self) { resolver in
-            let accountRepository = resolver.resolve(AccountRepository.self)
-            return AddAccountSaveServiceAnalyticsDecorator(accountRepository, analitycs: resolver.resolve())
+        register(AddAccountSaveService.self) {
+            let accountRepository = resolve(AccountRepository.self)
+            return AddAccountSaveServiceAnalyticsDecorator(accountRepository, analitycs: resolve())
         }
 
         register(TimerAuthenticatorListPresenterService.self) { _ in
