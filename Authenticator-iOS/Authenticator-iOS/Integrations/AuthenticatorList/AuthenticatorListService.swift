@@ -16,6 +16,8 @@ final class TimerAuthenticatorListPresenterService: AuthenticatorListPresenterSe
     private let clock: Clock = Resolver.resolve()
     private let repository: AccountRepository = Resolver.resolve()
     private let totpProvider: AuthenticatorTOTPProvider = Resolver.resolve()
+    private let analitycs: AuthenticatorAnalytics = Resolver.resolve()
+
     weak var presenter: AuthenticatorListPresenter?
 
     var receiveCurrentDate: ((Date) -> Void)? {
@@ -28,6 +30,7 @@ final class TimerAuthenticatorListPresenterService: AuthenticatorListPresenterSe
             }
         }
     }
+
     var cycleLength: Int = 30
 
     deinit {
@@ -48,6 +51,7 @@ final class TimerAuthenticatorListPresenterService: AuthenticatorListPresenterSe
 
     func deleteAccount(id: UUID) throws {
         try repository.delete(accountID: id)
+        analitycs.logEvent(name: "AuthenticatorAccountDeleted")
     }
 
     func getTOTP(secret: String, timeInterval: Int, date: Date) -> String {
