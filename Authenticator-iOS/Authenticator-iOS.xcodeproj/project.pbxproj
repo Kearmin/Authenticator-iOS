@@ -63,6 +63,9 @@
 		B0CF913B281F3A31000FAA94 /* UIKitHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CF913A281F3A31000FAA94 /* UIKitHelpers.swift */; };
 		B0CF913D281F3D57000FAA94 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CF913C281F3D57000FAA94 /* AppEnvironment.swift */; };
 		B0CF913F281F4407000FAA94 /* WeakBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CF913E281F4407000FAA94 /* WeakBox.swift */; };
+		B0E06D322820AA660022DC40 /* FireBaseAnalyticsAdapter+AddAccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E06D312820AA660022DC40 /* FireBaseAnalyticsAdapter+AddAccountService.swift */; };
+		B0E06D342820B21D0022DC40 /* AddAccountSaveServiceAnalyticsDecoratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E06D332820B21D0022DC40 /* AddAccountSaveServiceAnalyticsDecoratorTests.swift */; };
+		B0E06D362820B42F0022DC40 /* AuthenticatorAnalitycsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E06D352820B42F0022DC40 /* AuthenticatorAnalitycsMock.swift */; };
 		B0F423E72814B71A00C9D138 /* AccountRepositoryComposer+AddAccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F423E62814B71A00C9D138 /* AccountRepositoryComposer+AddAccountService.swift */; };
 		B0F423F42814C71100C9D138 /* FileSystemPersistentStorage+AccountRepositoryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F423F32814C71100C9D138 /* FileSystemPersistentStorage+AccountRepositoryProvider.swift */; };
 		B0F423F72814C76E00C9D138 /* Resolver+GlobalDepencencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F423F62814C76E00C9D138 /* Resolver+GlobalDepencencies.swift */; };
@@ -169,6 +172,9 @@
 		B0CF913A281F3A31000FAA94 /* UIKitHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitHelpers.swift; sourceTree = "<group>"; };
 		B0CF913C281F3D57000FAA94 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		B0CF913E281F4407000FAA94 /* WeakBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakBox.swift; sourceTree = "<group>"; };
+		B0E06D312820AA660022DC40 /* FireBaseAnalyticsAdapter+AddAccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FireBaseAnalyticsAdapter+AddAccountService.swift"; sourceTree = "<group>"; };
+		B0E06D332820B21D0022DC40 /* AddAccountSaveServiceAnalyticsDecoratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountSaveServiceAnalyticsDecoratorTests.swift; sourceTree = "<group>"; };
+		B0E06D352820B42F0022DC40 /* AuthenticatorAnalitycsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorAnalitycsMock.swift; sourceTree = "<group>"; };
 		B0F423E62814B71A00C9D138 /* AccountRepositoryComposer+AddAccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountRepositoryComposer+AddAccountService.swift"; sourceTree = "<group>"; };
 		B0F423E82814B74300C9D138 /* AccountRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AccountRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0F423EE2814C6E400C9D138 /* Resolver.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Resolver.xcframework; path = Carthage/Build/Resolver.xcframework; sourceTree = "<group>"; };
@@ -256,6 +262,7 @@
 			children = (
 				B021A2E4281FE8130087F883 /* AuthenticatorAnalytics.swift */,
 				B021A2E6281FE8830087F883 /* FireBaseAnalyticsAdapter.swift */,
+				B0E06D312820AA660022DC40 /* FireBaseAnalyticsAdapter+AddAccountService.swift */,
 			);
 			path = Analitycs;
 			sourceTree = "<group>";
@@ -375,6 +382,8 @@
 				B0CF913A281F3A31000FAA94 /* UIKitHelpers.swift */,
 				B0A906C42812EAA000F72F87 /* AuthenticatorIntegrationTests.swift */,
 				B0A906C32812EAA000F72F87 /* Authenticator-iOSTests-Bridging-Header.h */,
+				B0E06D332820B21D0022DC40 /* AddAccountSaveServiceAnalyticsDecoratorTests.swift */,
+				B0E06D352820B42F0022DC40 /* AuthenticatorAnalitycsMock.swift */,
 			);
 			path = "Authenticator-iOSTests";
 			sourceTree = "<group>";
@@ -586,6 +595,7 @@
 				B07979C1281574BD0009CCF0 /* OverLayViewController.swift in Sources */,
 				B0F423F42814C71100C9D138 /* FileSystemPersistentStorage+AccountRepositoryProvider.swift in Sources */,
 				B07979C628158F0B0009CCF0 /* AuthenticatorTOTPProvider.swift in Sources */,
+				B0E06D322820AA660022DC40 /* FireBaseAnalyticsAdapter+AddAccountService.swift in Sources */,
 				B0F423FA2814CAF900C9D138 /* Navigator+AuthenticatorListComposerDelegate.swift in Sources */,
 				B07979EB2815EB040009CCF0 /* AddAccountComposer+init.swift in Sources */,
 				B0F423E72814B71A00C9D138 /* AccountRepositoryComposer+AddAccountService.swift in Sources */,
@@ -603,8 +613,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0E06D362820B42F0022DC40 /* AuthenticatorAnalitycsMock.swift in Sources */,
 				B0CF913B281F3A31000FAA94 /* UIKitHelpers.swift in Sources */,
 				B0A906C52812EAA000F72F87 /* AuthenticatorIntegrationTests.swift in Sources */,
+				B0E06D342820B21D0022DC40 /* AddAccountSaveServiceAnalyticsDecoratorTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

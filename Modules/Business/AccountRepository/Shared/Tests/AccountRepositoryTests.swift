@@ -52,34 +52,6 @@ class AccountRepositoryTests: XCTestCase {
         }
     }
 
-    func test_RepositoryAddIsThreadSafe() {
-        let mock = AccountRepositoryMock()
-        let sut = makeSUT(mock: mock)
-        let dispatchGroup = DispatchGroup()
-        let exp = expectation(description: "add.multi.thread")
-        let ids = (0..<100).map { _ in UUID() }
-        for id in ids {
-            dispatchGroup.enter()
-            DispatchQueue.global().async {
-                try! sut.add(account: self.account(id: id))
-                dispatchGroup.leave()
-            }
-        }
-
-        dispatchGroup.notify(queue: .main) {
-            exp.fulfill()
-        }
-
-        wait(for: [exp], timeout: 0.1)
-        for id in ids {
-            // We can't guarantee that Dispatchqueue.global().async calls are in order
-            // but we should guarantee that all of them are completed
-            // and that it doesn't crash
-            let savedIDs = mock.savedAccounts.map(\.id)
-            XCTAssertTrue(savedIDs.contains(id))
-        }
-    }
-
     func test_RepositoryCanDeleteAccount() {
         let account = account()
         let mock = AccountRepositoryMock()
@@ -104,7 +76,7 @@ class AccountRepositoryTests: XCTestCase {
     }
 
     func makeSUT(mock: AccountRepositoryMock = .init()) -> AccountRepository {
-        .init(provider: mock, queue: DispatchQueue(label: "test"))
+        .init(provider: mock)
     }
 
     private func account(id: UUID = UUID(), issuer: String = "issuer") -> Account {
