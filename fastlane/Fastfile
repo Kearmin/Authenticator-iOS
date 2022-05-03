@@ -4,7 +4,7 @@ lane :tests do
       scheme: "Authenticator-iOS",
       devices: [],
       xcodebuild_formatter: "xcbeautify",
-      skip_package_dependencies_resolution = true
+      skip_package_dependencies_resolution: true
     )
 end
 
