@@ -9,17 +9,20 @@
     }
   ],
   "defaultOptions" : {
+    "codeCoverage" : false,
     "commandLineArgumentEntries" : [
       {
         "argument" : "-isTest YES"
       }
     ],
+    "mainThreadCheckerEnabled" : false,
     "targetForVariableExpansion" : {
       "containerPath" : "container:Authenticator-iOS.xcodeproj",
       "identifier" : "B00CED5D2811DF01001CB090",
       "name" : "Authenticator-iOS"
     },
-    "testExecutionOrdering" : "random"
+    "testExecutionOrdering" : "random",
+    "userAttachmentLifetime" : "keepNever"
   },
   "testTargets" : [
     {
