@@ -41,9 +41,27 @@ class AddAccountUseCaseTests: XCTestCase {
         XCTAssertEqual(result.algorithm, "sha1")
     }
 
+    func test_useCaseFailsIfUrlIsMissingEssentialValues() {
+        let sut = makeSUT()
+        XCTAssertThrowsError(try sut.createAccount(urlString: "notAnURL")) { error in
+            XCTAssertEqual(error as? AddAccountUseCaseErrors, .invalidURL(URL: "notAnURL"))
+        }
+        let issuerMissingUrl = short.replacingOccurrences(of: "issuer", with: "notissuer")
+        XCTAssertThrowsError(try sut.createAccount(urlString: issuerMissingUrl)) { error in
+            XCTAssertEqual(error as? AddAccountUseCaseErrors, .invalidURL(URL: issuerMissingUrl))
+        }
+        let secretMissingUrl = short.replacingOccurrences(of: "secret", with: "notsecret")
+        XCTAssertThrowsError(try sut.createAccount(urlString: secretMissingUrl)) { error in
+            XCTAssertEqual(error as? AddAccountUseCaseErrors, .invalidURL(URL: secretMissingUrl))
+        }
+    }
+
     func test_useCaseFailsIfOTPMethodIsHOTP() {
         let sut = makeSUT()
-        XCTAssertThrowsError(try sut.createAccount(urlString: short.replacingOccurrences(of: "totp", with: "hotp")))
+        let url = short.replacingOccurrences(of: "totp", with: "hotp")
+        XCTAssertThrowsError(try sut.createAccount(urlString: url)) { error in
+            XCTAssertEqual(error as? AddAccountUseCaseErrors, .notSupportedOTPMethod(method: "hotp"))
+        }
     }
 
     func test_useCaseFailsIfAlgorithIsNotSHA1() {

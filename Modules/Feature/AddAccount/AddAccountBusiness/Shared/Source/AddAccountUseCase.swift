@@ -12,7 +12,7 @@ public protocol AddAccountSaveService {
 }
 
 public enum AddAccountUseCaseErrors: Error, Equatable {
-    case invalidURL
+    case invalidURL(URL: String)
     case notSupportedOTPMethod(method: String)
     case notSupportedAlgorithm(algorithm: String)
     case notSupportedDigitCount(digit: String)
@@ -38,7 +38,7 @@ public final class AddAccountUseCase {
 private extension AddAccountUseCase {
     func parse(urlString: String) throws -> CreatAccountModel {
         guard let urlComponents = URLComponents(string: urlString), urlComponents.scheme?.lowercased() == "otpauth" else {
-            throw AddAccountUseCaseErrors.invalidURL
+            throw AddAccountUseCaseErrors.invalidURL(URL: urlString)
         }
         let method = urlComponents.host ?? "empty"
         if method != "totp" {
@@ -73,11 +73,11 @@ private extension URLComponents {
     }
 
     func getIssuer() throws -> String {
-        try lowerCasedQueryItemValue(for: "issuer", elseThrow: AddAccountUseCaseErrors.invalidURL)
+        try lowerCasedQueryItemValue(for: "issuer", elseThrow: AddAccountUseCaseErrors.invalidURL(URL: url?.absoluteString ?? ""))
     }
 
     func getSecret() throws -> String {
-        try lowerCasedQueryItemValue(for: "secret", elseThrow: AddAccountUseCaseErrors.invalidURL)
+        try lowerCasedQueryItemValue(for: "secret", elseThrow: AddAccountUseCaseErrors.invalidURL(URL: url?.absoluteString ?? ""))
     }
 
     func getUsername() -> String {
