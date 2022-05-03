@@ -48,17 +48,23 @@ class AddAccountUseCaseTests: XCTestCase {
 
     func test_useCaseFailsIfAlgorithIsNotSHA1() {
         let sut = makeSUT()
-        XCTAssertThrowsError(try sut.createAccount(urlString: short + "&algorithm=SHA256"))
+        XCTAssertThrowsError(try sut.createAccount(urlString: short + "&algorithm=SHA256")) { error in
+            XCTAssertEqual(error as? AddAccountUseCaseErrors, .notSupportedAlgorithm(algorithm: "SHA256"))
+        }
     }
 
     func test_usecaseFailsIfDigitsIsNot6() {
         let sut = makeSUT()
-        XCTAssertThrowsError(try sut.createAccount(urlString: short + "&digits=8"))
+        XCTAssertThrowsError(try sut.createAccount(urlString: short + "&digits=8")) { error in
+            XCTAssertEqual(error as? AddAccountUseCaseErrors, .notSupportedDigitCount(digit: "8"))
+        }
     }
 
     func test_usecaseFailsIfPeriodIsNot30() {
         let sut = makeSUT()
-        XCTAssertThrowsError(try sut.createAccount(urlString: short + "&period=60"))
+        XCTAssertThrowsError(try sut.createAccount(urlString: short + "&period=60")) { error in
+            XCTAssertEqual(error as? AddAccountUseCaseErrors, .notSupportedPeriod(period: "60"))
+        }
     }
 
     func makeSUT(spy: AddAccountServiceSpy = .init()) -> AddAccountUseCase {

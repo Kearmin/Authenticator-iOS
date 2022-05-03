@@ -11,12 +11,12 @@ public protocol AddAccountSaveService {
     func save(account: CreatAccountModel) throws
 }
 
-public enum AddAccountUseCaseErrors: Error {
+public enum AddAccountUseCaseErrors: Error, Equatable {
     case invalidURL
-    case notSupportedOTPMethod
-    case notSupportedAlgorithm
-    case notSupportedDigitCount
-    case notSupportedPeriod
+    case notSupportedOTPMethod(method: String)
+    case notSupportedAlgorithm(algorithm: String)
+    case notSupportedDigitCount(digit: String)
+    case notSupportedPeriod(period: String)
 }
 
 public final class AddAccountUseCase {
@@ -40,8 +40,9 @@ private extension AddAccountUseCase {
         guard let urlComponents = URLComponents(string: urlString), urlComponents.scheme?.lowercased() == "otpauth" else {
             throw AddAccountUseCaseErrors.invalidURL
         }
-        guard let method = urlComponents.host, method == "totp" else {
-            throw AddAccountUseCaseErrors.notSupportedOTPMethod
+        let method = urlComponents.host ?? "empty"
+        if method != "totp" {
+            throw AddAccountUseCaseErrors.notSupportedOTPMethod(method: method)
         }
         return try CreatAccountModel(urlComponents: urlComponents)
     }
@@ -49,6 +50,8 @@ private extension AddAccountUseCase {
 
 // MARK: - URLComponents
 private extension URLComponents {
+    struct QueryItemNotFoundError: Error { }
+
     func lowerCasedQueryItemValue(for key: String) -> String? {
         let queryItem = queryItems?.first { $0.name.lowercased() == key.lowercased() }
         return queryItem?.value
@@ -61,10 +64,12 @@ private extension URLComponents {
         return queryItem
     }
 
-    func lowerCasedQueryItemValue(matches value: String, forKey key: String, elseThrow error: Error) throws -> String {
-        guard let queryItemValue = lowerCasedQueryItemValue(for: key) else { return value }
-        if queryItemValue != value { throw error }
-        return queryItemValue
+    func lowerCasedQueryItemValue(matches value: String, forKey key: String, onError: (String) throws -> Void) rethrows -> String {
+        let queryItemValue = lowerCasedQueryItemValue(for: key)
+        if let queryItemValue = queryItemValue, queryItemValue != value {
+            try onError(queryItemValue)
+        }
+        return queryItemValue ?? value
     }
 
     func getIssuer() throws -> String {
@@ -87,24 +92,24 @@ private extension URLComponents {
     }
 
     func getDigits() throws -> String {
-        try lowerCasedQueryItemValue(
-            matches: "6",
-            forKey: "digits",
-            elseThrow: AddAccountUseCaseErrors.notSupportedDigitCount)
+        let expectedDigits = "6"
+        return try lowerCasedQueryItemValue(matches: expectedDigits, forKey: "digits", onError: { nonMatchingDigits in
+            throw AddAccountUseCaseErrors.notSupportedDigitCount(digit: nonMatchingDigits)
+        })
     }
 
     func getPeriod() throws -> String {
-        try lowerCasedQueryItemValue(
-            matches: "30",
-            forKey: "period",
-            elseThrow: AddAccountUseCaseErrors.notSupportedPeriod)
+        let expectedPeriod = "30"
+        return try lowerCasedQueryItemValue(matches: expectedPeriod, forKey: "period", onError: { nonMatchingPeriod in
+            throw AddAccountUseCaseErrors.notSupportedPeriod(period: nonMatchingPeriod)
+        })
     }
 
     func getAlgorithm() throws -> String {
-        try lowerCasedQueryItemValue(
-            matches: "sha1",
-            forKey: "algorithm",
-            elseThrow: AddAccountUseCaseErrors.notSupportedAlgorithm)
+        let expectedAlgorithm = "sha1"
+        return try lowerCasedQueryItemValue(matches: expectedAlgorithm, forKey: "algorithm", onError: { nonMatchingAlgorithm in
+            throw AddAccountUseCaseErrors.notSupportedAlgorithm(algorithm: nonMatchingAlgorithm)
+        })
     }
 }
 
