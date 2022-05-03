@@ -28,7 +28,19 @@ class AddAccountSaveServiceAnalyticsDecorator: AddAccountSaveService {
             ]
             analitycs.logEvent(name: "AuthenticatorAccountCreated", parameters: parameters)
         } catch {
-            analitycs.logEvent(name: "FailedToSaveAccount")
+            guard let useCaseError = error as? AddAccountUseCaseErrors else { throw error }
+            switch useCaseError {
+            case .invalidURL(let url):
+                analitycs.logEvent(name: "FailedToSaveAccount_InvalidURL", parameters: ["URL": url])
+            case .notSupportedOTPMethod(let method):
+                analitycs.logEvent(name: "FailedToSaveAccount_NotSupportedOTP", parameters: ["method": method])
+            case .notSupportedAlgorithm(let algorithm):
+                analitycs.logEvent(name: "FailedToSaveAccount_NotSupportedAlgorithm", parameters: ["algorithm": algorithm])
+            case .notSupportedDigitCount(let digit):
+                analitycs.logEvent(name: "FailedToSaveAccount_NotSupportedDigit", parameters: ["digit": digit])
+            case .notSupportedPeriod(let period):
+                analitycs.logEvent(name: "FailedToSaveAccount_NotSupportedPeriod", parameters: ["period": period])
+            }
             throw error
         }
     }
