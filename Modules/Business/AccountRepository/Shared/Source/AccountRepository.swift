@@ -18,42 +18,34 @@ public enum AccountRepositoryError: Error {
 
 public final class AccountRepository {
     private var provider: AccountRepositoryProvider
-    private let queue: DispatchQueue
     private var inMemory: [Account]?
 
-    public init(provider: AccountRepositoryProvider, queue: DispatchQueue) {
+    public init(provider: AccountRepositoryProvider) {
         self.provider = provider
-        self.queue = queue
         inMemory = try? provider.readAccounts()
     }
 
     public func add(account: Account) throws {
-        try queue.sync {
-            guard !containsAccount(with: account.id) else {
-                throw AccountRepositoryError.accountAlreadyExists
-            }
-            var mutableInMemory = inMemory ?? []
-            mutableInMemory.append(account)
-            try provider.save(accounts: mutableInMemory)
-            inMemory = mutableInMemory
+        guard !containsAccount(with: account.id) else {
+            throw AccountRepositoryError.accountAlreadyExists
         }
+        var mutableInMemory = inMemory ?? []
+        mutableInMemory.append(account)
+        try provider.save(accounts: mutableInMemory)
+        inMemory = mutableInMemory
     }
 
     public func readAccounts() -> [Account] {
-        queue.sync {
-            return inMemory ?? []
-        }
+        return inMemory ?? []
     }
 
     public func delete(accountID: UUID) throws {
-        try queue.sync {
-            guard var mutableInMemory = inMemory else { return }
-            mutableInMemory.removeAll { inMemoryAccount in
-                inMemoryAccount.id == accountID
-            }
-            try provider.save(accounts: mutableInMemory)
-            inMemory = mutableInMemory
+        guard var mutableInMemory = inMemory else { return }
+        mutableInMemory.removeAll { inMemoryAccount in
+            inMemoryAccount.id == accountID
         }
+        try provider.save(accounts: mutableInMemory)
+        inMemory = mutableInMemory
     }
 }
 

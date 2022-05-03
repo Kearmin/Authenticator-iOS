@@ -18,7 +18,6 @@ extension Resolver {
     static func registerAppDependencies() {
         registerCoreDependencies()
         registerDebugInfrastructureDependencies()
-//        registerMockInfrastructureDebendencies()
     }
 }
 
@@ -72,10 +71,14 @@ extension Resolver {
         .scope(.cached)
 
         register(AccountRepository.self) { resolver in
-            AccountRepository(provider: resolver.resolve(), queue: Queues.fileIOBackgroundQueue)
+            AccountRepository(provider: resolver.resolve())
         }
-        .implements(AddAccountSaveService.self)
         .scope(.cached)
+
+        register(AddAccountSaveService.self) { resolver in
+            let accountRepository = resolver.resolve(AccountRepository.self)
+            return AddAccountSaveServiceAnalyticsDecorator(accountRepository, analitycs: resolver.resolve())
+        }
 
         register(TimerAuthenticatorListPresenterService.self) { _ in
             TimerAuthenticatorListPresenterService()

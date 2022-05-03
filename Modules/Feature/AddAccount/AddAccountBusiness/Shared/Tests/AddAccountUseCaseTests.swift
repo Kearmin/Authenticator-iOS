@@ -23,6 +23,9 @@ class AddAccountUseCaseTests: XCTestCase {
         XCTAssertEqual(result.issuer, "issuer")
         XCTAssertEqual(result.secret, "HXDMVJECJJWSRB3HWIZR4IFUGFTMXBOZ")
         XCTAssertEqual(result.username, "john.doe@email.com")
+        XCTAssertEqual(result.digits, "6")
+        XCTAssertEqual(result.period, "30")
+        XCTAssertEqual(result.algorithm, "sha1")
     }
 
     func test_UseCaseCanParseShor2DataFromString() throws {
@@ -33,6 +36,9 @@ class AddAccountUseCaseTests: XCTestCase {
         XCTAssertEqual(result.issuer, "linkedin")
         XCTAssertEqual(result.secret, "secret")
         XCTAssertEqual(result.username, "jake.doe@email.com")
+        XCTAssertEqual(result.digits, "6")
+        XCTAssertEqual(result.period, "30")
+        XCTAssertEqual(result.algorithm, "sha1")
     }
 
     func test_useCaseFailsIfOTPMethodIsHOTP() {

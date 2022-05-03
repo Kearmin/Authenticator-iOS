@@ -37,58 +37,86 @@ public final class AddAccountUseCase {
 // MARK: - Private
 private extension AddAccountUseCase {
     func parse(urlString: String) throws -> CreatAccountModel {
-        guard let urlComponents = URLComponents(string: urlString),
-              urlComponents.scheme?.lowercased() == "otpauth",
-              let issuer = urlComponents.lowerCasedQueryItemValue(for: "issuer"),
-              let secret = urlComponents.lowerCasedQueryItemValue(for: "secret")
-        else {
+        guard let urlComponents = URLComponents(string: urlString), urlComponents.scheme?.lowercased() == "otpauth" else {
             throw AddAccountUseCaseErrors.invalidURL
         }
         guard let method = urlComponents.host, method == "totp" else {
-                throw AddAccountUseCaseErrors.notSupportedOTPMethod
+            throw AddAccountUseCaseErrors.notSupportedOTPMethod
         }
-        try validateNonEssentialQueryItems(urlComponents: urlComponents)
-        let username = username(from: urlComponents)
-        return CreatAccountModel(issuer: issuer, secret: secret, username: username)
-    }
-
-    func username(from urlComponents: URLComponents) -> String {
-        if urlComponents.path.contains(":") {
-            let substring = urlComponents.path
-                .drop { $0 != ":" }
-                .dropFirst()
-            return String(substring)
-        } else {
-            return String(urlComponents.path.dropFirst())
-        }
-    }
-
-    func validateNonEssentialQueryItems(urlComponents: URLComponents) throws {
-        try urlComponents.queryItemValueIfExists(
-            matches: "sha1",
-            forKey: "algorithm",
-            elseThrow: AddAccountUseCaseErrors.notSupportedAlgorithm)
-        try urlComponents.queryItemValueIfExists(
-            matches: "30",
-            forKey: "period",
-            elseThrow: AddAccountUseCaseErrors.notSupportedPeriod)
-        try urlComponents.queryItemValueIfExists(
-            matches: "6",
-            forKey: "digits",
-            elseThrow: AddAccountUseCaseErrors.notSupportedDigitCount)
+        return try CreatAccountModel(urlComponents: urlComponents)
     }
 }
 
+// MARK: - URLComponents
 private extension URLComponents {
     func lowerCasedQueryItemValue(for key: String) -> String? {
         let queryItem = queryItems?.first { $0.name.lowercased() == key.lowercased() }
         return queryItem?.value
     }
 
-    func queryItemValueIfExists(matches value: String, forKey key: String, elseThrow error: Error) throws {
-        guard let queryItemValue = lowerCasedQueryItemValue(for: key) else { return }
-        if queryItemValue != value {
+    func lowerCasedQueryItemValue(for key: String, elseThrow error: Error) throws -> String {
+        guard let queryItem = lowerCasedQueryItemValue(for: key) else {
             throw error
         }
+        return queryItem
+    }
+
+    func lowerCasedQueryItemValue(matches value: String, forKey key: String, elseThrow error: Error) throws -> String {
+        guard let queryItemValue = lowerCasedQueryItemValue(for: key) else { return value }
+        if queryItemValue != value { throw error }
+        return queryItemValue
+    }
+
+    func getIssuer() throws -> String {
+        try lowerCasedQueryItemValue(for: "issuer", elseThrow: AddAccountUseCaseErrors.invalidURL)
+    }
+
+    func getSecret() throws -> String {
+        try lowerCasedQueryItemValue(for: "secret", elseThrow: AddAccountUseCaseErrors.invalidURL)
+    }
+
+    func getUsername() -> String {
+        if path.contains(":") {
+            let substring = path
+                .drop { $0 != ":" }
+                .dropFirst()
+            return String(substring)
+        } else {
+            return String(path.dropFirst())
+        }
+    }
+
+    func getDigits() throws -> String {
+        try lowerCasedQueryItemValue(
+            matches: "6",
+            forKey: "digits",
+            elseThrow: AddAccountUseCaseErrors.notSupportedDigitCount)
+    }
+
+    func getPeriod() throws -> String {
+        try lowerCasedQueryItemValue(
+            matches: "30",
+            forKey: "period",
+            elseThrow: AddAccountUseCaseErrors.notSupportedPeriod)
+    }
+
+    func getAlgorithm() throws -> String {
+        try lowerCasedQueryItemValue(
+            matches: "sha1",
+            forKey: "algorithm",
+            elseThrow: AddAccountUseCaseErrors.notSupportedAlgorithm)
+    }
+}
+
+// MARK: - CreateAccountModel
+extension CreatAccountModel {
+    init(urlComponents: URLComponents) throws {
+        self.init(
+            issuer: try urlComponents.getIssuer(),
+            secret: try urlComponents.getSecret(),
+            username: urlComponents.getUsername(),
+            digits: try urlComponents.getDigits(),
+            period: try urlComponents.getPeriod(),
+            algorithm: try urlComponents.getAlgorithm())
     }
 }
