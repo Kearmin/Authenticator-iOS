@@ -39,23 +39,19 @@ class AddAccountSaveServiceAnalyticsDecoratorTests: XCTestCase {
             .failure(AddAccountUseCaseErrors.notSupportedDigitCount(digit: "1")),
         ]
 
+        validateFirstResult(env: env, expectedName: "FailedToSaveAccount_NotSupportedOTP", expectedParams: ["method": "hotp"])
+        validateFirstResult(env: env, expectedName: "FailedToSaveAccount_NotSupportedPeriod", expectedParams: ["period": "10"])
+        validateFirstResult(env: env, expectedName: "FailedToSaveAccount_NotSupportedDigit", expectedParams: ["digit": "1"])
+    }
+
+    private func validateFirstResult(env: TestEnviroment, expectedName name: String, expectedParams params: [String: String]) {
         try? env.sut.save(account: dummy)
         if let result = env.analitycs.loggedEvents.first {
-            XCTAssertEqual(result.name, "FailedToSaveAccount_NotSupportedOTP")
-            XCTAssertEqual(result.parameters as? [String : String], ["method": "hotp"])
+            XCTAssertEqual(result.name, name)
+            XCTAssertEqual(result.parameters as? [String : String], params)
             env.analitycs.loggedEvents.removeFirst()
-        }
-        try? env.sut.save(account: dummy)
-        if let result = env.analitycs.loggedEvents.first {
-            XCTAssertEqual(result.name, "FailedToSaveAccount_NotSupportedPeriod")
-            XCTAssertEqual(result.parameters as? [String : String], ["period": "10"])
-            env.analitycs.loggedEvents.removeFirst()
-        }
-        try? env.sut.save(account: dummy)
-        if let result = env.analitycs.loggedEvents.first {
-            XCTAssertEqual(result.name, "FailedToSaveAccount_NotSupportedDigit")
-            XCTAssertEqual(result.parameters as? [String : String], ["digit": "1"])
-            env.analitycs.loggedEvents.removeFirst()
+        } else {
+            XCTFail("Expected Result")
         }
     }
 

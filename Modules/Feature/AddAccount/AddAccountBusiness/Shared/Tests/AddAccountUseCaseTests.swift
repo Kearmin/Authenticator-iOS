@@ -41,15 +41,23 @@ class AddAccountUseCaseTests: XCTestCase {
         XCTAssertEqual(result.algorithm, "sha1")
     }
 
-    func test_useCaseFailsIfUrlIsMissingEssentialValues() {
+    func test_useCaseFailsIfUrlIsInvalid() {
         let sut = makeSUT()
         XCTAssertThrowsError(try sut.createAccount(urlString: "notAnURL")) { error in
             XCTAssertEqual(error as? AddAccountUseCaseErrors, .invalidURL(URL: "notAnURL"))
         }
+    }
+
+    func test_useCaseFailsIfIssuerIsMissing() {
+        let sut = makeSUT()
         let issuerMissingUrl = short.replacingOccurrences(of: "issuer", with: "notissuer")
         XCTAssertThrowsError(try sut.createAccount(urlString: issuerMissingUrl)) { error in
             XCTAssertEqual(error as? AddAccountUseCaseErrors, .invalidURL(URL: issuerMissingUrl))
         }
+    }
+
+    func test_useCaseFailsIfSecretIsMissing() {
+        let sut = makeSUT()
         let secretMissingUrl = short.replacingOccurrences(of: "secret", with: "notsecret")
         XCTAssertThrowsError(try sut.createAccount(urlString: secretMissingUrl)) { error in
             XCTAssertEqual(error as? AddAccountUseCaseErrors, .invalidURL(URL: secretMissingUrl))
