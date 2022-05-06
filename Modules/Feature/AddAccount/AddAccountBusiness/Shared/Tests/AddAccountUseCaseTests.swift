@@ -41,24 +41,56 @@ class AddAccountUseCaseTests: XCTestCase {
         XCTAssertEqual(result.algorithm, "sha1")
     }
 
+    func test_useCaseFailsIfUrlIsInvalid() {
+        let sut = makeSUT()
+        XCTAssertThrowsError(try sut.createAccount(urlString: "notAnURL")) { error in
+            XCTAssertEqual(error as? AddAccountUseCaseErrors, .invalidURL(URL: "notAnURL"))
+        }
+    }
+
+    func test_useCaseFailsIfIssuerIsMissing() {
+        let sut = makeSUT()
+        let issuerMissingUrl = short.replacingOccurrences(of: "issuer", with: "notissuer")
+        XCTAssertThrowsError(try sut.createAccount(urlString: issuerMissingUrl)) { error in
+            XCTAssertEqual(error as? AddAccountUseCaseErrors, .invalidURL(URL: issuerMissingUrl))
+        }
+    }
+
+    func test_useCaseFailsIfSecretIsMissing() {
+        let sut = makeSUT()
+        let secretMissingUrl = short.replacingOccurrences(of: "secret", with: "notsecret")
+        XCTAssertThrowsError(try sut.createAccount(urlString: secretMissingUrl)) { error in
+            XCTAssertEqual(error as? AddAccountUseCaseErrors, .invalidURL(URL: secretMissingUrl))
+        }
+    }
+
     func test_useCaseFailsIfOTPMethodIsHOTP() {
         let sut = makeSUT()
-        XCTAssertThrowsError(try sut.createAccount(urlString: short.replacingOccurrences(of: "totp", with: "hotp")))
+        let url = short.replacingOccurrences(of: "totp", with: "hotp")
+        XCTAssertThrowsError(try sut.createAccount(urlString: url)) { error in
+            XCTAssertEqual(error as? AddAccountUseCaseErrors, .notSupportedOTPMethod(method: "hotp"))
+        }
     }
 
     func test_useCaseFailsIfAlgorithIsNotSHA1() {
         let sut = makeSUT()
-        XCTAssertThrowsError(try sut.createAccount(urlString: short + "&algorithm=SHA256"))
+        XCTAssertThrowsError(try sut.createAccount(urlString: short + "&algorithm=SHA256")) { error in
+            XCTAssertEqual(error as? AddAccountUseCaseErrors, .notSupportedAlgorithm(algorithm: "SHA256"))
+        }
     }
 
     func test_usecaseFailsIfDigitsIsNot6() {
         let sut = makeSUT()
-        XCTAssertThrowsError(try sut.createAccount(urlString: short + "&digits=8"))
+        XCTAssertThrowsError(try sut.createAccount(urlString: short + "&digits=8")) { error in
+            XCTAssertEqual(error as? AddAccountUseCaseErrors, .notSupportedDigitCount(digit: "8"))
+        }
     }
 
     func test_usecaseFailsIfPeriodIsNot30() {
         let sut = makeSUT()
-        XCTAssertThrowsError(try sut.createAccount(urlString: short + "&period=60"))
+        XCTAssertThrowsError(try sut.createAccount(urlString: short + "&period=60")) { error in
+            XCTAssertEqual(error as? AddAccountUseCaseErrors, .notSupportedPeriod(period: "60"))
+        }
     }
 
     func makeSUT(spy: AddAccountServiceSpy = .init()) -> AddAccountUseCase {
