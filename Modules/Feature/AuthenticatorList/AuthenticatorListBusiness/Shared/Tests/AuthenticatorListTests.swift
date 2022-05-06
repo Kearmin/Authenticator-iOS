@@ -208,6 +208,8 @@ class AuthenticatorListTests: XCTestCase {
 }
 
 class AuthenticatorListPresenterSpy: AuthenticatorListPresenterDelegate {
+
+    var receivedErrors: [Error] = []
     var receivedCountDowns: [String] = []
     var receivedRows: [[AuthenticatorListRowContent]] = []
     func receive(rows: [AuthenticatorListRowContent]) {
@@ -215,6 +217,9 @@ class AuthenticatorListPresenterSpy: AuthenticatorListPresenterDelegate {
     }
     func receive(countDown: String) {
         receivedCountDowns.append(countDown)
+    }
+    func receive(error: Error) {
+
     }
 }
 

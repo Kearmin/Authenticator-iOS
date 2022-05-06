@@ -12,6 +12,7 @@ import Resolver
 
 protocol AuthenticatorListComposerDelegate: AnyObject {
     func didPressAddAccountButton(_ authenticatorListViewComposer: AuthenticatorListComposer)
+    func didReceiveError(_ authenticatorListViewComposer: AuthenticatorListComposer, error: Error)
 }
 
 public final class AuthenticatorListComposer: UIHostingController<AuthenticatorListView> {
@@ -81,6 +82,9 @@ extension AuthenticatorListComposer: AuthenticatorListPresenterDelegate {
                         }
             }
         }
+    }
+
+    public func receive(error: Error) {
     }
 }
 

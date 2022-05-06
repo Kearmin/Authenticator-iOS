@@ -22,6 +22,11 @@ public final class Clock {
         RunLoop.main.add(self.timer!, forMode: .common) // swiftlint:disable:this force_unwrapping
     }
 
+    deinit {
+        timer?.invalidate()
+        timer = nil
+    }
+
     public func notifyObservers(currentDate: Date) {
         observers.forEach { $0.handle(currentDate: currentDate) }
     }

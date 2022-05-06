@@ -133,9 +133,14 @@ class AuthenticatorIntegrationTests: XCTestCase {
     }
 
     class AuthenticatorListComposerDelegateSpy: AuthenticatorListComposerDelegate {
+
+        var receivedErrors: [Error] = []
         var didPressCalls: [AuthenticatorListComposer] = []
         func didPressAddAccountButton(_ authenticatorListViewComposer: AuthenticatorListComposer) {
             didPressCalls.append(authenticatorListViewComposer)
+        }
+        func didReceiveError(_ authenticatorListViewComposer: AuthenticatorListComposer, error: Error) {
+
         }
     }
 

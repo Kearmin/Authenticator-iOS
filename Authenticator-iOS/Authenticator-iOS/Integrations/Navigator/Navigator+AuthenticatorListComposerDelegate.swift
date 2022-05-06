@@ -14,4 +14,11 @@ extension UIKitNavigator: AuthenticatorListComposerDelegate {
         addAccountComposer.delegate = AddAccountDelegateComposition(listComposer: authenticatorListViewComposer, navigator: self)
         presentFullScreenEmbeddedInNavigationController(view: addAccountComposer, source: authenticatorListViewComposer)
     }
+
+    func didReceiveError(_ authenticatorListViewComposer: AuthenticatorListComposer, error: Error) {
+        presentSimpleAlert(
+            title: "Error",
+            message: "\(error)",
+            source: authenticatorListViewComposer)
+    }
 }

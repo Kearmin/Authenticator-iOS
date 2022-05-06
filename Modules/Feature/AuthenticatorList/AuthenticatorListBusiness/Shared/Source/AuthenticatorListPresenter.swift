@@ -47,6 +47,7 @@ public protocol AuthenticatorListPresenterService {
 public protocol AuthenticatorListPresenterDelegate: AnyObject {
     func receive(countDown: String)
     func receive(rows: [AuthenticatorListRowContent])
+    func receive(error: Error)
 }
 
 public final class AuthenticatorListPresenter {
@@ -90,7 +91,7 @@ public final class AuthenticatorListPresenter {
             let rowContents = models.map { rowContent(from: $0) }
             output?.receive(rows: rowContents)
         } catch {
-            print(error)
+            output?.receive(error: error)
         }
     }
 }

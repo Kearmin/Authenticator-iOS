@@ -35,8 +35,8 @@ class AddAccountSaveServiceAnalyticsDecoratorTests: XCTestCase {
         let env = TestEnviroment()
         env.mock.results = [.failure(SomeError())]
         XCTAssertThrowsError(try env.sut.save(account: dummy))
-        XCTAssertEqual(env.analitycs.loggedEvents[0].name, "FailedToSaveAccount")
-        XCTAssertNil(env.analitycs.loggedEvents[0].parameters)
+        XCTAssertEqual(env.analitycs.loggedEvents.first?.name, "FailedToSaveAccount")
+        XCTAssertNil(env.analitycs.loggedEvents.first?.parameters)
     }
 
     class TestEnviroment {

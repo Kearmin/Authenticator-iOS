@@ -7,8 +7,6 @@
 
 @testable import Authenticator_iOS
 
-struct SomeError: Error, Equatable { }
-
 class AuthenticatorAnalitycsMock: AuthenticatorAnalytics {
     var loggedEvents: [(name: String, parameters: [String: Any]?)] = []
 
