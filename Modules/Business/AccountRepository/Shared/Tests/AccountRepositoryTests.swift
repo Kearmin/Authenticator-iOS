@@ -113,12 +113,12 @@ class AccountRepositoryMock: RepositoryProvider {
     var readAccountCallCount = 0
     struct SomeError: Error { }
 
-    func save(accounts: [Account]) throws {
+    func save(items: [Account]) throws {
         if shouldSaveThrowError { throw SomeError() }
-        savedAccounts = accounts
+        savedAccounts = items
     }
 
-    func readAccounts() throws -> [Account] {
+    func readItems() throws -> [Account] {
         readAccountCallCount += 1
         return try readAccountResults.removeFirst().get()
     }
