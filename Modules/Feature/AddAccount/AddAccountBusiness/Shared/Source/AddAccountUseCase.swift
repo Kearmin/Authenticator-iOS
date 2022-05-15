@@ -74,7 +74,10 @@ private extension URLComponents {
     }
 
     func getIssuer() throws -> String {
-        try lowerCasedQueryItemValue(for: "issuer", elseThrow: AddAccountUseCaseErrors.invalidURL(URL: url?.absoluteString ?? ""))
+        guard let issuer = queryItemValue(for: "issuer") else {
+            throw AddAccountUseCaseErrors.invalidURL(URL: url?.absoluteString ?? "")
+        }
+        return issuer
     }
 
     func getSecret() throws -> String {

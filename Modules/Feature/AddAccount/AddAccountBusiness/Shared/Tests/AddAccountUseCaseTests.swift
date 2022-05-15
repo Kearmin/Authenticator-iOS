@@ -79,6 +79,22 @@ class AddAccountUseCaseTests: XCTestCase {
         }
     }
 
+    func test_useCaseSavesNameCaseSensitive() throws {
+        let spy = AddAccountServiceSpy()
+        let sut = makeSUT(spy: spy)
+        try sut.createAccount(urlString: short.replacingOccurrences(of: "john.doe@email.com", with: "John.Doe@email.com"))
+        let account = try XCTUnwrap(spy.savedAccounts.first)
+        XCTAssertEqual(account.username, "John.Doe@email.com")
+    }
+
+    func test_useCaseSavesIssuersCaseSensitive() throws {
+        let spy = AddAccountServiceSpy()
+        let sut = makeSUT(spy: spy)
+        try sut.createAccount(urlString: short2.replacingOccurrences(of: "linkedin", with: "Linkedin"))
+        let account = try XCTUnwrap(spy.savedAccounts.first)
+        XCTAssertEqual(account.issuer, "Linkedin")
+    }
+
     func test_useCaseIsCaseInsensitiveForAlgorithm() {
         let sut = makeSUT()
         XCTAssertNoThrow(try sut.createAccount(urlString: short + "&algorithm=SHA1"))

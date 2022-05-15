@@ -45,7 +45,7 @@ class AuthenticatorListPresenterServiceAdapter: AuthenticatorListPresenterServic
             .store(in: &subscriptions)
 
         appEventSubscription = appEventPublisher
-            .filter(.newAccountAdded)
+            .filter(.newAccountCreated)
             .receive(on: Queues.generalBackgroundQueue)
             .sink(receiveValue: { [weak self] in
                 self?.loadAccounts()

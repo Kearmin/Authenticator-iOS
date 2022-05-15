@@ -18,7 +18,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var didPressAddAccountSubscription: AnyCancellable?
     var addAccountEventSubscription: AnyCancellable?
-    let appEventPublisher = PassthroughSubject<AppEvent, Never>()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }

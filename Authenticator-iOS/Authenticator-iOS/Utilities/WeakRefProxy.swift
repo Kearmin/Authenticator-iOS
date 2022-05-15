@@ -8,7 +8,7 @@
 import Foundation
 import AddAccountView
 
-class WeakProxy<Item: AnyObject> {
+class WeakRefProxy<Item: AnyObject> {
     weak var item: Item?
 
     init(_ item: Item?) {
@@ -16,7 +16,7 @@ class WeakProxy<Item: AnyObject> {
     }
 }
 
-extension WeakProxy: AddAccountViewDelegate where Item: AddAccountViewDelegate {
+extension WeakRefProxy: AddAccountViewDelegate where Item: AddAccountViewDelegate {
     func didFindQRCode(code: String) {
         item?.didFindQRCode(code: code)
     }

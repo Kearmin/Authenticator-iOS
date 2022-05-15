@@ -14,6 +14,17 @@ import AccountRepository
 
 extension Resolver {
     static func registerDependencies() {
+        register(AppEventSubject.self) {
+            PassthroughSubject<AppEvent, Never>()
+        }
+        .scope(.application)
+
+        register(AppEventPublisher.self) { resolver in
+            let subject: AppEventSubject = resolver.resolve()
+            return subject.eraseToAnyPublisher()
+        }
+        .scope(.application)
+
         register {
             JSONFileSystemPersistance<[Account]>(fileName: "accounts", queue: Queues.fileIOBackgroundQueue)
         }

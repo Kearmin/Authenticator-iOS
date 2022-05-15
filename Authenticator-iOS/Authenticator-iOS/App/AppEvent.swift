@@ -7,8 +7,11 @@
 
 import Combine
 
+typealias AppEventSubject = PassthroughSubject<AppEvent, Never>
+typealias AppEventPublisher = AnyPublisher<AppEvent, Never>
+
 enum AppEvent {
-    case newAccountAdded
+    case newAccountCreated
 }
 
 extension AnyPublisher where Output == AppEvent, Failure == Never {

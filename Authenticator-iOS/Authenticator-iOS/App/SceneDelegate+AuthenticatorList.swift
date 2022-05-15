@@ -20,7 +20,7 @@ extension SceneDelegate {
             totpProvider: Resolver.resolve(),
             readAccounts: accountRepository.loadPublisher,
             delete: accountRepository.deletePublisher(accountID:),
-            appEventPublisher: appEventPublisher.eraseToAnyPublisher())
+            appEventPublisher: Resolver.resolve())
     }
 
     var listViewControllerDidPress: (AuthenticatorListViewController) -> Void {

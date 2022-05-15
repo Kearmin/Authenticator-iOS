@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B02189692831401600918B8D /* Authenticator_iOS_IntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02189682831401600918B8D /* Authenticator_iOS_IntegrationTests.swift */; };
 		B025FDCE282FBAC4008D1DF1 /* Resolver.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B025FDCC282FBAC4008D1DF1 /* Resolver.xcframework */; };
 		B025FDCF282FBAC4008D1DF1 /* Resolver.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B025FDCC282FBAC4008D1DF1 /* Resolver.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B025FDD0282FBAC4008D1DF1 /* SwiftOTP.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B025FDCD282FBAC4008D1DF1 /* SwiftOTP.xcframework */; };
@@ -25,7 +26,7 @@
 		B06A5FE52830532F00433C58 /* SceneDelegate+AddAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FE42830532F00433C58 /* SceneDelegate+AddAccount.swift */; };
 		B06A5FE7283069C700433C58 /* AddAccountSaveServiceAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FE6283069C700433C58 /* AddAccountSaveServiceAdapter.swift */; };
 		B06A5FE9283075D800433C58 /* AddAccountEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FE8283075D800433C58 /* AddAccountEvent.swift */; };
-		B06A5FEB28307F2700433C58 /* WeakProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FEA28307F2700433C58 /* WeakProxy.swift */; };
+		B06A5FEB28307F2700433C58 /* WeakRefProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FEA28307F2700433C58 /* WeakRefProxy.swift */; };
 		B06A5FED2830842F00433C58 /* AppEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FEC2830842F00433C58 /* AppEvent.swift */; };
 		B06A5FEF2830878D00433C58 /* SwiftUIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FEE2830878D00433C58 /* SwiftUIHelpers.swift */; };
 		B06A5FF4283092C800433C58 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FF3283092C800433C58 /* Account.swift */; };
@@ -48,6 +49,16 @@
 		B0B2B988282FB7C900BB7E00 /* FileSystemPersistentStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2B97B282FB7C900BB7E00 /* FileSystemPersistentStorage.framework */; };
 		B0B2B989282FB7C900BB7E00 /* FileSystemPersistentStorage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2B97B282FB7C900BB7E00 /* FileSystemPersistentStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B021896D2831401B00918B8D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B0B2B955282FB78900BB7E00 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B0B2B95C282FB78900BB7E00;
+			remoteInfo = "Authenticator-iOS";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		B0B2B98A282FB7C900BB7E00 /* Embed Frameworks */ = {
@@ -72,6 +83,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		B02189662831401600918B8D /* Authenticator-iOS IntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Authenticator-iOS IntegrationTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B02189682831401600918B8D /* Authenticator_iOS_IntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticator_iOS_IntegrationTests.swift; sourceTree = "<group>"; };
 		B025FDCC282FBAC4008D1DF1 /* Resolver.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Resolver.xcframework; path = ../Carthage/Build/Resolver.xcframework; sourceTree = "<group>"; };
 		B025FDCD282FBAC4008D1DF1 /* SwiftOTP.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SwiftOTP.xcframework; path = ../Carthage/Build/SwiftOTP.xcframework; sourceTree = "<group>"; };
 		B025FDD2282FCB9D008D1DF1 /* Resolver+Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+Dependencies.swift"; sourceTree = "<group>"; };
@@ -88,7 +101,7 @@
 		B06A5FE42830532F00433C58 /* SceneDelegate+AddAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SceneDelegate+AddAccount.swift"; sourceTree = "<group>"; };
 		B06A5FE6283069C700433C58 /* AddAccountSaveServiceAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountSaveServiceAdapter.swift; sourceTree = "<group>"; };
 		B06A5FE8283075D800433C58 /* AddAccountEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountEvent.swift; sourceTree = "<group>"; };
-		B06A5FEA28307F2700433C58 /* WeakProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakProxy.swift; sourceTree = "<group>"; };
+		B06A5FEA28307F2700433C58 /* WeakRefProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRefProxy.swift; sourceTree = "<group>"; };
 		B06A5FEC2830842F00433C58 /* AppEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEvent.swift; sourceTree = "<group>"; };
 		B06A5FEE2830878D00433C58 /* SwiftUIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIHelpers.swift; sourceTree = "<group>"; };
 		B06A5FF3283092C800433C58 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
@@ -108,6 +121,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		B02189632831401600918B8D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B0B2B95A282FB78900BB7E00 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -127,6 +147,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B02189672831401600918B8D /* Authenticator-iOS IntegrationTests */ = {
+			isa = PBXGroup;
+			children = (
+				B02189682831401600918B8D /* Authenticator_iOS_IntegrationTests.swift */,
+			);
+			path = "Authenticator-iOS IntegrationTests";
+			sourceTree = "<group>";
+		};
 		B06A5FCD282FFDE200433C58 /* List */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,7 +212,7 @@
 			children = (
 				B025FDD4282FCC88008D1DF1 /* Threading.swift */,
 				B06A5FE02830525D00433C58 /* UIKitHelpers.swift */,
-				B06A5FEA28307F2700433C58 /* WeakProxy.swift */,
+				B06A5FEA28307F2700433C58 /* WeakRefProxy.swift */,
 				B06A5FEE2830878D00433C58 /* SwiftUIHelpers.swift */,
 			);
 			path = Utilities;
@@ -204,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				B0B2B95F282FB78900BB7E00 /* Authenticator-iOS */,
+				B02189672831401600918B8D /* Authenticator-iOS IntegrationTests */,
 				B0B2B95E282FB78900BB7E00 /* Products */,
 				B0B2B974282FB7C900BB7E00 /* Frameworks */,
 			);
@@ -213,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				B0B2B95D282FB78900BB7E00 /* Authenticator-iOS.app */,
+				B02189662831401600918B8D /* Authenticator-iOS IntegrationTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -249,6 +279,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		B02189652831401600918B8D /* Authenticator-iOS IntegrationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B021896A2831401600918B8D /* Build configuration list for PBXNativeTarget "Authenticator-iOS IntegrationTests" */;
+			buildPhases = (
+				B02189622831401600918B8D /* Sources */,
+				B02189632831401600918B8D /* Frameworks */,
+				B02189642831401600918B8D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B021896E2831401B00918B8D /* PBXTargetDependency */,
+			);
+			name = "Authenticator-iOS IntegrationTests";
+			productName = "Authenticator-iOS IntegrationTests";
+			productReference = B02189662831401600918B8D /* Authenticator-iOS IntegrationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		B0B2B95C282FB78900BB7E00 /* Authenticator-iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B0B2B971282FB78900BB7E00 /* Build configuration list for PBXNativeTarget "Authenticator-iOS" */;
@@ -278,6 +326,10 @@
 				LastSwiftUpdateCheck = 1330;
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
+					B02189652831401600918B8D = {
+						CreatedOnToolsVersion = 13.3.1;
+						TestTargetID = B0B2B95C282FB78900BB7E00;
+					};
 					B0B2B95C282FB78900BB7E00 = {
 						CreatedOnToolsVersion = 13.3.1;
 					};
@@ -297,11 +349,19 @@
 			projectRoot = "";
 			targets = (
 				B0B2B95C282FB78900BB7E00 /* Authenticator-iOS */,
+				B02189652831401600918B8D /* Authenticator-iOS IntegrationTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		B02189642831401600918B8D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B0B2B95B282FB78900BB7E00 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -335,6 +395,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		B02189622831401600918B8D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B02189692831401600918B8D /* Authenticator_iOS_IntegrationTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		B0B2B959282FB78900BB7E00 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -347,7 +415,7 @@
 				B06A5FF4283092C800433C58 /* Account.swift in Sources */,
 				B06A5FCF282FFDF100433C58 /* AuthenticatorListPresenterServiceAdapter.swift in Sources */,
 				B025FDD5282FCC88008D1DF1 /* Threading.swift in Sources */,
-				B06A5FEB28307F2700433C58 /* WeakProxy.swift in Sources */,
+				B06A5FEB28307F2700433C58 /* WeakRefProxy.swift in Sources */,
 				B025FDD3282FCB9D008D1DF1 /* Resolver+Dependencies.swift in Sources */,
 				B06A5FE9283075D800433C58 /* AddAccountEvent.swift in Sources */,
 				B0B2B961282FB78900BB7E00 /* AppDelegate.swift in Sources */,
@@ -364,6 +432,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		B021896E2831401B00918B8D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B0B2B95C282FB78900BB7E00 /* Authenticator-iOS */;
+			targetProxy = B021896D2831401B00918B8D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin PBXVariantGroup section */
 		B0B2B96B282FB78900BB7E00 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -376,6 +452,42 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		B021896B2831401600918B8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4W92454MDD;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jenci.Authenticator-iOS-IntegrationTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Authenticator-iOS.app/Authenticator-iOS";
+			};
+			name = Debug;
+		};
+		B021896C2831401600918B8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4W92454MDD;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 12.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jenci.Authenticator-iOS-IntegrationTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Authenticator-iOS.app/Authenticator-iOS";
+			};
+			name = Release;
+		};
 		B0B2B96F282FB78900BB7E00 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -549,6 +661,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		B021896A2831401600918B8D /* Build configuration list for PBXNativeTarget "Authenticator-iOS IntegrationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B021896B2831401600918B8D /* Debug */,
+				B021896C2831401600918B8D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		B0B2B958282FB78900BB7E00 /* Build configuration list for PBXProject "Authenticator-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

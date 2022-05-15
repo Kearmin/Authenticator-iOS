@@ -36,7 +36,7 @@ enum AddAccountComposer {
             failedToStart: { _ in
                 dependencies.addAccountEventSubject.send(.failedToStartCamera)
             })
-        viewController.addAccountView.delegate = WeakProxy(viewController)
+        viewController.addAccountView.delegate = WeakRefProxy(viewController)
         return viewController
     }
 }
