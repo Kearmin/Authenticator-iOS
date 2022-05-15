@@ -11,15 +11,25 @@ import AccountRepository
 import Resolver
 
 extension SceneDelegate {
+    var deletePublisher: (UUID) -> AnyPublisher<Void, Error> {
+        { uuid in
+            Resolver.resolve(AccountRepository.self)
+                .deletePublisher(accountID: uuid)
+                .handleEvents(receiveOutput: { _ in
+                    Resolver.resolve(AuthenticatorAnalytics.self).track(name: "Did delete account")
+                })
+                .eraseToAnyPublisher()
+        }
+    }
+
     var listDependencies: ListComposer.Dependencies {
         let subject = PassthroughSubject<AuthenticatorListViewController, Never>()
         didPressAddAccountSubscription = subject.sink(receiveValue: listViewControllerDidPress)
-        let accountRepository: AccountRepository = Resolver.resolve()
         return .init(
             didPressAddAccount: subject,
             totpProvider: Resolver.resolve(),
-            readAccounts: accountRepository.loadPublisher,
-            delete: accountRepository.deletePublisher(accountID:),
+            readAccounts: Resolver.resolve(AccountRepository.self).loadPublisher,
+            delete: deletePublisher,
             appEventPublisher: Resolver.resolve())
     }
 

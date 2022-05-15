@@ -14,6 +14,18 @@ import AccountRepository
 
 extension Resolver {
     static func registerDependencies() {
+        register {
+            LogAnalytics()
+        }
+        .implements(AuthenticatorAnalytics.self)
+        .scope(.application)
+
+//        register(SegmentAnalytics.self) {
+//            SegmentAnalytics()
+//        }
+//        .implements(AuthenticatorAnalytics.self)
+//        .scope(.application)
+
         register(AppEventSubject.self) {
             PassthroughSubject<AppEvent, Never>()
         }

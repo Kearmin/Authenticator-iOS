@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		B02189692831401600918B8D /* Authenticator_iOS_IntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02189682831401600918B8D /* Authenticator_iOS_IntegrationTests.swift */; };
+		B02189712831559D00918B8D /* AuthenticatorAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02189702831559D00918B8D /* AuthenticatorAnalytics.swift */; };
+		B0218973283159E000918B8D /* Segment.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0218972283159E000918B8D /* Segment.xcframework */; };
+		B0218974283159E000918B8D /* Segment.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0218972283159E000918B8D /* Segment.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B02189772831748100918B8D /* Analytics+AddAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02189762831748100918B8D /* Analytics+AddAccount.swift */; };
 		B025FDCE282FBAC4008D1DF1 /* Resolver.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B025FDCC282FBAC4008D1DF1 /* Resolver.xcframework */; };
 		B025FDCF282FBAC4008D1DF1 /* Resolver.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B025FDCC282FBAC4008D1DF1 /* Resolver.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B025FDD0282FBAC4008D1DF1 /* SwiftOTP.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B025FDCD282FBAC4008D1DF1 /* SwiftOTP.xcframework */; };
@@ -76,6 +80,7 @@
 				B025FDCF282FBAC4008D1DF1 /* Resolver.xcframework in Embed Frameworks */,
 				B0B2B987282FB7C900BB7E00 /* Clock.framework in Embed Frameworks */,
 				B0B2B989282FB7C900BB7E00 /* FileSystemPersistentStorage.framework in Embed Frameworks */,
+				B0218974283159E000918B8D /* Segment.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -85,6 +90,9 @@
 /* Begin PBXFileReference section */
 		B02189662831401600918B8D /* Authenticator-iOS IntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Authenticator-iOS IntegrationTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B02189682831401600918B8D /* Authenticator_iOS_IntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticator_iOS_IntegrationTests.swift; sourceTree = "<group>"; };
+		B02189702831559D00918B8D /* AuthenticatorAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorAnalytics.swift; sourceTree = "<group>"; };
+		B0218972283159E000918B8D /* Segment.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Segment.xcframework; path = ../Carthage/Build/Segment.xcframework; sourceTree = "<group>"; };
+		B02189762831748100918B8D /* Analytics+AddAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analytics+AddAccount.swift"; sourceTree = "<group>"; };
 		B025FDCC282FBAC4008D1DF1 /* Resolver.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Resolver.xcframework; path = ../Carthage/Build/Resolver.xcframework; sourceTree = "<group>"; };
 		B025FDCD282FBAC4008D1DF1 /* SwiftOTP.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SwiftOTP.xcframework; path = ../Carthage/Build/SwiftOTP.xcframework; sourceTree = "<group>"; };
 		B025FDD2282FCB9D008D1DF1 /* Resolver+Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+Dependencies.swift"; sourceTree = "<group>"; };
@@ -141,6 +149,7 @@
 				B025FDCE282FBAC4008D1DF1 /* Resolver.xcframework in Frameworks */,
 				B0B2B986282FB7C900BB7E00 /* Clock.framework in Frameworks */,
 				B0B2B988282FB7C900BB7E00 /* FileSystemPersistentStorage.framework in Frameworks */,
+				B0218973283159E000918B8D /* Segment.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,12 +164,22 @@
 			path = "Authenticator-iOS IntegrationTests";
 			sourceTree = "<group>";
 		};
+		B021896F2831558300918B8D /* ThirdParty */ = {
+			isa = PBXGroup;
+			children = (
+				B025FDD8282FD5F6008D1DF1 /* AuthenticatorTOTPProvider.swift */,
+				B02189702831559D00918B8D /* AuthenticatorAnalytics.swift */,
+			);
+			path = ThirdParty;
+			sourceTree = "<group>";
+		};
 		B06A5FCD282FFDE200433C58 /* List */ = {
 			isa = PBXGroup;
 			children = (
 				B025FDD6282FD353008D1DF1 /* ListComposer.swift */,
 				B06A5FCE282FFDF100433C58 /* AuthenticatorListPresenterServiceAdapter.swift */,
 				B06A5FD0282FFE1A00433C58 /* AuthenticatorListOutputAdapter.swift */,
+				B06A5FE22830531F00433C58 /* SceneDelegate+AuthenticatorList.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -169,7 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				B025FDD2282FCB9D008D1DF1 /* Resolver+Dependencies.swift */,
-				B025FDD8282FD5F6008D1DF1 /* AuthenticatorTOTPProvider.swift */,
+				B021896F2831558300918B8D /* ThirdParty */,
 				B06A5FCD282FFDE200433C58 /* List */,
 				B06A5FDB283047BE00433C58 /* AddAccount */,
 				B06A5FD62830113E00433C58 /* FileSystemPersistentStorage */,
@@ -200,8 +219,6 @@
 			children = (
 				B0B2B960282FB78900BB7E00 /* AppDelegate.swift */,
 				B0B2B962282FB78900BB7E00 /* SceneDelegate.swift */,
-				B06A5FE22830531F00433C58 /* SceneDelegate+AuthenticatorList.swift */,
-				B06A5FE42830532F00433C58 /* SceneDelegate+AddAccount.swift */,
 				B06A5FEC2830842F00433C58 /* AppEvent.swift */,
 			);
 			path = App;
@@ -224,6 +241,8 @@
 				B06A5FDC283047C800433C58 /* AddAccountComposer.swift */,
 				B06A5FE6283069C700433C58 /* AddAccountSaveServiceAdapter.swift */,
 				B06A5FE8283075D800433C58 /* AddAccountEvent.swift */,
+				B02189762831748100918B8D /* Analytics+AddAccount.swift */,
+				B06A5FE42830532F00433C58 /* SceneDelegate+AddAccount.swift */,
 			);
 			path = AddAccount;
 			sourceTree = "<group>";
@@ -263,6 +282,7 @@
 		B0B2B974282FB7C900BB7E00 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B0218972283159E000918B8D /* Segment.xcframework */,
 				B025FDCC282FBAC4008D1DF1 /* Resolver.xcframework */,
 				B025FDCD282FBAC4008D1DF1 /* SwiftOTP.xcframework */,
 				B0B2B975282FB7C900BB7E00 /* AccountRepository.framework */,
@@ -421,11 +441,13 @@
 				B0B2B961282FB78900BB7E00 /* AppDelegate.swift in Sources */,
 				B06A5FDD283047C800433C58 /* AddAccountComposer.swift in Sources */,
 				B025FDD7282FD353008D1DF1 /* ListComposer.swift in Sources */,
+				B02189712831559D00918B8D /* AuthenticatorAnalytics.swift in Sources */,
 				B06A5FD82830115700433C58 /* FileSystemPersistentStorage+Extensions.swift in Sources */,
 				B06A5FE52830532F00433C58 /* SceneDelegate+AddAccount.swift in Sources */,
 				B0B2B963282FB78900BB7E00 /* SceneDelegate.swift in Sources */,
 				B06A5FEF2830878D00433C58 /* SwiftUIHelpers.swift in Sources */,
 				B06A5FED2830842F00433C58 /* AppEvent.swift in Sources */,
+				B02189772831748100918B8D /* Analytics+AddAccount.swift in Sources */,
 				B025FDD9282FD5F6008D1DF1 /* AuthenticatorTOTPProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -7,8 +7,6 @@
 
 import SwiftUI
 
-// 35KCTE3K23SWLHPYJLNATLZVWR765ZZ4
-
 public struct AuthenticatorListView: View {
     @StateObject private var viewModel: AuthenticatorListViewModel
 
@@ -26,11 +24,13 @@ public struct AuthenticatorListView: View {
                     HStack {
                         VStack(alignment: .leading, spacing: 5) {
                             Text(row.issuer)
+                                .font(.callout)
                             Text(row.username)
+                                .font(.callout)
                         }
                         Spacer()
                         Text(row.TOTPCode)
-                            .font(.title)
+                            .font(.title2)
                             .fontWeight(.semibold)
                             .kerning(1)
                     }

@@ -17,6 +17,7 @@ extension SceneDelegate {
         let viewController = AddAccountComposer.addAccount(with: dependencies)
         addAccountEventSubscription = dependencies
             .addAccountEventSubject
+            .trackAddAccountEvents()
             .sink { event in
                 self.handleAddAccountEvent(event, addAccountViewController: viewController)
             }

@@ -80,7 +80,7 @@ class AuthenticatorListPresenterServiceAdapter: AuthenticatorListPresenterServic
     }
 }
 
-extension Account {
+private extension Account {
     var authenticatorAccountModel: AuthenticatorAccountModel {
         .init(id: id, issuer: issuer, username: username, secret: secret)
     }
