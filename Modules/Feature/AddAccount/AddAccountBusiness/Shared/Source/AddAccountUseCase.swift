@@ -8,7 +8,7 @@
 import Foundation
 
 public protocol AddAccountSaveService {
-    func save(account: CreatAccountModel) throws
+    func save(account: CreatAccountModel)
 }
 
 public enum AddAccountUseCaseErrors: Error, Equatable {
@@ -26,11 +26,9 @@ public final class AddAccountUseCase {
         self.saveService = saveService
     }
 
-    @discardableResult
-    public func createAccount(urlString: String) throws -> CreatAccountModel {
+    public func createAccount(urlString: String) throws {
         let account = try parse(urlString: urlString)
-        try saveService.save(account: account)
-        return account
+        saveService.save(account: account)
     }
 }
 
@@ -52,9 +50,12 @@ private extension AddAccountUseCase {
 private extension URLComponents {
     struct QueryItemNotFoundError: Error { }
 
+    func queryItemValue(for key: String) -> String? {
+        queryItems?.first { $0.name.lowercased() == key.lowercased() }?.value
+    }
+
     func lowerCasedQueryItemValue(for key: String) -> String? {
-        let queryItem = queryItems?.first { $0.name.lowercased() == key.lowercased() }
-        return queryItem?.value
+        queryItemValue(for: key)?.lowercased()
     }
 
     func lowerCasedQueryItemValue(for key: String, elseThrow error: Error) throws -> String {
@@ -77,7 +78,10 @@ private extension URLComponents {
     }
 
     func getSecret() throws -> String {
-        try lowerCasedQueryItemValue(for: "secret", elseThrow: AddAccountUseCaseErrors.invalidURL(URL: url?.absoluteString ?? ""))
+        guard let secret = queryItemValue(for: "secret") else {
+            throw AddAccountUseCaseErrors.invalidURL(URL: url?.absoluteString ?? "")
+        }
+        return secret
     }
 
     func getUsername() -> String {

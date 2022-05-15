@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B0413B0F282EC36100670BB7 /* AuthenticatorListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0413B0E282EC36100670BB7 /* AuthenticatorListViewController.swift */; };
 		B07979BA28156B680009CCF0 /* AuthenticatorListViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07979B828156B680009CCF0 /* AuthenticatorListViewModels.swift */; };
 		B07979BB28156B680009CCF0 /* AuthenticatorListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07979B928156B680009CCF0 /* AuthenticatorListView.swift */; };
 		B0A906202812D6CC00F72F87 /* AuthenticatorListView.h in Headers */ = {isa = PBXBuildFile; fileRef = B0A9061F2812D6CC00F72F87 /* AuthenticatorListView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B0413B0E282EC36100670BB7 /* AuthenticatorListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorListViewController.swift; sourceTree = "<group>"; };
 		B07979B828156B680009CCF0 /* AuthenticatorListViewModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticatorListViewModels.swift; sourceTree = "<group>"; };
 		B07979B928156B680009CCF0 /* AuthenticatorListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticatorListView.swift; sourceTree = "<group>"; };
 		B0A9061C2812D6CC00F72F87 /* AuthenticatorListView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AuthenticatorListView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,6 +52,7 @@
 			isa = PBXGroup;
 			children = (
 				B0A9061F2812D6CC00F72F87 /* AuthenticatorListView.h */,
+				B0413B0E282EC36100670BB7 /* AuthenticatorListViewController.swift */,
 				B07979B928156B680009CCF0 /* AuthenticatorListView.swift */,
 				B07979B828156B680009CCF0 /* AuthenticatorListViewModels.swift */,
 			);
@@ -137,6 +140,7 @@
 			files = (
 				B07979BB28156B680009CCF0 /* AuthenticatorListView.swift in Sources */,
 				B07979BA28156B680009CCF0 /* AuthenticatorListViewModels.swift in Sources */,
+				B0413B0F282EC36100670BB7 /* AuthenticatorListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

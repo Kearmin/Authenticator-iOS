@@ -39,14 +39,15 @@ public struct AuthenticatorListRowContent: Identifiable, Equatable {
 public protocol AuthenticatorListPresenterService {
     func loadAccounts()
     func getTOTP(secret: String, timeInterval: Int, date: Date) -> String
-    var receiveCurrentDate: ((Date) -> Void)? { get set }
-    var cycleLength: Int { get }
-    func deleteAccount(id: UUID) throws
+    func deleteAccount(id: UUID)
 }
 
-public protocol AuthenticatorListPresenterDelegate: AnyObject {
+public protocol AuthenticatorListViewOutput: AnyObject {
     func receive(countDown: String)
     func receive(rows: [AuthenticatorListRowContent])
+}
+
+public protocol AuthenticatorListErrorOutput: AnyObject {
     func receive(error: Error)
 }
 
@@ -56,21 +57,42 @@ public final class AuthenticatorListPresenter {
     private var latestDate: Date?
     private var models: [AuthenticatorAccountModel] = []
 
-    public weak var output: AuthenticatorListPresenterDelegate? {
+    let cycleLength: Int
+
+    public var output: AuthenticatorListViewOutput? {
         didSet {
             // Get first value immediately
             guard let latestDate = latestDate else { return }
-            output?.receive(countDown: "\(latestDate.countDownValue(cycleLength: service.cycleLength))")
+            output?.receive(countDown: "\(latestDate.countDownValue(cycleLength: cycleLength))")
         }
     }
+    public var errorOutput: AuthenticatorListErrorOutput?
 
-    public init(service: AuthenticatorListPresenterService) {
+
+    public init(service: AuthenticatorListPresenterService, cycleLength: Int) {
         self.service = service
-        setupSubscriptions()
+        self.cycleLength = cycleLength
     }
 
     public func load() {
         service.loadAccounts()
+    }
+
+    public func refresh(date: Date = Date()) {
+        guard let latestDate = latestDate else { return }
+        let countDown = latestDate.countDownValue(cycleLength: cycleLength)
+        if latestDate.timeIntervalSince1970 + Double(countDown) > date.timeIntervalSince1970 { return }
+        self.latestDate = date
+        recalculateTOTPs()
+    }
+
+    public func receive(currentDate date: Date) {
+        latestDate = date
+        let countDown = date.countDownValue(cycleLength: cycleLength)
+        output?.receive(countDown: "\(countDown)")
+        if countDown == cycleLength {
+            recalculateTOTPs()
+        }
     }
 
     public func receive(result: Result<[AuthenticatorAccountModel], Error>) {
@@ -80,40 +102,25 @@ public final class AuthenticatorListPresenter {
             let rowContents = models.map { rowContent(from: $0) }
             output?.receive(rows: rowContents)
         } catch {
-            print(error)
+            errorOutput?.receive(error: error)
         }
     }
 
     public func deleteAccount(id: UUID) {
-        do {
-            try service.deleteAccount(id: id)
-            models.removeAll { $0.id == id }
-            let rowContents = models.map { rowContent(from: $0) }
-            output?.receive(rows: rowContents)
-        } catch {
-            output?.receive(error: error)
-        }
+        service.deleteAccount(id: id)
+    }
+
+    public func receive(error: Error) {
+        errorOutput?.receive(error: error)
     }
 }
 
 // MARK: - Private
 private extension AuthenticatorListPresenter {
-    func setupSubscriptions() {
-        let cycleLength = service.cycleLength
-        service.receiveCurrentDate = { [weak self] date in
-            self?.latestDate = date
-            let countDown = date.countDownValue(cycleLength: cycleLength)
-            self?.output?.receive(countDown: "\(countDown)")
-            if countDown == cycleLength {
-                self?.recalculateTOTPs()
-            }
-        }
-    }
-
     func rowContent(from model: AuthenticatorAccountModel) -> AuthenticatorListRowContent {
         let totp = service.getTOTP(
             secret: model.secret,
-            timeInterval: service.cycleLength,
+            timeInterval: cycleLength,
             date: latestDate ?? Date())
 
         return .init(

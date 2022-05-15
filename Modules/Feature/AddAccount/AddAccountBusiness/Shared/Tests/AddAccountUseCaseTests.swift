@@ -75,8 +75,13 @@ class AddAccountUseCaseTests: XCTestCase {
     func test_useCaseFailsIfAlgorithIsNotSHA1() {
         let sut = makeSUT()
         XCTAssertThrowsError(try sut.createAccount(urlString: short + "&algorithm=SHA256")) { error in
-            XCTAssertEqual(error as? AddAccountUseCaseErrors, .notSupportedAlgorithm(algorithm: "SHA256"))
+            XCTAssertEqual(error as? AddAccountUseCaseErrors, .notSupportedAlgorithm(algorithm: "sha256"))
         }
+    }
+
+    func test_useCaseIsCaseInsensitiveForAlgorithm() {
+        let sut = makeSUT()
+        XCTAssertNoThrow(try sut.createAccount(urlString: short + "&algorithm=SHA1"))
     }
 
     func test_usecaseFailsIfDigitsIsNot6() {
@@ -108,7 +113,7 @@ final class AddAccountServiceSpy: AddAccountSaveService {
         savedAccounts.count
     }
 
-    func save(account: CreatAccountModel) throws {
+    func save(account: CreatAccountModel) {
         savedAccounts.append(account)
     }
 }

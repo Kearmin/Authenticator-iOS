@@ -35,4 +35,9 @@ public final class AuthenticatorListViewModel: ObservableObject {
     @Published public var rows: [AuthenticatorListRow] = []
 
     public init() { }
+
+    public init(countDownSeconds: String, rows: [AuthenticatorListRow]) {
+        self.countDownSeconds = countDownSeconds
+        self.rows = rows
+    }
 }

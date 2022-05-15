@@ -7,11 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B06A5FDF2830480A00433C58 /* AddAccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FDE2830480A00433C58 /* AddAccountView.swift */; };
 		B0A906DF281308E000F72F87 /* AddAccountView.h in Headers */ = {isa = PBXBuildFile; fileRef = B0A906D3281308E000F72F87 /* AddAccountView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B0A906E9281308FC00F72F87 /* AddAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A906E8281308FC00F72F87 /* AddAccountViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B06A5FDE2830480A00433C58 /* AddAccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountView.swift; sourceTree = "<group>"; };
 		B0A906D0281308E000F72F87 /* AddAccountView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AddAccountView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0A906D3281308E000F72F87 /* AddAccountView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddAccountView.h; sourceTree = "<group>"; };
 		B0A906E8281308FC00F72F87 /* AddAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +51,7 @@
 			children = (
 				B0A906D3281308E000F72F87 /* AddAccountView.h */,
 				B0A906E8281308FC00F72F87 /* AddAccountViewController.swift */,
+				B06A5FDE2830480A00433C58 /* AddAccountView.swift */,
 			);
 			path = AddAccountView;
 			sourceTree = "<group>";
@@ -134,6 +137,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B06A5FDF2830480A00433C58 /* AddAccountView.swift in Sources */,
 				B0A906E9281308FC00F72F87 /* AddAccountViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,85 +8,54 @@
 import AVFoundation
 import UIKit
 
-public protocol AddAccountViewDelegate: AnyObject {
-    func didFindQRCode(code: String)
-    func failedToStart()
-}
+public final class AddAccountViewController: UIViewController {
+    public let addAccountView: AddAccountView
+    private let doneDidPress: (AddAccountViewController) -> Void
+    private let didFindQRCode: (AddAccountViewController, _ code: String) -> Void
+    private let _failedToStart: (AddAccountViewController) -> Void
 
-public final class AddAccountView: UIView {
-    private lazy var metaDataOutput: AVCaptureMetadataOutput = {
-        let metaDataOutput = AVCaptureMetadataOutput()
-        metaDataOutput.connection(with: .video)?.isEnabled = true
-        return metaDataOutput
-    }()
+    public override func loadView() {
+        view = addAccountView
+    }
 
-    private lazy var previewLayer: AVCaptureVideoPreviewLayer = {
-        let layer = AVCaptureVideoPreviewLayer(session: session)
-        layer.videoGravity = .resizeAspect
-        return layer
-    }()
+    public init(
+        objectTypes: [AVMetadataObject.ObjectType] = [.qr],
+        doneDidPress: @escaping (AddAccountViewController) -> Void,
+        didFindQRCode: @escaping (AddAccountViewController, String) -> Void,
+        failedToStart: @escaping (AddAccountViewController) -> Void
+    ) {
+        addAccountView = AddAccountView(frame: .zero, objectTypes: objectTypes)
+        self.doneDidPress = doneDidPress
+        self.didFindQRCode = didFindQRCode
+        _failedToStart = failedToStart
+        super.init(nibName: nil, bundle: nil)
+    }
 
-    private let captureDevice: AVCaptureDevice? = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back)
-    private lazy var session = AVCaptureSession()
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+        navigationItem.rightBarButtonItem = UIBarButtonItem(
+            barButtonSystemItem: .done,
+            target: self,
+            action: #selector(handleDoneButtonDidPress))
+    }
 
-    private let objectTypes: [AVMetadataObject.ObjectType]
-    public weak var delegate: AddAccountViewDelegate?
-
-    public init(frame: CGRect, objectTypes: [AVMetadataObject.ObjectType]) {
-        self.objectTypes = objectTypes
-        super.init(frame: frame)
-        beginSession()
+    @objc
+    private func handleDoneButtonDidPress() {
+        doneDidPress(self)
     }
 
     @available(*, unavailable)
-    required init?(coder aDecoder: NSCoder) {
+    required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-
-    deinit {
-        session.stopRunning()
-    }
-
-    private func beginSession() {
-        guard let captureDevice = captureDevice,
-              let deviceInput = try? AVCaptureDeviceInput(device: captureDevice),
-              session.canAddInput(deviceInput),
-              session.canAddOutput(metaDataOutput) else {
-            delegate?.failedToStart()
-            return
-        }
-        session.addInput(deviceInput)
-        session.addOutput(metaDataOutput)
-        metaDataOutput.setMetadataObjectsDelegate(self, queue: .main)
-        metaDataOutput.metadataObjectTypes = objectTypes
-        layer.masksToBounds = true
-        layer.addSublayer(previewLayer)
-        previewLayer.frame = bounds
-        previewLayer.videoGravity = .resizeAspectFill
-        session.startRunning()
-    }
-
-    public override func layoutSubviews() {
-        super.layoutSubviews()
-        previewLayer.frame = bounds
-    }
-
-    public func resumeSession() {
-        guard !session.isRunning else { return }
-        session.startRunning()
     }
 }
 
-extension AddAccountView: AVCaptureMetadataOutputObjectsDelegate {
-    public func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-        guard
-            let readableObject = metadataObjects.first as? AVMetadataMachineReadableCodeObject,
-            let stringValue = readableObject.stringValue
-        else {
-            return
-        }
-        session.stopRunning()
-        UINotificationFeedbackGenerator().notificationOccurred(.success)
-        delegate?.didFindQRCode(code: stringValue)
+extension AddAccountViewController: AddAccountViewDelegate {
+    public func didFindQRCode(code: String) {
+        didFindQRCode(self, code)
+    }
+
+    public func failedToStart() {
+        _failedToStart(self)
     }
 }

@@ -7,99 +7,63 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B00CED622811DF01001CB090 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00CED612811DF01001CB090 /* AppDelegate.swift */; };
-		B00CED642811DF01001CB090 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00CED632811DF01001CB090 /* SceneDelegate.swift */; };
-		B00CED662811DF01001CB090 /* AuthenticatorListComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00CED652811DF01001CB090 /* AuthenticatorListComposer.swift */; };
-		B00CED6B2811DF02001CB090 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B00CED6A2811DF02001CB090 /* Assets.xcassets */; };
-		B00CED6E2811DF02001CB090 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B00CED6C2811DF02001CB090 /* LaunchScreen.storyboard */; };
-		B021A2E5281FE8130087F883 /* AuthenticatorAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = B021A2E4281FE8130087F883 /* AuthenticatorAnalytics.swift */; };
-		B021A2E7281FE8830087F883 /* FireBaseAnalyticsAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B021A2E6281FE8830087F883 /* FireBaseAnalyticsAdapter.swift */; };
-		B047DFC628122403007EF575 /* AuthenticatorListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B047DFC528122403007EF575 /* AuthenticatorListService.swift */; };
-		B047DFC82812243A007EF575 /* AuthenticationList+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = B047DFC72812243A007EF575 /* AuthenticationList+Init.swift */; };
-		B05D9880282316B900C44A17 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05D987F282316B900C44A17 /* TestHelpers.swift */; };
-		B05F8F5328145B1800CBECB8 /* AddAccountComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B05F8F5228145B1800CBECB8 /* AddAccountComposer.swift */; };
-		B07979BD28156BEE0009CCF0 /* Threading.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07979BC28156BEE0009CCF0 /* Threading.swift */; };
-		B07979BF28156D2E0009CCF0 /* Navigator+AppEventObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07979BE28156D2E0009CCF0 /* Navigator+AppEventObserver.swift */; };
-		B07979C1281574BD0009CCF0 /* OverLayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07979C0281574BD0009CCF0 /* OverLayViewController.swift */; };
-		B07979C628158F0B0009CCF0 /* AuthenticatorTOTPProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07979C528158F0B0009CCF0 /* AuthenticatorTOTPProvider.swift */; };
-		B07979CB2815D61D0009CCF0 /* SwiftOTP+AuthenticatorTOTPProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07979CA2815D61D0009CCF0 /* SwiftOTP+AuthenticatorTOTPProvider.swift */; };
-		B07979CD2815DA100009CCF0 /* AddAccountDelegateComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07979CC2815DA100009CCF0 /* AddAccountDelegateComposition.swift */; };
-		B07979E32815E5730009CCF0 /* Navigator+CreateAuthenticatorListWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07979E22815E5730009CCF0 /* Navigator+CreateAuthenticatorListWindow.swift */; };
-		B07979EB2815EB040009CCF0 /* AddAccountComposer+init.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07979EA2815EB040009CCF0 /* AddAccountComposer+init.swift */; };
-		B0A906C52812EAA000F72F87 /* AuthenticatorIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A906C42812EAA000F72F87 /* AuthenticatorIntegrationTests.swift */; };
-		B0C0909A281ED7BF005E1FBD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B0C09099281ED7BF005E1FBD /* GoogleService-Info.plist */; };
-		B0C090B4281ED9E8005E1FBD /* FirebaseAnalytics.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C09028281ED0EB005E1FBD /* FirebaseAnalytics.xcframework */; };
-		B0C090B5281ED9E8005E1FBD /* FirebaseCore.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C0902E281ED0EB005E1FBD /* FirebaseCore.xcframework */; };
-		B0C090B6281ED9E8005E1FBD /* FirebaseCoreDiagnostics.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C09024281ED0EB005E1FBD /* FirebaseCoreDiagnostics.xcframework */; };
-		B0C090B7281ED9E8005E1FBD /* FirebaseCrashlytics.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C0902C281ED0EB005E1FBD /* FirebaseCrashlytics.xcframework */; };
-		B0C090B8281ED9E8005E1FBD /* FirebaseInstallations.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C09027281ED0EB005E1FBD /* FirebaseInstallations.xcframework */; };
-		B0C090B9281ED9E8005E1FBD /* GoogleAppMeasurement.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C09029281ED0EB005E1FBD /* GoogleAppMeasurement.xcframework */; };
-		B0C090BA281ED9E8005E1FBD /* GoogleAppMeasurementIdentitySupport.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C09025281ED0EB005E1FBD /* GoogleAppMeasurementIdentitySupport.xcframework */; };
-		B0C090BB281ED9E8005E1FBD /* GoogleDataTransport.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C0902D281ED0EB005E1FBD /* GoogleDataTransport.xcframework */; };
-		B0C090BC281ED9E8005E1FBD /* GoogleUtilities.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C0902B281ED0EB005E1FBD /* GoogleUtilities.xcframework */; };
-		B0C090BD281ED9E8005E1FBD /* nanopb.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C0902A281ED0EB005E1FBD /* nanopb.xcframework */; };
-		B0C090BE281ED9E8005E1FBD /* PromisesObjC.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C09026281ED0EB005E1FBD /* PromisesObjC.xcframework */; };
-		B0C090C9281EEED2005E1FBD /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C090C3281EEE8D005E1FBD /* libc++.tbd */; };
-		B0C090CB281EF85F005E1FBD /* AccountRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B056F762281DD6F000617F42 /* AccountRepository.framework */; };
-		B0C090CC281EF85F005E1FBD /* AccountRepository.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B056F762281DD6F000617F42 /* AccountRepository.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B0C090CD281EF860005E1FBD /* AddAccountBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B056F763281DD6F000617F42 /* AddAccountBusiness.framework */; };
-		B0C090CE281EF860005E1FBD /* AddAccountBusiness.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B056F763281DD6F000617F42 /* AddAccountBusiness.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B0C090CF281EF861005E1FBD /* AddAccountView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B056F764281DD6F000617F42 /* AddAccountView.framework */; };
-		B0C090D0281EF861005E1FBD /* AddAccountView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B056F764281DD6F000617F42 /* AddAccountView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B0C090D1281EF862005E1FBD /* AuthenticatorListBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B056F765281DD6F000617F42 /* AuthenticatorListBusiness.framework */; };
-		B0C090D2281EF862005E1FBD /* AuthenticatorListBusiness.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B056F765281DD6F000617F42 /* AuthenticatorListBusiness.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B0C090D3281EF863005E1FBD /* AuthenticatorListView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B056F766281DD6F000617F42 /* AuthenticatorListView.framework */; };
-		B0C090D4281EF863005E1FBD /* AuthenticatorListView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B056F766281DD6F000617F42 /* AuthenticatorListView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B0C090D5281EF864005E1FBD /* Clock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B056F767281DD6F000617F42 /* Clock.framework */; };
-		B0C090D6281EF864005E1FBD /* Clock.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B056F767281DD6F000617F42 /* Clock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B0C090D7281EF865005E1FBD /* FileSystemPersistentStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B056F768281DD6F000617F42 /* FileSystemPersistentStorage.framework */; };
-		B0C090D8281EF865005E1FBD /* FileSystemPersistentStorage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B056F768281DD6F000617F42 /* FileSystemPersistentStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B0C090DB281EF88E005E1FBD /* Resolver.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2D4E4281D6AFC00ADF159 /* Resolver.xcframework */; };
-		B0C090DC281EF88E005E1FBD /* Resolver.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2D4E4281D6AFC00ADF159 /* Resolver.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B0C090DD281EF88F005E1FBD /* SwiftOTP.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2D4E8281D6B3700ADF159 /* SwiftOTP.xcframework */; };
-		B0C090DE281EF88F005E1FBD /* SwiftOTP.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2D4E8281D6B3700ADF159 /* SwiftOTP.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B0C090DF281F013D005E1FBD /* UIKitNavigator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B056F769281DD6F000617F42 /* UIKitNavigator.framework */; };
-		B0C090E0281F013D005E1FBD /* UIKitNavigator.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B056F769281DD6F000617F42 /* UIKitNavigator.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		B0CF913B281F3A31000FAA94 /* UIKitHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CF913A281F3A31000FAA94 /* UIKitHelpers.swift */; };
-		B0CF913D281F3D57000FAA94 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CF913C281F3D57000FAA94 /* AppEnvironment.swift */; };
-		B0CF913F281F4407000FAA94 /* WeakBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0CF913E281F4407000FAA94 /* WeakBox.swift */; };
-		B0E06D322820AA660022DC40 /* AddAccountSaveServiceAnalyticsDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E06D312820AA660022DC40 /* AddAccountSaveServiceAnalyticsDecorator.swift */; };
-		B0E06D342820B21D0022DC40 /* AddAccountSaveServiceAnalyticsDecoratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E06D332820B21D0022DC40 /* AddAccountSaveServiceAnalyticsDecoratorTests.swift */; };
-		B0E06D362820B42F0022DC40 /* AuthenticatorAnalitycsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E06D352820B42F0022DC40 /* AuthenticatorAnalitycsMock.swift */; };
-		B0F423E72814B71A00C9D138 /* AccountRepositoryComposer+AddAccountService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F423E62814B71A00C9D138 /* AccountRepositoryComposer+AddAccountService.swift */; };
-		B0F423F42814C71100C9D138 /* FileSystemPersistentStorage+AccountRepositoryProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F423F32814C71100C9D138 /* FileSystemPersistentStorage+AccountRepositoryProvider.swift */; };
-		B0F423F72814C76E00C9D138 /* Resolver+GlobalDepencencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F423F62814C76E00C9D138 /* Resolver+GlobalDepencencies.swift */; };
-		B0F423FA2814CAF900C9D138 /* Navigator+AuthenticatorListComposerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F423F92814CAF900C9D138 /* Navigator+AuthenticatorListComposerDelegate.swift */; };
-		B0F423FF2814ED5900C9D138 /* AppEventObservable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F423FE2814ED5900C9D138 /* AppEventObservable.swift */; };
+		B025FDCE282FBAC4008D1DF1 /* Resolver.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B025FDCC282FBAC4008D1DF1 /* Resolver.xcframework */; };
+		B025FDCF282FBAC4008D1DF1 /* Resolver.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B025FDCC282FBAC4008D1DF1 /* Resolver.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B025FDD0282FBAC4008D1DF1 /* SwiftOTP.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B025FDCD282FBAC4008D1DF1 /* SwiftOTP.xcframework */; };
+		B025FDD1282FBAC4008D1DF1 /* SwiftOTP.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B025FDCD282FBAC4008D1DF1 /* SwiftOTP.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B025FDD3282FCB9D008D1DF1 /* Resolver+Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B025FDD2282FCB9D008D1DF1 /* Resolver+Dependencies.swift */; };
+		B025FDD5282FCC88008D1DF1 /* Threading.swift in Sources */ = {isa = PBXBuildFile; fileRef = B025FDD4282FCC88008D1DF1 /* Threading.swift */; };
+		B025FDD7282FD353008D1DF1 /* ListComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B025FDD6282FD353008D1DF1 /* ListComposer.swift */; };
+		B025FDD9282FD5F6008D1DF1 /* AuthenticatorTOTPProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B025FDD8282FD5F6008D1DF1 /* AuthenticatorTOTPProvider.swift */; };
+		B06A5FCF282FFDF100433C58 /* AuthenticatorListPresenterServiceAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FCE282FFDF100433C58 /* AuthenticatorListPresenterServiceAdapter.swift */; };
+		B06A5FD1282FFE1A00433C58 /* AuthenticatorListOutputAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FD0282FFE1A00433C58 /* AuthenticatorListOutputAdapter.swift */; };
+		B06A5FD52830111D00433C58 /* AccountRepositoryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FD42830111D00433C58 /* AccountRepositoryExtensions.swift */; };
+		B06A5FD82830115700433C58 /* FileSystemPersistentStorage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FD72830115700433C58 /* FileSystemPersistentStorage+Extensions.swift */; };
+		B06A5FDD283047C800433C58 /* AddAccountComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FDC283047C800433C58 /* AddAccountComposer.swift */; };
+		B06A5FE12830525D00433C58 /* UIKitHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FE02830525D00433C58 /* UIKitHelpers.swift */; };
+		B06A5FE32830531F00433C58 /* SceneDelegate+AuthenticatorList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FE22830531F00433C58 /* SceneDelegate+AuthenticatorList.swift */; };
+		B06A5FE52830532F00433C58 /* SceneDelegate+AddAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FE42830532F00433C58 /* SceneDelegate+AddAccount.swift */; };
+		B06A5FE7283069C700433C58 /* AddAccountSaveServiceAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FE6283069C700433C58 /* AddAccountSaveServiceAdapter.swift */; };
+		B06A5FE9283075D800433C58 /* AddAccountEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FE8283075D800433C58 /* AddAccountEvent.swift */; };
+		B06A5FEB28307F2700433C58 /* WeakProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FEA28307F2700433C58 /* WeakProxy.swift */; };
+		B06A5FED2830842F00433C58 /* AppEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FEC2830842F00433C58 /* AppEvent.swift */; };
+		B06A5FEF2830878D00433C58 /* SwiftUIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FEE2830878D00433C58 /* SwiftUIHelpers.swift */; };
+		B0B2B961282FB78900BB7E00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B2B960282FB78900BB7E00 /* AppDelegate.swift */; };
+		B0B2B963282FB78900BB7E00 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B2B962282FB78900BB7E00 /* SceneDelegate.swift */; };
+		B0B2B96A282FB78900BB7E00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0B2B969282FB78900BB7E00 /* Assets.xcassets */; };
+		B0B2B96D282FB78900BB7E00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0B2B96B282FB78900BB7E00 /* LaunchScreen.storyboard */; };
+		B0B2B97C282FB7C900BB7E00 /* AccountRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2B975282FB7C900BB7E00 /* AccountRepository.framework */; };
+		B0B2B97D282FB7C900BB7E00 /* AccountRepository.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2B975282FB7C900BB7E00 /* AccountRepository.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B0B2B97E282FB7C900BB7E00 /* AddAccountBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2B976282FB7C900BB7E00 /* AddAccountBusiness.framework */; };
+		B0B2B97F282FB7C900BB7E00 /* AddAccountBusiness.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2B976282FB7C900BB7E00 /* AddAccountBusiness.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B0B2B980282FB7C900BB7E00 /* AddAccountView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2B977282FB7C900BB7E00 /* AddAccountView.framework */; };
+		B0B2B981282FB7C900BB7E00 /* AddAccountView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2B977282FB7C900BB7E00 /* AddAccountView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B0B2B982282FB7C900BB7E00 /* AuthenticatorListBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2B978282FB7C900BB7E00 /* AuthenticatorListBusiness.framework */; };
+		B0B2B983282FB7C900BB7E00 /* AuthenticatorListBusiness.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2B978282FB7C900BB7E00 /* AuthenticatorListBusiness.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B0B2B984282FB7C900BB7E00 /* AuthenticatorListView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2B979282FB7C900BB7E00 /* AuthenticatorListView.framework */; };
+		B0B2B985282FB7C900BB7E00 /* AuthenticatorListView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2B979282FB7C900BB7E00 /* AuthenticatorListView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B0B2B986282FB7C900BB7E00 /* Clock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2B97A282FB7C900BB7E00 /* Clock.framework */; };
+		B0B2B987282FB7C900BB7E00 /* Clock.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2B97A282FB7C900BB7E00 /* Clock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B0B2B988282FB7C900BB7E00 /* FileSystemPersistentStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2B97B282FB7C900BB7E00 /* FileSystemPersistentStorage.framework */; };
+		B0B2B989282FB7C900BB7E00 /* FileSystemPersistentStorage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2B97B282FB7C900BB7E00 /* FileSystemPersistentStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		B0A906BE2812E9E200F72F87 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B00CED562811DF01001CB090 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B00CED5D2811DF01001CB090;
-			remoteInfo = "Authenticator-iOS";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
-		B056F761281DD4D000617F42 /* Embed Frameworks */ = {
+		B0B2B98A282FB7C900BB7E00 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				B0C090CE281EF860005E1FBD /* AddAccountBusiness.framework in Embed Frameworks */,
-				B0C090CC281EF85F005E1FBD /* AccountRepository.framework in Embed Frameworks */,
-				B0C090D2281EF862005E1FBD /* AuthenticatorListBusiness.framework in Embed Frameworks */,
-				B0C090D4281EF863005E1FBD /* AuthenticatorListView.framework in Embed Frameworks */,
-				B0C090DC281EF88E005E1FBD /* Resolver.xcframework in Embed Frameworks */,
-				B0C090D0281EF861005E1FBD /* AddAccountView.framework in Embed Frameworks */,
-				B0C090D6281EF864005E1FBD /* Clock.framework in Embed Frameworks */,
-				B0C090D8281EF865005E1FBD /* FileSystemPersistentStorage.framework in Embed Frameworks */,
-				B0C090DE281EF88F005E1FBD /* SwiftOTP.xcframework in Embed Frameworks */,
-				B0C090E0281F013D005E1FBD /* UIKitNavigator.framework in Embed Frameworks */,
+				B0B2B97F282FB7C900BB7E00 /* AddAccountBusiness.framework in Embed Frameworks */,
+				B0B2B97D282FB7C900BB7E00 /* AccountRepository.framework in Embed Frameworks */,
+				B0B2B983282FB7C900BB7E00 /* AuthenticatorListBusiness.framework in Embed Frameworks */,
+				B025FDD1282FBAC4008D1DF1 /* SwiftOTP.xcframework in Embed Frameworks */,
+				B0B2B985282FB7C900BB7E00 /* AuthenticatorListView.framework in Embed Frameworks */,
+				B0B2B981282FB7C900BB7E00 /* AddAccountView.framework in Embed Frameworks */,
+				B025FDCF282FBAC4008D1DF1 /* Resolver.xcframework in Embed Frameworks */,
+				B0B2B987282FB7C900BB7E00 /* Clock.framework in Embed Frameworks */,
+				B0B2B989282FB7C900BB7E00 /* FileSystemPersistentStorage.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -107,347 +71,190 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		72DD9EA7532760AC3B695A42 /* Pods_Authenticator_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Authenticator_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B00CED5E2811DF01001CB090 /* Authenticator-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Authenticator-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B00CED612811DF01001CB090 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B00CED632811DF01001CB090 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B00CED652811DF01001CB090 /* AuthenticatorListComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorListComposer.swift; sourceTree = "<group>"; };
-		B00CED6A2811DF02001CB090 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B00CED6D2811DF02001CB090 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		B00CED6F2811DF02001CB090 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B021A2E4281FE8130087F883 /* AuthenticatorAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorAnalytics.swift; sourceTree = "<group>"; };
-		B021A2E6281FE8830087F883 /* FireBaseAnalyticsAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FireBaseAnalyticsAdapter.swift; sourceTree = "<group>"; };
-		B022ED2528134F18000C8F23 /* AuthenticatorListBusiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AuthenticatorListBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B022ED2828134F22000C8F23 /* AddAccountBusiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AddAccountBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B047DFA42811F2FE007EF575 /* SwiftOTP.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SwiftOTP.xcframework; path = Carthage/Build/SwiftOTP.xcframework; sourceTree = "<group>"; };
-		B047DFC528122403007EF575 /* AuthenticatorListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorListService.swift; sourceTree = "<group>"; };
-		B047DFC72812243A007EF575 /* AuthenticationList+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AuthenticationList+Init.swift"; sourceTree = "<group>"; };
-		B056F762281DD6F000617F42 /* AccountRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AccountRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B056F763281DD6F000617F42 /* AddAccountBusiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AddAccountBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B056F764281DD6F000617F42 /* AddAccountView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AddAccountView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B056F765281DD6F000617F42 /* AuthenticatorListBusiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AuthenticatorListBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B056F766281DD6F000617F42 /* AuthenticatorListView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AuthenticatorListView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B056F767281DD6F000617F42 /* Clock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Clock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B056F768281DD6F000617F42 /* FileSystemPersistentStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FileSystemPersistentStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B056F769281DD6F000617F42 /* UIKitNavigator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIKitNavigator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B05D987F282316B900C44A17 /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
-		B05F8F5228145B1800CBECB8 /* AddAccountComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountComposer.swift; sourceTree = "<group>"; };
-		B07979BC28156BEE0009CCF0 /* Threading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Threading.swift; sourceTree = "<group>"; };
-		B07979BE28156D2E0009CCF0 /* Navigator+AppEventObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Navigator+AppEventObserver.swift"; sourceTree = "<group>"; };
-		B07979C0281574BD0009CCF0 /* OverLayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverLayViewController.swift; sourceTree = "<group>"; };
-		B07979C528158F0B0009CCF0 /* AuthenticatorTOTPProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorTOTPProvider.swift; sourceTree = "<group>"; };
-		B07979CA2815D61D0009CCF0 /* SwiftOTP+AuthenticatorTOTPProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftOTP+AuthenticatorTOTPProvider.swift"; sourceTree = "<group>"; };
-		B07979CC2815DA100009CCF0 /* AddAccountDelegateComposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountDelegateComposition.swift; sourceTree = "<group>"; };
-		B07979E22815E5730009CCF0 /* Navigator+CreateAuthenticatorListWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Navigator+CreateAuthenticatorListWindow.swift"; sourceTree = "<group>"; };
-		B07979E62815E5B60009CCF0 /* UIKitNavigator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UIKitNavigator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B07979EA2815EB040009CCF0 /* AddAccountComposer+init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddAccountComposer+init.swift"; sourceTree = "<group>"; };
-		B0935D8028161D5C001DE07B /* Clock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Clock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0A9062A2812D75C00F72F87 /* AuthenticatorListView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AuthenticatorListView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0A9068A2812DBFF00F72F87 /* AuthenticatorListBusiness_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AuthenticatorListBusiness_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0A9069E2812E56A00F72F87 /* FileSystemPersistentStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FileSystemPersistentStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0A906B32812E95100F72F87 /* AuthenticatorListBusiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AuthenticatorListBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0A906BA2812E9E200F72F87 /* Authenticator-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Authenticator-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0A906C32812EAA000F72F87 /* Authenticator-iOSTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Authenticator-iOSTests-Bridging-Header.h"; sourceTree = "<group>"; };
-		B0A906C42812EAA000F72F87 /* AuthenticatorIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorIntegrationTests.swift; sourceTree = "<group>"; };
-		B0A906EA28130A1700F72F87 /* AddAccountView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AddAccountView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0B2D4E4281D6AFC00ADF159 /* Resolver.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Resolver.xcframework; path = ../Carthage/Build/Resolver.xcframework; sourceTree = "<group>"; };
-		B0B2D4E8281D6B3700ADF159 /* SwiftOTP.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SwiftOTP.xcframework; path = ../Carthage/Build/SwiftOTP.xcframework; sourceTree = "<group>"; };
-		B0C09024281ED0EB005E1FBD /* FirebaseCoreDiagnostics.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseCoreDiagnostics.xcframework; path = ../Carthage/Build/FirebaseCoreDiagnostics.xcframework; sourceTree = "<group>"; };
-		B0C09025281ED0EB005E1FBD /* GoogleAppMeasurementIdentitySupport.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleAppMeasurementIdentitySupport.xcframework; path = ../Carthage/Build/GoogleAppMeasurementIdentitySupport.xcframework; sourceTree = "<group>"; };
-		B0C09026281ED0EB005E1FBD /* PromisesObjC.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PromisesObjC.xcframework; path = ../Carthage/Build/PromisesObjC.xcframework; sourceTree = "<group>"; };
-		B0C09027281ED0EB005E1FBD /* FirebaseInstallations.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseInstallations.xcframework; path = ../Carthage/Build/FirebaseInstallations.xcframework; sourceTree = "<group>"; };
-		B0C09028281ED0EB005E1FBD /* FirebaseAnalytics.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseAnalytics.xcframework; path = ../Carthage/Build/FirebaseAnalytics.xcframework; sourceTree = "<group>"; };
-		B0C09029281ED0EB005E1FBD /* GoogleAppMeasurement.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleAppMeasurement.xcframework; path = ../Carthage/Build/GoogleAppMeasurement.xcframework; sourceTree = "<group>"; };
-		B0C0902A281ED0EB005E1FBD /* nanopb.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = nanopb.xcframework; path = ../Carthage/Build/nanopb.xcframework; sourceTree = "<group>"; };
-		B0C0902B281ED0EB005E1FBD /* GoogleUtilities.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleUtilities.xcframework; path = ../Carthage/Build/GoogleUtilities.xcframework; sourceTree = "<group>"; };
-		B0C0902C281ED0EB005E1FBD /* FirebaseCrashlytics.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseCrashlytics.xcframework; path = ../Carthage/Build/FirebaseCrashlytics.xcframework; sourceTree = "<group>"; };
-		B0C0902D281ED0EB005E1FBD /* GoogleDataTransport.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = GoogleDataTransport.xcframework; path = ../Carthage/Build/GoogleDataTransport.xcframework; sourceTree = "<group>"; };
-		B0C0902E281ED0EB005E1FBD /* FirebaseCore.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = FirebaseCore.xcframework; path = ../Carthage/Build/FirebaseCore.xcframework; sourceTree = "<group>"; };
-		B0C09097281ED7A2005E1FBD /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Firebase.framework; path = ../Carthage/Build/iOS/Firebase.framework; sourceTree = "<group>"; };
-		B0C09099281ED7BF005E1FBD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		B0C090C1281EEE81005E1FBD /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
-		B0C090C3281EEE8D005E1FBD /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
-		B0C090C5281EEE96005E1FBD /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		B0C090C7281EEE9B005E1FBD /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
-		B0CF913A281F3A31000FAA94 /* UIKitHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitHelpers.swift; sourceTree = "<group>"; };
-		B0CF913C281F3D57000FAA94 /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
-		B0CF913E281F4407000FAA94 /* WeakBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakBox.swift; sourceTree = "<group>"; };
-		B0E06D312820AA660022DC40 /* AddAccountSaveServiceAnalyticsDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountSaveServiceAnalyticsDecorator.swift; sourceTree = "<group>"; };
-		B0E06D332820B21D0022DC40 /* AddAccountSaveServiceAnalyticsDecoratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountSaveServiceAnalyticsDecoratorTests.swift; sourceTree = "<group>"; };
-		B0E06D352820B42F0022DC40 /* AuthenticatorAnalitycsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorAnalitycsMock.swift; sourceTree = "<group>"; };
-		B0F423E62814B71A00C9D138 /* AccountRepositoryComposer+AddAccountService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AccountRepositoryComposer+AddAccountService.swift"; sourceTree = "<group>"; };
-		B0F423E82814B74300C9D138 /* AccountRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AccountRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B0F423EE2814C6E400C9D138 /* Resolver.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Resolver.xcframework; path = Carthage/Build/Resolver.xcframework; sourceTree = "<group>"; };
-		B0F423F32814C71100C9D138 /* FileSystemPersistentStorage+AccountRepositoryProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileSystemPersistentStorage+AccountRepositoryProvider.swift"; sourceTree = "<group>"; };
-		B0F423F62814C76E00C9D138 /* Resolver+GlobalDepencencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+GlobalDepencencies.swift"; sourceTree = "<group>"; };
-		B0F423F92814CAF900C9D138 /* Navigator+AuthenticatorListComposerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Navigator+AuthenticatorListComposerDelegate.swift"; sourceTree = "<group>"; };
-		B0F423FE2814ED5900C9D138 /* AppEventObservable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEventObservable.swift; sourceTree = "<group>"; };
-		F663F2877E8CDF7EC6F8CA14 /* Pods_Authenticator_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Authenticator_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B025FDCC282FBAC4008D1DF1 /* Resolver.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Resolver.xcframework; path = ../Carthage/Build/Resolver.xcframework; sourceTree = "<group>"; };
+		B025FDCD282FBAC4008D1DF1 /* SwiftOTP.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SwiftOTP.xcframework; path = ../Carthage/Build/SwiftOTP.xcframework; sourceTree = "<group>"; };
+		B025FDD2282FCB9D008D1DF1 /* Resolver+Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+Dependencies.swift"; sourceTree = "<group>"; };
+		B025FDD4282FCC88008D1DF1 /* Threading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Threading.swift; sourceTree = "<group>"; };
+		B025FDD6282FD353008D1DF1 /* ListComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListComposer.swift; sourceTree = "<group>"; };
+		B025FDD8282FD5F6008D1DF1 /* AuthenticatorTOTPProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorTOTPProvider.swift; sourceTree = "<group>"; };
+		B06A5FCE282FFDF100433C58 /* AuthenticatorListPresenterServiceAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorListPresenterServiceAdapter.swift; sourceTree = "<group>"; };
+		B06A5FD0282FFE1A00433C58 /* AuthenticatorListOutputAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorListOutputAdapter.swift; sourceTree = "<group>"; };
+		B06A5FD42830111D00433C58 /* AccountRepositoryExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRepositoryExtensions.swift; sourceTree = "<group>"; };
+		B06A5FD72830115700433C58 /* FileSystemPersistentStorage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileSystemPersistentStorage+Extensions.swift"; sourceTree = "<group>"; };
+		B06A5FDC283047C800433C58 /* AddAccountComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountComposer.swift; sourceTree = "<group>"; };
+		B06A5FE02830525D00433C58 /* UIKitHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitHelpers.swift; sourceTree = "<group>"; };
+		B06A5FE22830531F00433C58 /* SceneDelegate+AuthenticatorList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SceneDelegate+AuthenticatorList.swift"; sourceTree = "<group>"; };
+		B06A5FE42830532F00433C58 /* SceneDelegate+AddAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SceneDelegate+AddAccount.swift"; sourceTree = "<group>"; };
+		B06A5FE6283069C700433C58 /* AddAccountSaveServiceAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountSaveServiceAdapter.swift; sourceTree = "<group>"; };
+		B06A5FE8283075D800433C58 /* AddAccountEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountEvent.swift; sourceTree = "<group>"; };
+		B06A5FEA28307F2700433C58 /* WeakProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakProxy.swift; sourceTree = "<group>"; };
+		B06A5FEC2830842F00433C58 /* AppEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEvent.swift; sourceTree = "<group>"; };
+		B06A5FEE2830878D00433C58 /* SwiftUIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIHelpers.swift; sourceTree = "<group>"; };
+		B0B2B95D282FB78900BB7E00 /* Authenticator-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Authenticator-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0B2B960282FB78900BB7E00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B0B2B962282FB78900BB7E00 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		B0B2B969282FB78900BB7E00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B0B2B96C282FB78900BB7E00 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B0B2B96E282FB78900BB7E00 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0B2B975282FB7C900BB7E00 /* AccountRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AccountRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0B2B976282FB7C900BB7E00 /* AddAccountBusiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AddAccountBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0B2B977282FB7C900BB7E00 /* AddAccountView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AddAccountView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0B2B978282FB7C900BB7E00 /* AuthenticatorListBusiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AuthenticatorListBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0B2B979282FB7C900BB7E00 /* AuthenticatorListView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AuthenticatorListView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0B2B97A282FB7C900BB7E00 /* Clock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Clock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0B2B97B282FB7C900BB7E00 /* FileSystemPersistentStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FileSystemPersistentStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B00CED5B2811DF01001CB090 /* Frameworks */ = {
+		B0B2B95A282FB78900BB7E00 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0C090C9281EEED2005E1FBD /* libc++.tbd in Frameworks */,
-				B0C090CF281EF861005E1FBD /* AddAccountView.framework in Frameworks */,
-				B0C090B4281ED9E8005E1FBD /* FirebaseAnalytics.xcframework in Frameworks */,
-				B0C090B5281ED9E8005E1FBD /* FirebaseCore.xcframework in Frameworks */,
-				B0C090B6281ED9E8005E1FBD /* FirebaseCoreDiagnostics.xcframework in Frameworks */,
-				B0C090B7281ED9E8005E1FBD /* FirebaseCrashlytics.xcframework in Frameworks */,
-				B0C090B8281ED9E8005E1FBD /* FirebaseInstallations.xcframework in Frameworks */,
-				B0C090DF281F013D005E1FBD /* UIKitNavigator.framework in Frameworks */,
-				B0C090CD281EF860005E1FBD /* AddAccountBusiness.framework in Frameworks */,
-				B0C090B9281ED9E8005E1FBD /* GoogleAppMeasurement.xcframework in Frameworks */,
-				B0C090D5281EF864005E1FBD /* Clock.framework in Frameworks */,
-				B0C090DB281EF88E005E1FBD /* Resolver.xcframework in Frameworks */,
-				B0C090BA281ED9E8005E1FBD /* GoogleAppMeasurementIdentitySupport.xcframework in Frameworks */,
-				B0C090BB281ED9E8005E1FBD /* GoogleDataTransport.xcframework in Frameworks */,
-				B0C090BC281ED9E8005E1FBD /* GoogleUtilities.xcframework in Frameworks */,
-				B0C090BD281ED9E8005E1FBD /* nanopb.xcframework in Frameworks */,
-				B0C090D7281EF865005E1FBD /* FileSystemPersistentStorage.framework in Frameworks */,
-				B0C090BE281ED9E8005E1FBD /* PromisesObjC.xcframework in Frameworks */,
-				B0C090D3281EF863005E1FBD /* AuthenticatorListView.framework in Frameworks */,
-				B0C090CB281EF85F005E1FBD /* AccountRepository.framework in Frameworks */,
-				B0C090D1281EF862005E1FBD /* AuthenticatorListBusiness.framework in Frameworks */,
-				B0C090DD281EF88F005E1FBD /* SwiftOTP.xcframework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B0A906B72812E9E200F72F87 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				B0B2B97E282FB7C900BB7E00 /* AddAccountBusiness.framework in Frameworks */,
+				B0B2B97C282FB7C900BB7E00 /* AccountRepository.framework in Frameworks */,
+				B0B2B982282FB7C900BB7E00 /* AuthenticatorListBusiness.framework in Frameworks */,
+				B025FDD0282FBAC4008D1DF1 /* SwiftOTP.xcframework in Frameworks */,
+				B0B2B984282FB7C900BB7E00 /* AuthenticatorListView.framework in Frameworks */,
+				B0B2B980282FB7C900BB7E00 /* AddAccountView.framework in Frameworks */,
+				B025FDCE282FBAC4008D1DF1 /* Resolver.xcframework in Frameworks */,
+				B0B2B986282FB7C900BB7E00 /* Clock.framework in Frameworks */,
+				B0B2B988282FB7C900BB7E00 /* FileSystemPersistentStorage.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B00CED552811DF01001CB090 = {
+		B06A5FCD282FFDE200433C58 /* List */ = {
 			isa = PBXGroup;
 			children = (
-				B00CED602811DF01001CB090 /* Authenticator-iOS */,
-				B0A906BB2812E9E200F72F87 /* Authenticator-iOSTests */,
-				B00CED5F2811DF01001CB090 /* Products */,
-				B047DFA32811F2FE007EF575 /* Frameworks */,
+				B025FDD6282FD353008D1DF1 /* ListComposer.swift */,
+				B06A5FCE282FFDF100433C58 /* AuthenticatorListPresenterServiceAdapter.swift */,
+				B06A5FD0282FFE1A00433C58 /* AuthenticatorListOutputAdapter.swift */,
 			);
+			path = List;
 			sourceTree = "<group>";
 		};
-		B00CED5F2811DF01001CB090 /* Products */ = {
+		B06A5FD2283010FC00433C58 /* Integrations */ = {
 			isa = PBXGroup;
 			children = (
-				B00CED5E2811DF01001CB090 /* Authenticator-iOS.app */,
-				B0A906BA2812E9E200F72F87 /* Authenticator-iOSTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		B00CED602811DF01001CB090 /* Authenticator-iOS */ = {
-			isa = PBXGroup;
-			children = (
-				B0F423FD2814CDC800C9D138 /* App */,
-				B07979B7281569810009CCF0 /* Integrations */,
-				B00CED6A2811DF02001CB090 /* Assets.xcassets */,
-				B00CED6C2811DF02001CB090 /* LaunchScreen.storyboard */,
-				B00CED6F2811DF02001CB090 /* Info.plist */,
-				B0C09099281ED7BF005E1FBD /* GoogleService-Info.plist */,
-			);
-			path = "Authenticator-iOS";
-			sourceTree = "<group>";
-		};
-		B021A2E3281FE8050087F883 /* Analitycs */ = {
-			isa = PBXGroup;
-			children = (
-				B021A2E4281FE8130087F883 /* AuthenticatorAnalytics.swift */,
-				B021A2E6281FE8830087F883 /* FireBaseAnalyticsAdapter.swift */,
-				B0E06D312820AA660022DC40 /* AddAccountSaveServiceAnalyticsDecorator.swift */,
-			);
-			path = Analitycs;
-			sourceTree = "<group>";
-		};
-		B047DFA32811F2FE007EF575 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				B0C090C7281EEE9B005E1FBD /* StoreKit.framework */,
-				B0C090C5281EEE96005E1FBD /* libsqlite3.tbd */,
-				B0C090C3281EEE8D005E1FBD /* libc++.tbd */,
-				B0C090C1281EEE81005E1FBD /* libz.tbd */,
-				B0C09097281ED7A2005E1FBD /* Firebase.framework */,
-				B0C09028281ED0EB005E1FBD /* FirebaseAnalytics.xcframework */,
-				B0C0902E281ED0EB005E1FBD /* FirebaseCore.xcframework */,
-				B0C09024281ED0EB005E1FBD /* FirebaseCoreDiagnostics.xcframework */,
-				B0C0902C281ED0EB005E1FBD /* FirebaseCrashlytics.xcframework */,
-				B0C09027281ED0EB005E1FBD /* FirebaseInstallations.xcframework */,
-				B0C09029281ED0EB005E1FBD /* GoogleAppMeasurement.xcframework */,
-				B0C09025281ED0EB005E1FBD /* GoogleAppMeasurementIdentitySupport.xcframework */,
-				B0C0902D281ED0EB005E1FBD /* GoogleDataTransport.xcframework */,
-				B0C0902B281ED0EB005E1FBD /* GoogleUtilities.xcframework */,
-				B0C0902A281ED0EB005E1FBD /* nanopb.xcframework */,
-				B0C09026281ED0EB005E1FBD /* PromisesObjC.xcframework */,
-				B056F762281DD6F000617F42 /* AccountRepository.framework */,
-				B056F763281DD6F000617F42 /* AddAccountBusiness.framework */,
-				B056F764281DD6F000617F42 /* AddAccountView.framework */,
-				B056F765281DD6F000617F42 /* AuthenticatorListBusiness.framework */,
-				B056F766281DD6F000617F42 /* AuthenticatorListView.framework */,
-				B056F767281DD6F000617F42 /* Clock.framework */,
-				B056F768281DD6F000617F42 /* FileSystemPersistentStorage.framework */,
-				B056F769281DD6F000617F42 /* UIKitNavigator.framework */,
-				B0B2D4E8281D6B3700ADF159 /* SwiftOTP.xcframework */,
-				B0B2D4E4281D6AFC00ADF159 /* Resolver.xcframework */,
-				B0935D8028161D5C001DE07B /* Clock.framework */,
-				B07979E62815E5B60009CCF0 /* UIKitNavigator.framework */,
-				B0F423EE2814C6E400C9D138 /* Resolver.xcframework */,
-				B0F423E82814B74300C9D138 /* AccountRepository.framework */,
-				B022ED2828134F22000C8F23 /* AddAccountBusiness.framework */,
-				B022ED2528134F18000C8F23 /* AuthenticatorListBusiness.framework */,
-				B0A906EA28130A1700F72F87 /* AddAccountView.framework */,
-				B0A906B32812E95100F72F87 /* AuthenticatorListBusiness.framework */,
-				B0A9069E2812E56A00F72F87 /* FileSystemPersistentStorage.framework */,
-				B0A9068A2812DBFF00F72F87 /* AuthenticatorListBusiness_iOS.framework */,
-				B0A9062A2812D75C00F72F87 /* AuthenticatorListView.framework */,
-				B047DFA42811F2FE007EF575 /* SwiftOTP.xcframework */,
-				72DD9EA7532760AC3B695A42 /* Pods_Authenticator_iOS.framework */,
-				F663F2877E8CDF7EC6F8CA14 /* Pods_Authenticator_iOSTests.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		B047DFAA2811FABB007EF575 /* AuthenticatorList */ = {
-			isa = PBXGroup;
-			children = (
-				B00CED652811DF01001CB090 /* AuthenticatorListComposer.swift */,
-				B047DFC528122403007EF575 /* AuthenticatorListService.swift */,
-				B047DFC72812243A007EF575 /* AuthenticationList+Init.swift */,
-			);
-			path = AuthenticatorList;
-			sourceTree = "<group>";
-		};
-		B05F8F512814570D00CBECB8 /* AddAccount */ = {
-			isa = PBXGroup;
-			children = (
-				B05F8F5228145B1800CBECB8 /* AddAccountComposer.swift */,
-				B07979CC2815DA100009CCF0 /* AddAccountDelegateComposition.swift */,
-				B07979EA2815EB040009CCF0 /* AddAccountComposer+init.swift */,
-			);
-			path = AddAccount;
-			sourceTree = "<group>";
-		};
-		B07979B7281569810009CCF0 /* Integrations */ = {
-			isa = PBXGroup;
-			children = (
-				B0F423F82814CAD800C9D138 /* Navigator */,
-				B07979C92815D5F20009CCF0 /* ThirdParty */,
-				B047DFAA2811FABB007EF575 /* AuthenticatorList */,
-				B05F8F512814570D00CBECB8 /* AddAccount */,
-				B0F423F12814C6F400C9D138 /* AccountRepository */,
-				B0F423F22814C70A00C9D138 /* FileSystemPersistentStorage */,
-				B0F423F52814C75C00C9D138 /* Resolver */,
+				B025FDD2282FCB9D008D1DF1 /* Resolver+Dependencies.swift */,
+				B025FDD8282FD5F6008D1DF1 /* AuthenticatorTOTPProvider.swift */,
+				B06A5FCD282FFDE200433C58 /* List */,
+				B06A5FDB283047BE00433C58 /* AddAccount */,
+				B06A5FD62830113E00433C58 /* FileSystemPersistentStorage */,
+				B06A5FD32830110700433C58 /* AccountRepository */,
 			);
 			path = Integrations;
 			sourceTree = "<group>";
 		};
-		B07979C428158EEF0009CCF0 /* TOTPGenerator */ = {
+		B06A5FD32830110700433C58 /* AccountRepository */ = {
 			isa = PBXGroup;
 			children = (
-				B07979C528158F0B0009CCF0 /* AuthenticatorTOTPProvider.swift */,
-				B07979CA2815D61D0009CCF0 /* SwiftOTP+AuthenticatorTOTPProvider.swift */,
-			);
-			path = TOTPGenerator;
-			sourceTree = "<group>";
-		};
-		B07979C92815D5F20009CCF0 /* ThirdParty */ = {
-			isa = PBXGroup;
-			children = (
-				B021A2E3281FE8050087F883 /* Analitycs */,
-				B07979C428158EEF0009CCF0 /* TOTPGenerator */,
-			);
-			path = ThirdParty;
-			sourceTree = "<group>";
-		};
-		B07979E92815E9160009CCF0 /* Overlay */ = {
-			isa = PBXGroup;
-			children = (
-				B07979BE28156D2E0009CCF0 /* Navigator+AppEventObserver.swift */,
-				B07979C0281574BD0009CCF0 /* OverLayViewController.swift */,
-			);
-			path = Overlay;
-			sourceTree = "<group>";
-		};
-		B0A906BB2812E9E200F72F87 /* Authenticator-iOSTests */ = {
-			isa = PBXGroup;
-			children = (
-				B0CF913A281F3A31000FAA94 /* UIKitHelpers.swift */,
-				B0A906C42812EAA000F72F87 /* AuthenticatorIntegrationTests.swift */,
-				B0A906C32812EAA000F72F87 /* Authenticator-iOSTests-Bridging-Header.h */,
-				B0E06D332820B21D0022DC40 /* AddAccountSaveServiceAnalyticsDecoratorTests.swift */,
-				B0E06D352820B42F0022DC40 /* AuthenticatorAnalitycsMock.swift */,
-				B05D987F282316B900C44A17 /* TestHelpers.swift */,
-			);
-			path = "Authenticator-iOSTests";
-			sourceTree = "<group>";
-		};
-		B0F423F12814C6F400C9D138 /* AccountRepository */ = {
-			isa = PBXGroup;
-			children = (
-				B0F423E62814B71A00C9D138 /* AccountRepositoryComposer+AddAccountService.swift */,
+				B06A5FD42830111D00433C58 /* AccountRepositoryExtensions.swift */,
 			);
 			path = AccountRepository;
 			sourceTree = "<group>";
 		};
-		B0F423F22814C70A00C9D138 /* FileSystemPersistentStorage */ = {
+		B06A5FD62830113E00433C58 /* FileSystemPersistentStorage */ = {
 			isa = PBXGroup;
 			children = (
-				B0F423F32814C71100C9D138 /* FileSystemPersistentStorage+AccountRepositoryProvider.swift */,
+				B06A5FD72830115700433C58 /* FileSystemPersistentStorage+Extensions.swift */,
 			);
 			path = FileSystemPersistentStorage;
 			sourceTree = "<group>";
 		};
-		B0F423F52814C75C00C9D138 /* Resolver */ = {
+		B06A5FD928303BA800433C58 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				B0F423F62814C76E00C9D138 /* Resolver+GlobalDepencencies.swift */,
-			);
-			path = Resolver;
-			sourceTree = "<group>";
-		};
-		B0F423F82814CAD800C9D138 /* Navigator */ = {
-			isa = PBXGroup;
-			children = (
-				B07979E92815E9160009CCF0 /* Overlay */,
-				B0F423F92814CAF900C9D138 /* Navigator+AuthenticatorListComposerDelegate.swift */,
-				B07979E22815E5730009CCF0 /* Navigator+CreateAuthenticatorListWindow.swift */,
-			);
-			path = Navigator;
-			sourceTree = "<group>";
-		};
-		B0F423FD2814CDC800C9D138 /* App */ = {
-			isa = PBXGroup;
-			children = (
-				B00CED612811DF01001CB090 /* AppDelegate.swift */,
-				B00CED632811DF01001CB090 /* SceneDelegate.swift */,
-				B07979BC28156BEE0009CCF0 /* Threading.swift */,
-				B0F423FE2814ED5900C9D138 /* AppEventObservable.swift */,
-				B0CF913C281F3D57000FAA94 /* AppEnvironment.swift */,
-				B0CF913E281F4407000FAA94 /* WeakBox.swift */,
+				B0B2B960282FB78900BB7E00 /* AppDelegate.swift */,
+				B0B2B962282FB78900BB7E00 /* SceneDelegate.swift */,
+				B06A5FE22830531F00433C58 /* SceneDelegate+AuthenticatorList.swift */,
+				B06A5FE42830532F00433C58 /* SceneDelegate+AddAccount.swift */,
+				B06A5FEC2830842F00433C58 /* AppEvent.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		B06A5FDA28303BB300433C58 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				B025FDD4282FCC88008D1DF1 /* Threading.swift */,
+				B06A5FE02830525D00433C58 /* UIKitHelpers.swift */,
+				B06A5FEA28307F2700433C58 /* WeakProxy.swift */,
+				B06A5FEE2830878D00433C58 /* SwiftUIHelpers.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		B06A5FDB283047BE00433C58 /* AddAccount */ = {
+			isa = PBXGroup;
+			children = (
+				B06A5FDC283047C800433C58 /* AddAccountComposer.swift */,
+				B06A5FE6283069C700433C58 /* AddAccountSaveServiceAdapter.swift */,
+				B06A5FE8283075D800433C58 /* AddAccountEvent.swift */,
+			);
+			path = AddAccount;
+			sourceTree = "<group>";
+		};
+		B0B2B954282FB78900BB7E00 = {
+			isa = PBXGroup;
+			children = (
+				B0B2B95F282FB78900BB7E00 /* Authenticator-iOS */,
+				B0B2B95E282FB78900BB7E00 /* Products */,
+				B0B2B974282FB7C900BB7E00 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		B0B2B95E282FB78900BB7E00 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B0B2B95D282FB78900BB7E00 /* Authenticator-iOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B0B2B95F282FB78900BB7E00 /* Authenticator-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				B06A5FDA28303BB300433C58 /* Utilities */,
+				B06A5FD928303BA800433C58 /* App */,
+				B06A5FD2283010FC00433C58 /* Integrations */,
+				B0B2B969282FB78900BB7E00 /* Assets.xcassets */,
+				B0B2B96B282FB78900BB7E00 /* LaunchScreen.storyboard */,
+				B0B2B96E282FB78900BB7E00 /* Info.plist */,
+			);
+			path = "Authenticator-iOS";
+			sourceTree = "<group>";
+		};
+		B0B2B974282FB7C900BB7E00 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B025FDCC282FBAC4008D1DF1 /* Resolver.xcframework */,
+				B025FDCD282FBAC4008D1DF1 /* SwiftOTP.xcframework */,
+				B0B2B975282FB7C900BB7E00 /* AccountRepository.framework */,
+				B0B2B976282FB7C900BB7E00 /* AddAccountBusiness.framework */,
+				B0B2B977282FB7C900BB7E00 /* AddAccountView.framework */,
+				B0B2B978282FB7C900BB7E00 /* AuthenticatorListBusiness.framework */,
+				B0B2B979282FB7C900BB7E00 /* AuthenticatorListView.framework */,
+				B0B2B97A282FB7C900BB7E00 /* Clock.framework */,
+				B0B2B97B282FB7C900BB7E00 /* FileSystemPersistentStorage.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B00CED5D2811DF01001CB090 /* Authenticator-iOS */ = {
+		B0B2B95C282FB78900BB7E00 /* Authenticator-iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B00CED882811DF02001CB090 /* Build configuration list for PBXNativeTarget "Authenticator-iOS" */;
+			buildConfigurationList = B0B2B971282FB78900BB7E00 /* Build configuration list for PBXNativeTarget "Authenticator-iOS" */;
 			buildPhases = (
-				B00CED5A2811DF01001CB090 /* Sources */,
-				B00CED5B2811DF01001CB090 /* Frameworks */,
-				B00CED5C2811DF01001CB090 /* Resources */,
-				B056F761281DD4D000617F42 /* Embed Frameworks */,
-				B08ED66E28207E8100EE593C /* Run SwiftLint */,
-				B0C090CA281EF0D5005E1FBD /* Upload dSYM to Crashlytics */,
+				B0B2B959282FB78900BB7E00 /* Sources */,
+				B0B2B95A282FB78900BB7E00 /* Frameworks */,
+				B0B2B95B282FB78900BB7E00 /* Resources */,
+				B0B2B98A282FB7C900BB7E00 /* Embed Frameworks */,
+				B025FDCB282FB86E008D1DF1 /* Swiftlint */,
 			);
 			buildRules = (
 			);
@@ -455,48 +262,25 @@
 			);
 			name = "Authenticator-iOS";
 			productName = "Authenticator-iOS";
-			productReference = B00CED5E2811DF01001CB090 /* Authenticator-iOS.app */;
+			productReference = B0B2B95D282FB78900BB7E00 /* Authenticator-iOS.app */;
 			productType = "com.apple.product-type.application";
-		};
-		B0A906B92812E9E200F72F87 /* Authenticator-iOSTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B0A906C02812E9E200F72F87 /* Build configuration list for PBXNativeTarget "Authenticator-iOSTests" */;
-			buildPhases = (
-				B0A906B62812E9E200F72F87 /* Sources */,
-				B0A906B72812E9E200F72F87 /* Frameworks */,
-				B0A906B82812E9E200F72F87 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B0A906BF2812E9E200F72F87 /* PBXTargetDependency */,
-			);
-			name = "Authenticator-iOSTests";
-			productName = "Authenticator-iOSTests";
-			productReference = B0A906BA2812E9E200F72F87 /* Authenticator-iOSTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		B00CED562811DF01001CB090 /* Project object */ = {
+		B0B2B955282FB78900BB7E00 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1330;
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
-					B00CED5D2811DF01001CB090 = {
+					B0B2B95C282FB78900BB7E00 = {
 						CreatedOnToolsVersion = 13.3.1;
-					};
-					B0A906B92812E9E200F72F87 = {
-						CreatedOnToolsVersion = 13.3.1;
-						LastSwiftMigration = 1330;
-						TestTargetID = B00CED5D2811DF01001CB090;
 					};
 				};
 			};
-			buildConfigurationList = B00CED592811DF01001CB090 /* Build configuration list for PBXProject "Authenticator-iOS" */;
+			buildConfigurationList = B0B2B958282FB78900BB7E00 /* Build configuration list for PBXProject "Authenticator-iOS" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -504,39 +288,30 @@
 				en,
 				Base,
 			);
-			mainGroup = B00CED552811DF01001CB090;
-			productRefGroup = B00CED5F2811DF01001CB090 /* Products */;
+			mainGroup = B0B2B954282FB78900BB7E00;
+			productRefGroup = B0B2B95E282FB78900BB7E00 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B00CED5D2811DF01001CB090 /* Authenticator-iOS */,
-				B0A906B92812E9E200F72F87 /* Authenticator-iOSTests */,
+				B0B2B95C282FB78900BB7E00 /* Authenticator-iOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		B00CED5C2811DF01001CB090 /* Resources */ = {
+		B0B2B95B282FB78900BB7E00 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B00CED6E2811DF02001CB090 /* LaunchScreen.storyboard in Resources */,
-				B00CED6B2811DF02001CB090 /* Assets.xcassets in Resources */,
-				B0C0909A281ED7BF005E1FBD /* GoogleService-Info.plist in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B0A906B82812E9E200F72F87 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				B0B2B96D282FB78900BB7E00 /* LaunchScreen.storyboard in Resources */,
+				B0B2B96A282FB78900BB7E00 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B08ED66E28207E8100EE593C /* Run SwiftLint */ = {
+		B025FDCB282FB86E008D1DF1 /* Swiftlint */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -545,96 +320,51 @@
 			);
 			inputPaths = (
 			);
-			name = "Run SwiftLint";
+			name = Swiftlint;
 			outputFileListPaths = (
 			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport PATH=\"$PATH:/opt/homebrew/bin\"\ncd ..\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
-		};
-		B0C090CA281EF0D5005E1FBD /* Upload dSYM to Crashlytics */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
-				"${BUILT_PRODUCTS_DIR}/${INFOPLIST_PATH}",
-			);
-			name = "Upload dSYM to Crashlytics";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nxattr -d com.apple.quarantine \"${PROJECT_DIR}/scripts/run\"\n\"${PROJECT_DIR}/scripts/run\"\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint --path ../ --config ../.swiftlint.yml\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		B00CED5A2811DF01001CB090 /* Sources */ = {
+		B0B2B959282FB78900BB7E00 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B021A2E7281FE8830087F883 /* FireBaseAnalyticsAdapter.swift in Sources */,
-				B07979E32815E5730009CCF0 /* Navigator+CreateAuthenticatorListWindow.swift in Sources */,
-				B021A2E5281FE8130087F883 /* AuthenticatorAnalytics.swift in Sources */,
-				B07979CB2815D61D0009CCF0 /* SwiftOTP+AuthenticatorTOTPProvider.swift in Sources */,
-				B047DFC628122403007EF575 /* AuthenticatorListService.swift in Sources */,
-				B00CED662811DF01001CB090 /* AuthenticatorListComposer.swift in Sources */,
-				B047DFC82812243A007EF575 /* AuthenticationList+Init.swift in Sources */,
-				B0CF913F281F4407000FAA94 /* WeakBox.swift in Sources */,
-				B0F423F72814C76E00C9D138 /* Resolver+GlobalDepencencies.swift in Sources */,
-				B00CED622811DF01001CB090 /* AppDelegate.swift in Sources */,
-				B07979BF28156D2E0009CCF0 /* Navigator+AppEventObserver.swift in Sources */,
-				B07979C1281574BD0009CCF0 /* OverLayViewController.swift in Sources */,
-				B0F423F42814C71100C9D138 /* FileSystemPersistentStorage+AccountRepositoryProvider.swift in Sources */,
-				B07979C628158F0B0009CCF0 /* AuthenticatorTOTPProvider.swift in Sources */,
-				B0E06D322820AA660022DC40 /* AddAccountSaveServiceAnalyticsDecorator.swift in Sources */,
-				B0F423FA2814CAF900C9D138 /* Navigator+AuthenticatorListComposerDelegate.swift in Sources */,
-				B07979EB2815EB040009CCF0 /* AddAccountComposer+init.swift in Sources */,
-				B0F423E72814B71A00C9D138 /* AccountRepositoryComposer+AddAccountService.swift in Sources */,
-				B0CF913D281F3D57000FAA94 /* AppEnvironment.swift in Sources */,
-				B00CED642811DF01001CB090 /* SceneDelegate.swift in Sources */,
-				B0F423FF2814ED5900C9D138 /* AppEventObservable.swift in Sources */,
-				B05F8F5328145B1800CBECB8 /* AddAccountComposer.swift in Sources */,
-				B07979BD28156BEE0009CCF0 /* Threading.swift in Sources */,
-				B07979CD2815DA100009CCF0 /* AddAccountDelegateComposition.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		B0A906B62812E9E200F72F87 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B0E06D362820B42F0022DC40 /* AuthenticatorAnalitycsMock.swift in Sources */,
-				B05D9880282316B900C44A17 /* TestHelpers.swift in Sources */,
-				B0CF913B281F3A31000FAA94 /* UIKitHelpers.swift in Sources */,
-				B0A906C52812EAA000F72F87 /* AuthenticatorIntegrationTests.swift in Sources */,
-				B0E06D342820B21D0022DC40 /* AddAccountSaveServiceAnalyticsDecoratorTests.swift in Sources */,
+				B06A5FE12830525D00433C58 /* UIKitHelpers.swift in Sources */,
+				B06A5FD1282FFE1A00433C58 /* AuthenticatorListOutputAdapter.swift in Sources */,
+				B06A5FE7283069C700433C58 /* AddAccountSaveServiceAdapter.swift in Sources */,
+				B06A5FE32830531F00433C58 /* SceneDelegate+AuthenticatorList.swift in Sources */,
+				B06A5FD52830111D00433C58 /* AccountRepositoryExtensions.swift in Sources */,
+				B06A5FCF282FFDF100433C58 /* AuthenticatorListPresenterServiceAdapter.swift in Sources */,
+				B025FDD5282FCC88008D1DF1 /* Threading.swift in Sources */,
+				B06A5FEB28307F2700433C58 /* WeakProxy.swift in Sources */,
+				B025FDD3282FCB9D008D1DF1 /* Resolver+Dependencies.swift in Sources */,
+				B06A5FE9283075D800433C58 /* AddAccountEvent.swift in Sources */,
+				B0B2B961282FB78900BB7E00 /* AppDelegate.swift in Sources */,
+				B06A5FDD283047C800433C58 /* AddAccountComposer.swift in Sources */,
+				B025FDD7282FD353008D1DF1 /* ListComposer.swift in Sources */,
+				B06A5FD82830115700433C58 /* FileSystemPersistentStorage+Extensions.swift in Sources */,
+				B06A5FE52830532F00433C58 /* SceneDelegate+AddAccount.swift in Sources */,
+				B0B2B963282FB78900BB7E00 /* SceneDelegate.swift in Sources */,
+				B06A5FEF2830878D00433C58 /* SwiftUIHelpers.swift in Sources */,
+				B06A5FED2830842F00433C58 /* AppEvent.swift in Sources */,
+				B025FDD9282FD5F6008D1DF1 /* AuthenticatorTOTPProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		B0A906BF2812E9E200F72F87 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B00CED5D2811DF01001CB090 /* Authenticator-iOS */;
-			targetProxy = B0A906BE2812E9E200F72F87 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
-		B00CED6C2811DF02001CB090 /* LaunchScreen.storyboard */ = {
+		B0B2B96B282FB78900BB7E00 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				B00CED6D2811DF02001CB090 /* Base */,
+				B0B2B96C282FB78900BB7E00 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -642,7 +372,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		B00CED862811DF02001CB090 /* Debug */ = {
+		B0B2B96F282FB78900BB7E00 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -692,21 +422,17 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = (
-					"$(OTHER_LDFLAGS)",
-					"-ObjC",
-				);
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		B00CED872811DF02001CB090 /* Release */ = {
+		B0B2B970282FB78900BB7E00 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -750,13 +476,9 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				OTHER_LDFLAGS = (
-					"$(OTHER_LDFLAGS)",
-					"-ObjC",
-				);
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -764,177 +486,84 @@
 			};
 			name = Release;
 		};
-		B00CED892811DF02001CB090 /* Debug */ = {
+		B0B2B972282FB78900BB7E00 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 4W92454MDD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Authenticator-iOS/Info.plist";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Enable the camera to read qr codes.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = (
-					"$(OTHER_LDFLAGS)",
-					"-ObjC",
-				);
-				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jenci.Authenticator-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)";
-				VALIDATE_WORKSPACE = NO;
 			};
 			name = Debug;
 		};
-		B00CED8A2811DF02001CB090 /* Release */ = {
+		B0B2B973282FB78900BB7E00 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 4W92454MDD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Authenticator-iOS/Info.plist";
-				INFOPLIST_KEY_NSCameraUsageDescription = "Enable the camera to read qr codes.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				OTHER_LDFLAGS = (
-					"$(OTHER_LDFLAGS)",
-					"-ObjC",
-				);
-				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.jenci.Authenticator-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "$(PROJECT_DIR)";
-				VALIDATE_WORKSPACE = NO;
-			};
-			name = Release;
-		};
-		B0A906C12812E9E200F72F87 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4W92454MDD;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jenci.Authenticator-iOSTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "Authenticator-iOSTests/Authenticator-iOSTests-Bridging-Header.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Authenticator-iOS.app/Authenticator-iOS";
-			};
-			name = Debug;
-		};
-		B0A906C22812E9E200F72F87 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4W92454MDD;
-				GENERATE_INFOPLIST_FILE = YES;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jenci.Authenticator-iOSTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				"PROVISIONING_PROFILE_SPECIFIER[sdk=macosx*]" = "";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_OBJC_BRIDGING_HEADER = "Authenticator-iOSTests/Authenticator-iOSTests-Bridging-Header.h";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Authenticator-iOS.app/Authenticator-iOS";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B00CED592811DF01001CB090 /* Build configuration list for PBXProject "Authenticator-iOS" */ = {
+		B0B2B958282FB78900BB7E00 /* Build configuration list for PBXProject "Authenticator-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B00CED862811DF02001CB090 /* Debug */,
-				B00CED872811DF02001CB090 /* Release */,
+				B0B2B96F282FB78900BB7E00 /* Debug */,
+				B0B2B970282FB78900BB7E00 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B00CED882811DF02001CB090 /* Build configuration list for PBXNativeTarget "Authenticator-iOS" */ = {
+		B0B2B971282FB78900BB7E00 /* Build configuration list for PBXNativeTarget "Authenticator-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B00CED892811DF02001CB090 /* Debug */,
-				B00CED8A2811DF02001CB090 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B0A906C02812E9E200F72F87 /* Build configuration list for PBXNativeTarget "Authenticator-iOSTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B0A906C12812E9E200F72F87 /* Debug */,
-				B0A906C22812E9E200F72F87 /* Release */,
+				B0B2B972282FB78900BB7E00 /* Debug */,
+				B0B2B973282FB78900BB7E00 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = B00CED562811DF01001CB090 /* Project object */;
+	rootObject = B0B2B955282FB78900BB7E00 /* Project object */;
 }

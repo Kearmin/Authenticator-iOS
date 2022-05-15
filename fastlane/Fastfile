@@ -22,7 +22,7 @@ lane :lint do
     mode: :lint,
     raise_if_swiftlint_error: true,
     strict: true,
-    config_file: ".swiftlint.yml", 
+    config_file: ".swiftlint.yml"
   )
 end
 

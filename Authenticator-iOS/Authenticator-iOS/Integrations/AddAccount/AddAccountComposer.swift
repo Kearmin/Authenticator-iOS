@@ -1,74 +1,42 @@
 //
-//  AddAccount+Init.swift
+//  AddAccountComposer.swift
 //  Authenticator-iOS
 //
-//  Created by Kertész Jenő Ármin on 2022. 04. 23..
+//  Created by Kertész Jenő Ármin on 2022. 05. 14..
 //
 
 import Foundation
 import AddAccountView
 import AddAccountBusiness
-import UIKit
+import Combine
+import AccountRepository
 
-protocol AddAccountComposerDelegate: AnyObject {
-    func shouldCloseComponent(_ addAccountComposer: AddAccountComposer)
-    func startUpDidFail(_ addAccountComposer: AddAccountComposer)
-    func qrCodeParseDidFail(_ addAccountComposer: AddAccountComposer, completion: @escaping () -> Void)
-    func didCreateNewAccount(_ addAccountComposer: AddAccountComposer, account: CreatAccountModel)
-}
-
-final class AddAccountComposer: UIViewController {
-    let addAccoutView = AddAccountView(frame: .zero, objectTypes: [.qr])
-    let useCase: AddAccountUseCase
-    var delegate: AddAccountComposerDelegate?
-
-    init(useCase: AddAccountUseCase) {
-        self.useCase = useCase
-        super.init(nibName: nil, bundle: nil)
+enum AddAccountComposer {
+    struct Dependencies {
+        let saveAccountPublisher: (Account) -> AnyPublisher<Void, Error>
+        let addAccountEventSubject: PassthroughSubject<AddAccountEvent, Never>
     }
 
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-
-    override func loadView() {
-        view = addAccoutView
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        navigationItem.rightBarButtonItem = .init(
-            title: "Done",
-            style: .done,
-            target: self,
-            action: #selector(didPressDoneButton))
-        addAccoutView.delegate = self
-    }
-
-    @objc
-    private func didPressDoneButton() {
-        delegate?.shouldCloseComponent(self)
-    }
-}
-
-extension AddAccountComposer: AddAccountViewDelegate {
-    func didFindQRCode(code: String) {
-        do {
-            let account = try useCase.createAccount(urlString: code)
-            delegate?.didCreateNewAccount(self, account: account)
-        } catch {
-            delegate?.qrCodeParseDidFail(self) { [addAccoutView] in
-                addAccoutView.resumeSession()
-            }
-        }
-    }
-
-    func failedToStart() {
-        delegate?.startUpDidFail(self)
+    static func addAccount(with dependencies: Dependencies) -> AddAccountViewController {
+        let useCaseAdapter = AddAccountSaveServiceAdapter(
+            createAccountPublisher: dependencies.saveAccountPublisher,
+            eventSubject: dependencies.addAccountEventSubject)
+        let useCase = AddAccountUseCase(saveService: useCaseAdapter)
+        let viewController = AddAccountViewController(
+            doneDidPress: { _ in
+                dependencies.addAccountEventSubject.send(.doneDidPress)
+            },
+            didFindQRCode: { [useCase] _, qrCode in
+                do {
+                    try useCase.createAccount(urlString: qrCode)
+                } catch {
+                    dependencies.addAccountEventSubject.send(.qrCodeReadDidFail(error: error))
+                }
+            },
+            failedToStart: { _ in
+                dependencies.addAccountEventSubject.send(.failedToStartCamera)
+            })
+        viewController.addAccountView.delegate = WeakProxy(viewController)
+        return viewController
     }
 }

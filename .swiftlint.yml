@@ -60,6 +60,12 @@ custom_rules:
     message: "Use explicit type annotation when initializing empty arrays and dictionaries"
     severity: warning
 
+  analytics_event_name_length:
+    name: "Analytics event name lenght"
+    regex: '\.logEvent\(name:(| )"[^"]{40,}?"'
+    message: "Analitcs event names must be shorter than 40 characters"
+    severity: error
+
 
 attributes:
   always_on_same_line:
@@ -101,3 +107,6 @@ trailing_whitespace:
 
 vertical_whitespace:
   max_empty_lines: 2
+
+type_name:
+  max_length: 80

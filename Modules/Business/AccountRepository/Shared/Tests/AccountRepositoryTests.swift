@@ -75,6 +75,15 @@ class AccountRepositoryTests: XCTestCase {
         XCTAssertThrowsError(try sut.delete(accountID: account().id))
     }
 
+    func test_readingIfNotChangedWillReadOnlyCachedValues() {
+        let mock = AccountRepositoryMock()
+        let sut = makeSUT(mock: mock)
+        _ = sut.readAccounts()
+        _ = sut.readAccounts()
+        _ = sut.readAccounts()
+        XCTAssertEqual(mock.readAccountCallCount, 1)
+    }
+
     func makeSUT(mock: AccountRepositoryMock = .init()) -> AccountRepository {
         .init(provider: mock)
     }
@@ -94,6 +103,7 @@ class AccountRepositoryMock: AccountRepositoryProvider {
     var savedAccountCount: Int {
         savedAccounts.count
     }
+    var readAccountCallCount = 0
     struct SomeError: Error { }
 
     func save(accounts: [Account]) throws {
@@ -102,6 +112,7 @@ class AccountRepositoryMock: AccountRepositoryProvider {
     }
 
     func readAccounts() throws -> [Account] {
-        try readAccountResults.removeFirst().get()
+        readAccountCallCount += 1
+        return try readAccountResults.removeFirst().get()
     }
 }

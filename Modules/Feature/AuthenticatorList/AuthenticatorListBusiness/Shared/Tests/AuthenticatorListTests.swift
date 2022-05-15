@@ -55,11 +55,11 @@ class AuthenticatorListTests: XCTestCase {
 
     func test_PresenterCanReturnMultipleCorrectValuesInSuccessionIfIntervalIs30() {
         let mock = AuthenticatorListPresenterServiceMock()
-        mock.cycleLength = 30
         let sut = makeSUT(mock: mock)
         let spy = AuthenticatorListPresenterSpy()
         sut.output = spy
         testMultipleInputsInSuccession(
+            sut: sut,
             mock: mock,
             spy: spy,
             inputs: [
@@ -71,11 +71,11 @@ class AuthenticatorListTests: XCTestCase {
 
     func test_PresenterCanReturnMultipleCorrectValuesInSuccessionIfIntervalIs60() {
         let mock = AuthenticatorListPresenterServiceMock()
-        mock.cycleLength = 60
-        let sut = makeSUT(mock: mock)
+        let sut = makeSUT(mock: mock, cycleLength: 60)
         let spy = AuthenticatorListPresenterSpy()
         sut.output = spy
         testMultipleInputsInSuccession(
+            sut: sut,
             mock: mock,
             spy: spy,
             inputs: [
@@ -117,11 +117,10 @@ class AuthenticatorListTests: XCTestCase {
 
     func test_PresenterReturnsLatestCorrectFirstValueOnSettingOutput() {
         let mock = AuthenticatorListPresenterServiceMock()
-        mock.cycleLength = 30
-        let sut = makeSUT(mock: mock)
+        let sut = makeSUT(mock: mock, cycleLength: 30)
         let spy = AuthenticatorListPresenterSpy()
-        mock.receiveCurrentDate?(Date(timeIntervalSince1970: april_21_2022_222500_GMT))
-        mock.receiveCurrentDate?(Date(timeIntervalSince1970: april_21_2022_222505_GMT))
+        sut.receive(currentDate: (Date(timeIntervalSince1970: april_21_2022_222500_GMT)))
+        sut.receive(currentDate: (Date(timeIntervalSince1970: april_21_2022_222505_GMT)))
         sut.output = spy
         XCTAssertEqual(spy.receivedCountDowns.count, 1)
         XCTAssertEqual(spy.receivedCountDowns.last, "25")
@@ -129,9 +128,8 @@ class AuthenticatorListTests: XCTestCase {
 
     func test_PresenterOutputsNewRowContent_WhenCycleIsFinished() {
         let mock = AuthenticatorListPresenterServiceMock()
-        mock.cycleLength = 30
         let spy = AuthenticatorListPresenterSpy()
-        let sut = makeSUT(mock: mock)
+        let sut = makeSUT(mock: mock, cycleLength: 30)
         mock.getTOTPResult = "totp"
         sut.output = spy
         let id = UUID()
@@ -140,10 +138,10 @@ class AuthenticatorListTests: XCTestCase {
         ]))
         XCTAssertEqual(spy.receivedRows.count, 1)
         XCTAssertEqual(spy.receivedRows.first, [.init(id: id, issuer: "issuer", username: "username", TOTPCode: "totp")])
-        mock.receiveCurrentDate?(Date(timeIntervalSince1970: april_21_2022_222505_GMT))
+        sut.receive(currentDate: Date(timeIntervalSince1970: april_21_2022_222505_GMT))
         XCTAssertEqual(spy.receivedRows.count, 1)
         mock.getTOTPResult = "totp2"
-        mock.receiveCurrentDate?(Date(timeIntervalSince1970: april_21_2022_222500_GMT))
+        sut.receive(currentDate: Date(timeIntervalSince1970: april_21_2022_222500_GMT))
         XCTAssertEqual(spy.receivedRows.count, 2)
         XCTAssertEqual(spy.receivedRows.last?[0].TOTPCode, "totp2")
     }
@@ -162,30 +160,42 @@ class AuthenticatorListTests: XCTestCase {
         let account = AuthenticatorAccountModel(id: id, issuer: "issuer", username: "username", secret: "secret")
         let mock = AuthenticatorListPresenterServiceMock()
         let spy = AuthenticatorListPresenterSpy()
-        mock.accountsResults = [.success([account])]
         let sut = makeSUT(mock: mock)
         sut.output = spy
+        sut.errorOutput = spy
         sut.receive(result: .success([account]))
         XCTAssertEqual(spy.receivedRows.count, 1)
         XCTAssertEqual(spy.receivedRows.last?[0].id, account.id)
         sut.deleteAccount(id: id)
+        XCTAssertEqual(mock.deleteCallIDCount, 1)
+    }
+
+    func test_PresenterDoesntRecalculateData_IfCalledLoadWhenCurrentCycleIsCalculated() {
+        let mock = AuthenticatorListPresenterServiceMock()
+        let spy = AuthenticatorListPresenterSpy()
+        let sut = makeSUT(mock: mock, cycleLength: 30)
+        sut.output = spy
+        sut.receive(currentDate: Date(timeIntervalSince1970: april_21_2022_222500_GMT))
+        XCTAssertEqual(spy.receivedRows.count, 1)
+        sut.refresh(date: Date(timeIntervalSince1970: april_21_2022_222505_GMT))
+        XCTAssertEqual(spy.receivedRows.count, 1)
+        sut.refresh(date: Date(timeIntervalSince1970: april_21_2022_222505_GMT).addingTimeInterval(1000))
         XCTAssertEqual(spy.receivedRows.count, 2)
-        XCTAssertEqual(spy.receivedRows.last, [])
     }
 
     private func testTimeIntervalLeftIfMinuteIs00(epochTime: TimeInterval, cycleLength: Int, expectedResult: String) {
         let mock = AuthenticatorListPresenterServiceMock()
-        mock.cycleLength = cycleLength
-        let sut = makeSUT(mock: mock)
+        let sut = makeSUT(mock: mock, cycleLength: cycleLength)
         let minuteStartDate = Date(timeIntervalSince1970: epochTime)
         let spy = AuthenticatorListPresenterSpy()
         sut.output = spy
-        mock.receiveCurrentDate?(minuteStartDate)
+        sut.receive(currentDate: minuteStartDate)
         XCTAssertEqual(spy.receivedCountDowns.count, 1)
         XCTAssertEqual(spy.receivedCountDowns.first, expectedResult)
     }
 
     private func testMultipleInputsInSuccession(
+        sut: AuthenticatorListPresenter,
         mock: AuthenticatorListPresenterServiceMock,
         spy: AuthenticatorListPresenterSpy,
         inputs: [(epoch: TimeInterval, expected: String)])
@@ -194,42 +204,40 @@ class AuthenticatorListTests: XCTestCase {
         for input in inputs {
             iterations += 1
             let date = Date(timeIntervalSince1970: input.epoch)
-            mock.receiveCurrentDate?(date)
+            sut.receive(currentDate: date)
             XCTAssertEqual(spy.receivedCountDowns.count, iterations)
             XCTAssertEqual(spy.receivedCountDowns.last, input.expected)
         }
     }
 
-    func makeSUT(mock: AuthenticatorListPresenterServiceMock = .init()) -> AuthenticatorListPresenter {
-        let sut = AuthenticatorListPresenter(service: mock)
+    func makeSUT(mock: AuthenticatorListPresenterServiceMock = .init(), cycleLength: Int = 30) -> AuthenticatorListPresenter {
+        let sut = AuthenticatorListPresenter(service: mock, cycleLength: cycleLength)
         weakSUT = sut
         return sut
     }
 }
 
-class AuthenticatorListPresenterSpy: AuthenticatorListPresenterDelegate {
-
-    var receivedErrors: [Error] = []
+class AuthenticatorListPresenterSpy: AuthenticatorListViewOutput, AuthenticatorListErrorOutput {
     var receivedCountDowns: [String] = []
     var receivedRows: [[AuthenticatorListRowContent]] = []
+    var receivedErrors: [Error] = []
+
     func receive(rows: [AuthenticatorListRowContent]) {
         receivedRows.append(rows)
     }
+
     func receive(countDown: String) {
         receivedCountDowns.append(countDown)
     }
-    func receive(error: Error) {
 
+    func receive(error: Error) {
+        receivedErrors.append(error)
     }
 }
 
-
 class AuthenticatorListPresenterServiceMock: AuthenticatorListPresenterService {
     var loadAccountCallCount = 0
-    var accountsResults: [Result<[AuthenticatorAccountModel], Error>] = []
     var getTOTPResult: String = ""
-    var receiveCurrentDate: ((Date) -> Void)?
-    var cycleLength: Int = 1
     var deleteCallIDS: [UUID] = []
     var deleteCallIDCount: Int {
         deleteCallIDS.count
@@ -237,10 +245,6 @@ class AuthenticatorListPresenterServiceMock: AuthenticatorListPresenterService {
 
     func loadAccounts() {
         loadAccountCallCount += 1
-    }
-
-    func getAuthenticatorAccounts(completion: @escaping (Result<[AuthenticatorAccountModel], Error>) -> Void) {
-        completion(accountsResults.removeFirst())
     }
 
     func getTOTP(secret: String, timeInterval: Int, date: Date) -> String {
