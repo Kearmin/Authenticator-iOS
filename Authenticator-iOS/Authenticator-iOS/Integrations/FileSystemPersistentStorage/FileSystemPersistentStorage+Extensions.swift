@@ -8,12 +8,14 @@
 import FileSystemPersistentStorage
 import AccountRepository
 
-extension JSONFileSystemPersistance: AccountRepositoryProvider where T == [Account] {
-    public func readAccounts() throws -> [Account] {
-        try read()
-    }
+extension JSONFileSystemPersistance: RepositoryProvider where T == [Account] {
+    public typealias Item = Account
 
     public func save(accounts: [Account]) throws {
         try save(accounts)
+    }
+
+    public func readAccounts() throws -> [Account] {
+        try read()
     }
 }

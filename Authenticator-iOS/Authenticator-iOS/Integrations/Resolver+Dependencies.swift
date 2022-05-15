@@ -17,7 +17,6 @@ extension Resolver {
         register {
             JSONFileSystemPersistance<[Account]>(fileName: "accounts", queue: Queues.fileIOBackgroundQueue)
         }
-        .implements(AccountRepositoryProvider.self)
         .scope(.cached)
 
         register { resolver in

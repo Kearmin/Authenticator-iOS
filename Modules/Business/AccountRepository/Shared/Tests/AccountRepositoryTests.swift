@@ -23,7 +23,7 @@ class AccountRepositoryTests: XCTestCase {
         let account = account(id: id)
         let mock = AccountRepositoryMock()
         let sut = makeSUT(mock: mock)
-        XCTAssertNoThrow(try sut.add(account: account))
+        XCTAssertNoThrow(try sut.add(item: account))
         XCTAssertEqual(mock.savedAccounts.first, account)
     }
 
@@ -34,8 +34,8 @@ class AccountRepositoryTests: XCTestCase {
         let account2 = self.account(id: id2)
         let mock = AccountRepositoryMock()
         let sut = makeSUT(mock: mock)
-        XCTAssertNoThrow(try sut.add(account: account))
-        XCTAssertNoThrow(try sut.add(account: account2))
+        XCTAssertNoThrow(try sut.add(item: account))
+        XCTAssertNoThrow(try sut.add(item: account2))
         XCTAssertEqual(mock.savedAccounts, [account, account2])
     }
 
@@ -45,10 +45,10 @@ class AccountRepositoryTests: XCTestCase {
         mock.readAccountResults = [.success([account])]
         let sut = makeSUT(mock: mock)
         do {
-            try sut.add(account: account)
+            try sut.add(item: account)
             XCTFail("This should throw an error")
         } catch {
-            XCTAssertEqual(AccountRepositoryError.accountAlreadyExists, error as? AccountRepositoryError)
+            XCTAssertEqual(RepositoryError.accountAlreadyExists, error as? RepositoryError)
         }
     }
 
@@ -57,7 +57,7 @@ class AccountRepositoryTests: XCTestCase {
         let mock = AccountRepositoryMock()
         mock.readAccountResults = [.success([account])]
         let sut = makeSUT(mock: mock)
-        XCTAssertNoThrow(try sut.delete(accountID: account.id))
+        XCTAssertNoThrow(try sut.delete(itemID: account.id))
         XCTAssertEqual(mock.savedAccountCount, 0)
     }
 
@@ -65,14 +65,14 @@ class AccountRepositoryTests: XCTestCase {
         let mock = AccountRepositoryMock()
         let sut = makeSUT(mock: mock)
         mock.shouldSaveThrowError = true
-        XCTAssertThrowsError(try sut.add(account: account()))
+        XCTAssertThrowsError(try sut.add(item: account()))
     }
 
     func test_deleteThrowsIfProviderFails() {
         let mock = AccountRepositoryMock()
         let sut = makeSUT(mock: mock)
         mock.shouldSaveThrowError = true
-        XCTAssertThrowsError(try sut.delete(accountID: account().id))
+        XCTAssertThrowsError(try sut.delete(itemID: account().id))
     }
 
     func test_readingIfNotChangedWillReadOnlyCachedValues() {
@@ -84,7 +84,7 @@ class AccountRepositoryTests: XCTestCase {
         XCTAssertEqual(mock.readAccountCallCount, 1)
     }
 
-    func makeSUT(mock: AccountRepositoryMock = .init()) -> AccountRepository {
+    func makeSUT(mock: AccountRepositoryMock = .init()) -> Repository<Account, AccountRepositoryMock> {
         .init(provider: mock)
     }
 
@@ -96,7 +96,14 @@ class AccountRepositoryTests: XCTestCase {
     }
 }
 
-class AccountRepositoryMock: AccountRepositoryProvider {
+struct Account: Identifiable, Equatable {
+    let id: UUID
+    let issuer: String
+    let secret: String
+    let username: String
+}
+
+class AccountRepositoryMock: RepositoryProvider {
     var savedAccounts: [Account] = []
     var readAccountResults: [Result<[Account], Error>] = [.success([])]
     var shouldSaveThrowError = false

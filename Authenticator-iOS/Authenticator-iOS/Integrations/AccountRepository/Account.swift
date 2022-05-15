@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Account: Codable, Equatable {
+public struct Account: Codable, Equatable, Identifiable {
     public let id: UUID
     public let issuer: String
     public let secret: String

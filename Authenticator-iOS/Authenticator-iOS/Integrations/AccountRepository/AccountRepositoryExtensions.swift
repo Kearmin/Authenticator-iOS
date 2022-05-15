@@ -7,6 +7,9 @@
 
 import Combine
 import AccountRepository
+import FileSystemPersistentStorage
+
+public typealias AccountRepository = Repository<Account, JSONFileSystemPersistance<[Account]>>
 
 extension AccountRepository {
     func loadPublisher() -> AnyPublisher<[Account], Never> {
@@ -15,14 +18,14 @@ extension AccountRepository {
 
     func deletePublisher(accountID: UUID) -> AnyPublisher<Void, Error> {
         Future { completion in
-            completion(Result { try self.delete(accountID: accountID) })
+            completion(Result { try self.delete(itemID: accountID) })
         }
         .eraseToAnyPublisher()
     }
 
     func savePublisher(account: Account) -> AnyPublisher<Void, Error> {
         Future { completion in
-            completion(Result { try self.add(account: account) })
+            completion(Result { try self.add(item: account) })
         }
         .eraseToAnyPublisher()
     }
