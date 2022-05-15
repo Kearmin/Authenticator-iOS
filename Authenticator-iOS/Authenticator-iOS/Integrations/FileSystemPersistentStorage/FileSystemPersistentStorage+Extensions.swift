@@ -11,11 +11,11 @@ import AccountRepository
 extension JSONFileSystemPersistance: RepositoryProvider where T == [Account] {
     public typealias Item = Account
 
-    public func save(accounts: [Account]) throws {
-        try save(accounts)
+    public func save(items: [Account]) throws {
+        try save(items)
     }
 
-    public func readAccounts() throws -> [Account] {
+    public func readItems() throws -> [Account] {
         try read()
     }
 }

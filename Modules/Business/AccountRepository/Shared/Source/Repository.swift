@@ -10,8 +10,8 @@ import Foundation
 public protocol RepositoryProvider {
     associatedtype Item
 
-    func save(accounts: [Item]) throws
-    func readAccounts() throws -> [Item]
+    func save(items: [Item]) throws
+    func readItems() throws -> [Item]
 }
 
 public enum RepositoryError: Error {
@@ -24,7 +24,7 @@ public final class Repository<Item: Identifiable, Provider: RepositoryProvider> 
 
     public init(provider: Provider) {
         self.provider = provider
-        inMemory = try? provider.readAccounts()
+        inMemory = try? provider.readItems()
     }
 
     public func add(item: Item) throws {
@@ -33,7 +33,7 @@ public final class Repository<Item: Identifiable, Provider: RepositoryProvider> 
         }
         var mutableInMemory = inMemory ?? []
         mutableInMemory.append(item)
-        try provider.save(accounts: mutableInMemory)
+        try provider.save(items: mutableInMemory)
         inMemory = mutableInMemory
     }
 
@@ -46,7 +46,7 @@ public final class Repository<Item: Identifiable, Provider: RepositoryProvider> 
         mutableInMemory.removeAll { inMemoryAccount in
             inMemoryAccount.id == itemID
         }
-        try provider.save(accounts: mutableInMemory)
+        try provider.save(items: mutableInMemory)
         inMemory = mutableInMemory
     }
 }
