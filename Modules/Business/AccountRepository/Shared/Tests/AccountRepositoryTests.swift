@@ -84,6 +84,27 @@ class AccountRepositoryTests: XCTestCase {
         XCTAssertEqual(mock.readAccountCallCount, 1)
     }
 
+    func test_repositoryAddsItem_IfUpdateIsCalledButDoesNotExists() {
+        let mock = AccountRepositoryMock()
+        let sut = makeSUT(mock: mock)
+        let newItem = Account(id: UUID(), issuer: "", secret: "", username: "")
+        XCTAssertNoThrow( try sut.update(item: newItem))
+        XCTAssertEqual(mock.savedAccountCount, 1)
+        XCTAssertEqual(mock.savedAccounts.first, newItem)
+    }
+
+    func test_repositoryUpdatesItem_ifUpdateIsCalledAndItemExists() {
+        let id = UUID()
+        let originalItem = Account(id: id, issuer: "", secret: "", username: "")
+        let updatedItem = Account(id: id, issuer: "issuer", secret: "secret", username: "username")
+        let mock = AccountRepositoryMock()
+        mock.readAccountResults = [.success([originalItem])]
+        let sut = makeSUT(mock: mock)
+        XCTAssertNoThrow(try sut.update(item: updatedItem))
+        XCTAssertEqual(mock.savedAccountCount, 1)
+        XCTAssertEqual(mock.savedAccounts.first, updatedItem)
+    }
+
     func makeSUT(mock: AccountRepositoryMock = .init()) -> Repository<Account, AccountRepositoryMock> {
         .init(provider: mock)
     }

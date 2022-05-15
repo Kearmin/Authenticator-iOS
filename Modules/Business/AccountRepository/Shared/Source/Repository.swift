@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import simd
 
 public protocol RepositoryProvider {
     associatedtype Item
@@ -42,13 +43,23 @@ public final class Repository<Item: Identifiable, Provider: RepositoryProvider> 
     }
 
     public func add(item: Item) throws {
-        guard !containsAccount(with: item.id) else {
+        guard !containsItem(with: item.id) else {
             throw RepositoryError.accountAlreadyExists
         }
         var mutableInMemory = inMemory ?? []
         mutableInMemory.append(item)
         try provider.save(items: mutableInMemory.map(mapper))
         inMemory = mutableInMemory
+    }
+
+    public func update(item: Item) throws {
+        if var mutableInMemory = inMemory, let index = mutableInMemory.firstIndex(where: { $0.id == item.id }) {
+            mutableInMemory[index] = item
+            try provider.save(items: mutableInMemory.map(mapper))
+            inMemory = mutableInMemory
+        } else {
+            try add(item: item)
+        }
     }
 
     public func readAccounts() -> [Item] {
@@ -66,7 +77,7 @@ public final class Repository<Item: Identifiable, Provider: RepositoryProvider> 
 }
 
 private extension Repository {
-    func containsAccount(with id: Item.ID) -> Bool {
+    func containsItem(with id: Item.ID) -> Bool {
         guard let inMemory = inMemory else { return false }
         return inMemory.contains { $0.id == id }
     }
