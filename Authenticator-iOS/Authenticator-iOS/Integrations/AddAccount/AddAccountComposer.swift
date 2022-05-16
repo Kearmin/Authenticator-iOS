@@ -14,27 +14,26 @@ import AccountRepository
 enum AddAccountComposer {
     struct Dependencies {
         let saveAccountPublisher: (Account) -> AnyPublisher<Void, Error>
-        let addAccountEventSubject: PassthroughSubject<AddAccountEvent, Never>
     }
 
-    static func addAccount(with dependencies: Dependencies) -> AddAccountViewController {
+    static func addAccount(with dependencies: Dependencies, output: PassthroughSubject<AddAccountEvent, Never>) -> AddAccountViewController {
         let useCaseAdapter = AddAccountSaveServiceAdapter(
             createAccountPublisher: dependencies.saveAccountPublisher,
-            eventSubject: dependencies.addAccountEventSubject)
+            eventSubject: output)
         let useCase = AddAccountUseCase(saveService: useCaseAdapter)
         let viewController = AddAccountViewController(
             doneDidPress: { _ in
-                dependencies.addAccountEventSubject.send(.doneDidPress)
+                output.send(.doneDidPress)
             },
             didFindQRCode: { [useCase] _, qrCode in
                 do {
                     try useCase.createAccount(urlString: qrCode)
                 } catch {
-                    dependencies.addAccountEventSubject.send(.qrCodeReadDidFail(error: error))
+                    output.send(.qrCodeReadDidFail(error: error))
                 }
             },
             failedToStart: { _ in
-                dependencies.addAccountEventSubject.send(.failedToStartCamera)
+                output.send(.failedToStartCamera)
             })
         viewController.addAccountView.delegate = WeakRefProxy(viewController)
         return viewController

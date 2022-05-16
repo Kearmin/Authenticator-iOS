@@ -12,6 +12,10 @@
 		B0218973283159E000918B8D /* Segment.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0218972283159E000918B8D /* Segment.xcframework */; };
 		B0218974283159E000918B8D /* Segment.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0218972283159E000918B8D /* Segment.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B02189772831748100918B8D /* Analytics+AddAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02189762831748100918B8D /* Analytics+AddAccount.swift */; };
+		B02189792831BB5F00918B8D /* Analytics+List.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02189782831BB5F00918B8D /* Analytics+List.swift */; };
+		B021897B2831CEB000918B8D /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = B021897A2831CEB000918B8D /* Images.swift */; };
+		B021897E2831CF5200918B8D /* OverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B021897D2831CF5200918B8D /* OverlayViewController.swift */; };
+		B02189802831CFD600918B8D /* AppOverlayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B021897F2831CFD600918B8D /* AppOverlayManager.swift */; };
 		B025FDCE282FBAC4008D1DF1 /* Resolver.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B025FDCC282FBAC4008D1DF1 /* Resolver.xcframework */; };
 		B025FDCF282FBAC4008D1DF1 /* Resolver.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B025FDCC282FBAC4008D1DF1 /* Resolver.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B025FDD0282FBAC4008D1DF1 /* SwiftOTP.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B025FDCD282FBAC4008D1DF1 /* SwiftOTP.xcframework */; };
@@ -93,6 +97,10 @@
 		B02189702831559D00918B8D /* AuthenticatorAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorAnalytics.swift; sourceTree = "<group>"; };
 		B0218972283159E000918B8D /* Segment.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Segment.xcframework; path = ../Carthage/Build/Segment.xcframework; sourceTree = "<group>"; };
 		B02189762831748100918B8D /* Analytics+AddAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analytics+AddAccount.swift"; sourceTree = "<group>"; };
+		B02189782831BB5F00918B8D /* Analytics+List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analytics+List.swift"; sourceTree = "<group>"; };
+		B021897A2831CEB000918B8D /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		B021897D2831CF5200918B8D /* OverlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayViewController.swift; sourceTree = "<group>"; };
+		B021897F2831CFD600918B8D /* AppOverlayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppOverlayManager.swift; sourceTree = "<group>"; };
 		B025FDCC282FBAC4008D1DF1 /* Resolver.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Resolver.xcframework; path = ../Carthage/Build/Resolver.xcframework; sourceTree = "<group>"; };
 		B025FDCD282FBAC4008D1DF1 /* SwiftOTP.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SwiftOTP.xcframework; path = ../Carthage/Build/SwiftOTP.xcframework; sourceTree = "<group>"; };
 		B025FDD2282FCB9D008D1DF1 /* Resolver+Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+Dependencies.swift"; sourceTree = "<group>"; };
@@ -173,6 +181,15 @@
 			path = ThirdParty;
 			sourceTree = "<group>";
 		};
+		B021897C2831CF4900918B8D /* Overlay */ = {
+			isa = PBXGroup;
+			children = (
+				B021897D2831CF5200918B8D /* OverlayViewController.swift */,
+				B021897F2831CFD600918B8D /* AppOverlayManager.swift */,
+			);
+			path = Overlay;
+			sourceTree = "<group>";
+		};
 		B06A5FCD282FFDE200433C58 /* List */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +197,7 @@
 				B06A5FCE282FFDF100433C58 /* AuthenticatorListPresenterServiceAdapter.swift */,
 				B06A5FD0282FFE1A00433C58 /* AuthenticatorListOutputAdapter.swift */,
 				B06A5FE22830531F00433C58 /* SceneDelegate+AuthenticatorList.swift */,
+				B02189782831BB5F00918B8D /* Analytics+List.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -217,6 +235,7 @@
 		B06A5FD928303BA800433C58 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				B021897C2831CF4900918B8D /* Overlay */,
 				B0B2B960282FB78900BB7E00 /* AppDelegate.swift */,
 				B0B2B962282FB78900BB7E00 /* SceneDelegate.swift */,
 				B06A5FEC2830842F00433C58 /* AppEvent.swift */,
@@ -231,6 +250,7 @@
 				B06A5FE02830525D00433C58 /* UIKitHelpers.swift */,
 				B06A5FEA28307F2700433C58 /* WeakRefProxy.swift */,
 				B06A5FEE2830878D00433C58 /* SwiftUIHelpers.swift */,
+				B021897A2831CEB000918B8D /* Images.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -427,6 +447,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B02189802831CFD600918B8D /* AppOverlayManager.swift in Sources */,
 				B06A5FE12830525D00433C58 /* UIKitHelpers.swift in Sources */,
 				B06A5FD1282FFE1A00433C58 /* AuthenticatorListOutputAdapter.swift in Sources */,
 				B06A5FE7283069C700433C58 /* AddAccountSaveServiceAdapter.swift in Sources */,
@@ -434,17 +455,20 @@
 				B06A5FD52830111D00433C58 /* AccountRepositoryExtensions.swift in Sources */,
 				B06A5FF4283092C800433C58 /* Account.swift in Sources */,
 				B06A5FCF282FFDF100433C58 /* AuthenticatorListPresenterServiceAdapter.swift in Sources */,
+				B021897E2831CF5200918B8D /* OverlayViewController.swift in Sources */,
 				B025FDD5282FCC88008D1DF1 /* Threading.swift in Sources */,
 				B06A5FEB28307F2700433C58 /* WeakRefProxy.swift in Sources */,
 				B025FDD3282FCB9D008D1DF1 /* Resolver+Dependencies.swift in Sources */,
 				B06A5FE9283075D800433C58 /* AddAccountEvent.swift in Sources */,
 				B0B2B961282FB78900BB7E00 /* AppDelegate.swift in Sources */,
 				B06A5FDD283047C800433C58 /* AddAccountComposer.swift in Sources */,
+				B021897B2831CEB000918B8D /* Images.swift in Sources */,
 				B025FDD7282FD353008D1DF1 /* ListComposer.swift in Sources */,
 				B02189712831559D00918B8D /* AuthenticatorAnalytics.swift in Sources */,
 				B06A5FD82830115700433C58 /* FileSystemPersistentStorage+Extensions.swift in Sources */,
 				B06A5FE52830532F00433C58 /* SceneDelegate+AddAccount.swift in Sources */,
 				B0B2B963282FB78900BB7E00 /* SceneDelegate.swift in Sources */,
+				B02189792831BB5F00918B8D /* Analytics+List.swift in Sources */,
 				B06A5FEF2830878D00433C58 /* SwiftUIHelpers.swift in Sources */,
 				B06A5FED2830842F00433C58 /* AppEvent.swift in Sources */,
 				B02189772831748100918B8D /* Analytics+AddAccount.swift in Sources */,

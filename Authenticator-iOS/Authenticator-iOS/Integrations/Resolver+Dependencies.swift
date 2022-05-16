@@ -11,6 +11,7 @@ import Combine
 
 import FileSystemPersistentStorage
 import AccountRepository
+import UIKit
 
 extension Resolver {
     static func registerDependencies() {
@@ -50,5 +51,13 @@ extension Resolver {
         register(TOTPProvider.self) {
             AuthenticatorTOTPProvider()
         }
+    }
+
+    static func registerAppOverlayManager(with windowScene: UIWindowScene, originalWindow window: UIWindow, sceneDelegate: SceneDelegate) {
+        register {
+            AppOverLayManager(with: windowScene, originalWindow: window, sceneDelegate: sceneDelegate)
+        }
+        .scope(.application)
+        _ = resolve(AppOverLayManager.self) // resolver immediately
     }
 }

@@ -9,10 +9,4 @@ import UIKit
 import Resolver
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        Resolver.registerDependencies()
-        Resolver.optional(SegmentAnalytics.self)?.initialize()
-        return true
-    }
-}
+class AppDelegate: UIResponder, UIApplicationDelegate { }

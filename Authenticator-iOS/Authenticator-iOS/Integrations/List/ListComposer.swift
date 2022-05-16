@@ -13,16 +13,20 @@ import UIKit
 import Combine
 import Resolver
 
+enum ListEvent {
+    case viewDidLoad
+    case addAccountDidPress
+}
+
 enum ListComposer {
     struct Dependencies {
-        var didPressAddAccount: PassthroughSubject<AuthenticatorListViewController, Never>
         var totpProvider: TOTPProvider
         var readAccounts: () -> AnyPublisher<[Account], Never>
         var delete: (_ accountID: UUID) -> AnyPublisher<Void, Error>
         var appEventPublisher: AnyPublisher<AppEvent, Never>
     }
 
-    static func list(dependencies: ListComposer.Dependencies) -> AuthenticatorListViewController {
+    static func list(dependencies: ListComposer.Dependencies, output: PassthroughSubject<ListEvent, Never>) -> AuthenticatorListViewController {
         let presenterService = AuthenticatorListPresenterServiceAdapter(
             totpProvider: dependencies.totpProvider,
             appEventPublisher: dependencies.appEventPublisher,
@@ -32,8 +36,11 @@ enum ListComposer {
         presenterService.presenter = presenter
         let viewController = AuthenticatorListViewController(
             viewModel: .init(),
-            didPressAddAccount: { dependencies.didPressAddAccount.send($0) },
-            onViewDidLoad: { presenter.load() })
+            didPressAddAccount: { _ in output.send(.addAccountDidPress) },
+            onViewDidLoad: {
+                output.send(.viewDidLoad)
+                presenter.load()
+            })
         let adapter = AuthenticatorListOutputAdapter(listViewController: viewController, presenter: presenter)
         presenter.output = adapter
         presenter.errorOutput = adapter

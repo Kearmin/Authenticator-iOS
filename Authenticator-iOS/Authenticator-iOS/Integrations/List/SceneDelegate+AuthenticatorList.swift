@@ -22,22 +22,35 @@ extension SceneDelegate {
         }
     }
 
+    func handleListEvent(_ event: ListEvent, listViewController: AuthenticatorListViewController) {
+        switch event {
+        case .addAccountDidPress:
+            let addAccountViewController = self.makeAddAccountViewController().embeddedInNavigationController
+            addAccountViewController.modalPresentationStyle = .fullScreen
+            listViewController.present(addAccountViewController, animated: true)
+        default:
+            break
+        }
+    }
+
     var listDependencies: ListComposer.Dependencies {
-        let subject = PassthroughSubject<AuthenticatorListViewController, Never>()
-        didPressAddAccountSubscription = subject.sink(receiveValue: listViewControllerDidPress)
-        return .init(
-            didPressAddAccount: subject,
+        .init(
             totpProvider: Resolver.resolve(),
             readAccounts: Resolver.resolve(AccountRepository.self).loadPublisher,
             delete: deletePublisher,
             appEventPublisher: Resolver.resolve())
     }
 
-    var listViewControllerDidPress: (AuthenticatorListViewController) -> Void {
-        { listViewController in
-            let addAccountViewController = self.makeAddAccountViewController().embeddedInNavigationController
-            addAccountViewController.modalPresentationStyle = .fullScreen
-            listViewController.present(addAccountViewController, animated: true)
-        }
+    func makeListViewController() -> AuthenticatorListViewController {
+        let dependencies = listDependencies
+        let listEventSubject = PassthroughSubject<ListEvent, Never>()
+        let viewController = ListComposer.list(dependencies: dependencies, output: listEventSubject)
+        listEventSubscription = listEventSubject
+            .trackListEvents()
+            .receive(on: DispatchQueue.main)
+            .sink {
+                self.handleListEvent($0, listViewController: viewController)
+            }
+        return viewController
     }
 }

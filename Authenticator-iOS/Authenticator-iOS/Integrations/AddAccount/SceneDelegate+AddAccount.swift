@@ -14,10 +14,11 @@ import UIKit
 extension SceneDelegate {
     func makeAddAccountViewController() -> AddAccountViewController {
         let dependencies = addAccountDependencies
-        let viewController = AddAccountComposer.addAccount(with: dependencies)
-        addAccountEventSubscription = dependencies
-            .addAccountEventSubject
+        let addAccountEventSubject = PassthroughSubject<AddAccountEvent, Never>()
+        let viewController = AddAccountComposer.addAccount(with: dependencies, output: addAccountEventSubject)
+        addAccountEventSubscription = addAccountEventSubject
             .trackAddAccountEvents()
+            .receive(on: DispatchQueue.main)
             .sink { event in
                 self.handleAddAccountEvent(event, addAccountViewController: viewController)
             }
@@ -51,7 +52,6 @@ extension SceneDelegate {
 
     var addAccountDependencies: AddAccountComposer.Dependencies {
         .init(
-            saveAccountPublisher: Resolver.resolve(AccountRepository.self).savePublisher(account:),
-            addAccountEventSubject: PassthroughSubject<AddAccountEvent, Never>())
+            saveAccountPublisher: Resolver.resolve(AccountRepository.self).savePublisher(account:))
     }
 }

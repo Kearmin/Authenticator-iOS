@@ -16,14 +16,18 @@ import AddAccountView
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
 
-    var didPressAddAccountSubscription: AnyCancellable?
+    var listEventSubscription: AnyCancellable?
     var addAccountEventSubscription: AnyCancellable?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        Resolver.registerDependencies()
+        Resolver.optional(SegmentAnalytics.self)?.initialize()
+
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        window = UIWindow(windowScene: windowScene)
-        let list = ListComposer.list(dependencies: listDependencies)
-        window?.rootViewController = list.embeddedInNavigationController
-        window?.makeKeyAndVisible()
+        let window = UIWindow(windowScene: windowScene)
+        window.rootViewController = makeListViewController().embeddedInNavigationController
+        window.makeKeyAndVisible()
+        self.window = window
+        Resolver.registerAppOverlayManager(with: windowScene, originalWindow: window, sceneDelegate: self)
     }
 }
