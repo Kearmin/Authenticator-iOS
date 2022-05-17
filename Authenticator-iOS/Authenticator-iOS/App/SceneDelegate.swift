@@ -28,6 +28,5 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = makeListViewController().embeddedInNavigationController
         window.makeKeyAndVisible()
         self.window = window
-        Resolver.registerAppOverlayManager(with: windowScene, originalWindow: window, sceneDelegate: self)
     }
 }

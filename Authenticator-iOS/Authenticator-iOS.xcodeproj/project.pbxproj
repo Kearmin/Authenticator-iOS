@@ -14,8 +14,6 @@
 		B02189772831748100918B8D /* Analytics+AddAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02189762831748100918B8D /* Analytics+AddAccount.swift */; };
 		B02189792831BB5F00918B8D /* Analytics+List.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02189782831BB5F00918B8D /* Analytics+List.swift */; };
 		B021897B2831CEB000918B8D /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = B021897A2831CEB000918B8D /* Images.swift */; };
-		B021897E2831CF5200918B8D /* OverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B021897D2831CF5200918B8D /* OverlayViewController.swift */; };
-		B02189802831CFD600918B8D /* AppOverlayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B021897F2831CFD600918B8D /* AppOverlayManager.swift */; };
 		B025FDCE282FBAC4008D1DF1 /* Resolver.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B025FDCC282FBAC4008D1DF1 /* Resolver.xcframework */; };
 		B025FDCF282FBAC4008D1DF1 /* Resolver.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B025FDCC282FBAC4008D1DF1 /* Resolver.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B025FDD0282FBAC4008D1DF1 /* SwiftOTP.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B025FDCD282FBAC4008D1DF1 /* SwiftOTP.xcframework */; };
@@ -56,6 +54,10 @@
 		B0B2B987282FB7C900BB7E00 /* Clock.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2B97A282FB7C900BB7E00 /* Clock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0B2B988282FB7C900BB7E00 /* FileSystemPersistentStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2B97B282FB7C900BB7E00 /* FileSystemPersistentStorage.framework */; };
 		B0B2B989282FB7C900BB7E00 /* FileSystemPersistentStorage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2B97B282FB7C900BB7E00 /* FileSystemPersistentStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B0D4213728331D6C000ED580 /* OverlayView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D4213628331D6C000ED580 /* OverlayView.framework */; };
+		B0D4213828331D6C000ED580 /* OverlayView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0D4213628331D6C000ED580 /* OverlayView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B0D4213A28331D71000ED580 /* OverlayBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D4213928331D71000ED580 /* OverlayBusiness.framework */; };
+		B0D4213B28331D71000ED580 /* OverlayBusiness.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0D4213928331D71000ED580 /* OverlayBusiness.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,7 +77,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				B0D4213B28331D71000ED580 /* OverlayBusiness.framework in Embed Frameworks */,
 				B0B2B97F282FB7C900BB7E00 /* AddAccountBusiness.framework in Embed Frameworks */,
+				B0D4213828331D6C000ED580 /* OverlayView.framework in Embed Frameworks */,
 				B0B2B97D282FB7C900BB7E00 /* AccountRepository.framework in Embed Frameworks */,
 				B0B2B983282FB7C900BB7E00 /* AuthenticatorListBusiness.framework in Embed Frameworks */,
 				B025FDD1282FBAC4008D1DF1 /* SwiftOTP.xcframework in Embed Frameworks */,
@@ -99,8 +103,7 @@
 		B02189762831748100918B8D /* Analytics+AddAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analytics+AddAccount.swift"; sourceTree = "<group>"; };
 		B02189782831BB5F00918B8D /* Analytics+List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analytics+List.swift"; sourceTree = "<group>"; };
 		B021897A2831CEB000918B8D /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
-		B021897D2831CF5200918B8D /* OverlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayViewController.swift; sourceTree = "<group>"; };
-		B021897F2831CFD600918B8D /* AppOverlayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppOverlayManager.swift; sourceTree = "<group>"; };
+		B02189992832CDFD00918B8D /* OverlayManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OverlayManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B025FDCC282FBAC4008D1DF1 /* Resolver.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Resolver.xcframework; path = ../Carthage/Build/Resolver.xcframework; sourceTree = "<group>"; };
 		B025FDCD282FBAC4008D1DF1 /* SwiftOTP.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SwiftOTP.xcframework; path = ../Carthage/Build/SwiftOTP.xcframework; sourceTree = "<group>"; };
 		B025FDD2282FCB9D008D1DF1 /* Resolver+Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+Dependencies.swift"; sourceTree = "<group>"; };
@@ -134,6 +137,8 @@
 		B0B2B979282FB7C900BB7E00 /* AuthenticatorListView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AuthenticatorListView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0B2B97A282FB7C900BB7E00 /* Clock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Clock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0B2B97B282FB7C900BB7E00 /* FileSystemPersistentStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FileSystemPersistentStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0D4213628331D6C000ED580 /* OverlayView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OverlayView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0D4213928331D71000ED580 /* OverlayBusiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OverlayBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,7 +153,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0D4213A28331D71000ED580 /* OverlayBusiness.framework in Frameworks */,
 				B0B2B97E282FB7C900BB7E00 /* AddAccountBusiness.framework in Frameworks */,
+				B0D4213728331D6C000ED580 /* OverlayView.framework in Frameworks */,
 				B0B2B97C282FB7C900BB7E00 /* AccountRepository.framework in Frameworks */,
 				B0B2B982282FB7C900BB7E00 /* AuthenticatorListBusiness.framework in Frameworks */,
 				B025FDD0282FBAC4008D1DF1 /* SwiftOTP.xcframework in Frameworks */,
@@ -179,15 +186,6 @@
 				B02189702831559D00918B8D /* AuthenticatorAnalytics.swift */,
 			);
 			path = ThirdParty;
-			sourceTree = "<group>";
-		};
-		B021897C2831CF4900918B8D /* Overlay */ = {
-			isa = PBXGroup;
-			children = (
-				B021897D2831CF5200918B8D /* OverlayViewController.swift */,
-				B021897F2831CFD600918B8D /* AppOverlayManager.swift */,
-			);
-			path = Overlay;
 			sourceTree = "<group>";
 		};
 		B06A5FCD282FFDE200433C58 /* List */ = {
@@ -235,7 +233,6 @@
 		B06A5FD928303BA800433C58 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				B021897C2831CF4900918B8D /* Overlay */,
 				B0B2B960282FB78900BB7E00 /* AppDelegate.swift */,
 				B0B2B962282FB78900BB7E00 /* SceneDelegate.swift */,
 				B06A5FEC2830842F00433C58 /* AppEvent.swift */,
@@ -302,6 +299,9 @@
 		B0B2B974282FB7C900BB7E00 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B0D4213928331D71000ED580 /* OverlayBusiness.framework */,
+				B0D4213628331D6C000ED580 /* OverlayView.framework */,
+				B02189992832CDFD00918B8D /* OverlayManager.framework */,
 				B0218972283159E000918B8D /* Segment.xcframework */,
 				B025FDCC282FBAC4008D1DF1 /* Resolver.xcframework */,
 				B025FDCD282FBAC4008D1DF1 /* SwiftOTP.xcframework */,
@@ -447,7 +447,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B02189802831CFD600918B8D /* AppOverlayManager.swift in Sources */,
 				B06A5FE12830525D00433C58 /* UIKitHelpers.swift in Sources */,
 				B06A5FD1282FFE1A00433C58 /* AuthenticatorListOutputAdapter.swift in Sources */,
 				B06A5FE7283069C700433C58 /* AddAccountSaveServiceAdapter.swift in Sources */,
@@ -455,7 +454,6 @@
 				B06A5FD52830111D00433C58 /* AccountRepositoryExtensions.swift in Sources */,
 				B06A5FF4283092C800433C58 /* Account.swift in Sources */,
 				B06A5FCF282FFDF100433C58 /* AuthenticatorListPresenterServiceAdapter.swift in Sources */,
-				B021897E2831CF5200918B8D /* OverlayViewController.swift in Sources */,
 				B025FDD5282FCC88008D1DF1 /* Threading.swift in Sources */,
 				B06A5FEB28307F2700433C58 /* WeakRefProxy.swift in Sources */,
 				B025FDD3282FCB9D008D1DF1 /* Resolver+Dependencies.swift in Sources */,
@@ -658,10 +656,11 @@
 				DEVELOPMENT_TEAM = 4W92454MDD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Authenticator-iOS/Info.plist";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Use Face ID to unlock";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -686,10 +685,11 @@
 				DEVELOPMENT_TEAM = 4W92454MDD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Authenticator-iOS/Info.plist";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "Use Face ID to unlock";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

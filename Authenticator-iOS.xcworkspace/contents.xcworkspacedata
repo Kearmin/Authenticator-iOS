@@ -10,18 +10,36 @@
       <Group
          location = "container:"
          name = "Feature">
-         <FileRef
-            location = "group:Modules/Feature/AuthenticatorList/AuthenticatorListView/AuthenticatorListView.xcodeproj">
-         </FileRef>
-         <FileRef
-            location = "group:Modules/Feature/AuthenticatorList/AuthenticatorListBusiness/AuthenticatorListBusiness.xcodeproj">
-         </FileRef>
-         <FileRef
-            location = "group:Modules/Feature/AddAccount/AddAccountView/AddAccountView.xcodeproj">
-         </FileRef>
-         <FileRef
-            location = "group:Modules/Feature/AddAccount/AddAccountBusiness/AddAccountBusiness.xcodeproj">
-         </FileRef>
+         <Group
+            location = "container:"
+            name = "Overlay">
+            <FileRef
+               location = "group:Modules/Feature/Overlay/OverlayView/OverlayView.xcodeproj">
+            </FileRef>
+            <FileRef
+               location = "group:Modules/Feature/Overlay/OverlayBusiness/OverlayBusiness.xcodeproj">
+            </FileRef>
+         </Group>
+         <Group
+            location = "container:"
+            name = "AddAccount">
+            <FileRef
+               location = "group:Modules/Feature/AddAccount/AddAccountView/AddAccountView.xcodeproj">
+            </FileRef>
+            <FileRef
+               location = "group:Modules/Feature/AddAccount/AddAccountBusiness/AddAccountBusiness.xcodeproj">
+            </FileRef>
+         </Group>
+         <Group
+            location = "container:"
+            name = "AuthenticatorList">
+            <FileRef
+               location = "group:Modules/Feature/AuthenticatorList/AuthenticatorListView/AuthenticatorListView.xcodeproj">
+            </FileRef>
+            <FileRef
+               location = "group:Modules/Feature/AuthenticatorList/AuthenticatorListBusiness/AuthenticatorListBusiness.xcodeproj">
+            </FileRef>
+         </Group>
       </Group>
       <Group
          location = "container:"
