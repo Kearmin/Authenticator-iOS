@@ -22,12 +22,12 @@ extension SceneDelegate {
         }
     }
 
-    func handleListEvent(_ event: ListEvent, listViewController: AuthenticatorListViewController) {
+    func handleListEvent(_ event: ListEvent, listViewController: AuthenticatorListViewController?) {
         switch event {
         case .addAccountDidPress:
             let addAccountViewController = self.makeAddAccountViewController().embeddedInNavigationController
             addAccountViewController.modalPresentationStyle = .fullScreen
-            listViewController.present(addAccountViewController, animated: true)
+            listViewController?.present(addAccountViewController, animated: true)
         default:
             break
         }
@@ -42,15 +42,14 @@ extension SceneDelegate {
     }
 
     func makeListViewController() -> AuthenticatorListViewController {
-        let dependencies = listDependencies
-        let listEventSubject = PassthroughSubject<ListEvent, Never>()
-        let viewController = ListComposer.list(dependencies: dependencies, output: listEventSubject)
-        listEventSubscription = listEventSubject
+        let (viewController, listEventPublisher) = ListComposer.list(dependencies: listDependencies)
+        listEventPublisher
             .trackListEvents()
             .receive(on: DispatchQueue.main)
-            .sink {
+            .sink { [weak viewController] in
                 self.handleListEvent($0, listViewController: viewController)
             }
+            .store(in: &subscriptions)
         return viewController
     }
 }

@@ -8,7 +8,7 @@
 import Combine
 import Resolver
 
-extension PassthroughSubject where Output == ListEvent {
+extension AnyPublisher where Output == ListEvent {
     func trackListEvents() -> AnyPublisher<Output, Failure> {
         let analytics: AuthenticatorAnalytics = Resolver.resolve()
         return self.handleEvents(receiveOutput: { event in

@@ -9,12 +9,26 @@
 /* Begin PBXBuildFile section */
 		B0D4212E28331C6F000ED580 /* OverlayBusiness.h in Headers */ = {isa = PBXBuildFile; fileRef = B0D4212D28331C6F000ED580 /* OverlayBusiness.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B0F7544F283402120051038D /* OverlayPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F7544E283402120051038D /* OverlayPresenter.swift */; };
+		B0F7546528340CB90051038D /* OverlayBusinessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F7546428340CB90051038D /* OverlayBusinessTests.swift */; };
+		B0F7546628340CB90051038D /* OverlayBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D4212A28331C6F000ED580 /* OverlayBusiness.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B0F7546728340CB90051038D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B0D4212128331C6F000ED580 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B0D4212928331C6F000ED580;
+			remoteInfo = OverlayBusiness;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		B0D4212A28331C6F000ED580 /* OverlayBusiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = OverlayBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D4212D28331C6F000ED580 /* OverlayBusiness.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OverlayBusiness.h; sourceTree = "<group>"; };
 		B0F7544E283402120051038D /* OverlayPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayPresenter.swift; sourceTree = "<group>"; };
+		B0F7546228340CB90051038D /* OverlayBusinessTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OverlayBusinessTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0F7546428340CB90051038D /* OverlayBusinessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayBusinessTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -25,6 +39,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B0F7545F28340CB90051038D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0F7546628340CB90051038D /* OverlayBusiness.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -32,6 +54,7 @@
 			isa = PBXGroup;
 			children = (
 				B0D4212C28331C6F000ED580 /* OverlayBusiness */,
+				B0F7546328340CB90051038D /* OverlayBusinessTests */,
 				B0D4212B28331C6F000ED580 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -40,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				B0D4212A28331C6F000ED580 /* OverlayBusiness.framework */,
+				B0F7546228340CB90051038D /* OverlayBusinessTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -51,6 +75,14 @@
 				B0F7544E283402120051038D /* OverlayPresenter.swift */,
 			);
 			path = OverlayBusiness;
+			sourceTree = "<group>";
+		};
+		B0F7546328340CB90051038D /* OverlayBusinessTests */ = {
+			isa = PBXGroup;
+			children = (
+				B0F7546428340CB90051038D /* OverlayBusinessTests.swift */,
+			);
+			path = OverlayBusinessTests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -85,6 +117,24 @@
 			productReference = B0D4212A28331C6F000ED580 /* OverlayBusiness.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		B0F7546128340CB90051038D /* OverlayBusinessTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B0F7546928340CB90051038D /* Build configuration list for PBXNativeTarget "OverlayBusinessTests" */;
+			buildPhases = (
+				B0F7545E28340CB90051038D /* Sources */,
+				B0F7545F28340CB90051038D /* Frameworks */,
+				B0F7546028340CB90051038D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B0F7546828340CB90051038D /* PBXTargetDependency */,
+			);
+			name = OverlayBusinessTests;
+			productName = OverlayBusinessTests;
+			productReference = B0F7546228340CB90051038D /* OverlayBusinessTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -92,11 +142,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1330;
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
 					B0D4212928331C6F000ED580 = {
 						CreatedOnToolsVersion = 13.3.1;
 						LastSwiftMigration = 1330;
+					};
+					B0F7546128340CB90051038D = {
+						CreatedOnToolsVersion = 13.3.1;
 					};
 				};
 			};
@@ -114,12 +168,20 @@
 			projectRoot = "";
 			targets = (
 				B0D4212928331C6F000ED580 /* OverlayBusiness */,
+				B0F7546128340CB90051038D /* OverlayBusinessTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		B0D4212828331C6F000ED580 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B0F7546028340CB90051038D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -137,7 +199,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B0F7545E28340CB90051038D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B0F7546528340CB90051038D /* OverlayBusinessTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B0F7546828340CB90051038D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B0D4212928331C6F000ED580 /* OverlayBusiness */;
+			targetProxy = B0F7546728340CB90051038D /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		B0D4212F28331C6F000ED580 /* Debug */ = {
@@ -191,7 +269,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -248,7 +326,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -321,6 +399,40 @@
 			};
 			name = Release;
 		};
+		B0F7546A28340CB90051038D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4W92454MDD;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jenci.OverlayBusinessTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B0F7546B28340CB90051038D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4W92454MDD;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jenci.OverlayBusinessTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -338,6 +450,15 @@
 			buildConfigurations = (
 				B0D4213228331C6F000ED580 /* Debug */,
 				B0D4213328331C6F000ED580 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B0F7546928340CB90051038D /* Build configuration list for PBXNativeTarget "OverlayBusinessTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B0F7546A28340CB90051038D /* Debug */,
+				B0F7546B28340CB90051038D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

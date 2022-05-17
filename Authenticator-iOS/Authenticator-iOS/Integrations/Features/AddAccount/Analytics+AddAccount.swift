@@ -9,7 +9,7 @@ import Combine
 import Resolver
 import AddAccountBusiness
 
-extension PassthroughSubject where Output == AddAccountEvent {
+extension AnyPublisher where Output == AddAccountEvent {
     func trackAddAccountEvents() -> AnyPublisher<Output, Failure> {
         self.handleEvents(receiveOutput: { event in
             let analytics: AuthenticatorAnalytics = Resolver.resolve()

@@ -13,15 +13,15 @@ import UIKit
 
 extension SceneDelegate {
     func makeAddAccountViewController() -> AddAccountViewController {
-        let dependencies = addAccountDependencies
-        let addAccountEventSubject = PassthroughSubject<AddAccountEvent, Never>()
-        let viewController = AddAccountComposer.addAccount(with: dependencies, output: addAccountEventSubject)
-        addAccountEventSubscription = addAccountEventSubject
+        let (viewController, addAccountEventPublisher) = AddAccountComposer.addAccount(with: addAccountDependencies)
+        addAccountEventPublisher
             .trackAddAccountEvents()
             .receive(on: DispatchQueue.main)
-            .sink { event in
+            .sink { [weak viewController] event in
+                guard let viewController = viewController else { return }
                 self.handleAddAccountEvent(event, addAccountViewController: viewController)
             }
+            .store(in: &subscriptions)
         return viewController
     }
 
@@ -29,12 +29,10 @@ extension SceneDelegate {
         switch event {
         case .doneDidPress:
             addAccountViewController.dismiss(animated: true)
-            addAccountEventSubscription = nil
         case .failedToStartCamera:
             let alert = UIAlertController(title: "Error", message: "Failed to open camera", preferredStyle: .alert)
             alert.addAction(.init(title: "Ok", style: .default, handler: { _ in
                 addAccountViewController.dismiss(animated: true)
-                self.addAccountEventSubscription = nil
             }))
             addAccountViewController.present(alert, animated: true)
         case .qrCodeReadDidFail(let error):
@@ -46,7 +44,6 @@ extension SceneDelegate {
         case .didCreateAccount:
             Resolver.resolve(AppEventSubject.self).send(.newAccountCreated)
             addAccountViewController.dismiss(animated: true)
-            addAccountEventSubscription = nil
         }
     }
 

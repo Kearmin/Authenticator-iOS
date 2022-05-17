@@ -8,13 +8,13 @@
 import Foundation
 import UIKit
 
-enum Images {
-    case zyzzSticker
+enum Images: String {
+    case zyzzSticker = "ZyzzSticker"
 
     var image: UIImage? {
         switch self {
         case .zyzzSticker:
-            return UIImage(named: "ZyzzSticker")
+            return UIImage(named: self.rawValue)
         }
     }
 }

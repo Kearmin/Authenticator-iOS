@@ -8,23 +8,45 @@
 import SwiftUI
 
 public struct OverlayView: View {
-    @State public var imageName: String = ""
-    @State public var bunlde: Bundle = .main
+    public var imageName: String
+    private var isDebug: Bool
+    private var onUnlockDidPress: () -> Void
 
-    public init(imageName: String = "") {
+    public init(imageName: String, onUnlockDidPress: @escaping () -> Void = { }) {
         self.imageName = imageName
+        self.isDebug = false
+        self.onUnlockDidPress = onUnlockDidPress
+    }
+
+    fileprivate init() { // swiftlint:disable:this strict_fileprivate
+        imageName = ""
+        onUnlockDidPress = { }
+        isDebug = true
     }
 
     public var body: some View {
-            Image(imageName, bundle: bunlde)
+        VStack {
+            Image(imageName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .padding()
+                .background(isDebug ? .red : .clear)
+                .padding(.horizontal)
+                .padding(.bottom, 150)
+            Button {
+                onUnlockDidPress()
+            } label: {
+                Text("Unlock")
+                    .font(.headline)
+                    .fontWeight(.bold)
+            }
+        }
     }
 }
 
 struct OverLayView_Previews: PreviewProvider {
     static var previews: some View {
-        OverlayView(imageName: "ZyzzSticker")
+        OverlayView()
+        OverlayView()
+            .preferredColorScheme(.dark)
     }
 }

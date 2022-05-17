@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		B02189692831401600918B8D /* Authenticator_iOS_IntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02189682831401600918B8D /* Authenticator_iOS_IntegrationTests.swift */; };
 		B02189712831559D00918B8D /* AuthenticatorAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02189702831559D00918B8D /* AuthenticatorAnalytics.swift */; };
 		B0218973283159E000918B8D /* Segment.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0218972283159E000918B8D /* Segment.xcframework */; };
 		B0218974283159E000918B8D /* Segment.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0218972283159E000918B8D /* Segment.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -58,17 +57,15 @@
 		B0D4213828331D6C000ED580 /* OverlayView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0D4213628331D6C000ED580 /* OverlayView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0D4213A28331D71000ED580 /* OverlayBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D4213928331D71000ED580 /* OverlayBusiness.framework */; };
 		B0D4213B28331D71000ED580 /* OverlayBusiness.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0D4213928331D71000ED580 /* OverlayBusiness.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B0F7547028342FD10051038D /* OverlayComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F7546F28342FD10051038D /* OverlayComposer.swift */; };
+		B0F75474283459A60051038D /* OverlayAuthenticatorUseCaseAuthenticationServiceAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F75473283459A60051038D /* OverlayAuthenticatorUseCaseAuthenticationServiceAdapter.swift */; };
+		B0F75476283459DA0051038D /* OverlayAuthenticatorUseCaseOutputAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F75475283459DA0051038D /* OverlayAuthenticatorUseCaseOutputAdapter.swift */; };
+		B0F7547828345A9F0051038D /* SceneDelegate+Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F7547728345A9F0051038D /* SceneDelegate+Overlay.swift */; };
+		B0F7547A283461220051038D /* OverlayEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F75479283461220051038D /* OverlayEvent.swift */; };
+		B0F7547C283464160051038D /* Analytics+Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F7547B283464160051038D /* Analytics+Overlay.swift */; };
+		B0F7547E283464F60051038D /* ListEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F7547D283464F60051038D /* ListEvent.swift */; };
+		B0F75480283465670051038D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F7547F283465670051038D /* Constants.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		B021896D2831401B00918B8D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B0B2B955282FB78900BB7E00 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = B0B2B95C282FB78900BB7E00;
-			remoteInfo = "Authenticator-iOS";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		B0B2B98A282FB7C900BB7E00 /* Embed Frameworks */ = {
@@ -96,8 +93,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		B02189662831401600918B8D /* Authenticator-iOS IntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Authenticator-iOS IntegrationTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B02189682831401600918B8D /* Authenticator_iOS_IntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authenticator_iOS_IntegrationTests.swift; sourceTree = "<group>"; };
 		B02189702831559D00918B8D /* AuthenticatorAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorAnalytics.swift; sourceTree = "<group>"; };
 		B0218972283159E000918B8D /* Segment.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Segment.xcframework; path = ../Carthage/Build/Segment.xcframework; sourceTree = "<group>"; };
 		B02189762831748100918B8D /* Analytics+AddAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analytics+AddAccount.swift"; sourceTree = "<group>"; };
@@ -139,16 +134,17 @@
 		B0B2B97B282FB7C900BB7E00 /* FileSystemPersistentStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FileSystemPersistentStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D4213628331D6C000ED580 /* OverlayView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OverlayView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D4213928331D71000ED580 /* OverlayBusiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OverlayBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0F7546F28342FD10051038D /* OverlayComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayComposer.swift; sourceTree = "<group>"; };
+		B0F75473283459A60051038D /* OverlayAuthenticatorUseCaseAuthenticationServiceAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayAuthenticatorUseCaseAuthenticationServiceAdapter.swift; sourceTree = "<group>"; };
+		B0F75475283459DA0051038D /* OverlayAuthenticatorUseCaseOutputAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayAuthenticatorUseCaseOutputAdapter.swift; sourceTree = "<group>"; };
+		B0F7547728345A9F0051038D /* SceneDelegate+Overlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SceneDelegate+Overlay.swift"; sourceTree = "<group>"; };
+		B0F75479283461220051038D /* OverlayEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayEvent.swift; sourceTree = "<group>"; };
+		B0F7547B283464160051038D /* Analytics+Overlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analytics+Overlay.swift"; sourceTree = "<group>"; };
+		B0F7547D283464F60051038D /* ListEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEvent.swift; sourceTree = "<group>"; };
+		B0F7547F283465670051038D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		B02189632831401600918B8D /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B0B2B95A282FB78900BB7E00 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -171,14 +167,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		B02189672831401600918B8D /* Authenticator-iOS IntegrationTests */ = {
-			isa = PBXGroup;
-			children = (
-				B02189682831401600918B8D /* Authenticator_iOS_IntegrationTests.swift */,
-			);
-			path = "Authenticator-iOS IntegrationTests";
-			sourceTree = "<group>";
-		};
 		B021896F2831558300918B8D /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
@@ -196,6 +184,7 @@
 				B06A5FD0282FFE1A00433C58 /* AuthenticatorListOutputAdapter.swift */,
 				B06A5FE22830531F00433C58 /* SceneDelegate+AuthenticatorList.swift */,
 				B02189782831BB5F00918B8D /* Analytics+List.swift */,
+				B0F7547D283464F60051038D /* ListEvent.swift */,
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -204,11 +193,9 @@
 			isa = PBXGroup;
 			children = (
 				B025FDD2282FCB9D008D1DF1 /* Resolver+Dependencies.swift */,
+				B0F7546D28342EF80051038D /* Business */,
+				B0F7546C28342ED70051038D /* Features */,
 				B021896F2831558300918B8D /* ThirdParty */,
-				B06A5FCD282FFDE200433C58 /* List */,
-				B06A5FDB283047BE00433C58 /* AddAccount */,
-				B06A5FD62830113E00433C58 /* FileSystemPersistentStorage */,
-				B06A5FD32830110700433C58 /* AccountRepository */,
 			);
 			path = Integrations;
 			sourceTree = "<group>";
@@ -236,6 +223,7 @@
 				B0B2B960282FB78900BB7E00 /* AppDelegate.swift */,
 				B0B2B962282FB78900BB7E00 /* SceneDelegate.swift */,
 				B06A5FEC2830842F00433C58 /* AppEvent.swift */,
+				B0F7547F283465670051038D /* Constants.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -268,7 +256,6 @@
 			isa = PBXGroup;
 			children = (
 				B0B2B95F282FB78900BB7E00 /* Authenticator-iOS */,
-				B02189672831401600918B8D /* Authenticator-iOS IntegrationTests */,
 				B0B2B95E282FB78900BB7E00 /* Products */,
 				B0B2B974282FB7C900BB7E00 /* Frameworks */,
 			);
@@ -278,7 +265,6 @@
 			isa = PBXGroup;
 			children = (
 				B0B2B95D282FB78900BB7E00 /* Authenticator-iOS.app */,
-				B02189662831401600918B8D /* Authenticator-iOS IntegrationTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -316,27 +302,41 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B0F7546C28342ED70051038D /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				B0F7546E28342FCB0051038D /* Overlay */,
+				B06A5FDB283047BE00433C58 /* AddAccount */,
+				B06A5FCD282FFDE200433C58 /* List */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		B0F7546D28342EF80051038D /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				B06A5FD32830110700433C58 /* AccountRepository */,
+				B06A5FD62830113E00433C58 /* FileSystemPersistentStorage */,
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
+		B0F7546E28342FCB0051038D /* Overlay */ = {
+			isa = PBXGroup;
+			children = (
+				B0F7546F28342FD10051038D /* OverlayComposer.swift */,
+				B0F75473283459A60051038D /* OverlayAuthenticatorUseCaseAuthenticationServiceAdapter.swift */,
+				B0F75475283459DA0051038D /* OverlayAuthenticatorUseCaseOutputAdapter.swift */,
+				B0F7547728345A9F0051038D /* SceneDelegate+Overlay.swift */,
+				B0F75479283461220051038D /* OverlayEvent.swift */,
+				B0F7547B283464160051038D /* Analytics+Overlay.swift */,
+			);
+			path = Overlay;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B02189652831401600918B8D /* Authenticator-iOS IntegrationTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B021896A2831401600918B8D /* Build configuration list for PBXNativeTarget "Authenticator-iOS IntegrationTests" */;
-			buildPhases = (
-				B02189622831401600918B8D /* Sources */,
-				B02189632831401600918B8D /* Frameworks */,
-				B02189642831401600918B8D /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				B021896E2831401B00918B8D /* PBXTargetDependency */,
-			);
-			name = "Authenticator-iOS IntegrationTests";
-			productName = "Authenticator-iOS IntegrationTests";
-			productReference = B02189662831401600918B8D /* Authenticator-iOS IntegrationTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		B0B2B95C282FB78900BB7E00 /* Authenticator-iOS */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = B0B2B971282FB78900BB7E00 /* Build configuration list for PBXNativeTarget "Authenticator-iOS" */;
@@ -366,10 +366,6 @@
 				LastSwiftUpdateCheck = 1330;
 				LastUpgradeCheck = 1330;
 				TargetAttributes = {
-					B02189652831401600918B8D = {
-						CreatedOnToolsVersion = 13.3.1;
-						TestTargetID = B0B2B95C282FB78900BB7E00;
-					};
 					B0B2B95C282FB78900BB7E00 = {
 						CreatedOnToolsVersion = 13.3.1;
 					};
@@ -389,19 +385,11 @@
 			projectRoot = "";
 			targets = (
 				B0B2B95C282FB78900BB7E00 /* Authenticator-iOS */,
-				B02189652831401600918B8D /* Authenticator-iOS IntegrationTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		B02189642831401600918B8D /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B0B2B95B282FB78900BB7E00 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -435,54 +423,46 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		B02189622831401600918B8D /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				B02189692831401600918B8D /* Authenticator_iOS_IntegrationTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		B0B2B959282FB78900BB7E00 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B06A5FE12830525D00433C58 /* UIKitHelpers.swift in Sources */,
+				B0F7547A283461220051038D /* OverlayEvent.swift in Sources */,
 				B06A5FD1282FFE1A00433C58 /* AuthenticatorListOutputAdapter.swift in Sources */,
 				B06A5FE7283069C700433C58 /* AddAccountSaveServiceAdapter.swift in Sources */,
 				B06A5FE32830531F00433C58 /* SceneDelegate+AuthenticatorList.swift in Sources */,
 				B06A5FD52830111D00433C58 /* AccountRepositoryExtensions.swift in Sources */,
+				B0F7547E283464F60051038D /* ListEvent.swift in Sources */,
+				B0F75480283465670051038D /* Constants.swift in Sources */,
+				B0F7547028342FD10051038D /* OverlayComposer.swift in Sources */,
 				B06A5FF4283092C800433C58 /* Account.swift in Sources */,
 				B06A5FCF282FFDF100433C58 /* AuthenticatorListPresenterServiceAdapter.swift in Sources */,
 				B025FDD5282FCC88008D1DF1 /* Threading.swift in Sources */,
 				B06A5FEB28307F2700433C58 /* WeakRefProxy.swift in Sources */,
+				B0F7547C283464160051038D /* Analytics+Overlay.swift in Sources */,
 				B025FDD3282FCB9D008D1DF1 /* Resolver+Dependencies.swift in Sources */,
 				B06A5FE9283075D800433C58 /* AddAccountEvent.swift in Sources */,
 				B0B2B961282FB78900BB7E00 /* AppDelegate.swift in Sources */,
 				B06A5FDD283047C800433C58 /* AddAccountComposer.swift in Sources */,
 				B021897B2831CEB000918B8D /* Images.swift in Sources */,
 				B025FDD7282FD353008D1DF1 /* ListComposer.swift in Sources */,
+				B0F75476283459DA0051038D /* OverlayAuthenticatorUseCaseOutputAdapter.swift in Sources */,
 				B02189712831559D00918B8D /* AuthenticatorAnalytics.swift in Sources */,
 				B06A5FD82830115700433C58 /* FileSystemPersistentStorage+Extensions.swift in Sources */,
 				B06A5FE52830532F00433C58 /* SceneDelegate+AddAccount.swift in Sources */,
+				B0F7547828345A9F0051038D /* SceneDelegate+Overlay.swift in Sources */,
 				B0B2B963282FB78900BB7E00 /* SceneDelegate.swift in Sources */,
 				B02189792831BB5F00918B8D /* Analytics+List.swift in Sources */,
 				B06A5FEF2830878D00433C58 /* SwiftUIHelpers.swift in Sources */,
 				B06A5FED2830842F00433C58 /* AppEvent.swift in Sources */,
 				B02189772831748100918B8D /* Analytics+AddAccount.swift in Sources */,
+				B0F75474283459A60051038D /* OverlayAuthenticatorUseCaseAuthenticationServiceAdapter.swift in Sources */,
 				B025FDD9282FD5F6008D1DF1 /* AuthenticatorTOTPProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		B021896E2831401B00918B8D /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = B0B2B95C282FB78900BB7E00 /* Authenticator-iOS */;
-			targetProxy = B021896D2831401B00918B8D /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		B0B2B96B282FB78900BB7E00 /* LaunchScreen.storyboard */ = {
@@ -496,42 +476,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		B021896B2831401600918B8D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4W92454MDD;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jenci.Authenticator-iOS-IntegrationTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Authenticator-iOS.app/Authenticator-iOS";
-			};
-			name = Debug;
-		};
-		B021896C2831401600918B8D /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 4W92454MDD;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 12.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jenci.Authenticator-iOS-IntegrationTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Authenticator-iOS.app/Authenticator-iOS";
-			};
-			name = Release;
-		};
 		B0B2B96F282FB78900BB7E00 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -582,7 +526,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -636,7 +580,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -707,15 +651,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B021896A2831401600918B8D /* Build configuration list for PBXNativeTarget "Authenticator-iOS IntegrationTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				B021896B2831401600918B8D /* Debug */,
-				B021896C2831401600918B8D /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		B0B2B958282FB78900BB7E00 /* Build configuration list for PBXProject "Authenticator-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

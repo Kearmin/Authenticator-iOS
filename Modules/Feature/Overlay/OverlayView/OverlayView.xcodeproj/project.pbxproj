@@ -10,6 +10,7 @@
 		B0D4211A28331BB5000ED580 /* OverlayView.h in Headers */ = {isa = PBXBuildFile; fileRef = B0D4211928331BB5000ED580 /* OverlayView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B0D4213528331CA6000ED580 /* OverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D4213428331CA6000ED580 /* OverlayView.swift */; };
 		B0D4213D28331EFE000ED580 /* OverlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0D4213C28331EFE000ED580 /* OverlayViewController.swift */; };
+		B0F754722834489C0051038D /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0F754712834489C0051038D /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -17,6 +18,7 @@
 		B0D4211928331BB5000ED580 /* OverlayView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OverlayView.h; sourceTree = "<group>"; };
 		B0D4213428331CA6000ED580 /* OverlayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayView.swift; sourceTree = "<group>"; };
 		B0D4213C28331EFE000ED580 /* OverlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayViewController.swift; sourceTree = "<group>"; };
+		B0F754712834489C0051038D /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +54,7 @@
 				B0D4211928331BB5000ED580 /* OverlayView.h */,
 				B0D4213C28331EFE000ED580 /* OverlayViewController.swift */,
 				B0D4213428331CA6000ED580 /* OverlayView.swift */,
+				B0F754712834489C0051038D /* Media.xcassets */,
 			);
 			path = OverlayView;
 			sourceTree = "<group>";
@@ -126,6 +129,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0F754722834489C0051038D /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,10 +275,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 4W92454MDD;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_ON_DEMAND_RESOURCES = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -302,10 +308,12 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 4W92454MDD;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_ON_DEMAND_RESOURCES = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";

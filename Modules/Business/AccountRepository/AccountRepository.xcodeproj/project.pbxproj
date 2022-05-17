@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		B00E6C74281CA68F0015B2AA /* AccountRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B025950E281C93DE00D086C1 /* AccountRepositoryTests.swift */; };
 		B00E6C75281CA6920015B2AA /* AccountRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B025950E281C93DE00D086C1 /* AccountRepositoryTests.swift */; };
-		B0259510281C93DE00D086C1 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = B025950C281C93DE00D086C1 /* Account.swift */; };
-		B056452B281DDBC800DCBB7A /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = B025950C281C93DE00D086C1 /* Account.swift */; };
 		B06A5FF128308BBE00433C58 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FF028308BBE00433C58 /* Repository.swift */; };
 		B06A5FF228308BBE00433C58 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FF028308BBE00433C58 /* Repository.swift */; };
 		B0F423B42814B66F00C9D138 /* AccountRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F423AB2814B66F00C9D138 /* AccountRepository.framework */; };
@@ -37,7 +35,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B025950C281C93DE00D086C1 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Account.swift; path = "../../../../../Authenticator-iOS/Authenticator-iOS/Integrations/AccountRepository/Account.swift"; sourceTree = "<group>"; };
 		B025950E281C93DE00D086C1 /* AccountRepositoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountRepositoryTests.swift; sourceTree = "<group>"; };
 		B06A5FF028308BBE00433C58 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		B0F423AB2814B66F00C9D138 /* AccountRepository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AccountRepository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -94,7 +91,6 @@
 		B025950A281C93DE00D086C1 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				B025950C281C93DE00D086C1 /* Account.swift */,
 				B06A5FF028308BBE00433C58 /* Repository.swift */,
 			);
 			path = Source;
@@ -336,7 +332,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0259510281C93DE00D086C1 /* Account.swift in Sources */,
 				B06A5FF128308BBE00433C58 /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,7 +348,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B056452B281DDBC800DCBB7A /* Account.swift in Sources */,
 				B06A5FF228308BBE00433C58 /* Repository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
