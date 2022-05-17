@@ -62,4 +62,7 @@
          </FileRef>
       </Group>
    </Group>
+   <FileRef
+      location = "group:Authenticator-iOS.xctestplan">
+   </FileRef>
 </Workspace>

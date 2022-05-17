@@ -65,6 +65,7 @@
 		B0F7547C283464160051038D /* Analytics+Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F7547B283464160051038D /* Analytics+Overlay.swift */; };
 		B0F7547E283464F60051038D /* ListEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F7547D283464F60051038D /* ListEvent.swift */; };
 		B0F75480283465670051038D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F7547F283465670051038D /* Constants.swift */; };
+		B0F7548228346A2D0051038D /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F7548128346A2D0051038D /* AppConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -142,6 +143,7 @@
 		B0F7547B283464160051038D /* Analytics+Overlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analytics+Overlay.swift"; sourceTree = "<group>"; };
 		B0F7547D283464F60051038D /* ListEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEvent.swift; sourceTree = "<group>"; };
 		B0F7547F283465670051038D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		B0F7548128346A2D0051038D /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +238,7 @@
 				B06A5FEA28307F2700433C58 /* WeakRefProxy.swift */,
 				B06A5FEE2830878D00433C58 /* SwiftUIHelpers.swift */,
 				B021897A2831CEB000918B8D /* Images.swift */,
+				B0F7548128346A2D0051038D /* AppConfig.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				B02189712831559D00918B8D /* AuthenticatorAnalytics.swift in Sources */,
 				B06A5FD82830115700433C58 /* FileSystemPersistentStorage+Extensions.swift in Sources */,
 				B06A5FE52830532F00433C58 /* SceneDelegate+AddAccount.swift in Sources */,
+				B0F7548228346A2D0051038D /* AppConfig.swift in Sources */,
 				B0F7547828345A9F0051038D /* SceneDelegate+Overlay.swift in Sources */,
 				B0B2B963282FB78900BB7E00 /* SceneDelegate.swift in Sources */,
 				B02189792831BB5F00918B8D /* Analytics+List.swift in Sources */,

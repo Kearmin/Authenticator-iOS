@@ -16,11 +16,13 @@ import OverlayView
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
+
     var overlayWindow: UIWindow?
     var appWindow: UIWindow?
     var subscriptions = Set<AnyCancellable>()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        guard !AppConfig.isRunningTests else { return }
         Resolver.registerDependencies()
         Resolver.optional(SegmentAnalytics.self)?.initialize()
 
