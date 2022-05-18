@@ -66,6 +66,7 @@
 		B0F7547E283464F60051038D /* ListEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F7547D283464F60051038D /* ListEvent.swift */; };
 		B0F75480283465670051038D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F7547F283465670051038D /* Constants.swift */; };
 		B0F7548228346A2D0051038D /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F7548128346A2D0051038D /* AppConfig.swift */; };
+		B0F7548428346B650051038D /* WeakRefProxy+AddAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F7548328346B650051038D /* WeakRefProxy+AddAccount.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -144,6 +145,7 @@
 		B0F7547D283464F60051038D /* ListEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEvent.swift; sourceTree = "<group>"; };
 		B0F7547F283465670051038D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B0F7548128346A2D0051038D /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		B0F7548328346B650051038D /* WeakRefProxy+AddAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeakRefProxy+AddAccount.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +253,7 @@
 				B06A5FE8283075D800433C58 /* AddAccountEvent.swift */,
 				B02189762831748100918B8D /* Analytics+AddAccount.swift */,
 				B06A5FE42830532F00433C58 /* SceneDelegate+AddAccount.swift */,
+				B0F7548328346B650051038D /* WeakRefProxy+AddAccount.swift */,
 			);
 			path = AddAccount;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0F7548428346B650051038D /* WeakRefProxy+AddAccount.swift in Sources */,
 				B06A5FE12830525D00433C58 /* UIKitHelpers.swift in Sources */,
 				B0F7547A283461220051038D /* OverlayEvent.swift in Sources */,
 				B06A5FD1282FFE1A00433C58 /* AuthenticatorListOutputAdapter.swift in Sources */,

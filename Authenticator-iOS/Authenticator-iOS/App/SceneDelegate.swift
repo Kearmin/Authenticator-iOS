@@ -28,11 +28,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         guard let windowScene = (scene as? UIWindowScene) else { return }
         overlayWindow = makeOverlayWindow(with: windowScene)
-        let window = UIWindow(windowScene: windowScene)
-
-        window.rootViewController = makeListViewController().embeddedInNavigationController
-        window.makeKeyAndVisible()
-        appWindow = window
-        self.window = window
+        appWindow = makeListWindow(with: windowScene)
+        window = appWindow
+        window?.makeKeyAndVisible()
     }
 }

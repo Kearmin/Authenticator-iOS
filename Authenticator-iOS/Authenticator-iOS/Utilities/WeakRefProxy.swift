@@ -15,13 +15,3 @@ class WeakRefProxy<Item: AnyObject> {
         self.item = item
     }
 }
-
-extension WeakRefProxy: AddAccountViewDelegate where Item: AddAccountViewDelegate {
-    func didFindQRCode(code: String) {
-        item?.didFindQRCode(code: code)
-    }
-
-    func failedToStart() {
-        item?.failedToStart()
-    }
-}

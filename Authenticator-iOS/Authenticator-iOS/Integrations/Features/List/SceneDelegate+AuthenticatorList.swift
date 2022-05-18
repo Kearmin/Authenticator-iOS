@@ -9,6 +9,7 @@ import Combine
 import AuthenticatorListView
 import AccountRepository
 import Resolver
+import UIKit
 
 extension SceneDelegate {
     var deletePublisher: (UUID) -> AnyPublisher<Void, Error> {
@@ -51,5 +52,11 @@ extension SceneDelegate {
             }
             .store(in: &subscriptions)
         return viewController
+    }
+
+    func makeListWindow(with windowScene: UIWindowScene) -> UIWindow {
+        let window = UIWindow(windowScene: windowScene)
+        window.rootViewController = makeListViewController().embeddedInNavigationController
+        return window
     }
 }
