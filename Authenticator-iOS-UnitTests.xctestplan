@@ -12,7 +12,7 @@
     "codeCoverage" : false,
     "commandLineArgumentEntries" : [
       {
-        "argument" : "isTest YES"
+        "argument" : "isUnitTest YES"
       }
     ],
     "targetForVariableExpansion" : {

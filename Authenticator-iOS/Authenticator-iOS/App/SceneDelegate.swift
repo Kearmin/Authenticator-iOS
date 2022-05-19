@@ -22,14 +22,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var subscriptions = Set<AnyCancellable>()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        guard !AppConfig.isRunningTests else { return }
+        if !AppConfig.isRunningUnitTests {
+            appScene(scene, willConnectTo: session, options: connectionOptions)
+        } else {
+            unitTestScene(scene, willConnectTo: session, options: connectionOptions)
+        }
+    }
+
+    func appScene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         Resolver.registerDependencies()
         Resolver.optional(SegmentAnalytics.self)?.initialize()
 
         guard let windowScene = (scene as? UIWindowScene) else { return }
         overlayWindow = makeOverlayWindow(with: windowScene)
         appWindow = makeListWindow(with: windowScene)
-        window = appWindow
+        window = overlayWindow
         window?.makeKeyAndVisible()
+    }
+
+    func unitTestScene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        // No setup if running unit tests
     }
 }

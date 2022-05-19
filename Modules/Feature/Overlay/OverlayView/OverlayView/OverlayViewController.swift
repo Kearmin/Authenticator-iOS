@@ -7,4 +7,11 @@
 
 import SwiftUI
 
-public final class OverlayViewController: UIHostingController<OverlayView> { }
+public final class OverlayViewController: UIHostingController<OverlayView> {
+    public var onViewDidLoad: (() -> Void)?
+
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+        onViewDidLoad?()
+    }
+}

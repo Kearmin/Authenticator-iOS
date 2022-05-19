@@ -62,7 +62,11 @@
          </FileRef>
       </Group>
    </Group>
-   <FileRef
-      location = "group:Authenticator-iOS.xctestplan">
-   </FileRef>
+   <Group
+      location = "container:"
+      name = "TestPlans">
+      <FileRef
+         location = "group:/Users/kerteszjeno/Documents/IosProjects/Authenticator-iOS/Authenticator-iOS-UnitTests.xctestplan">
+      </FileRef>
+   </Group>
 </Workspace>

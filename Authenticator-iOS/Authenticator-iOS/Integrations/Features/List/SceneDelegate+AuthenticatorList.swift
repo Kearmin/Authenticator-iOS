@@ -12,17 +12,6 @@ import Resolver
 import UIKit
 
 extension SceneDelegate {
-    var deletePublisher: (UUID) -> AnyPublisher<Void, Error> {
-        { uuid in
-            Resolver.resolve(AccountRepository.self)
-                .deletePublisher(accountID: uuid)
-                .handleEvents(receiveOutput: { _ in
-                    Resolver.resolve(AuthenticatorAnalytics.self).track(name: "Did delete account")
-                })
-                .eraseToAnyPublisher()
-        }
-    }
-
     func handleListEvent(_ event: ListEvent, listViewController: AuthenticatorListViewController?) {
         switch event {
         case .addAccountDidPress:
@@ -31,6 +20,17 @@ extension SceneDelegate {
             listViewController?.present(addAccountViewController, animated: true)
         default:
             break
+        }
+    }
+
+    var deletePublisher: (UUID) -> AnyPublisher<Void, Error> {
+        { uuid in
+            Resolver.resolve(AccountRepository.self)
+                .deletePublisher(accountID: uuid)
+                .handleEvents(receiveOutput: { _ in
+                    Resolver.resolve(AuthenticatorAnalytics.self).track(name: "Did delete account")
+                })
+                .eraseToAnyPublisher()
         }
     }
 

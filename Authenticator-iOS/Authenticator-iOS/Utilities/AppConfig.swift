@@ -8,7 +8,7 @@
 import Foundation
 
 enum AppConfig {
-    static var isRunningTests: Bool {
-        UserDefaults.standard.bool(forKey: "isTest")
+    static var isRunningUnitTests: Bool {
+        UserDefaults.standard.bool(forKey: "isUnitTest")
     }
 }
