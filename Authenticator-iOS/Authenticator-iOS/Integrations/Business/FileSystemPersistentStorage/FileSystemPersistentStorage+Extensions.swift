@@ -7,6 +7,7 @@
 
 import FileSystemPersistentStorage
 import AccountRepository
+import Foundation
 
 extension JSONFileSystemPersistance: RepositoryProvider where T == [Account] {
     public typealias Item = Account
@@ -17,5 +18,24 @@ extension JSONFileSystemPersistance: RepositoryProvider where T == [Account] {
 
     public func readItems() throws -> [Account] {
         try read()
+    }
+}
+
+class AddFavouriteMigration: JSONFileSystemPersistanceMigration {
+    var version: Int = 1
+    func prepare(on jsonObject: Any) -> Any {
+        guard var jsonArray = jsonObject as? [[String: Any]] else { return jsonObject }
+        for i in jsonArray.indices {
+            jsonArray[i]["isFavourite"] = false
+        }
+        return jsonArray
+    }
+
+    func revert(on jsonObject: Any) -> Any {
+        guard var jsonArray = jsonObject as? [[String: Any]] else { return jsonObject }
+        for i in jsonArray.indices {
+            jsonArray[i].removeValue(forKey: "isFavourite")
+        }
+        return jsonArray
     }
 }

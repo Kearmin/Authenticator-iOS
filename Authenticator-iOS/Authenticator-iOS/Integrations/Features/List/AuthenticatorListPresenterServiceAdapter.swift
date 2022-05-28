@@ -18,6 +18,7 @@ class AuthenticatorListPresenterServiceAdapter: AuthenticatorListPresenterServic
 
     var readAccounts: () -> AnyPublisher<[Account], Never>
     var delete: (_ accountID: UUID) -> AnyPublisher<Void, Error>
+    var move: (UUID, UUID) -> AnyPublisher<Void, Error>
 
     weak var presenter: AuthenticatorListPresenter? {
         didSet {
@@ -31,11 +32,13 @@ class AuthenticatorListPresenterServiceAdapter: AuthenticatorListPresenterServic
     init(totpProvider: TOTPProvider,
          appEventPublisher: AnyPublisher<AppEvent, Never>,
          readAccounts: @escaping () -> AnyPublisher<[Account], Never>,
-         delete: @escaping (_ accountID: UUID) -> AnyPublisher<Void, Error>
+         delete: @escaping (_ accountID: UUID) -> AnyPublisher<Void, Error>,
+         swap: @escaping (UUID, UUID) -> AnyPublisher<Void, Error>
     ) {
         self.totpProvider = totpProvider
         self.readAccounts = readAccounts
         self.delete = delete
+        self.move = swap
 
         Timer
             .publish(every: 1, on: .current, in: .common)
@@ -67,7 +70,15 @@ class AuthenticatorListPresenterServiceAdapter: AuthenticatorListPresenterServic
     }
 
     func deleteAccount(id: UUID) {
-        delete(id)
+        executeOperation(operation: delete(id))
+    }
+
+    func move(_ account: UUID, with toAccount: UUID) {
+        executeOperation(operation: move(account, toAccount))
+    }
+
+    func executeOperation(operation: AnyPublisher<Void, Error>) {
+        operation
             .subscribe(on: Queues.generalBackgroundQueue)
             .sink { [presenter] completion in
                 if case let .failure(error) = completion {
@@ -82,6 +93,6 @@ class AuthenticatorListPresenterServiceAdapter: AuthenticatorListPresenterServic
 
 private extension Account {
     var authenticatorAccountModel: AuthenticatorAccountModel {
-        .init(id: id, issuer: issuer, username: username, secret: secret)
+        .init(id: id, issuer: issuer, username: "\(username)\(isFavourite ? "" : " +NonFav")", secret: secret)
     }
 }

@@ -150,7 +150,10 @@ class AuthenticatorListTests: XCTestCase {
         let id = UUID()
         let mock = AuthenticatorListPresenterServiceMock()
         let sut = makeSUT(mock: mock)
-        sut.deleteAccount(id: id)
+        sut.receive(result: .success([
+            AuthenticatorAccountModel(id: id, issuer: "", username: "", secret: "")
+        ]))
+        sut.delete(atOffset: 0)
         XCTAssertEqual(mock.deleteCallIDCount, 1)
         XCTAssertEqual(mock.deleteCallIDS.last, id)
     }
@@ -166,7 +169,7 @@ class AuthenticatorListTests: XCTestCase {
         sut.receive(result: .success([account]))
         XCTAssertEqual(spy.receivedRows.count, 1)
         XCTAssertEqual(spy.receivedRows.last?[0].id, account.id)
-        sut.deleteAccount(id: id)
+        sut.delete(atOffset: 0)
         XCTAssertEqual(mock.deleteCallIDCount, 1)
     }
 
@@ -253,5 +256,9 @@ class AuthenticatorListPresenterServiceMock: AuthenticatorListPresenterService {
 
     func deleteAccount(id: UUID) {
         deleteCallIDS.append(id)
+    }
+
+    func move(_ account: UUID, with toAccount: UUID) {
+
     }
 }

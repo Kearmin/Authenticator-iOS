@@ -40,6 +40,7 @@ public protocol AuthenticatorListPresenterService {
     func loadAccounts()
     func getTOTP(secret: String, timeInterval: Int, date: Date) -> String
     func deleteAccount(id: UUID)
+    func move(_ account: UUID, with toAccount: UUID)
 }
 
 public protocol AuthenticatorListViewOutput: AnyObject {
@@ -53,7 +54,6 @@ public protocol AuthenticatorListErrorOutput: AnyObject {
 
 public final class AuthenticatorListPresenter {
     private var service: AuthenticatorListPresenterService
-    private var subscriptions = Set<AnyCancellable>()
     private var latestDate: Date?
     private var models: [AuthenticatorAccountModel] = []
 
@@ -68,6 +68,7 @@ public final class AuthenticatorListPresenter {
     }
     public var errorOutput: AuthenticatorListErrorOutput?
 
+    public let title = "Authenticator"
 
     public init(service: AuthenticatorListPresenterService, cycleLength: Int) {
         self.service = service
@@ -106,7 +107,20 @@ public final class AuthenticatorListPresenter {
         }
     }
 
-    public func deleteAccount(id: UUID) {
+    public func move(fromOffset: Int, toOffset: Int) {
+        guard
+            fromOffset != toOffset,
+            models.indices.contains(fromOffset),
+            models.indices.contains(toOffset)
+        else { return }
+        service.move(models[fromOffset].id, with: models[toOffset].id)
+    }
+
+    public func delete(atOffset offset: Int) {
+        guard models.indices.contains(offset) else {
+            return
+        }
+        let id = models[offset].id
         service.deleteAccount(id: id)
     }
 

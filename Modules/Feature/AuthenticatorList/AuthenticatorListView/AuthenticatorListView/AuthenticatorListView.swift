@@ -8,10 +8,19 @@
 import SwiftUI
 
 public struct AuthenticatorListView: View {
-    @StateObject private var viewModel: AuthenticatorListViewModel
+    @StateObject public var viewModel: AuthenticatorListViewModel
 
-    public init(viewModel: AuthenticatorListViewModel) {
+    public var onMove: (_ fromOffsets: IndexSet, _ toOffset: Int) -> Void
+    public var onDelete: (_ atOffsets: IndexSet) -> Void
+
+    public init(
+        viewModel: AuthenticatorListViewModel,
+        onMove: @escaping (_ source: IndexSet, _ destination: Int) -> Void,
+        onDelete: @escaping (_ indexes: IndexSet) -> Void
+    ) {
         _viewModel = .init(wrappedValue: viewModel)
+        self.onMove = onMove
+        self.onDelete = onDelete
     }
 
     public var body: some View {
@@ -21,32 +30,30 @@ public struct AuthenticatorListView: View {
                 .fontWeight(.bold)
             List {
                 ForEach(viewModel.rows) { row in
-                    HStack {
-                        VStack(alignment: .leading, spacing: 5) {
-                            Text(row.issuer)
-                                .font(.callout)
-                            Text(row.username)
-                                .font(.callout)
-                        }
-                        Spacer()
-                        Text(row.TOTPCode)
-                            .font(.title2)
-                            .fontWeight(.semibold)
-                            .kerning(1)
-                    }
-                    .swipeActions {
-                        Button(role: .destructive) {
-                            row.onTrailingSwipeAction()
-                        } label: {
-                            Text("Delete")
-                        }
-                    }
+                    authenticatorListRow(row)
                 }
+                .onMove(perform: onMove)
+                .onDelete(perform: onDelete)
+            }
+            .toolbar {
+                EditButton()
             }
             .listStyle(.automatic)
         }
-        .navigationTitle("Authenticator")
         .navigationBarTitleDisplayMode(.inline)
+    }
+
+    public func authenticatorListRow(_ row: AuthenticatorListRow) -> some View {
+        VStack(alignment: .leading, spacing: 5) {
+            Text(row.issuer)
+                .font(.body)
+            Text(row.TOTPCode)
+                .font(.largeTitle)
+                .fontWeight(.semibold)
+                .kerning(1)
+            Text(row.username)
+                .font(.body)
+        }
     }
 }
 
@@ -55,19 +62,25 @@ struct AuthenticatorListView_Previews: PreviewProvider {
         let viewModel = AuthenticatorListViewModel()
         viewModel.countDownSeconds = "30"
         viewModel.rows = [
-            .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456") { },
-            .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456") { },
-            .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456") { },
-            .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456") { }
+            .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456"),
+            .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456"),
+            .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456"),
+            .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456")
         ]
         return viewModel
     }
     static var previews: some View {
         NavigationView {
-            AuthenticatorListView(viewModel: viewModel)
+            AuthenticatorListView(
+                viewModel: viewModel,
+                onMove: { _, _  in },
+                onDelete: { _ in })
         }
         NavigationView {
-            AuthenticatorListView(viewModel: viewModel)
+            AuthenticatorListView(
+                viewModel: viewModel,
+                onMove: { _, _  in },
+                onDelete: { _ in })
         }
         .preferredColorScheme(.dark)
     }

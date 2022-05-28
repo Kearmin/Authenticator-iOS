@@ -35,10 +35,12 @@ extension SceneDelegate {
     }
 
     var listDependencies: ListComposer.Dependencies {
-        .init(
+        let repository: AccountRepository = Resolver.resolve()
+        return .init(
             totpProvider: Resolver.resolve(),
-            readAccounts: Resolver.resolve(AccountRepository.self).loadPublisher,
+            readAccounts: repository.loadPublisher,
             delete: deletePublisher,
+            moveAccounts: repository.movePublisher(fromID:toID:),
             appEventPublisher: Resolver.resolve())
     }
 

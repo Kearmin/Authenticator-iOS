@@ -6,13 +6,13 @@
 //
 
 import Foundation
+import SwiftUI
 
 public struct AuthenticatorListRow: Identifiable, Equatable {
     public var id: UUID
     public let issuer: String
     public let username: String
     public let TOTPCode: String
-    public let onTrailingSwipeAction: () -> Void
 
     public static func == (lhs: AuthenticatorListRow, rhs: AuthenticatorListRow) -> Bool {
         lhs.id == rhs.id
@@ -21,12 +21,11 @@ public struct AuthenticatorListRow: Identifiable, Equatable {
         && lhs.TOTPCode == rhs.TOTPCode
     }
 
-    public init(id: UUID, issuer: String, username: String, TOTPCode: String, onTrailingSwipeAction: @escaping () -> Void) {
+    public init(id: UUID, issuer: String, username: String, TOTPCode: String) {
         self.id = id
         self.issuer = issuer
         self.username = username
         self.TOTPCode = TOTPCode
-        self.onTrailingSwipeAction = onTrailingSwipeAction
     }
 }
 

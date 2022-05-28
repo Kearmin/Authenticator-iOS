@@ -12,11 +12,13 @@ public struct Account: Codable, Equatable, Identifiable {
     public let issuer: String
     public let secret: String
     public let username: String
+    public let isFavourite: Bool
 
     public init(id: UUID, issuer: String, secret: String, username: String) {
         self.id = id
         self.issuer = issuer
         self.secret = secret
         self.username = username
+        self.isFavourite = false
     }
 }

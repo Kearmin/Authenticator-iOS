@@ -9,7 +9,6 @@ import Foundation
 import AuthenticatorListView
 import AuthenticatorListBusiness
 import AccountRepository
-import UIKit
 import Combine
 import Resolver
 
@@ -19,6 +18,7 @@ enum ListComposer {
         var totpProvider: TOTPProvider
         var readAccounts: () -> AnyPublisher<[Account], Never>
         var delete: (_ accountID: UUID) -> AnyPublisher<Void, Error>
+        var moveAccounts: (_ from: UUID, _ to: UUID) -> AnyPublisher<Void, Error>
         var appEventPublisher: AnyPublisher<AppEvent, Never>
     }
 
@@ -28,16 +28,30 @@ enum ListComposer {
             totpProvider: dependencies.totpProvider,
             appEventPublisher: dependencies.appEventPublisher,
             readAccounts: dependencies.readAccounts,
-            delete: dependencies.delete)
+            delete: dependencies.delete,
+            swap: dependencies.moveAccounts)
         let presenter = AuthenticatorListPresenter(service: presenterService, cycleLength: Constants.appCycleLength)
         presenterService.presenter = presenter
+        let viewModel = AuthenticatorListViewModel()
+        let rootView = AuthenticatorListView(
+            viewModel: viewModel,
+            onMove: { fromOffsets, toOffset in
+                guard let fromOffset = fromOffsets.first else { return }
+                let swiftUICorrectedToOffset = fromOffset < toOffset ? (toOffset - 1) : toOffset
+                presenter.move(fromOffset: fromOffset, toOffset: swiftUICorrectedToOffset)
+            }, onDelete: { atOffsets in
+                guard let atOffset = atOffsets.first else { return }
+                presenter.delete(atOffset: atOffset)
+            })
         let viewController = AuthenticatorListViewController(
-            viewModel: .init(),
+            viewModel: viewModel,
+            rootview: rootView,
             didPressAddAccount: { _ in eventSubject.send(.addAccountDidPress) },
             onViewDidLoad: {
                 eventSubject.send(.viewDidLoad)
                 presenter.load()
             })
+        viewController.title = presenter.title
         let adapter = AuthenticatorListOutputAdapter(listViewController: viewController, presenter: presenter)
         presenter.output = adapter
         presenter.errorOutput = adapter

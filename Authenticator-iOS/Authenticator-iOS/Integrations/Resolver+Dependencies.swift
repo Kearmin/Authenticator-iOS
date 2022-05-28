@@ -38,8 +38,27 @@ extension Resolver {
         }
         .scope(.application)
 
-        register {
-            JSONFileSystemPersistance<[Account]>(fileName: "accounts", queue: Queues.fileIOBackgroundQueue)
+        register(JSONFileSystemPersistance<[Account]>.self) { resolver in
+            let analytics: AuthenticatorAnalytics = resolver.resolve()
+            if UserDefaults.standard.object(forKey: Keys.accountMigrations) == nil {
+                UserDefaults.standard.set(Constants.accountVersion, forKey: Keys.accountMigrations)
+            }
+            let accountPersistance = JSONFileSystemPersistance<[Account]>(
+                fileName: "accounts",
+                queue: Queues.fileIOBackgroundQueue,
+                version: UserDefaults.standard.integer(forKey: Keys.accountMigrations))
+            do {
+                let migrationsRun = try accountPersistance.runMigrations([AddFavouriteMigration()])
+                if migrationsRun > 0 {
+                    UserDefaults.standard.set(Constants.accountVersion, forKey: Keys.accountMigrations)
+                    analytics.track(name: "Successfully ran migrations")
+                } else {
+                    print("No eligible migrations ran")
+                }
+            } catch {
+                analytics.track(name: "Failed to run migrations", properties: ["Error": error])
+            }
+            return accountPersistance
         }
         .scope(.cached)
 

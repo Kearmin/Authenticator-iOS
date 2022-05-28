@@ -29,4 +29,11 @@ extension AccountRepository {
         }
         .eraseToAnyPublisher()
     }
+
+    func movePublisher(fromID: UUID, toID: UUID) -> AnyPublisher<Void, Error> {
+        Future { completion in
+            completion(Result { try self.move(from: fromID, after: toID) })
+        }
+        .eraseToAnyPublisher()
+    }
 }

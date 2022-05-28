@@ -20,6 +20,13 @@ enum AuthenticatorTOTPAlgorithm {
     }
 }
 
+typealias TOTPPublisher = (_ secret: String,
+                           _ date: Date,
+                           _  digits: Int,
+                           _ timeInterval: Int,
+                           _ algorithm: AuthenticatorTOTPAlgorithm
+) -> AnyPublisher<String?, Never>
+
 protocol TOTPProvider {
     func totp(secret: String, date: Date, digits: Int, timeInterval: Int, algorithm: AuthenticatorTOTPAlgorithm) -> String?
     func totpPublisher(secret: String, date: Date, digits: Int, timeInterval: Int, algorithm: AuthenticatorTOTPAlgorithm) -> AnyPublisher<String?, Never>

@@ -17,6 +17,7 @@ public protocol RepositoryProvider {
 
 public enum RepositoryError: Error {
     case accountAlreadyExists
+    case accountNotFound
 }
 
 public final class Repository<Item: Identifiable, Provider: RepositoryProvider> {
@@ -73,6 +74,42 @@ public final class Repository<Item: Identifiable, Provider: RepositoryProvider> 
         }
         try provider.save(items: mutableInMemory.map(mapper))
         inMemory = mutableInMemory
+    }
+
+    public func swap(from fromID: Item.ID, to toID: Item.ID) throws {
+        guard
+            var mutableMemory = inMemory,
+            let fromIndex = mutableMemory.firstIndex(where: { $0.id == fromID }),
+            let toIndex = mutableMemory.firstIndex(where: { $0.id == toID })
+        else { throw RepositoryError.accountNotFound }
+        guard fromIndex != toIndex else { return }
+        mutableMemory.swapAt(fromIndex, toIndex)
+        try provider.save(items: mutableMemory.map(mapper))
+        inMemory = mutableMemory
+    }
+
+    public func move(from fromID: Item.ID, after toID: Item.ID) throws {
+        guard
+            var mutableMemory = inMemory,
+            let fromIndex = mutableMemory.firstIndex(where: { $0.id == fromID }),
+            let toIndex = mutableMemory.firstIndex(where: { $0.id == toID })
+        else { throw RepositoryError.accountNotFound }
+        guard fromIndex != toIndex else { return }
+        if fromIndex < toIndex {
+            let fromValue = mutableMemory[fromIndex]
+            for index in (fromIndex..<toIndex) {
+                mutableMemory[index] = mutableMemory[index + 1]
+            }
+            mutableMemory[toIndex] = fromValue
+        } else {
+            let fromValue = mutableMemory[fromIndex]
+            for index in ((toIndex + 1)...fromIndex).reversed() {
+                mutableMemory[index] = mutableMemory[index - 1]
+            }
+            mutableMemory[toIndex] = fromValue
+        }
+        try provider.save(items: mutableMemory.map(mapper))
+        inMemory = mutableMemory
     }
 }
 

@@ -31,9 +31,7 @@ class AuthenticatorListOutputAdapter: AuthenticatorListViewOutput, Authenticator
                 id: item.id,
                 issuer: item.issuer,
                 username: item.username,
-                TOTPCode: item.TOTPCode) {
-                    self.presenter?.deleteAccount(id: item.id)
-                }
+                TOTPCode: item.TOTPCode)
         }
         onMainWithAnimation {
             self.listViewController?.viewModel.rows = content

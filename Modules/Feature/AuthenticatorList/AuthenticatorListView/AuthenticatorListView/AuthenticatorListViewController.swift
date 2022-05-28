@@ -8,17 +8,19 @@
 import SwiftUI
 
 public final class AuthenticatorListViewController: UIHostingController<AuthenticatorListView> {
-    public let viewModel: AuthenticatorListViewModel
+    public var viewModel: AuthenticatorListViewModel
     public let didPressAddAccount: (AuthenticatorListViewController) -> Void
     public let onViewDidLoad: () -> Void
 
-    public init(viewModel: AuthenticatorListViewModel,
-                didPressAddAccount: @escaping (AuthenticatorListViewController) -> Void,
-                onViewDidLoad: @escaping () -> Void) {
-        self.viewModel = viewModel
+    public init(
+        viewModel: AuthenticatorListViewModel,
+        rootview: AuthenticatorListView,
+        didPressAddAccount: @escaping (AuthenticatorListViewController) -> Void,
+        onViewDidLoad: @escaping () -> Void) {
         self.didPressAddAccount = didPressAddAccount
         self.onViewDidLoad = onViewDidLoad
-        super.init(rootView: .init(viewModel: viewModel))
+            self.viewModel = viewModel
+        super.init(rootView: rootview)
     }
 
     public required init?(coder aDecoder: NSCoder) {

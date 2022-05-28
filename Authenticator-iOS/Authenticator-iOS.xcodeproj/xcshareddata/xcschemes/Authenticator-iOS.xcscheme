@@ -84,6 +84,16 @@
                ReferencedContainer = "container:../Modules/Feature/Overlay/OverlayBusiness/OverlayBusiness.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B0505E59283D677600D770F2"
+               BuildableName = "Authenticator-iOSIntegrationTests.xctest"
+               BlueprintName = "Authenticator-iOSIntegrationTests"
+               ReferencedContainer = "container:Authenticator-iOS.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

@@ -28,7 +28,11 @@ public class SystemJSONFileSystemPersistanceProvider: JSONFileSystemPersistanceP
 }
 
 extension JSONFileSystemPersistance {
-    public convenience init(fileName: String, fileManager: FileManager = .default, queue: DispatchQueue) {
-        self.init(fileName: fileName, fileManager: fileManager, provider: SystemJSONFileSystemPersistanceProvider(queue: queue))
+    public convenience init(fileName: String, fileManager: FileManager = .default, queue: DispatchQueue, version: Int) {
+        self.init(
+            fileName: fileName,
+            fileManager: fileManager,
+            provider: SystemJSONFileSystemPersistanceProvider(queue: queue),
+            version: version)
     }
 }

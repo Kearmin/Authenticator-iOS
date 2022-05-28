@@ -9,4 +9,9 @@ import Foundation
 
 enum Constants {
     static let appCycleLength = 30
+    static let accountVersion = 1
+}
+
+enum Keys {
+    static let accountMigrations = "account_migrations"
 }
