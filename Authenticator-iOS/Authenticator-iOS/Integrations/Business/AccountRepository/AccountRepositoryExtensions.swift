@@ -36,4 +36,18 @@ extension AccountRepository {
         }
         .eraseToAnyPublisher()
     }
+
+    func favourite(_ account: UUID) -> AnyPublisher<Void, Error> {
+        Future { completion in
+            do {
+                var account = try self.item(for: account)
+                account.isFavourite.toggle()
+                try self.update(item: account)
+                completion(.success(()))
+            } catch {
+                completion(.failure(error))
+            }
+        }
+        .eraseToAnyPublisher()
+    }
 }

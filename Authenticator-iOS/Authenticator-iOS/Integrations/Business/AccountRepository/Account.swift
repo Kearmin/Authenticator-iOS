@@ -12,7 +12,7 @@ public struct Account: Codable, Equatable, Identifiable {
     public let issuer: String
     public let secret: String
     public let username: String
-    public let isFavourite: Bool
+    public var isFavourite: Bool
 
     public init(id: UUID, issuer: String, secret: String, username: String, isFavourite: Bool = false) {
         self.id = id

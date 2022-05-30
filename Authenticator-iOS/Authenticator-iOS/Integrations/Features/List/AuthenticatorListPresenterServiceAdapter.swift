@@ -19,6 +19,7 @@ class AuthenticatorListPresenterServiceAdapter: AuthenticatorListPresenterServic
     var readAccounts: () -> AnyPublisher<[Account], Never>
     var delete: (_ accountID: UUID) -> AnyPublisher<Void, Error>
     var move: (UUID, UUID) -> AnyPublisher<Void, Error>
+    var favourite: (_ accountID: UUID) -> AnyPublisher<Void, Error>
 
     weak var presenter: AuthenticatorListPresenter? {
         didSet {
@@ -33,12 +34,14 @@ class AuthenticatorListPresenterServiceAdapter: AuthenticatorListPresenterServic
          refreshPublisher: AnyPublisher<Void, Never>,
          readAccounts: @escaping () -> AnyPublisher<[Account], Never>,
          delete: @escaping (_ accountID: UUID) -> AnyPublisher<Void, Error>,
-         swap: @escaping (UUID, UUID) -> AnyPublisher<Void, Error>
+         swap: @escaping (UUID, UUID) -> AnyPublisher<Void, Error>,
+         favourite: @escaping (_ accountID: UUID) -> AnyPublisher<Void, Error>
     ) {
         self.totpProvider = totpProvider
         self.readAccounts = readAccounts
         self.delete = delete
         self.move = swap
+        self.favourite = favourite
 
         Timer
             .publish(every: 1, on: .current, in: .common)
@@ -76,9 +79,12 @@ class AuthenticatorListPresenterServiceAdapter: AuthenticatorListPresenterServic
         executeOperation(operation: move(account, toAccount))
     }
 
+    func favourite(_ account: UUID) {
+        executeOperation(operation: favourite(account))
+    }
+
     func executeOperation(operation: AnyPublisher<Void, Error>) {
         operation
-            .subscribe(on: Queues.generalBackgroundQueue)
             .sink { [presenter] completion in
                 if case let .failure(error) = completion {
                     presenter?.receive(error: error)

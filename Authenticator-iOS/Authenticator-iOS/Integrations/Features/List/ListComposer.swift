@@ -19,6 +19,7 @@ enum ListComposer {
         var readAccounts: () -> AnyPublisher<[Account], Never>
         var delete: (_ accountID: UUID) -> AnyPublisher<Void, Error>
         var moveAccounts: (_ from: UUID, _ to: UUID) -> AnyPublisher<Void, Error>
+        var favourite: (_ account: UUID) -> AnyPublisher<Void, Error>
         var refreshPublisher: AnyPublisher<Void, Never>
     }
 
@@ -29,7 +30,8 @@ enum ListComposer {
             refreshPublisher: dependencies.refreshPublisher,
             readAccounts: dependencies.readAccounts,
             delete: dependencies.delete,
-            swap: dependencies.moveAccounts)
+            swap: dependencies.moveAccounts,
+            favourite: dependencies.favourite)
         let presenter = AuthenticatorListPresenter(service: presenterService, cycleLength: Constants.appCycleLength)
         presenterService.presenter = presenter
         let viewModel = AuthenticatorListViewModel()
@@ -42,6 +44,8 @@ enum ListComposer {
             }, onDelete: { atOffsets in
                 guard let atOffset = atOffsets.first else { return }
                 presenter.delete(atOffset: atOffset)
+            }, onFavouriteDidPress: { id in
+                presenter.favourite(id: id)
             })
         let viewController = AuthenticatorListViewController(
             viewModel: viewModel,

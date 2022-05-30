@@ -12,15 +12,18 @@ public struct AuthenticatorListView: View {
 
     public var onMove: (_ fromOffsets: IndexSet, _ toOffset: Int) -> Void
     public var onDelete: (_ atOffsets: IndexSet) -> Void
+    public var onFavouriteDidPress: (UUID) -> Void
 
     public init(
         viewModel: AuthenticatorListViewModel,
         onMove: @escaping (_ source: IndexSet, _ destination: Int) -> Void,
-        onDelete: @escaping (_ indexes: IndexSet) -> Void
+        onDelete: @escaping (_ indexes: IndexSet) -> Void,
+        onFavouriteDidPress: @escaping (UUID) -> Void
     ) {
         _viewModel = .init(wrappedValue: viewModel)
         self.onMove = onMove
         self.onDelete = onDelete
+        self.onFavouriteDidPress = onFavouriteDidPress
     }
 
     public var body: some View {
@@ -48,16 +51,27 @@ public struct AuthenticatorListView: View {
     }
 
     public func authenticatorListRow(_ row: AuthenticatorListRow) -> some View {
-        VStack(alignment: .leading, spacing: 5) {
-            Text(row.issuer)
-                .font(.body)
-            Text(row.TOTPCode)
-                .font(.largeTitle)
-                .fontWeight(.semibold)
-                .kerning(1)
-            Text(row.username)
-                .font(.body)
+        HStack {
+            VStack(alignment: .leading, spacing: 5) {
+                Text(row.issuer)
+                    .font(.body)
+                Text(row.TOTPCode)
+                    .font(.largeTitle)
+                    .fontWeight(.semibold)
+                    .kerning(1)
+                Text(row.username)
+                    .font(.body)
+            }
+            Spacer()
+            Image(systemName: row.isFavourite ? "star.fill" : "star")
+                .resizable()
+                .frame(width: 35, height: 35)
+                .foregroundColor(.yellow)
+                .onTapGesture {
+                    onFavouriteDidPress(row.id)
+                }
         }
+        .padding(.trailing)
     }
 }
 
@@ -67,16 +81,16 @@ struct AuthenticatorListView_Previews: PreviewProvider {
             countDownSeconds: "30",
             sections: [
                 .init(title: "Favourites", rows: [
-                    .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456"),
-                    .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456"),
-                    .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456"),
-                    .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456")
+                    .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456", isFavourite: true),
+                    .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456", isFavourite: true),
+                    .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456", isFavourite: true),
+                    .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456", isFavourite: true)
                 ]),
                 .init(title: "Accounts", rows: [
-                    .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456"),
-                    .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456"),
-                    .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456"),
-                    .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456")
+                    .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456", isFavourite: false),
+                    .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456", isFavourite: false),
+                    .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456", isFavourite: false),
+                    .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456", isFavourite: false)
                 ])
             ])
         return viewModel
@@ -86,13 +100,15 @@ struct AuthenticatorListView_Previews: PreviewProvider {
             AuthenticatorListView(
                 viewModel: viewModel,
                 onMove: { _, _  in },
-                onDelete: { _ in })
+                onDelete: { _ in },
+                onFavouriteDidPress: { _ in })
         }
         NavigationView {
             AuthenticatorListView(
                 viewModel: viewModel,
                 onMove: { _, _  in },
-                onDelete: { _ in })
+                onDelete: { _ in },
+                onFavouriteDidPress: { _ in })
         }
         .preferredColorScheme(.dark)
     }

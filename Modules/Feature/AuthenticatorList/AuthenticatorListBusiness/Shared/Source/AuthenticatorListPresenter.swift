@@ -29,12 +29,14 @@ public struct AuthenticatorListRowContent: Identifiable, Equatable {
     public let issuer: String
     public let username: String
     public let TOTPCode: String
+    public let isFavourite: Bool
 
-    public init(id: UUID, issuer: String, username: String, TOTPCode: String) {
+    public init(id: UUID, issuer: String, username: String, TOTPCode: String, isFavourite: Bool) {
         self.id = id
         self.issuer = issuer
         self.username = username
         self.TOTPCode = TOTPCode
+        self.isFavourite = isFavourite
     }
 }
 
@@ -53,6 +55,7 @@ public protocol AuthenticatorListPresenterService {
     func getTOTP(secret: String, timeInterval: Int, date: Date) -> String
     func deleteAccount(id: UUID)
     func move(_ account: UUID, with toAccount: UUID)
+    func favourite(_ account: UUID)
 }
 
 public protocol AuthenticatorListViewOutput: AnyObject {
@@ -118,6 +121,10 @@ public final class AuthenticatorListPresenter {
         }
     }
 
+    public func favourite(id: UUID) {
+        service.favourite(id)
+    }
+
     public func move(fromOffset: Int, toOffset: Int) {
         guard
             fromOffset != toOffset,
@@ -152,7 +159,8 @@ private extension AuthenticatorListPresenter {
             id: model.id,
             issuer: model.issuer,
             username: model.username,
-            TOTPCode: totp)
+            TOTPCode: totp,
+            isFavourite: model.isFavourite)
     }
 
     func rowContent(from models: [AuthenticatorAccountModel]) -> [AuthenticatorListRowContent] {

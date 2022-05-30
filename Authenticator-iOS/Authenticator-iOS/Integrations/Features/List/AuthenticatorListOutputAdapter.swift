@@ -28,7 +28,12 @@ class AuthenticatorListOutputAdapter: AuthenticatorListViewOutput, Authenticator
     public func receive(sections: [AuthencticatorListSection]) {
         let sections = sections.map { section in
             AuthenticatorListViewSection(title: section.title, rows: section.rowContent.map { item in
-                AuthenticatorListRow(id: item.id, issuer: item.issuer, username: item.username, TOTPCode: item.TOTPCode)
+                AuthenticatorListRow(
+                    id: item.id,
+                    issuer: item.issuer,
+                    username: item.username,
+                    TOTPCode: item.TOTPCode,
+                    isFavourite: item.isFavourite)
             })
         }
         onMainWithAnimation {

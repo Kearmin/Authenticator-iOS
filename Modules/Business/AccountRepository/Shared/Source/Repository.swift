@@ -67,6 +67,13 @@ public final class Repository<Item: Identifiable, Provider: RepositoryProvider> 
         return inMemory ?? []
     }
 
+    public func item(for id: Item.ID) throws -> Item {
+        guard let item = inMemory?.first(where: { $0.id == id }) else {
+            throw RepositoryError.accountNotFound
+        }
+        return item
+    }
+
     public func delete(itemID: Item.ID) throws {
         guard var mutableInMemory = inMemory else { return }
         mutableInMemory.removeAll { inMemoryAccount in
