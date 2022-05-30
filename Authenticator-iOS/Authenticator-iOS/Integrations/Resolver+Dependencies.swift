@@ -21,35 +21,30 @@ extension Resolver {
         .implements(AuthenticatorAnalytics.self)
         .scope(.application)
 
+        register {
+            UserDefaults.standard
+        }
+        .scope(.application)
+
 //        register(SegmentAnalytics.self) {
 //            SegmentAnalytics()
 //        }
 //        .implements(AuthenticatorAnalytics.self)
 //        .scope(.application)
 
-        register(AppEventSubject.self) {
-            PassthroughSubject<AppEvent, Never>()
-        }
-        .scope(.application)
-
-        register(AppEventPublisher.self) { resolver in
-            let subject: AppEventSubject = resolver.resolve()
-            return subject.eraseToAnyPublisher()
-        }
-        .scope(.application)
-
         register(JSONFileSystemPersistance<[Account]>.self) { resolver in
             let analytics: AuthenticatorAnalytics = resolver.resolve()
-            if UserDefaults.standard.object(forKey: Keys.accountMigrations) == nil {
-                UserDefaults.standard.set(Constants.accountVersion, forKey: Keys.accountMigrations)
+            let userDefaults: UserDefaults = resolver.resolve()
+            if userDefaults.object(forKey: Keys.accountMigrations) == nil {
+                userDefaults.set(Constants.accountVersion, forKey: Keys.accountMigrations)
             }
             let accountPersistance = JSONFileSystemPersistance<[Account]>(
                 fileName: "accounts",
                 queue: Queues.fileIOBackgroundQueue,
-                version: UserDefaults.standard.integer(forKey: Keys.accountMigrations))
+                version: userDefaults.integer(forKey: Keys.accountMigrations))
             do {
-                let migrationsRun = try accountPersistance.runMigrations([AddFavouriteMigration()])
-                if migrationsRun > 0 {
+                let migrationsRan = try accountPersistance.runMigrations([AddFavouriteMigration()])
+                if migrationsRan > 0 {
                     UserDefaults.standard.set(Constants.accountVersion, forKey: Keys.accountMigrations)
                     analytics.track(name: "Successfully ran migrations")
                 } else {

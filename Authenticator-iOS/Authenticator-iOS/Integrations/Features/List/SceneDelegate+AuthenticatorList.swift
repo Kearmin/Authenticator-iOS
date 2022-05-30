@@ -41,7 +41,7 @@ extension SceneDelegate {
             readAccounts: repository.loadPublisher,
             delete: deletePublisher,
             moveAccounts: repository.movePublisher(fromID:toID:),
-            appEventPublisher: Resolver.resolve())
+            refreshPublisher: repository.didSavePublisher)
     }
 
     func makeListViewController() -> AuthenticatorListViewController {

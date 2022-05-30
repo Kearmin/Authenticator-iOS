@@ -29,16 +29,20 @@ public struct AuthenticatorListView: View {
                 .font(.system(size: 60))
                 .fontWeight(.bold)
             List {
-                ForEach(viewModel.rows) { row in
-                    authenticatorListRow(row)
+                ForEach(viewModel.sections) { section in
+                    Section(section.title) {
+                        ForEach(section.rows) { row in
+                            authenticatorListRow(row)
+                        }
+                        .onMove(perform: onMove)
+                        .onDelete(perform: onDelete)
+                    }
                 }
-                .onMove(perform: onMove)
-                .onDelete(perform: onDelete)
             }
             .toolbar {
                 EditButton()
             }
-            .listStyle(.automatic)
+            .listStyle(.sidebar)
         }
         .navigationBarTitleDisplayMode(.inline)
     }
@@ -59,14 +63,22 @@ public struct AuthenticatorListView: View {
 
 struct AuthenticatorListView_Previews: PreviewProvider {
     static var viewModel: AuthenticatorListViewModel {
-        let viewModel = AuthenticatorListViewModel()
-        viewModel.countDownSeconds = "30"
-        viewModel.rows = [
-            .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456"),
-            .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456"),
-            .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456"),
-            .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456")
-        ]
+        let viewModel = AuthenticatorListViewModel(
+            countDownSeconds: "30",
+            sections: [
+                .init(title: "Favourites", rows: [
+                    .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456"),
+                    .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456"),
+                    .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456"),
+                    .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456")
+                ]),
+                .init(title: "Accounts", rows: [
+                    .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456"),
+                    .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456"),
+                    .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456"),
+                    .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456")
+                ])
+            ])
         return viewModel
     }
     static var previews: some View {

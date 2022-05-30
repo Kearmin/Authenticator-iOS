@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import simd
+import Combine
 
 public protocol RepositoryProvider {
     associatedtype Item
@@ -24,22 +24,24 @@ public final class Repository<Item: Identifiable, Provider: RepositoryProvider> 
     public typealias Mapper = (Item) -> Provider.Item
     public typealias ReverseMapper = (Provider.Item) -> Item
     private var mapper: Mapper
-    private var reverseMapper: ReverseMapper
+    private let didSaveSubject = PassthroughSubject<Void, Never>()
 
     private var provider: Provider
     private var inMemory: [Item]?
 
+    public var didSavePublisher: AnyPublisher<Void, Never> {
+        didSaveSubject.eraseToAnyPublisher()
+    }
+
     public init(provider: Provider) where Provider.Item == Item {
         self.provider = provider
         mapper = { $0 }
-        reverseMapper = { $0 }
         inMemory = try? provider.readItems()
     }
 
     public init(provider: Provider, mapper: @escaping Mapper, reverseMapper: @escaping ReverseMapper) {
         self.provider = provider
         self.mapper = mapper
-        self.reverseMapper = reverseMapper
         inMemory = try? provider.readItems().map(reverseMapper)
     }
 
@@ -49,15 +51,13 @@ public final class Repository<Item: Identifiable, Provider: RepositoryProvider> 
         }
         var mutableInMemory = inMemory ?? []
         mutableInMemory.append(item)
-        try provider.save(items: mutableInMemory.map(mapper))
-        inMemory = mutableInMemory
+        try save(mutableInMemory)
     }
 
     public func update(item: Item) throws {
         if var mutableInMemory = inMemory, let index = mutableInMemory.firstIndex(where: { $0.id == item.id }) {
             mutableInMemory[index] = item
-            try provider.save(items: mutableInMemory.map(mapper))
-            inMemory = mutableInMemory
+            try save(mutableInMemory)
         } else {
             try add(item: item)
         }
@@ -72,8 +72,7 @@ public final class Repository<Item: Identifiable, Provider: RepositoryProvider> 
         mutableInMemory.removeAll { inMemoryAccount in
             inMemoryAccount.id == itemID
         }
-        try provider.save(items: mutableInMemory.map(mapper))
-        inMemory = mutableInMemory
+        try save(mutableInMemory)
     }
 
     public func swap(from fromID: Item.ID, to toID: Item.ID) throws {
@@ -84,8 +83,7 @@ public final class Repository<Item: Identifiable, Provider: RepositoryProvider> 
         else { throw RepositoryError.accountNotFound }
         guard fromIndex != toIndex else { return }
         mutableMemory.swapAt(fromIndex, toIndex)
-        try provider.save(items: mutableMemory.map(mapper))
-        inMemory = mutableMemory
+        try save(mutableMemory)
     }
 
     public func move(from fromID: Item.ID, after toID: Item.ID) throws {
@@ -108,12 +106,17 @@ public final class Repository<Item: Identifiable, Provider: RepositoryProvider> 
             }
             mutableMemory[toIndex] = fromValue
         }
-        try provider.save(items: mutableMemory.map(mapper))
-        inMemory = mutableMemory
+        try save(mutableMemory)
     }
 }
 
 private extension Repository {
+    func save(_ items: [Item]) throws {
+        try provider.save(items: items.map(mapper))
+        inMemory = items
+        didSaveSubject.send()
+    }
+
     func containsItem(with id: Item.ID) -> Bool {
         guard let inMemory = inMemory else { return false }
         return inMemory.contains { $0.id == id }

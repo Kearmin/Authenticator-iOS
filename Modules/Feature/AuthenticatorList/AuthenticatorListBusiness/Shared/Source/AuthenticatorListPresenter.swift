@@ -13,12 +13,14 @@ public struct AuthenticatorAccountModel: Codable {
     public let issuer: String
     public let username: String
     public let secret: String
+    public let isFavourite: Bool
 
-    public init(id: UUID, issuer: String, username: String, secret: String) {
+    public init(id: UUID, issuer: String, username: String, secret: String, isFavourite: Bool) {
         self.id = id
         self.issuer = issuer
         self.username = username
         self.secret = secret
+        self.isFavourite = isFavourite
     }
 }
 
@@ -36,6 +38,16 @@ public struct AuthenticatorListRowContent: Identifiable, Equatable {
     }
 }
 
+public struct AuthencticatorListSection: Equatable {
+    public let title: String
+    public let rowContent: [AuthenticatorListRowContent]
+
+    public init(title: String, rowContent: [AuthenticatorListRowContent]) {
+        self.title = title
+        self.rowContent = rowContent
+    }
+}
+
 public protocol AuthenticatorListPresenterService {
     func loadAccounts()
     func getTOTP(secret: String, timeInterval: Int, date: Date) -> String
@@ -45,7 +57,7 @@ public protocol AuthenticatorListPresenterService {
 
 public protocol AuthenticatorListViewOutput: AnyObject {
     func receive(countDown: String)
-    func receive(rows: [AuthenticatorListRowContent])
+    func receive(sections: [AuthencticatorListSection])
 }
 
 public protocol AuthenticatorListErrorOutput: AnyObject {
@@ -100,8 +112,7 @@ public final class AuthenticatorListPresenter {
         do {
             let models = try result.get()
             self.models = models
-            let rowContents = models.map { rowContent(from: $0) }
-            output?.receive(rows: rowContents)
+            output?.receive(sections: sectionContent(from: models))
         } catch {
             errorOutput?.receive(error: error)
         }
@@ -144,9 +155,30 @@ private extension AuthenticatorListPresenter {
             TOTPCode: totp)
     }
 
+    func rowContent(from models: [AuthenticatorAccountModel]) -> [AuthenticatorListRowContent] {
+        models.map { rowContent(from: $0) }
+    }
+
+    func sectionContent(from models: [AuthenticatorAccountModel]) -> [AuthencticatorListSection] {
+        var favourites: [AuthenticatorAccountModel] = []
+        var other: [AuthenticatorAccountModel] = []
+        for model in models {
+            if model.isFavourite {
+                favourites.append(model)
+            } else {
+                other.append(model)
+            }
+        }
+        var sections: [AuthencticatorListSection] = []
+        if !favourites.isEmpty {
+            sections.append(AuthencticatorListSection(title: "Favourites", rowContent: rowContent(from: favourites)))
+        }
+        sections.append(AuthencticatorListSection(title: "Accounts", rowContent: rowContent(from: other)))
+        return sections
+    }
+
     func recalculateTOTPs() {
-        let rowContents = models.map { rowContent(from: $0) }
-        output?.receive(rows: rowContents)
+        output?.receive(sections: sectionContent(from: models))
     }
 }
 

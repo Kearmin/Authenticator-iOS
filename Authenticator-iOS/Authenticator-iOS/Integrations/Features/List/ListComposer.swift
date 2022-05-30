@@ -19,14 +19,14 @@ enum ListComposer {
         var readAccounts: () -> AnyPublisher<[Account], Never>
         var delete: (_ accountID: UUID) -> AnyPublisher<Void, Error>
         var moveAccounts: (_ from: UUID, _ to: UUID) -> AnyPublisher<Void, Error>
-        var appEventPublisher: AnyPublisher<AppEvent, Never>
+        var refreshPublisher: AnyPublisher<Void, Never>
     }
 
     static func list(dependencies: ListComposer.Dependencies) -> (AuthenticatorListViewController, ListEventPublisher) {
         let eventSubject = PassthroughSubject<ListEvent, Never>()
         let presenterService = AuthenticatorListPresenterServiceAdapter(
             totpProvider: dependencies.totpProvider,
-            appEventPublisher: dependencies.appEventPublisher,
+            refreshPublisher: dependencies.refreshPublisher,
             readAccounts: dependencies.readAccounts,
             delete: dependencies.delete,
             swap: dependencies.moveAccounts)

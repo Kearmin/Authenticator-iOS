@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 public struct AuthenticatorListRow: Identifiable, Equatable {
-    public var id: UUID
+    public let id: UUID
     public let issuer: String
     public let username: String
     public let TOTPCode: String
@@ -29,14 +29,27 @@ public struct AuthenticatorListRow: Identifiable, Equatable {
     }
 }
 
+public struct AuthenticatorListViewSection: Identifiable, Equatable {
+    public var id: String {
+        title
+    }
+    public let title: String
+    public let rows: [AuthenticatorListRow]
+
+    public init(title: String, rows: [AuthenticatorListRow]) {
+        self.title = title
+        self.rows = rows
+    }
+}
+
 public final class AuthenticatorListViewModel: ObservableObject {
     @Published public var countDownSeconds: String = ""
-    @Published public var rows: [AuthenticatorListRow] = []
+    @Published public var sections: [AuthenticatorListViewSection] = []
 
     public init() { }
 
-    public init(countDownSeconds: String, rows: [AuthenticatorListRow]) {
+    public init(countDownSeconds: String, sections: [AuthenticatorListViewSection]) {
         self.countDownSeconds = countDownSeconds
-        self.rows = rows
+        self.sections = sections
     }
 }

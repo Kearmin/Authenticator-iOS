@@ -19,7 +19,6 @@ public protocol OverlayAuthenticatorUseCaseAuthenticationService {
 public final class OverlayAuthenticatorUseCase {
     public let output: OverlayAuthenticatorUseCaseOutput
     public let authenticationService: OverlayAuthenticatorUseCaseAuthenticationService
-    private var isFirstLock = true
     private var isUnlocked = true
 
     public func receiveAuthenticationSuccess() {

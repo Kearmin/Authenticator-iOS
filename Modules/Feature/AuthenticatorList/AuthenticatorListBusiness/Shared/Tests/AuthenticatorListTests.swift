@@ -97,8 +97,8 @@ class AuthenticatorListTests: XCTestCase {
         let sut = makeSUT()
         sut.output = spy
         sut.receive(result: .success([]))
-        XCTAssertEqual(spy.receivedRows.count, 1)
-        XCTAssertEqual(spy.receivedRows.first, [])
+        XCTAssertEqual(spy.receivedSections.count, 1)
+        XCTAssertEqual(spy.receivedSections.first?[0].rowContent, [])
     }
 
     func test_CanReceiveDummySuccessResult() {
@@ -109,10 +109,10 @@ class AuthenticatorListTests: XCTestCase {
         sut.output = spy
         let id = UUID()
         sut.receive(result: .success([
-            .init(id: id, issuer: "issuer", username: "username", secret: "secret")
+            .init(id: id, issuer: "issuer", username: "username", secret: "secret", isFavourite: false)
         ]))
-        XCTAssertEqual(spy.receivedRows.count, 1)
-        XCTAssertEqual(spy.receivedRows.first, [.init(id: id, issuer: "issuer", username: "username", TOTPCode: "totp")])
+        XCTAssertEqual(spy.receivedSections.count, 1)
+        XCTAssertEqual(spy.receivedSections.first?[0].rowContent, [.init(id: id, issuer: "issuer", username: "username", TOTPCode: "totp")])
     }
 
     func test_PresenterReturnsLatestCorrectFirstValueOnSettingOutput() {
@@ -134,16 +134,16 @@ class AuthenticatorListTests: XCTestCase {
         sut.output = spy
         let id = UUID()
         sut.receive(result: .success([
-            .init(id: id, issuer: "issuer", username: "username", secret: "secret")
+            .init(id: id, issuer: "issuer", username: "username", secret: "secret", isFavourite: false)
         ]))
-        XCTAssertEqual(spy.receivedRows.count, 1)
-        XCTAssertEqual(spy.receivedRows.first, [.init(id: id, issuer: "issuer", username: "username", TOTPCode: "totp")])
+        XCTAssertEqual(spy.receivedSections.count, 1)
+        XCTAssertEqual(spy.receivedSections.first?[0].rowContent, [.init(id: id, issuer: "issuer", username: "username", TOTPCode: "totp")])
         sut.receive(currentDate: Date(timeIntervalSince1970: april_21_2022_222505_GMT))
-        XCTAssertEqual(spy.receivedRows.count, 1)
+        XCTAssertEqual(spy.receivedSections.count, 1)
         mock.getTOTPResult = "totp2"
         sut.receive(currentDate: Date(timeIntervalSince1970: april_21_2022_222500_GMT))
-        XCTAssertEqual(spy.receivedRows.count, 2)
-        XCTAssertEqual(spy.receivedRows.last?[0].TOTPCode, "totp2")
+        XCTAssertEqual(spy.receivedSections.count, 2)
+        XCTAssertEqual(spy.receivedSections.last?[0].rowContent[0].TOTPCode, "totp2")
     }
 
     func test_PresenterCallsDeleteService_OnDeleteCalles() {
@@ -151,7 +151,7 @@ class AuthenticatorListTests: XCTestCase {
         let mock = AuthenticatorListPresenterServiceMock()
         let sut = makeSUT(mock: mock)
         sut.receive(result: .success([
-            AuthenticatorAccountModel(id: id, issuer: "", username: "", secret: "")
+            AuthenticatorAccountModel(id: id, issuer: "", username: "", secret: "", isFavourite: false)
         ]))
         sut.delete(atOffset: 0)
         XCTAssertEqual(mock.deleteCallIDCount, 1)
@@ -160,15 +160,15 @@ class AuthenticatorListTests: XCTestCase {
 
     func test_PresenterDoesntOutputDeletedAccount_IfDeleteSucceeds() {
         let id = UUID()
-        let account = AuthenticatorAccountModel(id: id, issuer: "issuer", username: "username", secret: "secret")
+        let account = AuthenticatorAccountModel(id: id, issuer: "issuer", username: "username", secret: "secret", isFavourite: false)
         let mock = AuthenticatorListPresenterServiceMock()
         let spy = AuthenticatorListPresenterSpy()
         let sut = makeSUT(mock: mock)
         sut.output = spy
         sut.errorOutput = spy
         sut.receive(result: .success([account]))
-        XCTAssertEqual(spy.receivedRows.count, 1)
-        XCTAssertEqual(spy.receivedRows.last?[0].id, account.id)
+        XCTAssertEqual(spy.receivedSections.count, 1)
+        XCTAssertEqual(spy.receivedSections.last?[0].rowContent[0].id, account.id)
         sut.delete(atOffset: 0)
         XCTAssertEqual(mock.deleteCallIDCount, 1)
     }
@@ -179,11 +179,11 @@ class AuthenticatorListTests: XCTestCase {
         let sut = makeSUT(mock: mock, cycleLength: 30)
         sut.output = spy
         sut.receive(currentDate: Date(timeIntervalSince1970: april_21_2022_222500_GMT))
-        XCTAssertEqual(spy.receivedRows.count, 1)
+        XCTAssertEqual(spy.receivedSections.count, 1)
         sut.refresh(date: Date(timeIntervalSince1970: april_21_2022_222505_GMT))
-        XCTAssertEqual(spy.receivedRows.count, 1)
+        XCTAssertEqual(spy.receivedSections.count, 1)
         sut.refresh(date: Date(timeIntervalSince1970: april_21_2022_222505_GMT).addingTimeInterval(1000))
-        XCTAssertEqual(spy.receivedRows.count, 2)
+        XCTAssertEqual(spy.receivedSections.count, 2)
     }
 
     private func testTimeIntervalLeftIfMinuteIs00(epochTime: TimeInterval, cycleLength: Int, expectedResult: String) {
@@ -222,11 +222,11 @@ class AuthenticatorListTests: XCTestCase {
 
 class AuthenticatorListPresenterSpy: AuthenticatorListViewOutput, AuthenticatorListErrorOutput {
     var receivedCountDowns: [String] = []
-    var receivedRows: [[AuthenticatorListRowContent]] = []
+    var receivedSections: [[AuthencticatorListSection]] = []
     var receivedErrors: [Error] = []
 
-    func receive(rows: [AuthenticatorListRowContent]) {
-        receivedRows.append(rows)
+    func receive(sections: [AuthencticatorListSection]) {
+        receivedSections.append(sections)
     }
 
     func receive(countDown: String) {

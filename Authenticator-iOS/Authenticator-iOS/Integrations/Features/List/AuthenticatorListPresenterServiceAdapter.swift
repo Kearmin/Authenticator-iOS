@@ -14,7 +14,7 @@ class AuthenticatorListPresenterServiceAdapter: AuthenticatorListPresenterServic
     private let currentTimeSubject = CurrentValueSubject<Date, Never>(Date())
     private var subscriptions = Set<AnyCancellable>()
     private var subjectSubscription: AnyCancellable?
-    private var appEventSubscription: AnyCancellable?
+    private var refreshSubscription: AnyCancellable?
 
     var readAccounts: () -> AnyPublisher<[Account], Never>
     var delete: (_ accountID: UUID) -> AnyPublisher<Void, Error>
@@ -30,7 +30,7 @@ class AuthenticatorListPresenterServiceAdapter: AuthenticatorListPresenterServic
     }
 
     init(totpProvider: TOTPProvider,
-         appEventPublisher: AnyPublisher<AppEvent, Never>,
+         refreshPublisher: AnyPublisher<Void, Never>,
          readAccounts: @escaping () -> AnyPublisher<[Account], Never>,
          delete: @escaping (_ accountID: UUID) -> AnyPublisher<Void, Error>,
          swap: @escaping (UUID, UUID) -> AnyPublisher<Void, Error>
@@ -47,8 +47,7 @@ class AuthenticatorListPresenterServiceAdapter: AuthenticatorListPresenterServic
             .subscribe(currentTimeSubject)
             .store(in: &subscriptions)
 
-        appEventSubscription = appEventPublisher
-            .filter(.newAccountCreated)
+        refreshSubscription = refreshPublisher
             .receive(on: Queues.generalBackgroundQueue)
             .sink(receiveValue: { [weak self] in
                 self?.loadAccounts()
@@ -93,6 +92,6 @@ class AuthenticatorListPresenterServiceAdapter: AuthenticatorListPresenterServic
 
 private extension Account {
     var authenticatorAccountModel: AuthenticatorAccountModel {
-        .init(id: id, issuer: issuer, username: "\(username)\(isFavourite ? "" : " +NonFav")", secret: secret)
+        .init(id: id, issuer: issuer, username: username, secret: secret, isFavourite: isFavourite)
     }
 }

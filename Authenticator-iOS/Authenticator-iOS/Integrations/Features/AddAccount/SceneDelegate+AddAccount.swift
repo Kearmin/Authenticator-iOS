@@ -42,7 +42,6 @@ extension SceneDelegate {
             }))
             addAccountViewController.present(alert, animated: true)
         case .didCreateAccount:
-            Resolver.resolve(AppEventSubject.self).send(.newAccountCreated)
             addAccountViewController.dismiss(animated: true)
         }
     }

@@ -8,8 +8,18 @@
 import XCTest
 import AccountRepository
 import AVFoundation
+import Combine
 
 class AccountRepositoryTests: XCTestCase {
+    private var cancellable: AnyCancellable?
+
+    func test_CanInitWithMappers() {
+        _ = Repository<MockAccount, AccountRepositoryMock>(
+            provider: AccountRepositoryMock(),
+            mapper: { $0 },
+            reverseMapper: { $0 })
+    }
+
     func test_RepositoryReadsAccountOnInit() {
         let account = self.account()
         let mock = AccountRepositoryMock()
@@ -192,6 +202,48 @@ class AccountRepositoryTests: XCTestCase {
         XCTAssertEqual(mock.savedAccounts[0].id, id1)
         XCTAssertEqual(mock.savedAccounts[1].id, id2)
         XCTAssertEqual(mock.savedAccounts[2].id, id3)
+    }
+
+    func test_movingSameAccount_doesNothing() {
+        let id = 0
+        let mock = AccountRepositoryMock()
+        mock.readAccountResults = [
+            .success([.init(id: id)])
+        ]
+        let sut = makeSUT(mock: mock)
+        XCTAssertNoThrow( try sut.move(from: id, after: id))
+        XCTAssertEqual(mock.savedAccountCount, 0)
+    }
+
+    func test_movingNonExistingItem_throwsError() {
+        let sut = makeSUT()
+        XCTAssertThrowsError(try sut.move(from: 10, after: 11)) { error in
+            XCTAssertEqual(error as? RepositoryError, RepositoryError.accountNotFound)
+        }
+    }
+
+    func test_RepositorySendEvent_ifSaved() {
+        let mock = AccountRepositoryMock()
+        mock.readAccountResults = [
+            .success([
+                .init(id: 0),
+                .init(id: 1),
+                .init(id: 2)
+            ])
+        ]
+        let sut = makeSUT(mock: mock)
+        let expectation = expectation(description: "didSave expectatiton")
+        expectation.expectedFulfillmentCount = 5
+        cancellable = sut.didSavePublisher
+            .sink { _ in
+                expectation.fulfill()
+            }
+        XCTAssertNoThrow(try sut.add(item: .init(id: 3)))
+        XCTAssertNoThrow(try sut.delete(itemID: 3))
+        XCTAssertNoThrow(try sut.move(from: 0, after: 1))
+        XCTAssertNoThrow(try sut.swap(from: 0, to: 1))
+        XCTAssertNoThrow(try sut.update(item: .init(id: 0)))
+        waitForExpectations(timeout: 0.1)
     }
 
     func makeSUT(mock: AccountRepositoryMock = .init()) -> Repository<MockAccount, AccountRepositoryMock> {

@@ -38,7 +38,7 @@ class FileSystemPersistentStorageTests: XCTestCase {
         let spy = JSONFileSystemPersistanceProviderSpy()
         let fileManagerStub = FileManagerStub()
         fileManagerStub.urlToReturn = URL(string: "https://www.google.com")
-        let _sut = JSONFileSystemPersistance<MockObject>(fileName: "test", fileManager: fileManagerStub, provider: spy)
+        let _sut = JSONFileSystemPersistance<MockObject>(fileName: "test", fileManager: fileManagerStub, provider: spy, version: 0)
         let sut = try XCTUnwrap(_sut)
         return (sut: sut, spy: spy)
     }

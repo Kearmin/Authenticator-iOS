@@ -17,7 +17,7 @@ class AuthenticatorListIntegrationTests: XCTestCase {
             readAccounts: loader.readAccounts,
             delete: loader.delete,
             moveAccounts: loader.swap,
-            appEventPublisher: loader.appEventPublisher)
+            refreshPublisher: loader.refresh)
         )
         XCTAssertEqual(viewController.0.title, "Authenticator")
     }
@@ -25,16 +25,13 @@ class AuthenticatorListIntegrationTests: XCTestCase {
 
 class ListLoaderStub {
 
-    var appEventSubject = PassthroughSubject<AppEvent, Never>()
 
     var readAccounts: () -> AnyPublisher<[Account], Never> = { Empty().eraseToAnyPublisher() }
     var delete: (UUID) -> AnyPublisher<Void, Error> = { _ in Empty().eraseToAnyPublisher() }
-    var appEventPublisher: AnyPublisher<AppEvent, Never> {
-        appEventSubject.eraseToAnyPublisher()
-    }
     var swap: (UUID, UUID) -> AnyPublisher<Void, Error> = { _, _ in
         Empty().eraseToAnyPublisher()
     }
+    var refresh: AnyPublisher<Void, Never> = Empty().eraseToAnyPublisher()
 }
 
 class TOTPProviderMock: TOTPProvider {
