@@ -83,9 +83,7 @@ class AuthenticatorListPresenterServiceAdapter: AuthenticatorListPresenterServic
                 if case let .failure(error) = completion {
                     presenter?.receive(error: error)
                 }
-            } receiveValue: { [weak self] _ in
-                self?.loadAccounts()
-            }
+            } receiveValue: { _ in }
             .store(in: &subscriptions)
     }
 }

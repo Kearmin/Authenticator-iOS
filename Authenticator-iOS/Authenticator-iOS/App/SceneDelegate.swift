@@ -22,10 +22,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var subscriptions = Set<AnyCancellable>()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        if !AppConfig.isRunningUnitTests {
-            appScene(scene, willConnectTo: session, options: connectionOptions)
-        } else {
+        if AppConfig.isRunningUnitTests {
             unitTestScene(scene, willConnectTo: session, options: connectionOptions)
+        } else {
+            appScene(scene, willConnectTo: session, options: connectionOptions)
         }
     }
 

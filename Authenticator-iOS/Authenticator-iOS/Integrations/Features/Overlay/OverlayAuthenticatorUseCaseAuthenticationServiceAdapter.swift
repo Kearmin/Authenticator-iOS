@@ -33,13 +33,15 @@ class OverlayAuthenticatorUseCaseAuthenticationServiceAdapter: OverlayAuthentica
             .store(in: &subscriptions)
     }
 
+    // If Authentication fails, that triggers DidBecomeActive and causes an authentication loop
+    // skipping the next event breaks the cycle
     var skipnext = false
 
     func unlock() {
-        if !self.skipnext {
-            self.usecase?.unlock()
+        if self.skipnext {
+            self.skipnext = false
         } else {
-            self.skipnext.toggle()
+            self.usecase?.unlock()
         }
     }
 
