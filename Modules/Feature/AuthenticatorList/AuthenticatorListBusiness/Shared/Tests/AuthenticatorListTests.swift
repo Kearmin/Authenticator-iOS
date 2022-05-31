@@ -112,7 +112,7 @@ class AuthenticatorListTests: XCTestCase {
             .init(id: id, issuer: "issuer", username: "username", secret: "secret", isFavourite: false)
         ]))
         XCTAssertEqual(spy.receivedSections.count, 1)
-        XCTAssertEqual(spy.receivedSections.first?[0].rowContent, [.init(id: id, issuer: "issuer", username: "username", TOTPCode: "totp")])
+        XCTAssertEqual(spy.receivedSections.first?[0].rowContent, [.init(id: id, issuer: "issuer", username: "username", TOTPCode: "totp", isFavourite: false)])
     }
 
     func test_PresenterReturnsLatestCorrectFirstValueOnSettingOutput() {
@@ -137,7 +137,7 @@ class AuthenticatorListTests: XCTestCase {
             .init(id: id, issuer: "issuer", username: "username", secret: "secret", isFavourite: false)
         ]))
         XCTAssertEqual(spy.receivedSections.count, 1)
-        XCTAssertEqual(spy.receivedSections.first?[0].rowContent, [.init(id: id, issuer: "issuer", username: "username", TOTPCode: "totp")])
+        XCTAssertEqual(spy.receivedSections.first?[0].rowContent, [.init(id: id, issuer: "issuer", username: "username", TOTPCode: "totp", isFavourite: false)])
         sut.receive(currentDate: Date(timeIntervalSince1970: april_21_2022_222505_GMT))
         XCTAssertEqual(spy.receivedSections.count, 1)
         mock.getTOTPResult = "totp2"
@@ -259,6 +259,10 @@ class AuthenticatorListPresenterServiceMock: AuthenticatorListPresenterService {
     }
 
     func move(_ account: UUID, with toAccount: UUID) {
+
+    }
+
+    func favourite(_ account: UUID) {
 
     }
 }

@@ -17,6 +17,7 @@ class AuthenticatorListIntegrationTests: XCTestCase {
             readAccounts: loader.readAccounts,
             delete: loader.delete,
             moveAccounts: loader.swap,
+            favourite: loader.favourite,
             refreshPublisher: loader.refresh)
         )
         XCTAssertEqual(viewController.0.title, "Authenticator")
@@ -28,6 +29,7 @@ class ListLoaderStub {
 
     var readAccounts: () -> AnyPublisher<[Account], Never> = { Empty().eraseToAnyPublisher() }
     var delete: (UUID) -> AnyPublisher<Void, Error> = { _ in Empty().eraseToAnyPublisher() }
+    var favourite: (UUID) -> AnyPublisher<Void, Error> = { _ in Empty().eraseToAnyPublisher() }
     var swap: (UUID, UUID) -> AnyPublisher<Void, Error> = { _, _ in
         Empty().eraseToAnyPublisher()
     }
