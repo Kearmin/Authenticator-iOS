@@ -8,11 +8,12 @@
 import Combine
 import AccountRepository
 import FileSystemPersistentStorage
+import AuthenticatorListBusiness
 
-public typealias AccountRepository = Repository<Account, JSONFileSystemPersistance<[Account]>>
+public typealias AccountRepository = Repository<AuthenticatorAccountModel, JSONFileSystemPersistance<[AuthenticatorAccountModel]>>
 
 extension AccountRepository {
-    func loadPublisher() -> AnyPublisher<[Account], Never> {
+    func loadPublisher() -> AnyPublisher<[AuthenticatorAccountModel], Never> {
         Just(self.readAccounts()).eraseToAnyPublisher()
     }
 
@@ -23,7 +24,7 @@ extension AccountRepository {
         .eraseToAnyPublisher()
     }
 
-    func savePublisher(account: Account) -> AnyPublisher<Void, Error> {
+    func savePublisher(account: AuthenticatorAccountModel) -> AnyPublisher<Void, Error> {
         Future { completion in
             completion(Result { try self.add(item: account) })
         }

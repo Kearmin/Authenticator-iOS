@@ -25,15 +25,21 @@ class AuthenticatorListOutputAdapter: AuthenticatorListViewOutput, Authenticator
         }
     }
 
-    public func receive(sections: [AuthencticatorListSection]) {
-        let sections = sections.map { section in
+    public func receive(content: AuthenticatorListContent) {
+        let sections = content.map { section in
             AuthenticatorListViewSection(title: section.title, rows: section.rowContent.map { item in
                 AuthenticatorListRow(
                     id: item.id,
                     issuer: item.issuer,
                     username: item.username,
                     TOTPCode: item.TOTPCode,
-                    isFavourite: item.isFavourite)
+                    isFavourite: item.isFavourite,
+                    onFavouritePress: { [presenter] in
+                        presenter?.favourite(id: item.id)
+                    },
+                    onDeletePress: { [presenter] in
+                        presenter?.delete(id: item.id)
+                    })
             })
         }
         onMainWithAnimation {

@@ -7,6 +7,7 @@
 
 import Combine
 import AccountRepository
+import AuthenticatorListBusiness
 
 typealias AddAccountEventPublisher = AnyPublisher<AddAccountEvent, Never>
 
@@ -14,5 +15,5 @@ enum AddAccountEvent {
     case doneDidPress
     case failedToStartCamera
     case qrCodeReadDidFail(error: Error)
-    case didCreateAccount(account: Account)
+    case didCreateAccount(account: AuthenticatorAccountModel)
 }

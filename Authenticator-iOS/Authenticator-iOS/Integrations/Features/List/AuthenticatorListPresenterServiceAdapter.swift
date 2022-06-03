@@ -16,7 +16,7 @@ class AuthenticatorListPresenterServiceAdapter: AuthenticatorListPresenterServic
     private var subjectSubscription: AnyCancellable?
     private var refreshSubscription: AnyCancellable?
 
-    var readAccounts: () -> AnyPublisher<[Account], Never>
+    var readAccounts: () -> AnyPublisher<[AuthenticatorAccountModel], Never>
     var delete: (_ accountID: UUID) -> AnyPublisher<Void, Error>
     var move: (UUID, UUID) -> AnyPublisher<Void, Error>
     var favourite: (_ accountID: UUID) -> AnyPublisher<Void, Error>
@@ -32,7 +32,7 @@ class AuthenticatorListPresenterServiceAdapter: AuthenticatorListPresenterServic
 
     init(totpProvider: TOTPProvider,
          refreshPublisher: AnyPublisher<Void, Never>,
-         readAccounts: @escaping () -> AnyPublisher<[Account], Never>,
+         readAccounts: @escaping () -> AnyPublisher<[AuthenticatorAccountModel], Never>,
          delete: @escaping (_ accountID: UUID) -> AnyPublisher<Void, Error>,
          swap: @escaping (UUID, UUID) -> AnyPublisher<Void, Error>,
          favourite: @escaping (_ accountID: UUID) -> AnyPublisher<Void, Error>
@@ -60,7 +60,6 @@ class AuthenticatorListPresenterServiceAdapter: AuthenticatorListPresenterServic
     func loadAccounts() {
         readAccounts()
             .subscribe(on: Queues.generalBackgroundQueue)
-            .map { $0.map(\.authenticatorAccountModel) }
             .sink { [presenter] accounts in
                 presenter?.receive(result: .success(accounts))
             }
@@ -91,11 +90,5 @@ class AuthenticatorListPresenterServiceAdapter: AuthenticatorListPresenterServic
                 }
             } receiveValue: { _ in }
             .store(in: &subscriptions)
-    }
-}
-
-private extension Account {
-    var authenticatorAccountModel: AuthenticatorAccountModel {
-        .init(id: id, issuer: issuer, username: username, secret: secret, isFavourite: isFavourite)
     }
 }

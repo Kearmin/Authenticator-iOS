@@ -11,6 +11,7 @@ import Combine
 
 import FileSystemPersistentStorage
 import AccountRepository
+import AuthenticatorListBusiness
 import UIKit
 
 extension Resolver {
@@ -32,13 +33,13 @@ extension Resolver {
 //        .implements(AuthenticatorAnalytics.self)
 //        .scope(.application)
 
-        register(JSONFileSystemPersistance<[Account]>.self) { resolver in
+        register(JSONFileSystemPersistance<[AuthenticatorAccountModel]>.self) { resolver in
             let analytics: AuthenticatorAnalytics = resolver.resolve()
             let userDefaults: UserDefaults = resolver.resolve()
             if userDefaults.object(forKey: Keys.accountMigrations) == nil {
                 userDefaults.set(Constants.accountVersion, forKey: Keys.accountMigrations)
             }
-            let accountPersistance = JSONFileSystemPersistance<[Account]>(
+            let accountPersistance = JSONFileSystemPersistance<[AuthenticatorAccountModel]>(
                 fileName: "accounts",
                 queue: Queues.fileIOBackgroundQueue,
                 version: userDefaults.integer(forKey: Keys.accountMigrations))

@@ -8,48 +8,6 @@
 import Combine
 import Foundation
 
-public struct AuthenticatorAccountModel: Codable {
-    public let id: UUID
-    public let issuer: String
-    public let username: String
-    public let secret: String
-    public let isFavourite: Bool
-
-    public init(id: UUID, issuer: String, username: String, secret: String, isFavourite: Bool) {
-        self.id = id
-        self.issuer = issuer
-        self.username = username
-        self.secret = secret
-        self.isFavourite = isFavourite
-    }
-}
-
-public struct AuthenticatorListRowContent: Identifiable, Equatable {
-    public var id: UUID
-    public let issuer: String
-    public let username: String
-    public let TOTPCode: String
-    public let isFavourite: Bool
-
-    public init(id: UUID, issuer: String, username: String, TOTPCode: String, isFavourite: Bool) {
-        self.id = id
-        self.issuer = issuer
-        self.username = username
-        self.TOTPCode = TOTPCode
-        self.isFavourite = isFavourite
-    }
-}
-
-public struct AuthencticatorListSection: Equatable {
-    public let title: String
-    public let rowContent: [AuthenticatorListRowContent]
-
-    public init(title: String, rowContent: [AuthenticatorListRowContent]) {
-        self.title = title
-        self.rowContent = rowContent
-    }
-}
-
 public protocol AuthenticatorListPresenterService {
     func loadAccounts()
     func getTOTP(secret: String, timeInterval: Int, date: Date) -> String
@@ -60,7 +18,7 @@ public protocol AuthenticatorListPresenterService {
 
 public protocol AuthenticatorListViewOutput: AnyObject {
     func receive(countDown: String)
-    func receive(sections: [AuthencticatorListSection])
+    func receive(content: AuthenticatorListContent)
 }
 
 public protocol AuthenticatorListErrorOutput: AnyObject {
@@ -115,7 +73,7 @@ public final class AuthenticatorListPresenter {
         do {
             let models = try result.get()
             self.models = models
-            output?.receive(sections: sectionContent(from: models))
+            output?.receive(content: sectionContent(from: models))
         } catch {
             errorOutput?.receive(error: error)
         }
@@ -132,6 +90,10 @@ public final class AuthenticatorListPresenter {
             models.indices.contains(toOffset)
         else { return }
         service.move(models[fromOffset].id, with: models[toOffset].id)
+    }
+
+    public func delete(id: UUID) {
+        service.deleteAccount(id: id)
     }
 
     public func delete(atOffset offset: Int) {
@@ -186,7 +148,7 @@ private extension AuthenticatorListPresenter {
     }
 
     func recalculateTOTPs() {
-        output?.receive(sections: sectionContent(from: models))
+        output?.receive(content: sectionContent(from: models))
     }
 }
 

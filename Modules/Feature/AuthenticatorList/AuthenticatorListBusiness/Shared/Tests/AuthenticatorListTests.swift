@@ -225,8 +225,8 @@ class AuthenticatorListPresenterSpy: AuthenticatorListViewOutput, AuthenticatorL
     var receivedSections: [[AuthencticatorListSection]] = []
     var receivedErrors: [Error] = []
 
-    func receive(sections: [AuthencticatorListSection]) {
-        receivedSections.append(sections)
+    func receive(content: AuthenticatorListContent) {
+        receivedSections.append(content)
     }
 
     func receive(countDown: String) {

@@ -10,20 +10,10 @@ import SwiftUI
 public struct AuthenticatorListView: View {
     @StateObject public var viewModel: AuthenticatorListViewModel
 
-    public var onMove: (_ fromOffsets: IndexSet, _ toOffset: Int) -> Void
-    public var onDelete: (_ atOffsets: IndexSet) -> Void
-    public var onFavouriteDidPress: (UUID) -> Void
-
     public init(
-        viewModel: AuthenticatorListViewModel,
-        onMove: @escaping (_ source: IndexSet, _ destination: Int) -> Void,
-        onDelete: @escaping (_ indexes: IndexSet) -> Void,
-        onFavouriteDidPress: @escaping (UUID) -> Void
+        viewModel: AuthenticatorListViewModel
     ) {
         _viewModel = .init(wrappedValue: viewModel)
-        self.onMove = onMove
-        self.onDelete = onDelete
-        self.onFavouriteDidPress = onFavouriteDidPress
     }
 
     public var body: some View {
@@ -37,13 +27,8 @@ public struct AuthenticatorListView: View {
                         ForEach(section.rows) { row in
                             authenticatorListRow(row)
                         }
-                        .onMove(perform: onMove)
-                        .onDelete(perform: onDelete)
                     }
                 }
-            }
-            .toolbar {
-                EditButton()
             }
             .listStyle(.sidebar)
         }
@@ -62,16 +47,20 @@ public struct AuthenticatorListView: View {
                 Text(row.username)
                     .font(.body)
             }
-            Spacer()
-            Image(systemName: row.isFavourite ? "star.fill" : "star")
-                .resizable()
-                .frame(width: 35, height: 35)
-                .foregroundColor(.yellow)
-                .onTapGesture {
-                    onFavouriteDidPress(row.id)
-                }
         }
         .padding(.trailing)
+        .swipeActions {
+            Button(action: row.onDeletePress) {
+                Image(systemName: "trash.fill")
+            }
+            .tint(.red)
+        }
+        .swipeActions {
+            Button(action: row.onFavouritePress) {
+                Image(systemName: row.isFavourite ? "star.slash.fill" : "star.fill")
+            }
+            .tint(.yellow)
+        }
     }
 }
 
@@ -81,16 +70,40 @@ struct AuthenticatorListView_Previews: PreviewProvider {
             countDownSeconds: "30",
             sections: [
                 .init(title: "Favourites", rows: [
-                    .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456", isFavourite: true),
-                    .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456", isFavourite: true),
-                    .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456", isFavourite: true),
-                    .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456", isFavourite: true)
+                    .init(
+                        id: UUID(),
+                        issuer: "Issuer",
+                        username: "Username",
+                        TOTPCode: "123456",
+                        isFavourite: true,
+                        onFavouritePress: {},
+                        onDeletePress: {}),
+                    .init(
+                        id: UUID(),
+                        issuer: "Issuer",
+                        username: "Username",
+                        TOTPCode: "123456",
+                        isFavourite: true,
+                        onFavouritePress: {},
+                        onDeletePress: {})
                 ]),
                 .init(title: "Accounts", rows: [
-                    .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456", isFavourite: false),
-                    .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456", isFavourite: false),
-                    .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456", isFavourite: false),
-                    .init(id: UUID(), issuer: "Issuer", username: "Username", TOTPCode: "123456", isFavourite: false)
+                    .init(
+                        id: UUID(),
+                        issuer: "Issuer",
+                        username: "Username",
+                        TOTPCode: "123456",
+                        isFavourite: false,
+                        onFavouritePress: {},
+                        onDeletePress: {}),
+                    .init(
+                        id: UUID(),
+                        issuer: "Issuer",
+                        username: "Username",
+                        TOTPCode: "123456",
+                        isFavourite: false,
+                        onFavouritePress: {},
+                        onDeletePress: {})
                 ])
             ])
         return viewModel
@@ -98,17 +111,11 @@ struct AuthenticatorListView_Previews: PreviewProvider {
     static var previews: some View {
         NavigationView {
             AuthenticatorListView(
-                viewModel: viewModel,
-                onMove: { _, _  in },
-                onDelete: { _ in },
-                onFavouriteDidPress: { _ in })
+                viewModel: viewModel)
         }
         NavigationView {
             AuthenticatorListView(
-                viewModel: viewModel,
-                onMove: { _, _  in },
-                onDelete: { _ in },
-                onFavouriteDidPress: { _ in })
+                viewModel: viewModel)
         }
         .preferredColorScheme(.dark)
     }

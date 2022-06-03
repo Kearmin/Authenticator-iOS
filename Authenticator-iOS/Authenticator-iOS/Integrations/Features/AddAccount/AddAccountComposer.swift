@@ -10,10 +10,11 @@ import AddAccountView
 import AddAccountBusiness
 import Combine
 import AccountRepository
+import AuthenticatorListBusiness
 
 enum AddAccountComposer {
     struct Dependencies {
-        let saveAccountPublisher: (Account) -> AnyPublisher<Void, Error>
+        let saveAccountPublisher: (AuthenticatorAccountModel) -> AnyPublisher<Void, Error>
     }
 
     static func addAccount(with dependencies: Dependencies) -> (AddAccountViewController, AddAccountEventPublisher) {

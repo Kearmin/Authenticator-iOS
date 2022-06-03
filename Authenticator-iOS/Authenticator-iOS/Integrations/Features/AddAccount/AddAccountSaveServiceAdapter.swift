@@ -9,23 +9,25 @@ import Combine
 import AddAccountBusiness
 import AccountRepository
 import AddAccountView
+import AuthenticatorListBusiness
 
 class AddAccountSaveServiceAdapter: AddAccountSaveService {
-    let createAccountPublisher: (Account) -> AnyPublisher<Void, Error>
+    let createAccountPublisher: (AuthenticatorAccountModel) -> AnyPublisher<Void, Error>
     let eventSubject: PassthroughSubject<AddAccountEvent, Never>
     var createAccountSubscription: AnyCancellable?
 
-    init(createAccountPublisher: @escaping (Account) -> AnyPublisher<Void, Error>, eventSubject: PassthroughSubject<AddAccountEvent, Never>) {
+    init(createAccountPublisher: @escaping (AuthenticatorAccountModel) -> AnyPublisher<Void, Error>, eventSubject: PassthroughSubject<AddAccountEvent, Never>) {
         self.createAccountPublisher = createAccountPublisher
         self.eventSubject = eventSubject
     }
 
     func save(account: CreatAccountModel) {
-        let account = Account(
+        let account = AuthenticatorAccountModel(
             id: UUID(),
             issuer: account.issuer,
+            username: account.username,
             secret: account.secret,
-            username: account.username)
+            isFavourite: false)
         createAccountSubscription = createAccountPublisher(account)
             .sink(receiveCompletion: { [weak self] completion in
                 if case let .failure(error) = completion {

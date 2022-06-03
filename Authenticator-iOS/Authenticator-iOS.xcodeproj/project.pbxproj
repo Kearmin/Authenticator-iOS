@@ -34,7 +34,6 @@
 		B06A5FE9283075D800433C58 /* AddAccountEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FE8283075D800433C58 /* AddAccountEvent.swift */; };
 		B06A5FEB28307F2700433C58 /* WeakRefProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FEA28307F2700433C58 /* WeakRefProxy.swift */; };
 		B06A5FEF2830878D00433C58 /* SwiftUIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FEE2830878D00433C58 /* SwiftUIHelpers.swift */; };
-		B06A5FF4283092C800433C58 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FF3283092C800433C58 /* Account.swift */; };
 		B0B2B961282FB78900BB7E00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B2B960282FB78900BB7E00 /* AppDelegate.swift */; };
 		B0B2B963282FB78900BB7E00 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B2B962282FB78900BB7E00 /* SceneDelegate.swift */; };
 		B0B2B96A282FB78900BB7E00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0B2B969282FB78900BB7E00 /* Assets.xcassets */; };
@@ -142,7 +141,6 @@
 		B06A5FE8283075D800433C58 /* AddAccountEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountEvent.swift; sourceTree = "<group>"; };
 		B06A5FEA28307F2700433C58 /* WeakRefProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRefProxy.swift; sourceTree = "<group>"; };
 		B06A5FEE2830878D00433C58 /* SwiftUIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIHelpers.swift; sourceTree = "<group>"; };
-		B06A5FF3283092C800433C58 /* Account.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		B0B2B95D282FB78900BB7E00 /* Authenticator-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Authenticator-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0B2B960282FB78900BB7E00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0B2B962282FB78900BB7E00 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -244,7 +242,6 @@
 		B06A5FD32830110700433C58 /* AccountRepository */ = {
 			isa = PBXGroup;
 			children = (
-				B06A5FF3283092C800433C58 /* Account.swift */,
 				B06A5FD42830111D00433C58 /* AccountRepositoryExtensions.swift */,
 			);
 			path = AccountRepository;
@@ -522,7 +519,6 @@
 				B0F7547E283464F60051038D /* ListEvent.swift in Sources */,
 				B0F75480283465670051038D /* Constants.swift in Sources */,
 				B0F7547028342FD10051038D /* OverlayComposer.swift in Sources */,
-				B06A5FF4283092C800433C58 /* Account.swift in Sources */,
 				B06A5FCF282FFDF100433C58 /* AuthenticatorListPresenterServiceAdapter.swift in Sources */,
 				B025FDD5282FCC88008D1DF1 /* Threading.swift in Sources */,
 				B06A5FEB28307F2700433C58 /* WeakRefProxy.swift in Sources */,

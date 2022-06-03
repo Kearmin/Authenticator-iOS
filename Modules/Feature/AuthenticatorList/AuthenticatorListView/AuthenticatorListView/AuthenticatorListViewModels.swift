@@ -15,6 +15,9 @@ public struct AuthenticatorListRow: Identifiable, Equatable {
     public let TOTPCode: String
     public let isFavourite: Bool
 
+    public let onFavouritePress: () -> Void
+    public let onDeletePress: () -> Void
+
     public static func == (lhs: AuthenticatorListRow, rhs: AuthenticatorListRow) -> Bool {
         lhs.id == rhs.id
         && lhs.issuer == rhs.issuer
@@ -23,12 +26,22 @@ public struct AuthenticatorListRow: Identifiable, Equatable {
         && lhs.isFavourite == rhs.isFavourite
     }
 
-    public init(id: UUID, issuer: String, username: String, TOTPCode: String, isFavourite: Bool) {
+    public init(
+        id: UUID,
+        issuer: String,
+        username: String,
+        TOTPCode: String,
+        isFavourite: Bool,
+        onFavouritePress: @escaping () -> Void,
+        onDeletePress: @escaping () -> Void
+    ) {
         self.id = id
         self.issuer = issuer
         self.username = username
         self.TOTPCode = TOTPCode
         self.isFavourite = isFavourite
+        self.onFavouritePress = onFavouritePress
+        self.onDeletePress = onDeletePress
     }
 }
 

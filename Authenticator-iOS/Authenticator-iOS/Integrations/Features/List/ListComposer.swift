@@ -16,7 +16,7 @@ import Resolver
 enum ListComposer {
     struct Dependencies {
         var totpProvider: TOTPProvider
-        var readAccounts: () -> AnyPublisher<[Account], Never>
+        var readAccounts: () -> AnyPublisher<[AuthenticatorAccountModel], Never>
         var delete: (_ accountID: UUID) -> AnyPublisher<Void, Error>
         var moveAccounts: (_ from: UUID, _ to: UUID) -> AnyPublisher<Void, Error>
         var favourite: (_ account: UUID) -> AnyPublisher<Void, Error>
@@ -36,17 +36,7 @@ enum ListComposer {
         presenterService.presenter = presenter
         let viewModel = AuthenticatorListViewModel()
         let rootView = AuthenticatorListView(
-            viewModel: viewModel,
-            onMove: { fromOffsets, toOffset in
-                guard let fromOffset = fromOffsets.first else { return }
-                let swiftUICorrectedToOffset = fromOffset < toOffset ? (toOffset - 1) : toOffset
-                presenter.move(fromOffset: fromOffset, toOffset: swiftUICorrectedToOffset)
-            }, onDelete: { atOffsets in
-                guard let atOffset = atOffsets.first else { return }
-                presenter.delete(atOffset: atOffset)
-            }, onFavouriteDidPress: { id in
-                presenter.favourite(id: id)
-            })
+            viewModel: viewModel)
         let viewController = AuthenticatorListViewController(
             viewModel: viewModel,
             rootview: rootView,

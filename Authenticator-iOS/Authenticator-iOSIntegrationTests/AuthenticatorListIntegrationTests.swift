@@ -7,6 +7,7 @@
 
 import XCTest
 import Combine
+import AuthenticatorListBusiness
 @testable import Authenticator_iOS
 
 class AuthenticatorListIntegrationTests: XCTestCase {
@@ -25,9 +26,7 @@ class AuthenticatorListIntegrationTests: XCTestCase {
 }
 
 class ListLoaderStub {
-
-
-    var readAccounts: () -> AnyPublisher<[Account], Never> = { Empty().eraseToAnyPublisher() }
+    var readAccounts: () -> AnyPublisher<[AuthenticatorAccountModel], Never> = { Empty().eraseToAnyPublisher() }
     var delete: (UUID) -> AnyPublisher<Void, Error> = { _ in Empty().eraseToAnyPublisher() }
     var favourite: (UUID) -> AnyPublisher<Void, Error> = { _ in Empty().eraseToAnyPublisher() }
     var swap: (UUID, UUID) -> AnyPublisher<Void, Error> = { _, _ in

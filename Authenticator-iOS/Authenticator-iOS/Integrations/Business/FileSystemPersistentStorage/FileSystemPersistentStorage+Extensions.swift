@@ -8,15 +8,16 @@
 import FileSystemPersistentStorage
 import AccountRepository
 import Foundation
+import AuthenticatorListBusiness
 
-extension JSONFileSystemPersistance: RepositoryProvider where T == [Account] {
-    public typealias Item = Account
+extension JSONFileSystemPersistance: RepositoryProvider where T == [AuthenticatorAccountModel] {
+    public typealias Item = AuthenticatorAccountModel
 
-    public func save(items: [Account]) throws {
+    public func save(items: [AuthenticatorAccountModel]) throws {
         try save(items)
     }
 
-    public func readItems() throws -> [Account] {
+    public func readItems() throws -> [AuthenticatorAccountModel] {
         try read()
     }
 }
