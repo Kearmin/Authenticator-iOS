@@ -9,7 +9,7 @@ import Foundation
 
 enum Constants {
     static let appCycleLength = 30
-    static let accountVersion = 1
+    static let accountVersion = 3
 }
 
 enum Keys {

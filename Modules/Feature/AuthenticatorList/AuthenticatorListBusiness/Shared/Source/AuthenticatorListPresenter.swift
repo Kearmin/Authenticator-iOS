@@ -12,7 +12,6 @@ public protocol AuthenticatorListPresenterService {
     func loadAccounts()
     func getTOTP(secret: String, timeInterval: Int, date: Date) -> String
     func deleteAccount(id: UUID)
-    func move(_ account: UUID, with toAccount: UUID)
     func favourite(_ account: UUID)
 }
 
@@ -29,6 +28,7 @@ public final class AuthenticatorListPresenter {
     private var service: AuthenticatorListPresenterService
     private var latestDate: Date?
     private var models: [AuthenticatorAccountModel] = []
+    private var currentFilter: String?
 
     let cycleLength: Int
 
@@ -73,7 +73,7 @@ public final class AuthenticatorListPresenter {
         do {
             let models = try result.get()
             self.models = models
-            output?.receive(content: sectionContent(from: models))
+            sendFilteredOutput()
         } catch {
             errorOutput?.receive(error: error)
         }
@@ -81,15 +81,6 @@ public final class AuthenticatorListPresenter {
 
     public func favourite(id: UUID) {
         service.favourite(id)
-    }
-
-    public func move(fromOffset: Int, toOffset: Int) {
-        guard
-            fromOffset != toOffset,
-            models.indices.contains(fromOffset),
-            models.indices.contains(toOffset)
-        else { return }
-        service.move(models[fromOffset].id, with: models[toOffset].id)
     }
 
     public func delete(id: UUID) {
@@ -102,6 +93,11 @@ public final class AuthenticatorListPresenter {
         }
         let id = models[offset].id
         service.deleteAccount(id: id)
+    }
+
+    public func filter(by text: String) {
+        currentFilter = text.isEmpty ? nil : text
+        sendFilteredOutput()
     }
 
     public func receive(error: Error) {
@@ -148,7 +144,19 @@ private extension AuthenticatorListPresenter {
     }
 
     func recalculateTOTPs() {
-        output?.receive(content: sectionContent(from: models))
+        sendFilteredOutput()
+    }
+
+    func sendFilteredOutput() {
+        var filteredModels: [AuthenticatorAccountModel]
+        if let filterText = currentFilter?.lowercased() {
+            filteredModels = models.filter { model in
+                model.username.lowercased().contains(filterText) || model.issuer.lowercased().contains(filterText)
+            }
+        } else {
+            filteredModels = models
+        }
+        output?.receive(content: sectionContent(from: filteredModels))
     }
 }
 

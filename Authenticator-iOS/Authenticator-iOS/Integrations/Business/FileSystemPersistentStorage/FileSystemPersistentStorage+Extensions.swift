@@ -40,3 +40,25 @@ class AddFavouriteMigration: JSONFileSystemPersistanceMigration {
         return jsonArray
     }
 }
+
+class AddTimeStampMigration: JSONFileSystemPersistanceMigration {
+    var version: Int = 3
+
+    var timestamp = Date().timeIntervalSince1970
+
+    func prepare(on jsonObject: Any) -> Any {
+        guard var jsonArray = jsonObject as? [[String: Any]] else { return jsonObject }
+        for i in jsonArray.indices {
+            jsonArray[i]["createdAt"] = timestamp
+        }
+        return jsonArray
+    }
+
+    func revert(on jsonObject: Any) -> Any {
+        guard var jsonArray = jsonObject as? [[String: Any]] else { return jsonObject }
+        for i in jsonArray.indices {
+            jsonArray[i].removeValue(forKey: "createdAt")
+        }
+        return jsonArray
+    }
+}

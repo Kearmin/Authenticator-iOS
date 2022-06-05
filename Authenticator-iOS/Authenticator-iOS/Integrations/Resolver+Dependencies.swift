@@ -44,7 +44,7 @@ extension Resolver {
                 queue: Queues.fileIOBackgroundQueue,
                 version: userDefaults.integer(forKey: Keys.accountMigrations))
             do {
-                let migrationsRan = try accountPersistance.runMigrations([AddFavouriteMigration()])
+                let migrationsRan = try accountPersistance.runMigrations([AddFavouriteMigration(), AddTimeStampMigration()])
                 if migrationsRan > 0 {
                     UserDefaults.standard.set(Constants.accountVersion, forKey: Keys.accountMigrations)
                     analytics.track(name: "Successfully ran migrations")

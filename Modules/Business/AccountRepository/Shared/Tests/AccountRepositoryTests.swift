@@ -246,6 +246,36 @@ class AccountRepositoryTests: XCTestCase {
         waitForExpectations(timeout: 0.1)
     }
 
+    func test_CanGetElementByID() throws {
+        let mock = AccountRepositoryMock()
+        mock.readAccountResults = [
+            .success([
+                .init(id: 0),
+                .init(id: 1)
+            ])
+        ]
+        let sut = makeSUT(mock: mock)
+        var matchedItem = try sut.item(for: 0)
+        XCTAssertEqual(matchedItem.id, 0)
+        matchedItem = try sut.item(for: 1)
+        XCTAssertEqual(matchedItem.id, 1)
+    }
+
+    func test_RepositoryThrowsError_ifItemDoesNotExist() {
+        let mock = AccountRepositoryMock()
+        mock.readAccountResults = [
+            .success([
+                .init(id: 1),
+                .init(id: 2),
+                .init(id: 3),
+            ])
+        ]
+        let sut = makeSUT(mock: mock)
+        XCTAssertThrowsError(try sut.item(for: 0)) { error in
+            XCTAssertEqual(error as? RepositoryError, .accountNotFound)
+        }
+    }
+
     func makeSUT(mock: AccountRepositoryMock = .init()) -> Repository<MockAccount, AccountRepositoryMock> {
         .init(provider: mock)
     }

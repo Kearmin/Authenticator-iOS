@@ -10,7 +10,8 @@ import AccountRepository
 import FileSystemPersistentStorage
 import AuthenticatorListBusiness
 
-public typealias AccountRepository = Repository<AuthenticatorAccountModel, JSONFileSystemPersistance<[AuthenticatorAccountModel]>>
+public typealias AccountJSONFileSystemPersistance = JSONFileSystemPersistance<[AuthenticatorAccountModel]>
+public typealias AccountRepository = Repository<AuthenticatorAccountModel, AccountJSONFileSystemPersistance>
 
 extension AccountRepository {
     func loadPublisher() -> AnyPublisher<[AuthenticatorAccountModel], Never> {

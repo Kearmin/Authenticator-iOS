@@ -19,7 +19,7 @@ public final class AuthenticatorListViewController: UIHostingController<Authenti
         onViewDidLoad: @escaping () -> Void) {
         self.didPressAddAccount = didPressAddAccount
         self.onViewDidLoad = onViewDidLoad
-            self.viewModel = viewModel
+        self.viewModel = viewModel
         super.init(rootView: rootview)
     }
 

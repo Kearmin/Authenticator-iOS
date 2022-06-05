@@ -165,12 +165,58 @@ class AuthenticatorListTests: XCTestCase {
         let spy = AuthenticatorListPresenterSpy()
         let sut = makeSUT(mock: mock)
         sut.output = spy
-        sut.errorOutput = spy
         sut.receive(result: .success([account]))
         XCTAssertEqual(spy.receivedSections.count, 1)
         XCTAssertEqual(spy.receivedSections.last?[0].rowContent[0].id, account.id)
         sut.delete(atOffset: 0)
         XCTAssertEqual(mock.deleteCallIDCount, 1)
+    }
+
+    func test_PresenterCallService_IfReceivesDeleteID() {
+        let mock = AuthenticatorListPresenterServiceMock()
+        let sut = makeSUT(mock: mock)
+        let id = UUID()
+        sut.delete(id: id)
+        XCTAssertEqual(mock.deleteCallIDS.count, 1)
+        XCTAssertEqual(mock.deleteCallIDS.last, id)
+    }
+
+    func test_presenterDoesNothing_ifDeleteIdIsNotFound() {
+        let mock = AuthenticatorListPresenterServiceMock()
+        let sut = makeSUT(mock: mock)
+        sut.delete(atOffset: 100)
+        XCTAssertEqual(mock.deleteCallIDS.count, 0)
+    }
+
+    func test_presenterCallsService_ifReceivesFavouriteID() {
+        let mock = AuthenticatorListPresenterServiceMock()
+        let sut = makeSUT(mock: mock)
+        let id = UUID()
+        sut.favourite(id: id)
+        XCTAssertEqual(mock.favouriteCallIDS.count, 1)
+        XCTAssertEqual(mock.favouriteCallIDS.last, id)
+    }
+
+    func test_presenterShowsFavouriteSection_ifReceivesFavouriteModel() {
+        let mock = AuthenticatorListPresenterServiceMock()
+        let spy = AuthenticatorListPresenterSpy()
+        let sut = makeSUT(mock: mock)
+        sut.output = spy
+        sut.receive(result: .success([
+            .init(id: UUID(), issuer: "issuer1", username: "", secret: "", isFavourite: true),
+            .init(id: UUID(), issuer: "issuer2", username: "", secret: "", isFavourite: false),
+            .init(id: UUID(), issuer: "issuer3", username: "", secret: "", isFavourite: true),
+        ]))
+        XCTAssertEqual(spy.receivedSections.count, 1)
+        XCTAssertEqual(spy.receivedSections[0].count, 2)
+        XCTAssertEqual(spy.receivedSections[0][0].title, "Favourites")
+        XCTAssertEqual(spy.receivedSections[0][0].rowContent.count, 2)
+        XCTAssertEqual(spy.receivedSections[0][0].rowContent[0].issuer, "issuer1")
+        XCTAssertEqual(spy.receivedSections[0][0].rowContent[1].issuer, "issuer3")
+        XCTAssertEqual(spy.receivedSections[0][1].title, "Accounts")
+        XCTAssertEqual(spy.receivedSections[0][1].rowContent.count, 1)
+        XCTAssertEqual(spy.receivedSections[0][1].rowContent[0].issuer, "issuer2")
+
     }
 
     func test_PresenterDoesntRecalculateData_IfCalledLoadWhenCurrentCycleIsCalculated() {
@@ -184,6 +230,49 @@ class AuthenticatorListTests: XCTestCase {
         XCTAssertEqual(spy.receivedSections.count, 1)
         sut.refresh(date: Date(timeIntervalSince1970: april_21_2022_222505_GMT).addingTimeInterval(1000))
         XCTAssertEqual(spy.receivedSections.count, 2)
+    }
+
+    func test_presenterCanFilter() {
+        let mock = AuthenticatorListPresenterServiceMock()
+        let spy = AuthenticatorListPresenterSpy()
+        let sut = makeSUT(mock: mock, cycleLength: 30)
+        sut.output = spy
+        sut.receive(result: .success([
+            .init(id: UUID(), issuer: "issuer2", username: "user", secret: "", isFavourite: false),
+            .init(id: UUID(), issuer: "otherIssuer", username: "user", secret: "", isFavourite: false)
+        ]))
+        sut.filter(by: "other")
+        XCTAssertEqual(spy.receivedSections.count, 2)
+        XCTAssertEqual(spy.receivedSections.last?[0].rowContent[0].issuer, "otherIssuer")
+        sut.filter(by: "issuer2")
+        XCTAssertEqual(spy.receivedSections.count, 3)
+        XCTAssertEqual(spy.receivedSections.last?[0].rowContent[0].issuer, "issuer2")
+        sut.filter(by: "nonexistant")
+        XCTAssertEqual(spy.receivedSections.count, 4)
+        XCTAssertEqual(spy.receivedSections.last?[0].rowContent.isEmpty, true)
+        sut.filter(by: "")
+        XCTAssertEqual(spy.receivedSections.count, 5)
+        XCTAssertEqual(spy.receivedSections.last?[0].rowContent.count, 2)
+    }
+
+    func test_presenterForwardsError_ifReceivesError() {
+        let error = SomeError(message: "error")
+        let sut = makeSUT()
+        let spy = AuthenticatorListPresenterSpy()
+        sut.errorOutput = spy
+        sut.receive(error: error)
+        XCTAssertEqual(spy.receivedErrors.count, 1)
+        XCTAssertEqual(spy.receivedErrors.last as? SomeError, error)
+    }
+
+    func test_presenterForwardsError_ifReceivesLoadError() {
+        let error = SomeError(message: "error")
+        let sut = makeSUT()
+        let spy = AuthenticatorListPresenterSpy()
+        sut.errorOutput = spy
+        sut.receive(result: .failure(error))
+        XCTAssertEqual(spy.receivedErrors.count, 1)
+        XCTAssertEqual(spy.receivedErrors.last as? SomeError, error)
     }
 
     private func testTimeIntervalLeftIfMinuteIs00(epochTime: TimeInterval, cycleLength: Int, expectedResult: String) {
@@ -220,6 +309,10 @@ class AuthenticatorListTests: XCTestCase {
     }
 }
 
+struct SomeError: Error, Equatable {
+    let message: String
+}
+
 class AuthenticatorListPresenterSpy: AuthenticatorListViewOutput, AuthenticatorListErrorOutput {
     var receivedCountDowns: [String] = []
     var receivedSections: [[AuthencticatorListSection]] = []
@@ -245,6 +338,7 @@ class AuthenticatorListPresenterServiceMock: AuthenticatorListPresenterService {
     var deleteCallIDCount: Int {
         deleteCallIDS.count
     }
+    var favouriteCallIDS: [UUID] = []
 
     func loadAccounts() {
         loadAccountCallCount += 1
@@ -258,11 +352,7 @@ class AuthenticatorListPresenterServiceMock: AuthenticatorListPresenterService {
         deleteCallIDS.append(id)
     }
 
-    func move(_ account: UUID, with toAccount: UUID) {
-
-    }
-
     func favourite(_ account: UUID) {
-
+        favouriteCallIDS.append(account)
     }
 }

@@ -58,13 +58,6 @@ private extension URLComponents {
         queryItemValue(for: key)?.lowercased()
     }
 
-    func lowerCasedQueryItemValue(for key: String, elseThrow error: Error) throws -> String {
-        guard let queryItem = lowerCasedQueryItemValue(for: key) else {
-            throw error
-        }
-        return queryItem
-    }
-
     func lowerCasedQueryItemValue(matches value: String, forKey key: String, onError: (String) throws -> Void) rethrows -> String {
         let queryItemValue = lowerCasedQueryItemValue(for: key)
         if let queryItemValue = queryItemValue, queryItemValue != value {

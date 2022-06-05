@@ -16,7 +16,7 @@ public class SystemJSONFileSystemPersistanceProvider: JSONFileSystemPersistanceP
 
     public func save(_ data: Data, to url: URL) throws {
         try queue.sync {
-            try data.write(to: url, options: .atomic)
+            try data.write(to: url)
         }
     }
 

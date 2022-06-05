@@ -25,16 +25,18 @@ enum ListComposer {
 
     static func list(dependencies: ListComposer.Dependencies) -> (AuthenticatorListViewController, ListEventPublisher) {
         let eventSubject = PassthroughSubject<ListEvent, Never>()
+        let viewModel = AuthenticatorListViewModel()
         let presenterService = AuthenticatorListPresenterServiceAdapter(
             totpProvider: dependencies.totpProvider,
             refreshPublisher: dependencies.refreshPublisher,
             readAccounts: dependencies.readAccounts,
             delete: dependencies.delete,
             swap: dependencies.moveAccounts,
-            favourite: dependencies.favourite)
+            favourite: dependencies.favourite,
+            searchTextPublisher: viewModel.$searchText.eraseToAnyPublisher()
+        )
         let presenter = AuthenticatorListPresenter(service: presenterService, cycleLength: Constants.appCycleLength)
         presenterService.presenter = presenter
-        let viewModel = AuthenticatorListViewModel()
         let rootView = AuthenticatorListView(
             viewModel: viewModel)
         let viewController = AuthenticatorListViewController(

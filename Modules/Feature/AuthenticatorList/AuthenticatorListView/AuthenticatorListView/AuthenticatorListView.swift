@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 public struct AuthenticatorListView: View {
     @StateObject public var viewModel: AuthenticatorListViewModel
@@ -18,9 +19,15 @@ public struct AuthenticatorListView: View {
 
     public var body: some View {
         VStack(spacing: 10) {
-            Text(viewModel.countDownSeconds)
-                .font(.system(size: 60))
-                .fontWeight(.bold)
+            HStack {
+                TextField("Search", text: $viewModel.searchText)
+                    .textFieldStyle(.roundedBorder)
+                Text(viewModel.countDownSeconds)
+                    .font(.system(size: 40))
+                    .fontWeight(.bold)
+                    .frame(width: 60)
+            }
+            .padding(.horizontal)
             List {
                 ForEach(viewModel.sections) { section in
                     Section(section.title) {
@@ -30,9 +37,8 @@ public struct AuthenticatorListView: View {
                     }
                 }
             }
-            .listStyle(.sidebar)
+            .listStyle(.automatic)
         }
-        .navigationBarTitleDisplayMode(.inline)
     }
 
     public func authenticatorListRow(_ row: AuthenticatorListRow) -> some View {
@@ -47,8 +53,21 @@ public struct AuthenticatorListView: View {
                 Text(row.username)
                     .font(.body)
             }
+            Spacer()
         }
         .padding(.trailing)
+        .contentShape(Rectangle())
+        .onTapGesture {
+            row.onDidPress()
+        }
+        .swipeActions(edge: .leading) {
+            Button() {
+                print("Edit: \(row.username)")
+            } label: {
+                Text("Edit")
+            }
+            .tint(.cyan)
+        }
         .swipeActions {
             Button(action: row.onDeletePress) {
                 Image(systemName: "trash.fill")
@@ -77,7 +96,8 @@ struct AuthenticatorListView_Previews: PreviewProvider {
                         TOTPCode: "123456",
                         isFavourite: true,
                         onFavouritePress: {},
-                        onDeletePress: {}),
+                        onDeletePress: {},
+                        onDidPress: {}),
                     .init(
                         id: UUID(),
                         issuer: "Issuer",
@@ -85,7 +105,8 @@ struct AuthenticatorListView_Previews: PreviewProvider {
                         TOTPCode: "123456",
                         isFavourite: true,
                         onFavouritePress: {},
-                        onDeletePress: {})
+                        onDeletePress: {},
+                        onDidPress: {})
                 ]),
                 .init(title: "Accounts", rows: [
                     .init(
@@ -95,7 +116,8 @@ struct AuthenticatorListView_Previews: PreviewProvider {
                         TOTPCode: "123456",
                         isFavourite: false,
                         onFavouritePress: {},
-                        onDeletePress: {}),
+                        onDeletePress: {},
+                        onDidPress: {}),
                     .init(
                         id: UUID(),
                         issuer: "Issuer",
@@ -103,7 +125,13 @@ struct AuthenticatorListView_Previews: PreviewProvider {
                         TOTPCode: "123456",
                         isFavourite: false,
                         onFavouritePress: {},
-                        onDeletePress: {})
+                        onDeletePress:
+
+
+
+
+                            {},
+                        onDidPress: {})
                 ])
             ])
         return viewModel

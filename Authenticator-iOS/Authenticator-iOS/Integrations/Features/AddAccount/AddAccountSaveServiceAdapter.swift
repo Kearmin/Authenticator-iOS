@@ -26,8 +26,7 @@ class AddAccountSaveServiceAdapter: AddAccountSaveService {
             id: UUID(),
             issuer: account.issuer,
             username: account.username,
-            secret: account.secret,
-            isFavourite: false)
+            secret: account.secret)
         createAccountSubscription = createAccountPublisher(account)
             .sink(receiveCompletion: { [weak self] completion in
                 if case let .failure(error) = completion {

@@ -20,6 +20,7 @@ class AuthenticatorListPresenterServiceAdapter: AuthenticatorListPresenterServic
     var delete: (_ accountID: UUID) -> AnyPublisher<Void, Error>
     var move: (UUID, UUID) -> AnyPublisher<Void, Error>
     var favourite: (_ accountID: UUID) -> AnyPublisher<Void, Error>
+    var searchTextPublisher: AnyPublisher<String, Never>
 
     weak var presenter: AuthenticatorListPresenter? {
         didSet {
@@ -35,13 +36,15 @@ class AuthenticatorListPresenterServiceAdapter: AuthenticatorListPresenterServic
          readAccounts: @escaping () -> AnyPublisher<[AuthenticatorAccountModel], Never>,
          delete: @escaping (_ accountID: UUID) -> AnyPublisher<Void, Error>,
          swap: @escaping (UUID, UUID) -> AnyPublisher<Void, Error>,
-         favourite: @escaping (_ accountID: UUID) -> AnyPublisher<Void, Error>
+         favourite: @escaping (_ accountID: UUID) -> AnyPublisher<Void, Error>,
+         searchTextPublisher: AnyPublisher<String, Never>
     ) {
         self.totpProvider = totpProvider
         self.readAccounts = readAccounts
         self.delete = delete
         self.move = swap
         self.favourite = favourite
+        self.searchTextPublisher = searchTextPublisher
 
         Timer
             .publish(every: 1, on: .current, in: .common)
@@ -55,6 +58,15 @@ class AuthenticatorListPresenterServiceAdapter: AuthenticatorListPresenterServic
             .sink(receiveValue: { [weak self] in
                 self?.loadAccounts()
             })
+
+        searchTextPublisher
+            .dropFirst()
+            .debounce(for: .seconds(0.3), scheduler: RunLoop.main)
+            .receive(on: Queues.generalBackgroundQueue)
+            .sink { [weak self] searchText in
+                self?.presenter?.filter(by: searchText)
+            }
+            .store(in: &subscriptions)
     }
 
     func loadAccounts() {

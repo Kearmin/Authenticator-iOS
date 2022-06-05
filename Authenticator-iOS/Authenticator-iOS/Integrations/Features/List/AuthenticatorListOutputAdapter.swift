@@ -39,6 +39,8 @@ class AuthenticatorListOutputAdapter: AuthenticatorListViewOutput, Authenticator
                     },
                     onDeletePress: { [presenter] in
                         presenter?.delete(id: item.id)
+                    }, onDidPress: {
+                        print("Pressed: \(item.username)")
                     })
             })
         }
