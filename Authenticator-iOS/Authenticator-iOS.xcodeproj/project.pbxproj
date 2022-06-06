@@ -24,6 +24,7 @@
 		B036FAE5284E399200866F02 /* EditAccountFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B036FAE4284E399200866F02 /* EditAccountFlow.swift */; };
 		B036FAE7284E39A600866F02 /* DeleteAccountFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B036FAE6284E39A600866F02 /* DeleteAccountFlow.swift */; };
 		B036FAE9284E39B700866F02 /* ShowErrorFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B036FAE8284E39B700866F02 /* ShowErrorFlow.swift */; };
+		B036FAEB284E55C300866F02 /* AddAccountFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B036FAEA284E55C300866F02 /* AddAccountFlow.swift */; };
 		B0505E66283D686900D770F2 /* AuthenticatorListIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0505E65283D686900D770F2 /* AuthenticatorListIntegrationTests.swift */; };
 		B06A5FCF282FFDF100433C58 /* AuthenticatorListPresenterServiceAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FCE282FFDF100433C58 /* AuthenticatorListPresenterServiceAdapter.swift */; };
 		B06A5FD1282FFE1A00433C58 /* AuthenticatorListOutputAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FD0282FFE1A00433C58 /* AuthenticatorListOutputAdapter.swift */; };
@@ -132,6 +133,7 @@
 		B036FAE4284E399200866F02 /* EditAccountFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountFlow.swift; sourceTree = "<group>"; };
 		B036FAE6284E39A600866F02 /* DeleteAccountFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountFlow.swift; sourceTree = "<group>"; };
 		B036FAE8284E39B700866F02 /* ShowErrorFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowErrorFlow.swift; sourceTree = "<group>"; };
+		B036FAEA284E55C300866F02 /* AddAccountFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountFlow.swift; sourceTree = "<group>"; };
 		B04FFF04283C68230052178B /* AddAccountView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AddAccountView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0505E5A283D677600D770F2 /* Authenticator-iOSIntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Authenticator-iOSIntegrationTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0505E65283D686900D770F2 /* AuthenticatorListIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorListIntegrationTests.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				B036FAE4284E399200866F02 /* EditAccountFlow.swift */,
 				B036FAE6284E39A600866F02 /* DeleteAccountFlow.swift */,
 				B036FAE8284E39B700866F02 /* ShowErrorFlow.swift */,
+				B036FAEA284E55C300866F02 /* AddAccountFlow.swift */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				B0F7547A283461220051038D /* OverlayEvent.swift in Sources */,
 				B06A5FD1282FFE1A00433C58 /* AuthenticatorListOutputAdapter.swift in Sources */,
 				B06A5FE7283069C700433C58 /* AddAccountSaveServiceAdapter.swift in Sources */,
+				B036FAEB284E55C300866F02 /* AddAccountFlow.swift in Sources */,
 				B06A5FE32830531F00433C58 /* SceneDelegate+AuthenticatorList.swift in Sources */,
 				B06A5FD52830111D00433C58 /* AccountRepositoryExtensions.swift in Sources */,
 				B0F7547E283464F60051038D /* ListEvent.swift in Sources */,

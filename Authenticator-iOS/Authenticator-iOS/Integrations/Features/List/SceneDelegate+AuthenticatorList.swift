@@ -15,9 +15,11 @@ extension SceneDelegate {
     func handleListEvent(_ event: ListEvent, listViewController: AuthenticatorListViewController?) {
         switch event {
         case .addAccountDidPress:
-            let addAccountViewController = self.makeAddAccountViewController().embeddedInNavigationController
-            addAccountViewController.modalPresentationStyle = .fullScreen
-            listViewController?.present(addAccountViewController, animated: true)
+            let addAccountFlow = AddAccountFlow(source: listViewController)
+            let (addAccountViewController, addAccountEventPublisher) = AddAccountComposer.addAccount(with: addAccountDependencies)
+            addAccountFlow.start(
+                with: addAccountViewController,
+                addAccountEventPublisher: addAccountEventPublisher.trackAddAccountEvents())
         default:
             break
         }
