@@ -339,6 +339,7 @@ class AuthenticatorListPresenterServiceMock: AuthenticatorListPresenterService {
         deleteCallIDS.count
     }
     var favouriteCallIDS: [UUID] = []
+    var updateCalls: [AuthenticatorAccountModel] = []
 
     func loadAccounts() {
         loadAccountCallCount += 1
@@ -354,5 +355,9 @@ class AuthenticatorListPresenterServiceMock: AuthenticatorListPresenterService {
 
     func favourite(_ account: UUID) {
         favouriteCallIDS.append(account)
+    }
+
+    func update(_ account: AuthenticatorAccountModel) {
+        updateCalls.append(account)
     }
 }

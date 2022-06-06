@@ -19,6 +19,7 @@ class AuthenticatorListIntegrationTests: XCTestCase {
             delete: loader.delete,
             moveAccounts: loader.swap,
             favourite: loader.favourite,
+            update: loader.update,
             refreshPublisher: loader.refresh)
         )
         XCTAssertEqual(viewController.0.title, "Authenticator")
@@ -33,6 +34,7 @@ class ListLoaderStub {
         Empty().eraseToAnyPublisher()
     }
     var refresh: AnyPublisher<Void, Never> = Empty().eraseToAnyPublisher()
+    var update: (AuthenticatorAccountModel) -> AnyPublisher<Void, Error> = { _ in Empty().eraseToAnyPublisher() }
 }
 
 class TOTPProviderMock: TOTPProvider {
