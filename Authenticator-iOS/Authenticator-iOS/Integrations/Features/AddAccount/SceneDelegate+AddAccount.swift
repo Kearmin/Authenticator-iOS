@@ -11,9 +11,11 @@ import AccountRepository
 import Resolver
 import UIKit
 
-extension SceneDelegate {
-    var addAccountDependencies: AddAccountComposer.Dependencies {
-        .init(
-            saveAccountPublisher: Resolver.resolve(AccountRepository.self).savePublisher(account:))
+extension Resolver {
+    static func registerAddAccountDependencies() {
+        register(AddAccountComposer.Dependencies.self) { resolver in
+            .init(
+                saveAccountPublisher: resolver.resolve(AccountRepository.self).savePublisher(account:))
+        }
     }
 }

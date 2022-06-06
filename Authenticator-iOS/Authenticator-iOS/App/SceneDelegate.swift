@@ -12,8 +12,6 @@ import Combine
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
-    var subscriptions = Set<AnyCancellable>()
-    var overlayFlow: OverlayFlow?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         if AppConfig.isRunningUnitTests {
@@ -28,8 +26,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         Resolver.optional(SegmentAnalytics.self)?.initialize()
 
         guard let windowScene = (scene as? UIWindowScene) else { return }
-        let overlayFlow = OverlayFlow(appWindow: makeListWindow(with: windowScene), sceneDelegate: self)
-        overlayFlow.start(with: windowScene)
+
+        let appFlow: AppFlow = Resolver.resolve()
+        appFlow.start(with: windowScene, sceneDelegate: self)
     }
 
     func unitTestScene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {

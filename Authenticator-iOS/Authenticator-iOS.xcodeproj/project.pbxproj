@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B008CA6F284E8BBB00561409 /* OverlayFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B008CA6E284E8BBB00561409 /* OverlayFlow.swift */; };
+		B008CA71284E9C9F00561409 /* AppFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B008CA70284E9C9F00561409 /* AppFlow.swift */; };
 		B02189712831559D00918B8D /* AuthenticatorAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02189702831559D00918B8D /* AuthenticatorAnalytics.swift */; };
 		B02189772831748100918B8D /* Analytics+AddAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02189762831748100918B8D /* Analytics+AddAccount.swift */; };
 		B02189792831BB5F00918B8D /* Analytics+List.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02189782831BB5F00918B8D /* Analytics+List.swift */; };
@@ -119,6 +120,7 @@
 
 /* Begin PBXFileReference section */
 		B008CA6E284E8BBB00561409 /* OverlayFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayFlow.swift; sourceTree = "<group>"; };
+		B008CA70284E9C9F00561409 /* AppFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
 		B02189702831559D00918B8D /* AuthenticatorAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorAnalytics.swift; sourceTree = "<group>"; };
 		B0218972283159E000918B8D /* Segment.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Segment.xcframework; path = ../Carthage/Build/Segment.xcframework; sourceTree = "<group>"; };
 		B02189762831748100918B8D /* Analytics+AddAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analytics+AddAccount.swift"; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				B036FAE8284E39B700866F02 /* ShowErrorFlow.swift */,
 				B036FAEA284E55C300866F02 /* AddAccountFlow.swift */,
 				B008CA6E284E8BBB00561409 /* OverlayFlow.swift */,
+				B008CA70284E9C9F00561409 /* AppFlow.swift */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -563,6 +566,7 @@
 				B02189792831BB5F00918B8D /* Analytics+List.swift in Sources */,
 				B06A5FEF2830878D00433C58 /* SwiftUIHelpers.swift in Sources */,
 				B02189772831748100918B8D /* Analytics+AddAccount.swift in Sources */,
+				B008CA71284E9C9F00561409 /* AppFlow.swift in Sources */,
 				B0F75474283459A60051038D /* OverlayAuthenticatorUseCaseAuthenticationServiceAdapter.swift in Sources */,
 				B025FDD9282FD5F6008D1DF1 /* AuthenticatorTOTPProvider.swift in Sources */,
 			);

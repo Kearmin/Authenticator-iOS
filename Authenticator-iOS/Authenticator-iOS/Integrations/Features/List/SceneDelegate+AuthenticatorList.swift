@@ -11,21 +11,22 @@ import AccountRepository
 import Resolver
 import UIKit
 
-extension SceneDelegate {
-    func handleListEvent(_ event: ListEvent, listViewController: AuthenticatorListViewController?) {
-        switch event {
-        case .addAccountDidPress:
-            let addAccountFlow = AddAccountFlow(source: listViewController)
-            let (addAccountViewController, addAccountEventPublisher) = AddAccountComposer.addAccount(with: addAccountDependencies)
-            addAccountFlow.start(
-                with: addAccountViewController,
-                addAccountEventPublisher: addAccountEventPublisher.trackAddAccountEvents())
-        default:
-            break
+extension Resolver {
+    static func registerListDependencies() {
+        register(ListComposer.Dependencies.self) { resolver in
+            let repository: AccountRepository = resolver.resolve()
+            return .init(
+                totpProvider: resolver.resolve(),
+                readAccounts: repository.loadPublisher,
+                delete: deletePublisher,
+                moveAccounts: repository.movePublisher(fromID:toID:),
+                favourite: repository.favourite(_:),
+                update: repository.update(_:),
+                refreshPublisher: repository.didSavePublisher)
         }
     }
 
-    var deletePublisher: (UUID) -> AnyPublisher<Void, Error> {
+    static var deletePublisher: (UUID) -> AnyPublisher<Void, Error> {
         { uuid in
             Resolver.resolve(AccountRepository.self)
                 .deletePublisher(accountID: uuid)
@@ -34,35 +35,5 @@ extension SceneDelegate {
                 })
                 .eraseToAnyPublisher()
         }
-    }
-
-    var listDependencies: ListComposer.Dependencies {
-        let repository: AccountRepository = Resolver.resolve()
-        return .init(
-            totpProvider: Resolver.resolve(),
-            readAccounts: repository.loadPublisher,
-            delete: deletePublisher,
-            moveAccounts: repository.movePublisher(fromID:toID:),
-            favourite: repository.favourite(_:),
-            update: repository.update(_:),
-            refreshPublisher: repository.didSavePublisher)
-    }
-
-    func makeListViewController() -> AuthenticatorListViewController {
-        let (viewController, listEventPublisher) = ListComposer.list(dependencies: listDependencies)
-        listEventPublisher
-            .trackListEvents()
-            .receive(on: DispatchQueue.main)
-            .sink { [weak viewController] in
-                self.handleListEvent($0, listViewController: viewController)
-            }
-            .store(in: &subscriptions)
-        return viewController
-    }
-
-    func makeListWindow(with windowScene: UIWindowScene) -> UIWindow {
-        let window = UIWindow(windowScene: windowScene)
-        window.rootViewController = makeListViewController().embeddedInNavigationController
-        return window
     }
 }

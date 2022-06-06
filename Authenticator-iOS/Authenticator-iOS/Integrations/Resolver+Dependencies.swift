@@ -27,6 +27,11 @@ extension Resolver {
         }
         .scope(.application)
 
+        register {
+            AppFlow()
+        }
+        .scope(.application)
+
 //        register(SegmentAnalytics.self) {
 //            SegmentAnalytics()
 //        }
@@ -66,5 +71,8 @@ extension Resolver {
         register(TOTPProvider.self) {
             AuthenticatorTOTPProvider()
         }
+
+        registerListDependencies()
+        registerAddAccountDependencies()
     }
 }
