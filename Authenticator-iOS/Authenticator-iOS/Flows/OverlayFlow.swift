@@ -1,17 +1,33 @@
 //
-//  SceneDelegate+Overlay.swift
+//  OverlayFlow.swift
 //  Authenticator-iOS
 //
-//  Created by Kertész Jenő Ármin on 2022. 05. 18..
+//  Created by Kertész Jenő Ármin on 2022. 06. 06..
 //
 
 import Foundation
-import UIKit
-import OverlayBusiness
 import OverlayView
+import UIKit
 import Combine
 
-extension SceneDelegate {
+
+class OverlayFlow {
+    private let sceneDelegate: SceneDelegate
+    private let appWindow: UIWindow?
+    private var overlayWindow: UIWindow?
+    private var overlayEventCancellable: AnyCancellable?
+
+    init(appWindow: UIWindow?, sceneDelegate: SceneDelegate) {
+        self.appWindow = appWindow
+        self.sceneDelegate = sceneDelegate
+    }
+
+    func start(with windowScene: UIWindowScene) {
+        self.overlayWindow = makeOverlayWindow(with: windowScene)
+        sceneDelegate.window = overlayWindow
+        sceneDelegate.window?.makeKeyAndVisible()
+    }
+
     func makeOverlayWindow(with windowScene: UIWindowScene) -> UIWindow {
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = makeOverlayViewController()
@@ -20,11 +36,10 @@ extension SceneDelegate {
 
     func makeOverlayViewController() -> OverlayViewController {
         let (viewController, eventSubject) = OverlayComposer.overlay()
-        eventSubject
+        overlayEventCancellable = eventSubject
             .trackOverlayEvents()
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: handleOverlayEvent(_:))
-            .store(in: &subscriptions)
         return viewController
     }
 
@@ -42,7 +57,7 @@ extension SceneDelegate {
     }
 
     func switchWindow(from fromWindow: UIWindow, to toWindow: UIWindow) {
-        window = toWindow
+        sceneDelegate.window = toWindow
         toWindow.makeKeyAndVisible()
         fromWindow.isHidden = true
     }
