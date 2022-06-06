@@ -15,6 +15,10 @@ func onMain(_ block: @escaping () -> Void) {
     }
 }
 
+func onMain(afterSeconds: Double, _ block: @escaping () -> Void) {
+    DispatchQueue.main.asyncAfter(deadline: .now() + afterSeconds, execute: block)
+}
+
 enum Queues {
     static let generalBackgroundQueue = DispatchQueue(label: "general.background")
     static let fileIOBackgroundQueue = DispatchQueue(label: "fileIO.background")

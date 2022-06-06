@@ -20,6 +20,7 @@ class AuthenticatorListPresenterServiceAdapter: AuthenticatorListPresenterServic
     var delete: (_ accountID: UUID) -> AnyPublisher<Void, Error>
     var move: (UUID, UUID) -> AnyPublisher<Void, Error>
     var favourite: (_ accountID: UUID) -> AnyPublisher<Void, Error>
+    var update: (_ account: AuthenticatorAccountModel) -> AnyPublisher<Void, Error>
     var searchTextPublisher: AnyPublisher<String, Never>
 
     weak var presenter: AuthenticatorListPresenter? {
@@ -37,7 +38,8 @@ class AuthenticatorListPresenterServiceAdapter: AuthenticatorListPresenterServic
          delete: @escaping (_ accountID: UUID) -> AnyPublisher<Void, Error>,
          swap: @escaping (UUID, UUID) -> AnyPublisher<Void, Error>,
          favourite: @escaping (_ accountID: UUID) -> AnyPublisher<Void, Error>,
-         searchTextPublisher: AnyPublisher<String, Never>
+         searchTextPublisher: AnyPublisher<String, Never>,
+         update: @escaping (_ account: AuthenticatorAccountModel) -> AnyPublisher<Void, Error>
     ) {
         self.totpProvider = totpProvider
         self.readAccounts = readAccounts
@@ -45,6 +47,7 @@ class AuthenticatorListPresenterServiceAdapter: AuthenticatorListPresenterServic
         self.move = swap
         self.favourite = favourite
         self.searchTextPublisher = searchTextPublisher
+        self.update = update
 
         Timer
             .publish(every: 1, on: .current, in: .common)
@@ -92,6 +95,10 @@ class AuthenticatorListPresenterServiceAdapter: AuthenticatorListPresenterServic
 
     func favourite(_ account: UUID) {
         executeOperation(operation: favourite(account))
+    }
+
+    func update(_ account: AuthenticatorAccountModel) {
+        executeOperation(operation: update(account))
     }
 
     func executeOperation(operation: AnyPublisher<Void, Error>) {

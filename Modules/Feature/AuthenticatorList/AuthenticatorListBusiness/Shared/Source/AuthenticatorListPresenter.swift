@@ -13,6 +13,7 @@ public protocol AuthenticatorListPresenterService {
     func getTOTP(secret: String, timeInterval: Int, date: Date) -> String
     func deleteAccount(id: UUID)
     func favourite(_ account: UUID)
+    func update(_ account: AuthenticatorAccountModel)
 }
 
 public protocol AuthenticatorListViewOutput: AnyObject {
@@ -77,6 +78,26 @@ public final class AuthenticatorListPresenter {
         } catch {
             errorOutput?.receive(error: error)
         }
+    }
+
+    public func update(id: UUID, issuer: String?, username: String?) {
+        guard let issuer = issuer,
+              let username = username,
+               let account = models.first(where: { $0.id == id })
+        else {
+            return
+        }
+        if account.issuer == issuer && account.username == username {
+            return
+        }
+        let newAccount = AuthenticatorAccountModel(
+            id: account.id,
+            issuer: issuer,
+            username: username,
+            secret: account.secret,
+            isFavourite: account.isFavourite,
+            createdAt: account.createdAt)
+        service.update(newAccount)
     }
 
     public func favourite(id: UUID) {

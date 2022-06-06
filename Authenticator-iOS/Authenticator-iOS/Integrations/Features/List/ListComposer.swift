@@ -20,6 +20,7 @@ enum ListComposer {
         var delete: (_ accountID: UUID) -> AnyPublisher<Void, Error>
         var moveAccounts: (_ from: UUID, _ to: UUID) -> AnyPublisher<Void, Error>
         var favourite: (_ account: UUID) -> AnyPublisher<Void, Error>
+        var update: (_ account: AuthenticatorAccountModel) -> AnyPublisher<Void, Error>
         var refreshPublisher: AnyPublisher<Void, Never>
     }
 
@@ -33,7 +34,8 @@ enum ListComposer {
             delete: dependencies.delete,
             swap: dependencies.moveAccounts,
             favourite: dependencies.favourite,
-            searchTextPublisher: viewModel.$searchText.eraseToAnyPublisher()
+            searchTextPublisher: viewModel.$searchText.eraseToAnyPublisher(),
+            update: dependencies.update
         )
         let presenter = AuthenticatorListPresenter(service: presenterService, cycleLength: Constants.appCycleLength)
         presenterService.presenter = presenter

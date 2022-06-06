@@ -18,26 +18,43 @@ public struct AuthenticatorListView: View {
     }
 
     public var body: some View {
-        VStack(spacing: 10) {
-            HStack {
-                TextField("Search", text: $viewModel.searchText)
-                    .textFieldStyle(.roundedBorder)
-                Text(viewModel.countDownSeconds)
-                    .font(.system(size: 40))
-                    .fontWeight(.bold)
-                    .frame(width: 60)
-            }
-            .padding(.horizontal)
-            List {
-                ForEach(viewModel.sections) { section in
-                    Section(section.title) {
-                        ForEach(section.rows) { row in
-                            authenticatorListRow(row)
+        ZStack {
+            VStack(spacing: 10) {
+                HStack {
+                    TextField("Search", text: $viewModel.searchText)
+                        .textFieldStyle(.roundedBorder)
+                    Text(viewModel.countDownSeconds)
+                        .font(.system(size: 40))
+                        .fontWeight(.bold)
+                        .frame(width: 60)
+                }
+                .padding(.horizontal)
+                List {
+                    ForEach(viewModel.sections) { section in
+                        Section(section.title) {
+                            ForEach(section.rows) { row in
+                                authenticatorListRow(row)
+                            }
                         }
                     }
                 }
+                .listStyle(.automatic)
             }
-            .listStyle(.automatic)
+            if let toast = viewModel.toast {
+                VStack {
+                    Spacer()
+                    Text(toast)
+                        .font(.body)
+                        .fontWeight(.semibold)
+                        .foregroundColor(.white)
+                        .padding(4)
+                        .background(Color.blue)
+                        .cornerRadius(5)
+                }
+                .offset(x: 0, y: -25)
+                .transition(.opacity)
+                .zIndex(1)
+            }
         }
     }
 
@@ -61,9 +78,7 @@ public struct AuthenticatorListView: View {
             row.onDidPress()
         }
         .swipeActions(edge: .leading) {
-            Button() {
-                print("Edit: \(row.username)")
-            } label: {
+            Button(action: row.onEditPress) {
                 Text("Edit")
             }
             .tint(.cyan)
@@ -97,7 +112,8 @@ struct AuthenticatorListView_Previews: PreviewProvider {
                         isFavourite: true,
                         onFavouritePress: {},
                         onDeletePress: {},
-                        onDidPress: {}),
+                        onDidPress: {},
+                        onEditPress: {}),
                     .init(
                         id: UUID(),
                         issuer: "Issuer",
@@ -106,7 +122,8 @@ struct AuthenticatorListView_Previews: PreviewProvider {
                         isFavourite: true,
                         onFavouritePress: {},
                         onDeletePress: {},
-                        onDidPress: {})
+                        onDidPress: {},
+                        onEditPress: {})
                 ]),
                 .init(title: "Accounts", rows: [
                     .init(
@@ -117,7 +134,8 @@ struct AuthenticatorListView_Previews: PreviewProvider {
                         isFavourite: false,
                         onFavouritePress: {},
                         onDeletePress: {},
-                        onDidPress: {}),
+                        onDidPress: {},
+                        onEditPress: {}),
                     .init(
                         id: UUID(),
                         issuer: "Issuer",
@@ -125,25 +143,24 @@ struct AuthenticatorListView_Previews: PreviewProvider {
                         TOTPCode: "123456",
                         isFavourite: false,
                         onFavouritePress: {},
-                        onDeletePress:
-
-
-
-
-                            {},
-                        onDidPress: {})
+                        onDeletePress: {},
+                        onDidPress: {},
+                        onEditPress: {})
                 ])
             ])
+        viewModel.toast = "Copied to clipboard"
         return viewModel
     }
     static var previews: some View {
         NavigationView {
             AuthenticatorListView(
                 viewModel: viewModel)
+            .navigationBarTitleDisplayMode(.inline)
         }
         NavigationView {
             AuthenticatorListView(
                 viewModel: viewModel)
+            .navigationBarTitleDisplayMode(.inline)
         }
         .preferredColorScheme(.dark)
     }

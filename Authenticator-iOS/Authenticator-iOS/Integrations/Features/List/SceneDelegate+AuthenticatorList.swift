@@ -42,6 +42,7 @@ extension SceneDelegate {
             delete: deletePublisher,
             moveAccounts: repository.movePublisher(fromID:toID:),
             favourite: repository.favourite(_:),
+            update: repository.update(_:),
             refreshPublisher: repository.didSavePublisher)
     }
 

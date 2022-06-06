@@ -52,4 +52,11 @@ extension AccountRepository {
         }
         .eraseToAnyPublisher()
     }
+
+    func update(_ account: AuthenticatorAccountModel) -> AnyPublisher<Void, Error> {
+        Future { completion in
+            completion(Result { try self.update(item: account) })
+        }
+        .eraseToAnyPublisher()
+    }
 }

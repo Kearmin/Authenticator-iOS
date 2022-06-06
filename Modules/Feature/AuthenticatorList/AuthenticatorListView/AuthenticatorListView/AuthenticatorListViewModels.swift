@@ -18,6 +18,7 @@ public struct AuthenticatorListRow: Identifiable, Equatable {
     public let onFavouritePress: () -> Void
     public let onDeletePress: () -> Void
     public let onDidPress: () -> Void
+    public let onEditPress: () -> Void
 
     public static func == (lhs: AuthenticatorListRow, rhs: AuthenticatorListRow) -> Bool {
         lhs.id == rhs.id
@@ -35,7 +36,8 @@ public struct AuthenticatorListRow: Identifiable, Equatable {
         isFavourite: Bool,
         onFavouritePress: @escaping () -> Void,
         onDeletePress: @escaping () -> Void,
-        onDidPress: @escaping () -> Void
+        onDidPress: @escaping () -> Void,
+        onEditPress: @escaping () -> Void
     ) {
         self.id = id
         self.issuer = issuer
@@ -45,6 +47,7 @@ public struct AuthenticatorListRow: Identifiable, Equatable {
         self.onFavouritePress = onFavouritePress
         self.onDeletePress = onDeletePress
         self.onDidPress = onDidPress
+        self.onEditPress = onEditPress
     }
 }
 
@@ -65,6 +68,7 @@ public final class AuthenticatorListViewModel: ObservableObject {
     @Published public var countDownSeconds: String = ""
     @Published public var sections: [AuthenticatorListViewSection] = []
     @Published public var searchText: String = ""
+    @Published public var toast: String?
 
     public init() { }
 

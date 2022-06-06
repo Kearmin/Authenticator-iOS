@@ -15,3 +15,11 @@ func onMainWithAnimation(_ block: @escaping () -> Void) {
         }
     }
 }
+
+func onMainWithAnimation(_ animation: Animation, _ block: @escaping () -> Void) {
+    onMain {
+        withAnimation(animation) {
+            block()
+        }
+    }
+}
