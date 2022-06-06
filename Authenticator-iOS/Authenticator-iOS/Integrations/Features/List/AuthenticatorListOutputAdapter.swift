@@ -48,42 +48,22 @@ class AuthenticatorListOutputAdapter: AuthenticatorListViewOutput, Authenticator
                     onFavouritePress: { [presenter] in
                         presenter?.favourite(id: item.id)
                     },
-                    onDeletePress: { [presenter, listViewController] in
-                        let alert = UIAlertController(
-                            title: "Confirm",
-                            message: "Do you really want to delete this account?",
-                            preferredStyle: .alert)
-                        alert.addAction(.init(title: "Cancel", style: .cancel, handler: nil))
-                        alert.addAction(.init(title: "Delete", style: .destructive, handler: { [presenter] _ in
-                            presenter?.delete(id: item.id)
-                        }))
-                        onMain {
-                            listViewController?.present(alert, animated: true)
+                    onDeletePress: { [weak self] in
+                        let deleteAccountFlow = DeleteAccountFlow(source: self?.listViewController) { [weak self] in
+                            self?.presenter?.delete(id: item.id)
                         }
+                        deleteAccountFlow.start()
                     }, onDidPress: { [weak self] in
                         UIPasteboard.general.string = item.TOTPCode
                         onMainWithAnimation(.easeInOut(duration: 0.2)) {
                             self?.listViewController?.viewModel.toast = "Copied to clipboard"
                         }
                         self?.hideToastSubject.send()
-                    }, onEditPress: { [weak self] in
-                        let alert = UIAlertController(title: "Edit account", message: "", preferredStyle: .alert)
-                        alert.addTextField { textField in
-                            textField.placeholder = "Issuer"
-                            textField.text = item.issuer
+                    }, onEditPress: { [listViewController] in
+                        let editFlow = EditAccountFlow(account: item, source: listViewController) { [weak self] issuer, username in
+                            self?.presenter?.update(id: item.id, issuer: issuer, username: username)
                         }
-                        alert.addTextField { textField in
-                            textField.placeholder = "Username"
-                            textField.text = item.username
-                        }
-                        alert.addAction(.init(title: "Cancel", style: .cancel, handler: nil))
-                        alert.addAction(.init(title: "Finish", style: .default, handler: { [weak self] _ in
-                            self?.presenter?.update(
-                                id: item.id,
-                                issuer: alert.textFields?[0].text,
-                                username: alert.textFields?[1].text)
-                        }))
-                        self?.listViewController?.present(alert, animated: true)
+                        editFlow.start()
                     })
             })
         }
@@ -93,12 +73,7 @@ class AuthenticatorListOutputAdapter: AuthenticatorListViewOutput, Authenticator
     }
 
     public func receive(error: Error) {
-        let alert = UIAlertController(
-            title: "Error",
-            message: "\(error)",
-            preferredStyle: .alert)
-        onMain {
-            self.listViewController?.present(alert, animated: true, completion: nil)
-        }
+        let showErrorFlow = ShowErrorFlow(source: listViewController, title: "Error", message: "\(error)")
+        showErrorFlow.start()
     }
 }
