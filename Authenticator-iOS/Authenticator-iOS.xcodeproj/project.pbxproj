@@ -9,9 +9,10 @@
 /* Begin PBXBuildFile section */
 		B008CA6F284E8BBB00561409 /* OverlayFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B008CA6E284E8BBB00561409 /* OverlayFlow.swift */; };
 		B008CA71284E9C9F00561409 /* AppFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B008CA70284E9C9F00561409 /* AppFlow.swift */; };
+		B008CA74284EA36000561409 /* FileSystemPersistentStorageMigrationRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B008CA73284EA36000561409 /* FileSystemPersistentStorageMigrationRunner.swift */; };
 		B02189712831559D00918B8D /* AuthenticatorAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02189702831559D00918B8D /* AuthenticatorAnalytics.swift */; };
 		B02189772831748100918B8D /* Analytics+AddAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02189762831748100918B8D /* Analytics+AddAccount.swift */; };
-		B02189792831BB5F00918B8D /* Analytics+List.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02189782831BB5F00918B8D /* Analytics+List.swift */; };
+		B02189792831BB5F00918B8D /* Analytics+AuthenticatorList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02189782831BB5F00918B8D /* Analytics+AuthenticatorList.swift */; };
 		B021897B2831CEB000918B8D /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = B021897A2831CEB000918B8D /* Images.swift */; };
 		B025FDCE282FBAC4008D1DF1 /* Resolver.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B025FDCC282FBAC4008D1DF1 /* Resolver.xcframework */; };
 		B025FDCF282FBAC4008D1DF1 /* Resolver.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B025FDCC282FBAC4008D1DF1 /* Resolver.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -34,8 +35,8 @@
 		B06A5FD82830115700433C58 /* FileSystemPersistentStorage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FD72830115700433C58 /* FileSystemPersistentStorage+Extensions.swift */; };
 		B06A5FDD283047C800433C58 /* AddAccountComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FDC283047C800433C58 /* AddAccountComposer.swift */; };
 		B06A5FE12830525D00433C58 /* UIKitHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FE02830525D00433C58 /* UIKitHelpers.swift */; };
-		B06A5FE32830531F00433C58 /* SceneDelegate+AuthenticatorList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FE22830531F00433C58 /* SceneDelegate+AuthenticatorList.swift */; };
-		B06A5FE52830532F00433C58 /* SceneDelegate+AddAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FE42830532F00433C58 /* SceneDelegate+AddAccount.swift */; };
+		B06A5FE32830531F00433C58 /* Resolver+AuthenticatorList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FE22830531F00433C58 /* Resolver+AuthenticatorList.swift */; };
+		B06A5FE52830532F00433C58 /* Resolver+AddAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FE42830532F00433C58 /* Resolver+AddAccount.swift */; };
 		B06A5FE7283069C700433C58 /* AddAccountSaveServiceAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FE6283069C700433C58 /* AddAccountSaveServiceAdapter.swift */; };
 		B06A5FE9283075D800433C58 /* AddAccountEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FE8283075D800433C58 /* AddAccountEvent.swift */; };
 		B06A5FEB28307F2700433C58 /* WeakRefProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FEA28307F2700433C58 /* WeakRefProxy.swift */; };
@@ -121,10 +122,11 @@
 /* Begin PBXFileReference section */
 		B008CA6E284E8BBB00561409 /* OverlayFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayFlow.swift; sourceTree = "<group>"; };
 		B008CA70284E9C9F00561409 /* AppFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
+		B008CA73284EA36000561409 /* FileSystemPersistentStorageMigrationRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystemPersistentStorageMigrationRunner.swift; sourceTree = "<group>"; };
 		B02189702831559D00918B8D /* AuthenticatorAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorAnalytics.swift; sourceTree = "<group>"; };
 		B0218972283159E000918B8D /* Segment.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Segment.xcframework; path = ../Carthage/Build/Segment.xcframework; sourceTree = "<group>"; };
 		B02189762831748100918B8D /* Analytics+AddAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analytics+AddAccount.swift"; sourceTree = "<group>"; };
-		B02189782831BB5F00918B8D /* Analytics+List.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analytics+List.swift"; sourceTree = "<group>"; };
+		B02189782831BB5F00918B8D /* Analytics+AuthenticatorList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analytics+AuthenticatorList.swift"; sourceTree = "<group>"; };
 		B021897A2831CEB000918B8D /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		B02189992832CDFD00918B8D /* OverlayManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OverlayManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B025FDCC282FBAC4008D1DF1 /* Resolver.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Resolver.xcframework; path = ../Carthage/Build/Resolver.xcframework; sourceTree = "<group>"; };
@@ -146,8 +148,8 @@
 		B06A5FD72830115700433C58 /* FileSystemPersistentStorage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileSystemPersistentStorage+Extensions.swift"; sourceTree = "<group>"; };
 		B06A5FDC283047C800433C58 /* AddAccountComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountComposer.swift; sourceTree = "<group>"; };
 		B06A5FE02830525D00433C58 /* UIKitHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitHelpers.swift; sourceTree = "<group>"; };
-		B06A5FE22830531F00433C58 /* SceneDelegate+AuthenticatorList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SceneDelegate+AuthenticatorList.swift"; sourceTree = "<group>"; };
-		B06A5FE42830532F00433C58 /* SceneDelegate+AddAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SceneDelegate+AddAccount.swift"; sourceTree = "<group>"; };
+		B06A5FE22830531F00433C58 /* Resolver+AuthenticatorList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+AuthenticatorList.swift"; sourceTree = "<group>"; };
+		B06A5FE42830532F00433C58 /* Resolver+AddAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+AddAccount.swift"; sourceTree = "<group>"; };
 		B06A5FE6283069C700433C58 /* AddAccountSaveServiceAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountSaveServiceAdapter.swift; sourceTree = "<group>"; };
 		B06A5FE8283075D800433C58 /* AddAccountEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountEvent.swift; sourceTree = "<group>"; };
 		B06A5FEA28307F2700433C58 /* WeakRefProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRefProxy.swift; sourceTree = "<group>"; };
@@ -244,8 +246,8 @@
 				B025FDD6282FD353008D1DF1 /* ListComposer.swift */,
 				B06A5FCE282FFDF100433C58 /* AuthenticatorListPresenterServiceAdapter.swift */,
 				B06A5FD0282FFE1A00433C58 /* AuthenticatorListOutputAdapter.swift */,
-				B06A5FE22830531F00433C58 /* SceneDelegate+AuthenticatorList.swift */,
-				B02189782831BB5F00918B8D /* Analytics+List.swift */,
+				B06A5FE22830531F00433C58 /* Resolver+AuthenticatorList.swift */,
+				B02189782831BB5F00918B8D /* Analytics+AuthenticatorList.swift */,
 				B0F7547D283464F60051038D /* ListEvent.swift */,
 			);
 			path = List;
@@ -274,6 +276,7 @@
 			isa = PBXGroup;
 			children = (
 				B06A5FD72830115700433C58 /* FileSystemPersistentStorage+Extensions.swift */,
+				B008CA73284EA36000561409 /* FileSystemPersistentStorageMigrationRunner.swift */,
 			);
 			path = FileSystemPersistentStorage;
 			sourceTree = "<group>";
@@ -308,7 +311,7 @@
 				B06A5FE6283069C700433C58 /* AddAccountSaveServiceAdapter.swift */,
 				B06A5FE8283075D800433C58 /* AddAccountEvent.swift */,
 				B02189762831748100918B8D /* Analytics+AddAccount.swift */,
-				B06A5FE42830532F00433C58 /* SceneDelegate+AddAccount.swift */,
+				B06A5FE42830532F00433C58 /* Resolver+AddAccount.swift */,
 				B0F7548328346B650051038D /* WeakRefProxy+AddAccount.swift */,
 			);
 			path = AddAccount;
@@ -538,7 +541,7 @@
 				B06A5FD1282FFE1A00433C58 /* AuthenticatorListOutputAdapter.swift in Sources */,
 				B06A5FE7283069C700433C58 /* AddAccountSaveServiceAdapter.swift in Sources */,
 				B036FAEB284E55C300866F02 /* AddAccountFlow.swift in Sources */,
-				B06A5FE32830531F00433C58 /* SceneDelegate+AuthenticatorList.swift in Sources */,
+				B06A5FE32830531F00433C58 /* Resolver+AuthenticatorList.swift in Sources */,
 				B06A5FD52830111D00433C58 /* AccountRepositoryExtensions.swift in Sources */,
 				B0F7547E283464F60051038D /* ListEvent.swift in Sources */,
 				B0F75480283465670051038D /* Constants.swift in Sources */,
@@ -560,10 +563,11 @@
 				B0F75476283459DA0051038D /* OverlayAuthenticatorUseCaseOutputAdapter.swift in Sources */,
 				B02189712831559D00918B8D /* AuthenticatorAnalytics.swift in Sources */,
 				B06A5FD82830115700433C58 /* FileSystemPersistentStorage+Extensions.swift in Sources */,
-				B06A5FE52830532F00433C58 /* SceneDelegate+AddAccount.swift in Sources */,
+				B008CA74284EA36000561409 /* FileSystemPersistentStorageMigrationRunner.swift in Sources */,
+				B06A5FE52830532F00433C58 /* Resolver+AddAccount.swift in Sources */,
 				B0F7548228346A2D0051038D /* AppConfig.swift in Sources */,
 				B0B2B963282FB78900BB7E00 /* SceneDelegate.swift in Sources */,
-				B02189792831BB5F00918B8D /* Analytics+List.swift in Sources */,
+				B02189792831BB5F00918B8D /* Analytics+AuthenticatorList.swift in Sources */,
 				B06A5FEF2830878D00433C58 /* SwiftUIHelpers.swift in Sources */,
 				B02189772831748100918B8D /* Analytics+AddAccount.swift in Sources */,
 				B008CA71284E9C9F00561409 /* AppFlow.swift in Sources */,

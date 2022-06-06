@@ -38,30 +38,21 @@ extension Resolver {
 //        .implements(AuthenticatorAnalytics.self)
 //        .scope(.application)
 
-        register(JSONFileSystemPersistance<[AuthenticatorAccountModel]>.self) { resolver in
-            let analytics: AuthenticatorAnalytics = resolver.resolve()
+        register(AccountJSONFileSystemPersistance.self) { resolver in
             let userDefaults: UserDefaults = resolver.resolve()
-            if userDefaults.object(forKey: Keys.accountMigrations) == nil {
-                userDefaults.set(Constants.accountVersion, forKey: Keys.accountMigrations)
-            }
-            let accountPersistance = JSONFileSystemPersistance<[AuthenticatorAccountModel]>(
+            return AccountJSONFileSystemPersistance(
                 fileName: "accounts",
                 queue: Queues.fileIOBackgroundQueue,
                 version: userDefaults.integer(forKey: Keys.accountMigrations))
-            do {
-                let migrationsRan = try accountPersistance.runMigrations([AddFavouriteMigration(), AddTimeStampMigration()])
-                if migrationsRan > 0 {
-                    UserDefaults.standard.set(Constants.accountVersion, forKey: Keys.accountMigrations)
-                    analytics.track(name: "Successfully ran migrations")
-                } else {
-                    print("No eligible migrations ran")
-                }
-            } catch {
-                analytics.track(name: "Failed to run migrations", properties: ["Error": error])
-            }
-            return accountPersistance
         }
         .scope(.cached)
+
+        register { resolver in
+            FileSystemPersistentStorageMigrationRunner(
+                persistance: resolver.resolve(),
+                analytics: resolver.resolve(),
+                userDefaults: resolver.resolve())
+        }
 
         register { resolver in
             AccountRepository(provider: resolver.resolve())
@@ -72,6 +63,10 @@ extension Resolver {
             AuthenticatorTOTPProvider()
         }
 
+        registerFeatureDependencies()
+    }
+
+    static func registerFeatureDependencies() {
         registerListDependencies()
         registerAddAccountDependencies()
     }
