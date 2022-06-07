@@ -22,10 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 
     func appScene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        Resolver.registerDependencies()
-        Resolver.optional(SegmentAnalytics.self)?.initialize()
-        Resolver.resolve(FileSystemPersistentStorageMigrationRunner.self).runMigrations()
-
+        AppStartup().runStartup()
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
         let appFlow: AppFlow = Resolver.resolve()

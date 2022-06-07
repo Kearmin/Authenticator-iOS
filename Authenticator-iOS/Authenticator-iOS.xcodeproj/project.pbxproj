@@ -10,6 +10,7 @@
 		B008CA6F284E8BBB00561409 /* OverlayFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B008CA6E284E8BBB00561409 /* OverlayFlow.swift */; };
 		B008CA71284E9C9F00561409 /* AppFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B008CA70284E9C9F00561409 /* AppFlow.swift */; };
 		B008CA74284EA36000561409 /* FileSystemPersistentStorageMigrationRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B008CA73284EA36000561409 /* FileSystemPersistentStorageMigrationRunner.swift */; };
+		B008CA76284EA78900561409 /* AppStartup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B008CA75284EA78900561409 /* AppStartup.swift */; };
 		B02189712831559D00918B8D /* AuthenticatorAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02189702831559D00918B8D /* AuthenticatorAnalytics.swift */; };
 		B02189772831748100918B8D /* Analytics+AddAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02189762831748100918B8D /* Analytics+AddAccount.swift */; };
 		B02189792831BB5F00918B8D /* Analytics+AuthenticatorList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02189782831BB5F00918B8D /* Analytics+AuthenticatorList.swift */; };
@@ -21,7 +22,7 @@
 		B025FDD3282FCB9D008D1DF1 /* Resolver+Dependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = B025FDD2282FCB9D008D1DF1 /* Resolver+Dependencies.swift */; };
 		B025FDD5282FCC88008D1DF1 /* Threading.swift in Sources */ = {isa = PBXBuildFile; fileRef = B025FDD4282FCC88008D1DF1 /* Threading.swift */; };
 		B025FDD7282FD353008D1DF1 /* ListComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B025FDD6282FD353008D1DF1 /* ListComposer.swift */; };
-		B025FDD9282FD5F6008D1DF1 /* AuthenticatorTOTPProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B025FDD8282FD5F6008D1DF1 /* AuthenticatorTOTPProvider.swift */; };
+		B025FDD9282FD5F6008D1DF1 /* SwiftOTPTOTPProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B025FDD8282FD5F6008D1DF1 /* SwiftOTPTOTPProvider.swift */; };
 		B02B74DF2842ABEA00386A54 /* Segment.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0218972283159E000918B8D /* Segment.xcframework */; };
 		B02B74E02842ABEA00386A54 /* Segment.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0218972283159E000918B8D /* Segment.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B036FAE5284E399200866F02 /* EditAccountFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B036FAE4284E399200866F02 /* EditAccountFlow.swift */; };
@@ -123,6 +124,7 @@
 		B008CA6E284E8BBB00561409 /* OverlayFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayFlow.swift; sourceTree = "<group>"; };
 		B008CA70284E9C9F00561409 /* AppFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
 		B008CA73284EA36000561409 /* FileSystemPersistentStorageMigrationRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystemPersistentStorageMigrationRunner.swift; sourceTree = "<group>"; };
+		B008CA75284EA78900561409 /* AppStartup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStartup.swift; sourceTree = "<group>"; };
 		B02189702831559D00918B8D /* AuthenticatorAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorAnalytics.swift; sourceTree = "<group>"; };
 		B0218972283159E000918B8D /* Segment.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Segment.xcframework; path = ../Carthage/Build/Segment.xcframework; sourceTree = "<group>"; };
 		B02189762831748100918B8D /* Analytics+AddAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analytics+AddAccount.swift"; sourceTree = "<group>"; };
@@ -134,7 +136,7 @@
 		B025FDD2282FCB9D008D1DF1 /* Resolver+Dependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+Dependencies.swift"; sourceTree = "<group>"; };
 		B025FDD4282FCC88008D1DF1 /* Threading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Threading.swift; sourceTree = "<group>"; };
 		B025FDD6282FD353008D1DF1 /* ListComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListComposer.swift; sourceTree = "<group>"; };
-		B025FDD8282FD5F6008D1DF1 /* AuthenticatorTOTPProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorTOTPProvider.swift; sourceTree = "<group>"; };
+		B025FDD8282FD5F6008D1DF1 /* SwiftOTPTOTPProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftOTPTOTPProvider.swift; sourceTree = "<group>"; };
 		B036FAE4284E399200866F02 /* EditAccountFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountFlow.swift; sourceTree = "<group>"; };
 		B036FAE6284E39A600866F02 /* DeleteAccountFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountFlow.swift; sourceTree = "<group>"; };
 		B036FAE8284E39B700866F02 /* ShowErrorFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowErrorFlow.swift; sourceTree = "<group>"; };
@@ -213,7 +215,7 @@
 		B021896F2831558300918B8D /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
-				B025FDD8282FD5F6008D1DF1 /* AuthenticatorTOTPProvider.swift */,
+				B025FDD8282FD5F6008D1DF1 /* SwiftOTPTOTPProvider.swift */,
 				B02189702831559D00918B8D /* AuthenticatorAnalytics.swift */,
 			);
 			path = ThirdParty;
@@ -287,6 +289,7 @@
 				B0B2B960282FB78900BB7E00 /* AppDelegate.swift */,
 				B0B2B962282FB78900BB7E00 /* SceneDelegate.swift */,
 				B0F7547F283465670051038D /* Constants.swift */,
+				B008CA75284EA78900561409 /* AppStartup.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -568,11 +571,12 @@
 				B0F7548228346A2D0051038D /* AppConfig.swift in Sources */,
 				B0B2B963282FB78900BB7E00 /* SceneDelegate.swift in Sources */,
 				B02189792831BB5F00918B8D /* Analytics+AuthenticatorList.swift in Sources */,
+				B008CA76284EA78900561409 /* AppStartup.swift in Sources */,
 				B06A5FEF2830878D00433C58 /* SwiftUIHelpers.swift in Sources */,
 				B02189772831748100918B8D /* Analytics+AddAccount.swift in Sources */,
 				B008CA71284E9C9F00561409 /* AppFlow.swift in Sources */,
 				B0F75474283459A60051038D /* OverlayAuthenticatorUseCaseAuthenticationServiceAdapter.swift in Sources */,
-				B025FDD9282FD5F6008D1DF1 /* AuthenticatorTOTPProvider.swift in Sources */,
+				B025FDD9282FD5F6008D1DF1 /* SwiftOTPTOTPProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

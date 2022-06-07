@@ -20,27 +20,14 @@ enum AuthenticatorTOTPAlgorithm {
     }
 }
 
-typealias TOTPPublisher = (_ secret: String,
-                           _ date: Date,
-                           _  digits: Int,
-                           _ timeInterval: Int,
-                           _ algorithm: AuthenticatorTOTPAlgorithm
-) -> AnyPublisher<String?, Never>
-
-protocol TOTPProvider {
+protocol AuthenticatorTOTPProvider {
     func totp(secret: String, date: Date, digits: Int, timeInterval: Int, algorithm: AuthenticatorTOTPAlgorithm) -> String?
-    func totpPublisher(secret: String, date: Date, digits: Int, timeInterval: Int, algorithm: AuthenticatorTOTPAlgorithm) -> AnyPublisher<String?, Never>
 }
 
-class AuthenticatorTOTPProvider: TOTPProvider {
+class SwiftOTPTOTPProvider: AuthenticatorTOTPProvider {
     func totp(secret: String, date: Date, digits: Int, timeInterval: Int, algorithm: AuthenticatorTOTPAlgorithm) -> String? {
         guard let data = base32DecodeToData(secret) else { return nil }
         let totp = TOTP(secret: data, digits: digits, timeInterval: timeInterval, algorithm: algorithm.swiftOTPAlgorithm)
         return totp?.generate(time: date)
-    }
-
-    func totpPublisher(secret: String, date: Date, digits: Int, timeInterval: Int, algorithm: AuthenticatorTOTPAlgorithm) -> AnyPublisher<String?, Never> {
-        let totp = totp(secret: secret, date: date, digits: digits, timeInterval: timeInterval, algorithm: algorithm)
-        return Just(totp).eraseToAnyPublisher()
     }
 }

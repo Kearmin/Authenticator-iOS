@@ -9,26 +9,28 @@ import Combine
 import AuthenticatorListView
 import AccountRepository
 import Resolver
+import Clock
 import UIKit
 
 extension Resolver {
     static func registerListDependencies() {
         register(ListComposer.Dependencies.self) { resolver in
             let repository: AccountRepository = resolver.resolve()
+            let clock: Clock = resolver.resolve()
             return .init(
                 totpProvider: resolver.resolve(),
                 readAccounts: repository.loadPublisher,
-                delete: deletePublisher,
-                moveAccounts: repository.movePublisher(fromID:toID:),
+                delete: deletePublisher(repository: repository),
                 favourite: repository.favourite(_:),
                 update: repository.update(_:),
-                refreshPublisher: repository.didSavePublisher)
+                refreshPublisher: repository.didSavePublisher,
+                clockPublisher: clock.clockPublisher)
         }
     }
 
-    static var deletePublisher: (UUID) -> AnyPublisher<Void, Error> {
+    static func deletePublisher(repository: AccountRepository) -> (UUID) -> AnyPublisher<Void, Error> {
         { uuid in
-            Resolver.resolve(AccountRepository.self)
+            repository
                 .deletePublisher(accountID: uuid)
                 .handleEvents(receiveOutput: { _ in
                     Resolver.resolve(AuthenticatorAnalytics.self).track(name: "Did delete account")

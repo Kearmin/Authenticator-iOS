@@ -8,6 +8,7 @@
 import Foundation
 
 enum Constants {
+    static let accountsFileName = "accounts"
     static let appCycleLength = 30
     static let accountVersion = 3
 }

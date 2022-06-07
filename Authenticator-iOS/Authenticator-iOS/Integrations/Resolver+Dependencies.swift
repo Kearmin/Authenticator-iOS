@@ -8,6 +8,7 @@
 import Foundation
 import Resolver
 import Combine
+import Clock
 
 import FileSystemPersistentStorage
 import AccountRepository
@@ -16,10 +17,13 @@ import UIKit
 
 extension Resolver {
     static func registerDependencies() {
-        register {
-            LogAnalytics()
+        register(AuthenticatorAnalytics.self) {
+            if AppConfig.isDebug {
+                return LogAnalytics()
+            } else {
+                return SegmentAnalytics()
+            }
         }
-        .implements(AuthenticatorAnalytics.self)
         .scope(.application)
 
         register {
@@ -30,20 +34,24 @@ extension Resolver {
         register {
             AppFlow()
         }
-        .scope(.application)
+        .scope(.cached)
 
-//        register(SegmentAnalytics.self) {
-//            SegmentAnalytics()
-//        }
-//        .implements(AuthenticatorAnalytics.self)
-//        .scope(.application)
+        register {
+            Clock()
+        }
+        .scope(.cached)
 
         register(AccountJSONFileSystemPersistance.self) { resolver in
             let userDefaults: UserDefaults = resolver.resolve()
             return AccountJSONFileSystemPersistance(
-                fileName: "accounts",
+                fileName: Constants.accountsFileName,
                 queue: Queues.fileIOBackgroundQueue,
                 version: userDefaults.integer(forKey: Keys.accountMigrations))
+        }
+        .scope(.cached)
+
+        register { resolver in
+            AccountRepository(provider: resolver.resolve())
         }
         .scope(.cached)
 
@@ -54,13 +62,8 @@ extension Resolver {
                 userDefaults: resolver.resolve())
         }
 
-        register { resolver in
-            AccountRepository(provider: resolver.resolve())
-        }
-        .scope(.cached)
-
-        register(TOTPProvider.self) {
-            AuthenticatorTOTPProvider()
+        register(AuthenticatorTOTPProvider.self) {
+            SwiftOTPTOTPProvider()
         }
 
         registerFeatureDependencies()

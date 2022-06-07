@@ -47,7 +47,6 @@ class OverlayFlow {
         guard let appWindow = self.appWindow, let overlayWindow = self.overlayWindow else {
             return
         }
-
         switch event {
         case .lock:
             self.switchWindow(from: appWindow, to: overlayWindow)

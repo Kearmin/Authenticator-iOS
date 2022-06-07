@@ -10,18 +10,18 @@ import AuthenticatorListBusiness
 import Combine
 
 class AuthenticatorListPresenterServiceAdapter: AuthenticatorListPresenterService {
-    private let totpProvider: TOTPProvider
+    private let totpProvider: AuthenticatorTOTPProvider
     private let currentTimeSubject = CurrentValueSubject<Date, Never>(Date())
     private var subscriptions = Set<AnyCancellable>()
     private var subjectSubscription: AnyCancellable?
     private var refreshSubscription: AnyCancellable?
 
-    var readAccounts: () -> AnyPublisher<[AuthenticatorAccountModel], Never>
-    var delete: (_ accountID: UUID) -> AnyPublisher<Void, Error>
-    var move: (UUID, UUID) -> AnyPublisher<Void, Error>
-    var favourite: (_ accountID: UUID) -> AnyPublisher<Void, Error>
-    var update: (_ account: AuthenticatorAccountModel) -> AnyPublisher<Void, Error>
-    var searchTextPublisher: AnyPublisher<String, Never>
+    private var clockPublisher: AnyPublisher<Date, Never>
+    private var readAccounts: () -> AnyPublisher<[AuthenticatorAccountModel], Never>
+    private var delete: (_ accountID: UUID) -> AnyPublisher<Void, Error>
+    private var favourite: (_ accountID: UUID) -> AnyPublisher<Void, Error>
+    private var update: (_ account: AuthenticatorAccountModel) -> AnyPublisher<Void, Error>
+    private var searchTextPublisher: AnyPublisher<String, Never>
 
     weak var presenter: AuthenticatorListPresenter? {
         didSet {
@@ -32,26 +32,24 @@ class AuthenticatorListPresenterServiceAdapter: AuthenticatorListPresenterServic
         }
     }
 
-    init(totpProvider: TOTPProvider,
+    init(totpProvider: AuthenticatorTOTPProvider,
+         clockPublisher: AnyPublisher<Date, Never>,
          refreshPublisher: AnyPublisher<Void, Never>,
          readAccounts: @escaping () -> AnyPublisher<[AuthenticatorAccountModel], Never>,
          delete: @escaping (_ accountID: UUID) -> AnyPublisher<Void, Error>,
-         swap: @escaping (UUID, UUID) -> AnyPublisher<Void, Error>,
          favourite: @escaping (_ accountID: UUID) -> AnyPublisher<Void, Error>,
          searchTextPublisher: AnyPublisher<String, Never>,
          update: @escaping (_ account: AuthenticatorAccountModel) -> AnyPublisher<Void, Error>
     ) {
         self.totpProvider = totpProvider
+        self.clockPublisher = clockPublisher
         self.readAccounts = readAccounts
         self.delete = delete
-        self.move = swap
         self.favourite = favourite
         self.searchTextPublisher = searchTextPublisher
         self.update = update
 
-        Timer
-            .publish(every: 1, on: .current, in: .common)
-            .autoconnect()
+        clockPublisher
             .receive(on: Queues.generalBackgroundQueue)
             .subscribe(currentTimeSubject)
             .store(in: &subscriptions)
@@ -87,10 +85,6 @@ class AuthenticatorListPresenterServiceAdapter: AuthenticatorListPresenterServic
 
     func deleteAccount(id: UUID) {
         executeOperation(operation: delete(id))
-    }
-
-    func move(_ account: UUID, with toAccount: UUID) {
-        executeOperation(operation: move(account, toAccount))
     }
 
     func favourite(_ account: UUID) {

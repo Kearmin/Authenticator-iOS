@@ -17,10 +17,10 @@ class AuthenticatorListIntegrationTests: XCTestCase {
             totpProvider: TOTPProviderMock(),
             readAccounts: loader.readAccounts,
             delete: loader.delete,
-            moveAccounts: loader.swap,
             favourite: loader.favourite,
             update: loader.update,
-            refreshPublisher: loader.refresh)
+            refreshPublisher: loader.refresh,
+            clockPublisher: loader.clock)
         )
         XCTAssertEqual(viewController.0.title, "Authenticator")
     }
@@ -30,14 +30,12 @@ class ListLoaderStub {
     var readAccounts: () -> AnyPublisher<[AuthenticatorAccountModel], Never> = { Empty().eraseToAnyPublisher() }
     var delete: (UUID) -> AnyPublisher<Void, Error> = { _ in Empty().eraseToAnyPublisher() }
     var favourite: (UUID) -> AnyPublisher<Void, Error> = { _ in Empty().eraseToAnyPublisher() }
-    var swap: (UUID, UUID) -> AnyPublisher<Void, Error> = { _, _ in
-        Empty().eraseToAnyPublisher()
-    }
     var refresh: AnyPublisher<Void, Never> = Empty().eraseToAnyPublisher()
     var update: (AuthenticatorAccountModel) -> AnyPublisher<Void, Error> = { _ in Empty().eraseToAnyPublisher() }
+    var clock: AnyPublisher<Date, Never> = Empty().eraseToAnyPublisher()
 }
 
-class TOTPProviderMock: TOTPProvider {
+class TOTPProviderMock: AuthenticatorTOTPProvider {
     func totp(secret: String, date: Date, digits: Int, timeInterval: Int, algorithm: AuthenticatorTOTPAlgorithm) -> String? {
         ""
     }
