@@ -4,7 +4,15 @@
       "id" : "28318559-C184-4A6A-81E4-6B0746EC3216",
       "name" : "Configuration 1",
       "options" : {
+        "commandLineArgumentEntries" : [
 
+        ],
+        "environmentVariableEntries" : [
+          {
+            "key" : "UNITTEST",
+            "value" : "1"
+          }
+        ]
       }
     }
   ],

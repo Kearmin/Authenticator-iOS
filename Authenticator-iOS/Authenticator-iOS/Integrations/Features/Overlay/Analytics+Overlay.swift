@@ -9,9 +9,8 @@ import Combine
 import Resolver
 
 extension AnyPublisher where Output == OverlayEvent {
-    func trackOverlayEvents() -> AnyPublisher<Output, Failure> {
+    func trackOverlayEvents(analytics: AuthenticatorAnalytics = Resolver.resolve()) -> AnyPublisher<Output, Failure> {
         handleEvents(receiveOutput: { event in
-            let analytics: AuthenticatorAnalytics = Resolver.resolve()
             switch event {
             case .lock:
                 analytics.track(name: "App lock overlay appeared")

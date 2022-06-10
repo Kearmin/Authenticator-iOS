@@ -11,15 +11,38 @@ import AuthenticatorListBusiness
 import SwiftUI
 import Combine
 
+struct DeleteAccountContext: Equatable {
+    let callback: () -> Void
+
+    static func == (lhs: DeleteAccountContext, rhs: DeleteAccountContext) -> Bool {
+        true
+    }
+}
+
+struct EditAccountContext: Equatable {
+    let item: AuthenticatorListRowContent
+    let callback: (_ issuer: String?, _ username: String?) -> Void
+
+    static func == (lhs: EditAccountContext, rhs: EditAccountContext) -> Bool {
+        lhs.item == rhs.item
+    }
+}
+
 class AuthenticatorListOutputAdapter: AuthenticatorListViewOutput, AuthenticatorListErrorOutput {
     weak var listViewController: AuthenticatorListViewController?
+    var listEventPublisher: PassthroughSubject<ListEvent, Never>
     var presenter: AuthenticatorListPresenter?
     var hideToastCancellable: AnyCancellable?
     var hideToastSubject = PassthroughSubject<Void, Never>()
 
-    internal init(listViewController: AuthenticatorListViewController? = nil, presenter: AuthenticatorListPresenter? = nil) {
+    internal init(
+        listViewController: AuthenticatorListViewController? = nil,
+        presenter: AuthenticatorListPresenter? = nil,
+        listEventPublisher: PassthroughSubject<ListEvent, Never>
+    ) {
         self.listViewController = listViewController
         self.presenter = presenter
+        self.listEventPublisher = listEventPublisher
 
         hideToastCancellable = hideToastSubject
             .debounce(for: .seconds(2), scheduler: RunLoop.main)
@@ -48,22 +71,24 @@ class AuthenticatorListOutputAdapter: AuthenticatorListViewOutput, Authenticator
                     onFavouritePress: { [presenter] in
                         presenter?.favourite(id: item.id)
                     },
-                    onDeletePress: { [weak self] in
-                        let deleteAccountFlow = DeleteAccountFlow(source: self?.listViewController) { [weak self] in
+                    onDeletePress: { [listEventPublisher] in
+                        let context = DeleteAccountContext { [weak self] in
                             self?.presenter?.delete(id: item.id)
                         }
-                        deleteAccountFlow.start()
-                    }, onDidPress: { [weak self] in
+                        listEventPublisher.send(.deleteAccountDidPress(context))
+                    },
+                    onDidPress: { [weak self] in
                         UIPasteboard.general.string = item.TOTPCode
                         onMainWithAnimation(.easeInOut(duration: 0.2)) {
                             self?.listViewController?.viewModel.toast = "Copied to clipboard"
                         }
                         self?.hideToastSubject.send()
-                    }, onEditPress: { [listViewController] in
-                        let editFlow = EditAccountFlow(account: item, source: listViewController) { [weak self] issuer, username in
+                    },
+                    onEditPress: { [listEventPublisher] in
+                        let context = EditAccountContext(item: item) { [weak self] issuer, username in
                             self?.presenter?.update(id: item.id, issuer: issuer, username: username)
                         }
-                        editFlow.start()
+                        listEventPublisher.send(.editDidPress(context))
                     })
             })
         }

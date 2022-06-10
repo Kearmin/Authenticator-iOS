@@ -44,6 +44,12 @@ class AppFlow {
         case .addAccountDidPress:
             let addAccountFlow = AddAccountFlow(source: listViewController)
             addAccountFlow.start(dependencies: Resolver.resolve())
+        case .deleteAccountDidPress(let context):
+            let deleteAccountFlow = DeleteAccountFlow(source: listViewController, didPressDelete: context.callback)
+            deleteAccountFlow.start()
+        case .editDidPress(let context):
+            let editFlow = EditAccountFlow(account: context.item, source: listViewController, didFinishUpdate: context.callback)
+            editFlow.start()
         default:
             break
         }

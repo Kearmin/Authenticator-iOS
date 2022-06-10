@@ -18,7 +18,6 @@ class OverlayAuthenticatorUseCaseAuthenticationServiceAdapter: OverlayAuthentica
         let notificationCenter = NotificationCenter.default
         notificationCenter
             .publisher(for: UIApplication.willResignActiveNotification)
-            .receive(on: Queues.generalBackgroundQueue)
             .sink { [weak self] _ in
                 self?.usecase?.lock()
             }
@@ -26,7 +25,6 @@ class OverlayAuthenticatorUseCaseAuthenticationServiceAdapter: OverlayAuthentica
 
         notificationCenter
             .publisher(for: UIApplication.didBecomeActiveNotification)
-            .receive(on: Queues.generalBackgroundQueue)
             .sink { [weak self] _ in
                 self?.unlock()
             }

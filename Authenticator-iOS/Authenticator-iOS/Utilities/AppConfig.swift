@@ -14,7 +14,7 @@ enum AppConfig {
     }
 
     static var isRunningUnitTests: Bool {
-        UserDefaults.standard.bool(forKey: "isUnitTest")
+        ProcessInfo.processInfo.environment["UNITTEST"] == "1"
     }
 
     static var isDebug: Bool {

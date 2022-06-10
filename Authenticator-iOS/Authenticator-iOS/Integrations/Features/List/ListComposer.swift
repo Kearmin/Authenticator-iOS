@@ -50,7 +50,10 @@ enum ListComposer {
                 presenter.load()
             })
         viewController.title = presenter.title
-        let adapter = AuthenticatorListOutputAdapter(listViewController: viewController, presenter: presenter)
+        let adapter = AuthenticatorListOutputAdapter(
+            listViewController: viewController,
+            presenter: presenter,
+            listEventPublisher: eventSubject)
         presenter.output = adapter
         presenter.errorOutput = adapter
         return (viewController, eventSubject.eraseToAnyPublisher())

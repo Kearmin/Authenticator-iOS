@@ -29,7 +29,10 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <TestPlans>
          <TestPlanReference
-            reference = "container:../Authenticator-iOS-UnitTests.xctestplan"
+            reference = "container:../Authenticator-iOS-UnitTests.xctestplan">
+         </TestPlanReference>
+         <TestPlanReference
+            reference = "container:../Authenticator-iOSIntegrationTests.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>

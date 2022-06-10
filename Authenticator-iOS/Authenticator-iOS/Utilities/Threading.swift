@@ -21,5 +21,4 @@ func onMain(afterSeconds: Double, _ block: @escaping () -> Void) {
 
 enum Queues {
     static let generalBackgroundQueue = DispatchQueue(label: "general.background")
-    static let fileIOBackgroundQueue = DispatchQueue(label: "fileIO.background")
 }

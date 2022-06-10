@@ -1,0 +1,41 @@
+{
+  "configurations" : [
+    {
+      "id" : "BFF23E92-7751-438D-9DEC-F3060BC415C0",
+      "name" : "Configuration 1",
+      "options" : {
+        "commandLineArgumentEntries" : [
+
+        ],
+        "environmentVariableEntries" : [
+          {
+            "key" : "UNITTEST",
+            "value" : "1"
+          }
+        ]
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "commandLineArgumentEntries" : [
+      {
+        "argument" : "isUnitTest YES"
+      }
+    ],
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:Authenticator-iOS.xcodeproj",
+      "identifier" : "B0B2B95C282FB78900BB7E00",
+      "name" : "Authenticator-iOS"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:Authenticator-iOS.xcodeproj",
+        "identifier" : "B0505E59283D677600D770F2",
+        "name" : "Authenticator-iOSIntegrationTests"
+      }
+    }
+  ],
+  "version" : 1
+}

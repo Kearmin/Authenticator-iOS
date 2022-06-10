@@ -50,12 +50,10 @@ class AuthenticatorListPresenterServiceAdapter: AuthenticatorListPresenterServic
         self.update = update
 
         clockPublisher
-            .receive(on: Queues.generalBackgroundQueue)
             .subscribe(currentTimeSubject)
             .store(in: &subscriptions)
 
         refreshSubscription = refreshPublisher
-            .receive(on: Queues.generalBackgroundQueue)
             .sink(receiveValue: { [weak self] in
                 self?.loadAccounts()
             })
@@ -63,7 +61,6 @@ class AuthenticatorListPresenterServiceAdapter: AuthenticatorListPresenterServic
         searchTextPublisher
             .dropFirst()
             .debounce(for: .seconds(0.3), scheduler: RunLoop.main)
-            .receive(on: Queues.generalBackgroundQueue)
             .sink { [weak self] searchText in
                 self?.presenter?.filter(by: searchText)
             }
@@ -72,7 +69,6 @@ class AuthenticatorListPresenterServiceAdapter: AuthenticatorListPresenterServic
 
     func loadAccounts() {
         readAccounts()
-            .subscribe(on: Queues.generalBackgroundQueue)
             .sink { [presenter] accounts in
                 presenter?.receive(result: .success(accounts))
             }

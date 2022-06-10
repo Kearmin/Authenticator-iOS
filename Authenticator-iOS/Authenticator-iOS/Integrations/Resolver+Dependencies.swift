@@ -45,7 +45,7 @@ extension Resolver {
             let userDefaults: UserDefaults = resolver.resolve()
             return AccountJSONFileSystemPersistance(
                 fileName: Constants.accountsFileName,
-                queue: Queues.fileIOBackgroundQueue,
+                queue: Queues.generalBackgroundQueue,
                 version: userDefaults.integer(forKey: Keys.accountMigrations))
         }
         .scope(.cached)

@@ -10,9 +10,8 @@ import Resolver
 import AddAccountBusiness
 
 extension AnyPublisher where Output == AddAccountEvent {
-    func trackAddAccountEvents() -> AnyPublisher<Output, Failure> {
+    func trackAddAccountEvents(analytics: AuthenticatorAnalytics = Resolver.resolve()) -> AnyPublisher<Output, Failure> {
         self.handleEvents(receiveOutput: { event in
-            let analytics: AuthenticatorAnalytics = Resolver.resolve()
             switch event {
             case .doneDidPress:
                 analytics.track(name: "Add Account Done Pressed")

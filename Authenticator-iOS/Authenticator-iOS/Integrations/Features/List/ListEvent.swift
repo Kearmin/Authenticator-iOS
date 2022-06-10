@@ -9,7 +9,9 @@ import Combine
 
 typealias ListEventPublisher = AnyPublisher<ListEvent, Never>
 
-enum ListEvent {
+enum ListEvent: Equatable {
     case viewDidLoad
     case addAccountDidPress
+    case deleteAccountDidPress(DeleteAccountContext)
+    case editDidPress(EditAccountContext)
 }

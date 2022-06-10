@@ -27,9 +27,7 @@ enum OverlayComposer {
         }
         let viewController = OverlayViewController.init(rootView: view)
         viewController.onViewDidLoad = {
-            Queues.generalBackgroundQueue.async {
-                useCase.lock()
-            }
+            useCase.lock()
         }
 
         return (viewController, eventSubject.eraseToAnyPublisher())
