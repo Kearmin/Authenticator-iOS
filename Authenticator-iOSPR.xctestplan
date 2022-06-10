@@ -1,0 +1,64 @@
+{
+  "configurations" : [
+    {
+      "id" : "F420E3D2-B3D4-4025-8AE4-37F873497A78",
+      "name" : "Configuration 1",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "environmentVariableEntries" : [
+      {
+        "key" : "UNITTEST",
+        "value" : "1"
+      }
+    ]
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:..\/Modules\/Business\/AccountRepository\/AccountRepository.xcodeproj",
+        "identifier" : "B0F423B22814B66F00C9D138",
+        "name" : "AccountRepositoryTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..\/Modules\/Feature\/AddAccount\/AddAccountBusiness\/AddAccountBusiness.xcodeproj",
+        "identifier" : "B022ED0A281340B1000C8F23",
+        "name" : "AddAccountBusinessTests-iOS"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:Authenticator-iOS.xcodeproj",
+        "identifier" : "B0505E59283D677600D770F2",
+        "name" : "Authenticator-iOSIntegrationTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..\/Modules\/Feature\/AuthenticatorList\/AuthenticatorListBusiness\/AuthenticatorListBusiness.xcodeproj",
+        "identifier" : "B0A906A42812E66000F72F87",
+        "name" : "AuthenticatorListBusinessTests_iOS"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..\/Modules\/Infrastructure\/FileSystemPersistentStorage\/FileSystemPersistentStorage.xcodeproj",
+        "identifier" : "B02F16A32775127B0002C2F4",
+        "name" : "FileSystemPersistentStorageTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..\/Modules\/Feature\/Overlay\/OverlayBusiness\/OverlayBusiness.xcodeproj",
+        "identifier" : "B0F7546128340CB90051038D",
+        "name" : "OverlayBusinessTests"
+      }
+    }
+  ],
+  "version" : 1
+}

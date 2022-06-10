@@ -32,7 +32,10 @@
             reference = "container:../Authenticator-iOS-UnitTests.xctestplan">
          </TestPlanReference>
          <TestPlanReference
-            reference = "container:../Authenticator-iOSIntegrationTests.xctestplan"
+            reference = "container:../Authenticator-iOSIntegrationTests.xctestplan">
+         </TestPlanReference>
+         <TestPlanReference
+            reference = "container:../Authenticator-iOSPR.xctestplan"
             default = "YES">
          </TestPlanReference>
       </TestPlans>

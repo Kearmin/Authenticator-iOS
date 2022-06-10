@@ -66,6 +66,9 @@
       location = "container:"
       name = "TestPlans">
       <FileRef
+         location = "group:Authenticator-iOSPR.xctestplan">
+      </FileRef>
+      <FileRef
          location = "group:Authenticator-iOSIntegrationTests.xctestplan">
       </FileRef>
       <FileRef
