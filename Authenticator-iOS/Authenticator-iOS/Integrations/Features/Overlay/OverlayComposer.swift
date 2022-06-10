@@ -14,7 +14,7 @@ import Combine
 import UIKit
 
 enum OverlayComposer {
-    static func overlay() -> (OverlayViewController, OverlayEventPublisher) {
+    static func overlay(analytics: AuthenticatorAnalytics) -> (OverlayViewController, OverlayEventPublisher) {
         let eventSubject = PassthroughSubject<OverlayEvent, Never>()
         let serviceAdapter = OverlayAuthenticatorUseCaseAuthenticationServiceAdapter()
         let outputAdapter = OverlayAuthenticatorUseCaseOutputAdapter(eventSubject: eventSubject)
@@ -29,7 +29,7 @@ enum OverlayComposer {
         viewController.onViewDidLoad = {
             useCase.lock()
         }
-
-        return (viewController, eventSubject.eraseToAnyPublisher())
+        let trackedEventPublisher = eventSubject.eraseToAnyPublisher().trackOverlayEvents(analytics: analytics)
+        return (viewController, trackedEventPublisher)
     }
 }

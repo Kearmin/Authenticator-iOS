@@ -15,6 +15,7 @@ import AuthenticatorListBusiness
 enum AddAccountComposer {
     struct Dependencies {
         let saveAccountPublisher: (AuthenticatorAccountModel) -> AnyPublisher<Void, Error>
+        let analytics: AuthenticatorAnalytics
     }
 
     static func addAccount(with dependencies: Dependencies) -> (AddAccountViewController, AddAccountEventPublisher) {
@@ -38,6 +39,7 @@ enum AddAccountComposer {
                 eventSubject.send(.failedToStartCamera)
             })
         viewController.addAccountView.delegate = WeakRefProxy(viewController)
-        return (viewController, eventSubject.eraseToAnyPublisher())
+        let trackedEvenPublisher = eventSubject.eraseToAnyPublisher().trackAddAccountEvents(analytics: dependencies.analytics)
+        return (viewController, trackedEvenPublisher)
     }
 }

@@ -28,6 +28,11 @@ struct EditAccountContext: Equatable {
     }
 }
 
+struct ErrorContext: Equatable {
+    let title: String
+    let message: String
+}
+
 class AuthenticatorListOutputAdapter: AuthenticatorListViewOutput, AuthenticatorListErrorOutput {
     weak var listViewController: AuthenticatorListViewController?
     var listEventPublisher: PassthroughSubject<ListEvent, Never>
@@ -98,7 +103,6 @@ class AuthenticatorListOutputAdapter: AuthenticatorListViewOutput, Authenticator
     }
 
     public func receive(error: Error) {
-        let showErrorFlow = ShowErrorFlow(source: listViewController, title: "Error", message: "\(error)")
-        showErrorFlow.start()
+        listEventPublisher.send(.onError(.init(title: "Error", message: "\(error)")))
     }
 }

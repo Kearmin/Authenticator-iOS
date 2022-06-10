@@ -15,7 +15,8 @@ extension Resolver {
     static func registerAddAccountDependencies() {
         register(AddAccountComposer.Dependencies.self) { resolver in
             .init(
-                saveAccountPublisher: resolver.resolve(AccountRepository.self).savePublisher(account:))
+                saveAccountPublisher: resolver.resolve(AccountRepository.self).savePublisher(account:),
+                analytics: resolver.resolve())
         }
     }
 }

@@ -9,6 +9,7 @@ import Foundation
 import OverlayView
 import UIKit
 import Combine
+import Resolver
 
 
 class OverlayFlow {
@@ -35,7 +36,7 @@ class OverlayFlow {
     }
 
     func makeOverlayViewController() -> OverlayViewController {
-        let (viewController, eventSubject) = OverlayComposer.overlay()
+        let (viewController, eventSubject) = OverlayComposer.overlay(analytics: Resolver.resolve())
         overlayEventCancellable = eventSubject
             .trackOverlayEvents()
             .receive(on: DispatchQueue.main)

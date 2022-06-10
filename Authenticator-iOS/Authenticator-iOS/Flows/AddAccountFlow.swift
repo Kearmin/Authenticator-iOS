@@ -30,7 +30,6 @@ class AddAccountFlow {
 
     func setupEvents(publisher: AnyPublisher<AddAccountEvent, Never>) {
         addAccountEventCancellable = publisher
-            .trackAddAccountEvents()
             .receive(on: DispatchQueue.main)
             .sink { event in
                 switch event {

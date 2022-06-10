@@ -24,7 +24,8 @@ extension Resolver {
                 favourite: repository.favourite(_:),
                 update: repository.update(_:),
                 refreshPublisher: repository.didSavePublisher,
-                clockPublisher: clock.clockPublisher)
+                clockPublisher: clock.clockPublisher,
+                analytics: resolver.resolve())
         }
     }
 

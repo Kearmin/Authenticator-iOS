@@ -22,6 +22,7 @@ enum ListComposer {
         var update: (_ account: AuthenticatorAccountModel) -> AnyPublisher<Void, Error>
         var refreshPublisher: AnyPublisher<Void, Never>
         var clockPublisher: AnyPublisher<Date, Never>
+        var analytics: AuthenticatorAnalytics
     }
 
     static func list(dependencies: ListComposer.Dependencies) -> (AuthenticatorListViewController, ListEventPublisher) {
@@ -56,6 +57,7 @@ enum ListComposer {
             listEventPublisher: eventSubject)
         presenter.output = adapter
         presenter.errorOutput = adapter
-        return (viewController, eventSubject.eraseToAnyPublisher())
+        let trackedEventPublisher = eventSubject.eraseToAnyPublisher().trackListEvents(analytics: dependencies.analytics)
+        return (viewController, trackedEventPublisher)
     }
 }

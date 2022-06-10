@@ -31,7 +31,6 @@ class AppFlow {
     func makeListViewController() -> AuthenticatorListViewController {
         let (viewController, listEventPublisher) = ListComposer.list(dependencies: Resolver.resolve())
         listEventCancellable = listEventPublisher
-            .trackListEvents()
             .receive(on: DispatchQueue.main)
             .sink { [weak viewController] in
                 self.handleListEvent($0, listViewController: viewController)
@@ -50,6 +49,9 @@ class AppFlow {
         case .editDidPress(let context):
             let editFlow = EditAccountFlow(account: context.item, source: listViewController, didFinishUpdate: context.callback)
             editFlow.start()
+        case .onError(let context):
+            let showErrorFlow = ShowErrorFlow(source: listViewController, title: context.title, message: context.message)
+            showErrorFlow.start()
         default:
             break
         }

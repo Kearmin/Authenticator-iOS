@@ -14,4 +14,5 @@ enum ListEvent: Equatable {
     case addAccountDidPress
     case deleteAccountDidPress(DeleteAccountContext)
     case editDidPress(EditAccountContext)
+    case onError(ErrorContext)
 }

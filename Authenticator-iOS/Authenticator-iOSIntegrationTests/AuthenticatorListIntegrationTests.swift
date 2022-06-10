@@ -302,10 +302,12 @@ class AuthenticatorListIntegrationTests: XCTestCase {
         var totpProvider: TOTPProviderMock
         var eventPublisher: AnyPublisher<ListEvent, Never>
         var eventPublisherSpy: PublisherSpy<ListEvent> { .init(eventPublisher) }
+        var analyticsMock: AnalyticsMock
 
         init(loader: ListLoaderStub = .init()) {
             self.loader = loader
             let totpProvider = TOTPProviderMock()
+            let analytics = AnalyticsMock()
             let (viewController, eventPublisher) = ListComposer.list(dependencies: .init(
                 totpProvider: totpProvider,
                 readAccounts: loader.readAccounts,
@@ -313,13 +315,15 @@ class AuthenticatorListIntegrationTests: XCTestCase {
                 favourite: loader.favourite,
                 update: loader.update,
                 refreshPublisher: loader.refresh,
-                clockPublisher: loader.clock)
+                clockPublisher: loader.clock,
+                analytics: analytics)
             )
             self.eventPublisher = eventPublisher
             self.sutViewController = viewController
             self.sutView = sutViewController.rootView
             self.sutViewModel = sutViewController.viewModel
             self.totpProvider = totpProvider
+            self.analyticsMock = analytics
         }
     }
 }
@@ -497,5 +501,15 @@ extension UIBarButtonItem {
 
     func simulateTap() {
         (target as? NSObject)?.perform(action)
+    }
+}
+
+class AnalyticsMock: AuthenticatorAnalytics {
+    func track(name: String) {
+
+    }
+
+    func track(name: String, properties: [String : Any]?) {
+
     }
 }
