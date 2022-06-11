@@ -14,6 +14,8 @@ public final class AddAccountViewController: UIViewController {
     private let didFindQRCode: (AddAccountViewController, _ code: String) -> Void
     private let _failedToStart: (AddAccountViewController) -> Void
 
+    public var reference: AnyObject?
+
     public override func loadView() {
         view = addAccountView
     }

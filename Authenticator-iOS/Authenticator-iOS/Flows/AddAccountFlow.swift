@@ -21,8 +21,8 @@ class AddAccountFlow {
     func start(dependencies: AddAccountComposer.Dependencies) {
         guard let source = source else { return }
         let (addAccountViewController, addAccountEventPublisher) = AddAccountComposer.addAccount(with: dependencies)
-        setupEvents(publisher: addAccountEventPublisher)
         self.addAccountViewController = addAccountViewController
+        setupEvents(publisher: addAccountEventPublisher)
         let navController = addAccountViewController.embeddedInNavigationController
         navController.modalPresentationStyle = .fullScreen
         source.present(navController, animated: true)
@@ -31,18 +31,16 @@ class AddAccountFlow {
 
 private extension AddAccountFlow {
     func setupEvents(publisher: AnyPublisher<AddAccountEvent, Never>) {
-        addAccountEventCancellable = publisher
+        addAccountViewController?.reference = publisher
             .receive(on: DispatchQueue.main)
             .sink { event in
                 switch event {
                 case .doneDidPress:
                     self.addAccountViewController?.dismiss(animated: true)
-                    self.addAccountEventCancellable = nil
                 case .failedToStartCamera:
                     let alert = UIAlertController(title: "Error", message: "Failed to open camera", preferredStyle: .alert)
                     alert.addAction(.init(title: "Ok", style: .default, handler: { _ in
                         self.addAccountViewController?.dismiss(animated: true)
-                        self.addAccountEventCancellable = nil
                     }))
                     self.addAccountViewController?.present(alert, animated: true)
                 case .qrCodeReadDidFail(let error):
@@ -53,7 +51,6 @@ private extension AddAccountFlow {
                     self.addAccountViewController?.present(alert, animated: true)
                 case .didCreateAccount:
                     self.addAccountViewController?.dismiss(animated: true)
-                    self.addAccountEventCancellable = nil
                 }
             }
     }
