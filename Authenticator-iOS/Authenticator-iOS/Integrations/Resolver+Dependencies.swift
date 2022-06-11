@@ -58,6 +58,7 @@ extension Resolver {
 
         register { resolver in
             FileSystemPersistentStorageMigrationRunner(
+                migrations: [AddFavouriteMigration(), AddTimeStampMigration()],
                 persistance: resolver.resolve(),
                 analytics: resolver.resolve(),
                 userDefaults: resolver.resolve())

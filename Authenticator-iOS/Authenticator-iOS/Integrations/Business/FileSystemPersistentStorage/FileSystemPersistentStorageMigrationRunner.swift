@@ -13,16 +13,18 @@ class FileSystemPersistentStorageMigrationRunner {
     private let persistance: AccountJSONFileSystemPersistance
     private let analytics: AuthenticatorAnalytics
     private let userDefaults: UserDefaults
+    private let migrations: [JSONFileSystemPersistanceMigration]
 
-    private let migrations: [JSONFileSystemPersistanceMigration] = [
-        AddFavouriteMigration(),
-        AddTimeStampMigration()
-    ]
-
-    init(persistance: AccountJSONFileSystemPersistance, analytics: AuthenticatorAnalytics, userDefaults: UserDefaults) {
+    init(
+        migrations: [JSONFileSystemPersistanceMigration],
+        persistance: AccountJSONFileSystemPersistance,
+        analytics: AuthenticatorAnalytics,
+        userDefaults: UserDefaults
+    ) {
         self.persistance = persistance
         self.analytics = analytics
         self.userDefaults = userDefaults
+        self.migrations = migrations
     }
 
     func runMigrations() {
