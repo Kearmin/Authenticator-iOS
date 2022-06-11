@@ -15,14 +15,14 @@ import Resolver
 
 enum ListComposer {
     struct Dependencies {
-        var totpProvider: AuthenticatorTOTPProvider
-        var readAccounts: () -> AnyPublisher<[AuthenticatorAccountModel], Never>
-        var delete: (_ accountID: UUID) -> AnyPublisher<Void, Error>
-        var favourite: (_ account: UUID) -> AnyPublisher<Void, Error>
-        var update: (_ account: AuthenticatorAccountModel) -> AnyPublisher<Void, Error>
-        var refreshPublisher: AnyPublisher<Void, Never>
-        var clockPublisher: AnyPublisher<Date, Never>
-        var analytics: AuthenticatorAnalytics
+        let totpProvider: AuthenticatorTOTPProvider
+        let readAccounts: () -> AnyPublisher<[AuthenticatorAccountModel], Never>
+        let delete: (_ accountID: UUID) -> AnyPublisher<Void, Error>
+        let favourite: (_ account: UUID) -> AnyPublisher<Void, Error>
+        let update: (_ account: AuthenticatorAccountModel) -> AnyPublisher<Void, Error>
+        let refreshPublisher: AnyPublisher<Void, Never>
+        let clockPublisher: AnyPublisher<Date, Never>
+        let analytics: AuthenticatorAnalytics
     }
 
     static func list(dependencies: ListComposer.Dependencies) -> (AuthenticatorListViewController, ListEventPublisher) {
@@ -40,8 +40,7 @@ enum ListComposer {
         )
         let presenter = AuthenticatorListPresenter(service: presenterService, cycleLength: Constants.appCycleLength)
         presenterService.presenter = presenter
-        let rootView = AuthenticatorListView(
-            viewModel: viewModel)
+        let rootView = AuthenticatorListView(viewModel: viewModel)
         let viewController = AuthenticatorListViewController(
             viewModel: viewModel,
             rootview: rootView,
