@@ -21,7 +21,9 @@ class AppFlow {
             sceneDelegate: sceneDelegate)
         overlayFlow?.start(with: windowScene)
     }
+}
 
+private extension AppFlow {
     func makeListWindow(with windowScene: UIWindowScene) -> UIWindow {
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = makeListViewController().embeddedInNavigationController

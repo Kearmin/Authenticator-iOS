@@ -28,7 +28,9 @@ class OverlayFlow {
         sceneDelegate?.window = overlayWindow
         sceneDelegate?.window?.makeKeyAndVisible()
     }
+}
 
+private extension OverlayFlow {
     func makeOverlayWindow(with windowScene: UIWindowScene) -> UIWindow {
         let window = UIWindow(windowScene: windowScene)
         window.rootViewController = makeOverlayViewController()
@@ -38,7 +40,6 @@ class OverlayFlow {
     func makeOverlayViewController() -> OverlayViewController {
         let (viewController, eventSubject) = OverlayComposer.overlay(analytics: Resolver.resolve())
         overlayEventCancellable = eventSubject
-            .trackOverlayEvents()
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: handleOverlayEvent(_:))
         return viewController

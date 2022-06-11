@@ -27,7 +27,9 @@ class AddAccountFlow {
         navController.modalPresentationStyle = .fullScreen
         source.present(navController, animated: true)
     }
+}
 
+private extension AddAccountFlow {
     func setupEvents(publisher: AnyPublisher<AddAccountEvent, Never>) {
         addAccountEventCancellable = publisher
             .receive(on: DispatchQueue.main)
@@ -35,10 +37,12 @@ class AddAccountFlow {
                 switch event {
                 case .doneDidPress:
                     self.addAccountViewController?.dismiss(animated: true)
+                    self.addAccountEventCancellable = nil
                 case .failedToStartCamera:
                     let alert = UIAlertController(title: "Error", message: "Failed to open camera", preferredStyle: .alert)
                     alert.addAction(.init(title: "Ok", style: .default, handler: { _ in
                         self.addAccountViewController?.dismiss(animated: true)
+                        self.addAccountEventCancellable = nil
                     }))
                     self.addAccountViewController?.present(alert, animated: true)
                 case .qrCodeReadDidFail(let error):
@@ -49,6 +53,7 @@ class AddAccountFlow {
                     self.addAccountViewController?.present(alert, animated: true)
                 case .didCreateAccount:
                     self.addAccountViewController?.dismiss(animated: true)
+                    self.addAccountEventCancellable = nil
                 }
             }
     }
