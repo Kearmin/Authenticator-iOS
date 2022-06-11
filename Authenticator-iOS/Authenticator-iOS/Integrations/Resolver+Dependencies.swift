@@ -17,8 +17,13 @@ import UIKit
 
 extension Resolver {
     static func registerDependencies() {
+        registerAppDependencies()
+        registerFeatureDependencies()
+    }
+
+    static func registerAppDependencies() {
         register(AuthenticatorAnalytics.self) {
-            return LogAnalytics()
+            LogAnalytics()
         }
         .scope(.application)
 
@@ -61,8 +66,6 @@ extension Resolver {
         register(AuthenticatorTOTPProvider.self) {
             SwiftOTPTOTPProvider()
         }
-
-        registerFeatureDependencies()
     }
 
     static func registerFeatureDependencies() {
