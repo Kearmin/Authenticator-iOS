@@ -61,6 +61,7 @@
 		B0B2B987282FB7C900BB7E00 /* Clock.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2B97A282FB7C900BB7E00 /* Clock.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0B2B988282FB7C900BB7E00 /* FileSystemPersistentStorage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2B97B282FB7C900BB7E00 /* FileSystemPersistentStorage.framework */; };
 		B0B2B989282FB7C900BB7E00 /* FileSystemPersistentStorage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2B97B282FB7C900BB7E00 /* FileSystemPersistentStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B0C10D652854FF370014BE33 /* AddAccountViewDelegateAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C10D642854FF370014BE33 /* AddAccountViewDelegateAdapter.swift */; };
 		B0D4213728331D6C000ED580 /* OverlayView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D4213628331D6C000ED580 /* OverlayView.framework */; };
 		B0D4213828331D6C000ED580 /* OverlayView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0D4213628331D6C000ED580 /* OverlayView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0D4213A28331D71000ED580 /* OverlayBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D4213928331D71000ED580 /* OverlayBusiness.framework */; };
@@ -177,6 +178,7 @@
 		B0B2B979282FB7C900BB7E00 /* AuthenticatorListView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AuthenticatorListView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0B2B97A282FB7C900BB7E00 /* Clock.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Clock.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0B2B97B282FB7C900BB7E00 /* FileSystemPersistentStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FileSystemPersistentStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0C10D642854FF370014BE33 /* AddAccountViewDelegateAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountViewDelegateAdapter.swift; sourceTree = "<group>"; };
 		B0D4213628331D6C000ED580 /* OverlayView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OverlayView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D4213928331D71000ED580 /* OverlayBusiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OverlayBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0EA8AA728541F3900DC1670 /* UIKitHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitHelpers.swift; sourceTree = "<group>"; };
@@ -331,6 +333,7 @@
 				B02189762831748100918B8D /* Analytics+AddAccount.swift */,
 				B06A5FE42830532F00433C58 /* Resolver+AddAccount.swift */,
 				B0F7548328346B650051038D /* WeakRefProxy+AddAccount.swift */,
+				B0C10D642854FF370014BE33 /* AddAccountViewDelegateAdapter.swift */,
 			);
 			path = AddAccount;
 			sourceTree = "<group>";
@@ -617,6 +620,7 @@
 				B02189792831BB5F00918B8D /* Analytics+AuthenticatorList.swift in Sources */,
 				B008CA76284EA78900561409 /* AppStartup.swift in Sources */,
 				B06A5FEF2830878D00433C58 /* SwiftUIHelpers.swift in Sources */,
+				B0C10D652854FF370014BE33 /* AddAccountViewDelegateAdapter.swift in Sources */,
 				B02189772831748100918B8D /* Analytics+AddAccount.swift in Sources */,
 				B008CA71284E9C9F00561409 /* AppFlow.swift in Sources */,
 				B0F75474283459A60051038D /* OverlayAuthenticatorUseCaseAuthenticationServiceAdapter.swift in Sources */,

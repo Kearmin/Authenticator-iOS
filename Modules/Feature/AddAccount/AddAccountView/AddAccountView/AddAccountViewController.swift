@@ -11,8 +11,6 @@ import UIKit
 public final class AddAccountViewController: UIViewController {
     public let addAccountView: AddAccountView
     private let doneDidPress: (AddAccountViewController) -> Void
-    private let didFindQRCode: (AddAccountViewController, _ code: String) -> Void
-    private let _failedToStart: (AddAccountViewController) -> Void
 
     public var reference: AnyObject?
 
@@ -22,14 +20,10 @@ public final class AddAccountViewController: UIViewController {
 
     public init(
         objectTypes: [AVMetadataObject.ObjectType] = [.qr],
-        doneDidPress: @escaping (AddAccountViewController) -> Void,
-        didFindQRCode: @escaping (AddAccountViewController, String) -> Void,
-        failedToStart: @escaping (AddAccountViewController) -> Void
+        doneDidPress: @escaping (AddAccountViewController) -> Void
     ) {
         addAccountView = AddAccountView(frame: .zero, objectTypes: objectTypes)
         self.doneDidPress = doneDidPress
-        self.didFindQRCode = didFindQRCode
-        _failedToStart = failedToStart
         super.init(nibName: nil, bundle: nil)
     }
 
@@ -49,15 +43,5 @@ public final class AddAccountViewController: UIViewController {
     @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-}
-
-extension AddAccountViewController: AddAccountViewDelegate {
-    public func didFindQRCode(code: String) {
-        didFindQRCode(self, code)
-    }
-
-    public func failedToStart() {
-        _failedToStart(self)
     }
 }

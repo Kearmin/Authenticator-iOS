@@ -27,18 +27,9 @@ enum AddAccountComposer {
         let viewController = AddAccountViewController(
             doneDidPress: { _ in
                 eventSubject.send(.doneDidPress)
-            },
-            didFindQRCode: { [useCase] _, qrCode in
-                do {
-                    try useCase.createAccount(urlString: qrCode)
-                } catch {
-                    eventSubject.send(.qrCodeReadDidFail(error: error))
-                }
-            },
-            failedToStart: { _ in
-                eventSubject.send(.failedToStartCamera)
             })
-        viewController.addAccountView.delegate = WeakRefProxy(viewController)
+        let viewDelegateAdapter = AddAccountViewDelegateAdapter(useCase: useCase, eventSubject: eventSubject)
+        viewController.addAccountView.delegate = viewDelegateAdapter
         let trackedEvenPublisher = eventSubject.eraseToAnyPublisher().trackAddAccountEvents(analytics: dependencies.analytics)
         return (viewController, trackedEvenPublisher)
     }
