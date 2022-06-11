@@ -13,7 +13,7 @@ import Resolver
 
 
 class OverlayFlow {
-    private let sceneDelegate: SceneDelegate
+    private weak var sceneDelegate: SceneDelegate?
     private let appWindow: UIWindow?
     private var overlayWindow: UIWindow?
     private var overlayEventCancellable: AnyCancellable?
@@ -25,8 +25,8 @@ class OverlayFlow {
 
     func start(with windowScene: UIWindowScene) {
         self.overlayWindow = makeOverlayWindow(with: windowScene)
-        sceneDelegate.window = overlayWindow
-        sceneDelegate.window?.makeKeyAndVisible()
+        sceneDelegate?.window = overlayWindow
+        sceneDelegate?.window?.makeKeyAndVisible()
     }
 
     func makeOverlayWindow(with windowScene: UIWindowScene) -> UIWindow {
@@ -57,7 +57,7 @@ class OverlayFlow {
     }
 
     func switchWindow(from fromWindow: UIWindow, to toWindow: UIWindow) {
-        sceneDelegate.window = toWindow
+        sceneDelegate?.window = toWindow
         toWindow.makeKeyAndVisible()
         fromWindow.isHidden = true
     }

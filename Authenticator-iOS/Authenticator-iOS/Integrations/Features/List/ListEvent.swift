@@ -6,8 +6,31 @@
 //
 
 import Combine
+import AuthenticatorListBusiness
 
 typealias ListEventPublisher = AnyPublisher<ListEvent, Never>
+
+struct DeleteAccountContext: Equatable {
+    let callback: () -> Void
+
+    static func == (lhs: DeleteAccountContext, rhs: DeleteAccountContext) -> Bool {
+        true
+    }
+}
+
+struct EditAccountContext: Equatable {
+    let item: AuthenticatorListRowContent
+    let callback: (_ issuer: String?, _ username: String?) -> Void
+
+    static func == (lhs: EditAccountContext, rhs: EditAccountContext) -> Bool {
+        lhs.item == rhs.item
+    }
+}
+
+struct ErrorContext: Equatable {
+    let title: String
+    let message: String
+}
 
 enum ListEvent: Equatable {
     case viewDidLoad
