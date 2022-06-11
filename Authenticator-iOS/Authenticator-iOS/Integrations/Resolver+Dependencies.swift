@@ -18,11 +18,7 @@ import UIKit
 extension Resolver {
     static func registerDependencies() {
         register(AuthenticatorAnalytics.self) {
-            if AppConfig.isDebug {
-                return LogAnalytics()
-            } else {
-                return SegmentAnalytics()
-            }
+            return LogAnalytics()
         }
         .scope(.application)
 

@@ -9,7 +9,6 @@ import Foundation
 import Combine
 import Resolver
 import AddAccountBusiness
-import Segment
 
 protocol AuthenticatorAnalytics {
     func track(name: String)
@@ -23,21 +22,5 @@ class LogAnalytics: AuthenticatorAnalytics {
 
     func track(name: String, properties: [String: Any]?) {
         print("AnalyticsEvent: name: \(name), properties: \(properties ?? [:])")
-    }
-}
-
-class SegmentAnalytics: AuthenticatorAnalytics {
-    func initialize() {
-        let configuration = AnalyticsConfiguration(writeKey: "Your Segment key here")
-        configuration.trackApplicationLifecycleEvents = true
-        Analytics.setup(with: configuration)
-    }
-
-    func track(name: String) {
-        track(name: name, properties: nil)
-    }
-
-    func track(name: String, properties: [String: Any]?) {
-        Analytics.shared().track(name, properties: properties)
     }
 }

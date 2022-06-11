@@ -8,17 +8,14 @@
 import Resolver
 
 class AppStartup {
-    let segmentAnalytics: SegmentAnalytics?
     let migrationRunner: FileSystemPersistentStorageMigrationRunner
 
     init() {
         Resolver.registerDependencies()
-        segmentAnalytics = Resolver.optional()
         migrationRunner = Resolver.resolve()
     }
 
     func runStartup() {
-        segmentAnalytics?.initialize()
         migrationRunner.runMigrations()
     }
 }
