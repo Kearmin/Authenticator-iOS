@@ -6,7 +6,7 @@
 //
 
 import FileSystemPersistentStorage
-import AccountRepository
+import Repository
 import Foundation
 import AuthenticatorListBusiness
 

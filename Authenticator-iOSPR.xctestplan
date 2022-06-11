@@ -19,13 +19,6 @@
   "testTargets" : [
     {
       "target" : {
-        "containerPath" : "container:..\/Modules\/Business\/AccountRepository\/AccountRepository.xcodeproj",
-        "identifier" : "B0F423B22814B66F00C9D138",
-        "name" : "AccountRepositoryTests"
-      }
-    },
-    {
-      "target" : {
         "containerPath" : "container:..\/Modules\/Feature\/AddAccount\/AddAccountBusiness\/AddAccountBusiness.xcodeproj",
         "identifier" : "B022ED0A281340B1000C8F23",
         "name" : "AddAccountBusinessTests-iOS"
@@ -57,6 +50,13 @@
         "containerPath" : "container:..\/Modules\/Feature\/Overlay\/OverlayBusiness\/OverlayBusiness.xcodeproj",
         "identifier" : "B0F7546128340CB90051038D",
         "name" : "OverlayBusinessTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:..\/Modules\/Business\/Repository\/Repository.xcodeproj",
+        "identifier" : "B0F423B22814B66F00C9D138",
+        "name" : "RepositoryTests"
       }
     }
   ],

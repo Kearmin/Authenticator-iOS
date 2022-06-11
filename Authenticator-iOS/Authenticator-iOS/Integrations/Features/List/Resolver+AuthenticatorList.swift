@@ -7,7 +7,7 @@
 
 import Combine
 import AuthenticatorListView
-import AccountRepository
+import Repository
 import Resolver
 import Clock
 import UIKit

@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B0F423AA2814B66F00C9D138"
-               BuildableName = "AccountRepository.framework"
-               BlueprintName = "AccountRepository"
-               ReferencedContainer = "container:AccountRepository.xcodeproj">
+               BlueprintIdentifier = "B0F423C72814B69D00C9D138"
+               BuildableName = "Repository.framework"
+               BlueprintName = "Repository_MacOS"
+               ReferencedContainer = "container:Repository.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B0F423B22814B66F00C9D138"
-               BuildableName = "AccountRepositoryTests.xctest"
-               BlueprintName = "AccountRepositoryTests"
-               ReferencedContainer = "container:AccountRepository.xcodeproj">
+               BlueprintIdentifier = "B0F423CE2814B69D00C9D138"
+               BuildableName = "Repository_MacOSTests.xctest"
+               BlueprintName = "Repository_MacOSTests"
+               ReferencedContainer = "container:Repository.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -60,10 +60,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "B0F423AA2814B66F00C9D138"
-            BuildableName = "AccountRepository.framework"
-            BlueprintName = "AccountRepository"
-            ReferencedContainer = "container:AccountRepository.xcodeproj">
+            BlueprintIdentifier = "B0F423C72814B69D00C9D138"
+            BuildableName = "Repository.framework"
+            BlueprintName = "Repository_MacOS"
+            ReferencedContainer = "container:Repository.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

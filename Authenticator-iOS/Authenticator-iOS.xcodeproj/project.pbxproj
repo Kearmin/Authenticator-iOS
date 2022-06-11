@@ -45,8 +45,6 @@
 		B0B2B963282FB78900BB7E00 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B2B962282FB78900BB7E00 /* SceneDelegate.swift */; };
 		B0B2B96A282FB78900BB7E00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0B2B969282FB78900BB7E00 /* Assets.xcassets */; };
 		B0B2B96D282FB78900BB7E00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0B2B96B282FB78900BB7E00 /* LaunchScreen.storyboard */; };
-		B0B2B97C282FB7C900BB7E00 /* AccountRepository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2B975282FB7C900BB7E00 /* AccountRepository.framework */; };
-		B0B2B97D282FB7C900BB7E00 /* AccountRepository.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2B975282FB7C900BB7E00 /* AccountRepository.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0B2B97E282FB7C900BB7E00 /* AddAccountBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2B976282FB7C900BB7E00 /* AddAccountBusiness.framework */; };
 		B0B2B97F282FB7C900BB7E00 /* AddAccountBusiness.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2B976282FB7C900BB7E00 /* AddAccountBusiness.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0B2B980282FB7C900BB7E00 /* AddAccountView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2B977282FB7C900BB7E00 /* AddAccountView.framework */; };
@@ -61,6 +59,8 @@
 		B0B2B989282FB7C900BB7E00 /* FileSystemPersistentStorage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0B2B97B282FB7C900BB7E00 /* FileSystemPersistentStorage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0C10D652854FF370014BE33 /* AddAccountViewDelegateAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C10D642854FF370014BE33 /* AddAccountViewDelegateAdapter.swift */; };
 		B0C10D6728552FEE0014BE33 /* JSONFileSystemPersistanceMigrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C10D6628552FEE0014BE33 /* JSONFileSystemPersistanceMigrations.swift */; };
+		B0C10D692855343D0014BE33 /* Repository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C10D682855343D0014BE33 /* Repository.framework */; };
+		B0C10D6A2855343D0014BE33 /* Repository.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0C10D682855343D0014BE33 /* Repository.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0D4213728331D6C000ED580 /* OverlayView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D4213628331D6C000ED580 /* OverlayView.framework */; };
 		B0D4213828331D6C000ED580 /* OverlayView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0D4213628331D6C000ED580 /* OverlayView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0D4213A28331D71000ED580 /* OverlayBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D4213928331D71000ED580 /* OverlayBusiness.framework */; };
@@ -111,7 +111,7 @@
 				B0D4213B28331D71000ED580 /* OverlayBusiness.framework in Embed Frameworks */,
 				B0B2B97F282FB7C900BB7E00 /* AddAccountBusiness.framework in Embed Frameworks */,
 				B0D4213828331D6C000ED580 /* OverlayView.framework in Embed Frameworks */,
-				B0B2B97D282FB7C900BB7E00 /* AccountRepository.framework in Embed Frameworks */,
+				B0C10D6A2855343D0014BE33 /* Repository.framework in Embed Frameworks */,
 				B0B2B983282FB7C900BB7E00 /* AuthenticatorListBusiness.framework in Embed Frameworks */,
 				B025FDD1282FBAC4008D1DF1 /* SwiftOTP.xcframework in Embed Frameworks */,
 				B0B2B985282FB7C900BB7E00 /* AuthenticatorListView.framework in Embed Frameworks */,
@@ -177,6 +177,7 @@
 		B0B2B97B282FB7C900BB7E00 /* FileSystemPersistentStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FileSystemPersistentStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0C10D642854FF370014BE33 /* AddAccountViewDelegateAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountViewDelegateAdapter.swift; sourceTree = "<group>"; };
 		B0C10D6628552FEE0014BE33 /* JSONFileSystemPersistanceMigrations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFileSystemPersistanceMigrations.swift; sourceTree = "<group>"; };
+		B0C10D682855343D0014BE33 /* Repository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Repository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D4213628331D6C000ED580 /* OverlayView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OverlayView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D4213928331D71000ED580 /* OverlayBusiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OverlayBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0EA8AA728541F3900DC1670 /* UIKitHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitHelpers.swift; sourceTree = "<group>"; };
@@ -210,7 +211,7 @@
 				B0D4213A28331D71000ED580 /* OverlayBusiness.framework in Frameworks */,
 				B0B2B97E282FB7C900BB7E00 /* AddAccountBusiness.framework in Frameworks */,
 				B0D4213728331D6C000ED580 /* OverlayView.framework in Frameworks */,
-				B0B2B97C282FB7C900BB7E00 /* AccountRepository.framework in Frameworks */,
+				B0C10D692855343D0014BE33 /* Repository.framework in Frameworks */,
 				B0B2B982282FB7C900BB7E00 /* AuthenticatorListBusiness.framework in Frameworks */,
 				B025FDD0282FBAC4008D1DF1 /* SwiftOTP.xcframework in Frameworks */,
 				B0B2B984282FB7C900BB7E00 /* AuthenticatorListView.framework in Frameworks */,
@@ -279,12 +280,12 @@
 			path = Integrations;
 			sourceTree = "<group>";
 		};
-		B06A5FD32830110700433C58 /* AccountRepository */ = {
+		B06A5FD32830110700433C58 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
 				B06A5FD42830111D00433C58 /* AccountRepositoryExtensions.swift */,
 			);
-			path = AccountRepository;
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		B06A5FD62830113E00433C58 /* FileSystemPersistentStorage */ = {
@@ -370,6 +371,7 @@
 		B0B2B974282FB7C900BB7E00 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B0C10D682855343D0014BE33 /* Repository.framework */,
 				B04FFF04283C68230052178B /* AddAccountView.framework */,
 				B0D4213928331D71000ED580 /* OverlayBusiness.framework */,
 				B0D4213628331D6C000ED580 /* OverlayView.framework */,
@@ -423,7 +425,7 @@
 		B0F7546D28342EF80051038D /* Business */ = {
 			isa = PBXGroup;
 			children = (
-				B06A5FD32830110700433C58 /* AccountRepository */,
+				B06A5FD32830110700433C58 /* Repository */,
 				B06A5FD62830113E00433C58 /* FileSystemPersistentStorage */,
 			);
 			path = Business;

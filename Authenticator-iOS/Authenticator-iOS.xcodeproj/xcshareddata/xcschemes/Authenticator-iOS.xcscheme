@@ -46,8 +46,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B0F423B22814B66F00C9D138"
                BuildableName = "AccountRepositoryTests.xctest"
-               BlueprintName = "AccountRepositoryTests"
-               ReferencedContainer = "container:../Modules/Business/AccountRepository/AccountRepository.xcodeproj">
+               BlueprintName = "RepositoryTests"
+               ReferencedContainer = "container:../Modules/Business/AccountRepository/Repository.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference

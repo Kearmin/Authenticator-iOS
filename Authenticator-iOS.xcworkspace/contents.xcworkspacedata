@@ -48,7 +48,7 @@
             location = "group:Modules/Business/Clock/Clock.xcodeproj">
          </FileRef>
          <FileRef
-            location = "group:Modules/Business/AccountRepository/AccountRepository.xcodeproj">
+            location = "group:Modules/Business/Repository/Repository.xcodeproj">
          </FileRef>
       </Group>
       <Group

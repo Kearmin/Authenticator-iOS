@@ -9,7 +9,7 @@ import Foundation
 import AddAccountView
 import AddAccountBusiness
 import Combine
-import AccountRepository
+import Repository
 import AuthenticatorListBusiness
 
 enum AddAccountComposer {

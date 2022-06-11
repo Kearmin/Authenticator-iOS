@@ -6,11 +6,11 @@
 //
 
 import XCTest
-import AccountRepository
+import Repository
 import AVFoundation
 import Combine
 
-class AccountRepositoryTests: XCTestCase {
+class RepositoryTests: XCTestCase {
     private var cancellable: AnyCancellable?
 
     func test_CanInitWithMappers() {

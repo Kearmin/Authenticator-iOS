@@ -8,7 +8,7 @@
 import Foundation
 import AuthenticatorListView
 import AuthenticatorListBusiness
-import AccountRepository
+import Repository
 import Combine
 import Resolver
 

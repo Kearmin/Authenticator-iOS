@@ -6,7 +6,7 @@
 //
 
 import Combine
-import AccountRepository
+import Repository
 import AuthenticatorListBusiness
 
 typealias AddAccountEventPublisher = AnyPublisher<AddAccountEvent, Never>
