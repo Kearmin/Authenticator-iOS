@@ -21,6 +21,8 @@ class AddAccountFlow {
     func start(dependencies: AddAccountComposer.Dependencies) {
         guard let source = source else { return }
         let (addAccountViewController, addAccountEventPublisher) = AddAccountComposer.addAccount(with: dependencies)
+        // Tie flow to ViewController lifecycle
+        addAccountViewController.reference = self
         self.addAccountViewController = addAccountViewController
         setupEvents(publisher: addAccountEventPublisher)
         let navController = addAccountViewController.embeddedInNavigationController
@@ -31,9 +33,10 @@ class AddAccountFlow {
 
 private extension AddAccountFlow {
     func setupEvents(publisher: AnyPublisher<AddAccountEvent, Never>) {
-        addAccountViewController?.reference = publisher
+        addAccountEventCancellable = publisher
             .receive(on: DispatchQueue.main)
-            .sink { event in
+            .sink { [weak self] event in
+                guard let self = self else { return }
                 switch event {
                 case .doneDidPress:
                     self.addAccountViewController?.dismiss(animated: true)
