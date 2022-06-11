@@ -55,9 +55,6 @@
          location = "container:"
          name = "Infrastructure">
          <FileRef
-            location = "group:Modules/Infrastructure/UIKitNavigator/UIKitNavigator.xcodeproj">
-         </FileRef>
-         <FileRef
             location = "group:Modules/Infrastructure/FileSystemPersistentStorage/FileSystemPersistentStorage.xcodeproj">
          </FileRef>
       </Group>
@@ -66,13 +63,13 @@
       location = "container:"
       name = "TestPlans">
       <FileRef
-         location = "group:Authenticator-iOSPR.xctestplan">
+         location = "group:TestPlans/Authenticator-iOS-UnitTests.xctestplan">
       </FileRef>
       <FileRef
-         location = "group:Authenticator-iOSIntegrationTests.xctestplan">
+         location = "group:TestPlans/Authenticator-iOSIntegrationTests.xctestplan">
       </FileRef>
       <FileRef
-         location = "group:/Users/kerteszjeno/Documents/IosProjects/Authenticator-iOS/Authenticator-iOS-UnitTests.xctestplan">
+         location = "group:TestPlans/Authenticator-iOSPR.xctestplan">
       </FileRef>
    </Group>
 </Workspace>
