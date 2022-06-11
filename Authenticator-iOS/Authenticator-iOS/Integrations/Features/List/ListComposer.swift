@@ -40,7 +40,8 @@ enum ListComposer {
         )
         let presenter = AuthenticatorListPresenter(service: presenterService, cycleLength: Constants.appCycleLength)
         presenterService.presenter = presenter
-        let rootView = AuthenticatorListView(viewModel: viewModel)
+        let viewConfiguration = AuthenticatorListView.Configuration(searchPlaceholder: "Search".localized, editText: "Edit".localized)
+        let rootView = AuthenticatorListView(viewModel: viewModel, configuration: viewConfiguration)
         let viewController = AuthenticatorListViewController(
             viewModel: viewModel,
             rootview: rootView,
@@ -49,7 +50,7 @@ enum ListComposer {
                 eventSubject.send(.viewDidLoad)
                 presenter.load()
             })
-        viewController.title = presenter.title
+        viewController.title = "Authenticator".localized
         let adapter = AuthenticatorListOutputAdapter(
             listViewController: viewController,
             presenter: presenter,

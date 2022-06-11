@@ -7,14 +7,30 @@
 
 import SwiftUI
 
+public extension OverlayView {
+    struct Configuration {
+        let unlockText: String
+
+        public init(unlockText: String) {
+            self.unlockText = unlockText
+        }
+    }
+}
+
 public struct OverlayView: View {
     public var imageName: String
     private var isDebug: Bool
     private var onUnlockDidPress: () -> Void
+    private let configuration: Configuration
 
-    public init(imageName: String, onUnlockDidPress: @escaping () -> Void = { }) {
+    public init(
+        imageName: String,
+        configuration: Configuration,
+        onUnlockDidPress: @escaping () -> Void = { }
+    ) {
         self.imageName = imageName
         self.isDebug = false
+        self.configuration = configuration
         self.onUnlockDidPress = onUnlockDidPress
     }
 
@@ -22,6 +38,7 @@ public struct OverlayView: View {
         imageName = ""
         onUnlockDidPress = { }
         isDebug = true
+        configuration = .init(unlockText: "unlock")
     }
 
     public var body: some View {
@@ -35,7 +52,7 @@ public struct OverlayView: View {
             Button {
                 onUnlockDidPress()
             } label: {
-                Text("Unlock")
+                Text(configuration.unlockText)
                     .font(.headline)
                     .fontWeight(.bold)
             }

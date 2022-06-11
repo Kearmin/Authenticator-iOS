@@ -8,20 +8,35 @@
 import SwiftUI
 import Combine
 
+public extension AuthenticatorListView {
+    struct Configuration {
+        public let searchPlaceholder: String
+        public let editText: String
+
+        public init(searchPlaceholder: String, editText: String) {
+            self.searchPlaceholder = searchPlaceholder
+            self.editText = editText
+        }
+    }
+}
+
 public struct AuthenticatorListView: View {
     @StateObject public var viewModel: AuthenticatorListViewModel
+    private let configuration: Configuration
 
     public init(
-        viewModel: AuthenticatorListViewModel
+        viewModel: AuthenticatorListViewModel,
+        configuration: Configuration
     ) {
         _viewModel = .init(wrappedValue: viewModel)
+        self.configuration = configuration
     }
 
     public var body: some View {
         ZStack {
             VStack(spacing: 10) {
                 HStack {
-                    TextField("Search", text: $viewModel.searchText)
+                    TextField(configuration.searchPlaceholder, text: $viewModel.searchText)
                         .textFieldStyle(.roundedBorder)
                     Text(viewModel.countDownSeconds)
                         .font(.system(size: 40))
@@ -79,7 +94,7 @@ public struct AuthenticatorListView: View {
         }
         .swipeActions(edge: .leading) {
             Button(action: row.onEditPress) {
-                Text("Edit")
+                Text(configuration.editText)
             }
             .tint(.cyan)
         }
@@ -151,15 +166,22 @@ struct AuthenticatorListView_Previews: PreviewProvider {
         viewModel.toast = "Copied to clipboard"
         return viewModel
     }
+
+    static var config: AuthenticatorListView.Configuration {
+        .init(searchPlaceholder: "Search", editText: "Edot")
+    }
+
     static var previews: some View {
         NavigationView {
             AuthenticatorListView(
-                viewModel: viewModel)
+                viewModel: viewModel,
+                configuration: config)
             .navigationBarTitleDisplayMode(.inline)
         }
         NavigationView {
             AuthenticatorListView(
-                viewModel: viewModel)
+                viewModel: viewModel,
+                configuration: config)
             .navigationBarTitleDisplayMode(.inline)
         }
         .preferredColorScheme(.dark)

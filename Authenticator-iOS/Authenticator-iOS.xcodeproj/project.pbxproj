@@ -61,6 +61,7 @@
 		B0C10D6728552FEE0014BE33 /* JSONFileSystemPersistanceMigrations.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C10D6628552FEE0014BE33 /* JSONFileSystemPersistanceMigrations.swift */; };
 		B0C10D692855343D0014BE33 /* Repository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C10D682855343D0014BE33 /* Repository.framework */; };
 		B0C10D6A2855343D0014BE33 /* Repository.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0C10D682855343D0014BE33 /* Repository.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B0C10D6C28553F6B0014BE33 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C10D6B28553F6B0014BE33 /* Localization.swift */; };
 		B0D4213728331D6C000ED580 /* OverlayView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D4213628331D6C000ED580 /* OverlayView.framework */; };
 		B0D4213828331D6C000ED580 /* OverlayView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0D4213628331D6C000ED580 /* OverlayView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0D4213A28331D71000ED580 /* OverlayBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D4213928331D71000ED580 /* OverlayBusiness.framework */; };
@@ -178,6 +179,7 @@
 		B0C10D642854FF370014BE33 /* AddAccountViewDelegateAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountViewDelegateAdapter.swift; sourceTree = "<group>"; };
 		B0C10D6628552FEE0014BE33 /* JSONFileSystemPersistanceMigrations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFileSystemPersistanceMigrations.swift; sourceTree = "<group>"; };
 		B0C10D682855343D0014BE33 /* Repository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Repository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0C10D6B28553F6B0014BE33 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
 		B0D4213628331D6C000ED580 /* OverlayView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OverlayView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D4213928331D71000ED580 /* OverlayBusiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OverlayBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0EA8AA728541F3900DC1670 /* UIKitHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitHelpers.swift; sourceTree = "<group>"; };
@@ -318,6 +320,7 @@
 				B06A5FEE2830878D00433C58 /* SwiftUIHelpers.swift */,
 				B021897A2831CEB000918B8D /* Images.swift */,
 				B0F7548128346A2D0051038D /* AppConfig.swift */,
+				B0C10D6B28553F6B0014BE33 /* Localization.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -596,6 +599,7 @@
 				B06A5FCF282FFDF100433C58 /* AuthenticatorListPresenterServiceAdapter.swift in Sources */,
 				B025FDD5282FCC88008D1DF1 /* Threading.swift in Sources */,
 				B06A5FEB28307F2700433C58 /* WeakRefProxy.swift in Sources */,
+				B0C10D6C28553F6B0014BE33 /* Localization.swift in Sources */,
 				B008CA6F284E8BBB00561409 /* OverlayFlow.swift in Sources */,
 				B0F7547C283464160051038D /* Analytics+Overlay.swift in Sources */,
 				B025FDD3282FCB9D008D1DF1 /* Resolver+Dependencies.swift in Sources */,

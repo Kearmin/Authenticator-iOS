@@ -42,8 +42,6 @@ public final class AuthenticatorListPresenter {
     }
     public var errorOutput: AuthenticatorListErrorOutput?
 
-    public let title = "Authenticator"
-
     public init(service: AuthenticatorListPresenterService, cycleLength: Int) {
         self.service = service
         self.cycleLength = cycleLength

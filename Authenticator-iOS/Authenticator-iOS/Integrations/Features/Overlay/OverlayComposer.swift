@@ -22,7 +22,7 @@ enum OverlayComposer {
             output: outputAdapter,
             authenticationService: serviceAdapter)
         serviceAdapter.usecase = useCase
-        let view = OverlayView(imageName: Images.zyzzSticker.rawValue) {
+        let view = OverlayView(imageName: Images.zyzzSticker.rawValue, configuration: .init(unlockText: "Unlock".localized)) {
             serviceAdapter.unlock()
         }
         let viewController = OverlayViewController.init(rootView: view)
