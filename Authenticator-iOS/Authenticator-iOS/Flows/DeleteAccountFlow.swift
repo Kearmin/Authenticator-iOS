@@ -8,8 +8,8 @@
 import UIKit
 
 class DeleteAccountFlow {
-    let source: UIViewController?
-    let didPressDelete: () -> Void
+    private let source: UIViewController?
+    private let didPressDelete: () -> Void
 
     internal init(source: UIViewController?, didPressDelete: @escaping () -> Void) {
         self.source = source

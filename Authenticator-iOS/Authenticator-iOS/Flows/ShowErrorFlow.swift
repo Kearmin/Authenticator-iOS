@@ -8,9 +8,9 @@
 import UIKit
 
 class ShowErrorFlow {
-    let source: UIViewController?
-    let title: String
-    let message: String
+    private let source: UIViewController?
+    private let title: String
+    private let message: String
 
     init(source: UIViewController?, title: String, message: String) {
         self.source = source

@@ -12,19 +12,17 @@ import AddAccountView
 class AddAccountFlow {
     private let source: UIViewController?
     private var addAccountEventCancellable: AnyCancellable?
-    private weak var addAccountViewController: AddAccountViewController?
 
     init(source: UIViewController?) {
         self.source = source
     }
 
-    func start(dependencies: AddAccountComposer.Dependencies) {
+    func start(with dependencies: AddAccountComposer.Dependencies) {
         guard let source = source else { return }
         let (addAccountViewController, addAccountEventPublisher) = AddAccountComposer.addAccount(with: dependencies)
         // Tie flow to ViewController lifecycle
         addAccountViewController.reference = self
-        self.addAccountViewController = addAccountViewController
-        setupEvents(publisher: addAccountEventPublisher)
+        setupEvents(addAccountViewController: addAccountViewController, publisher: addAccountEventPublisher)
         let navController = addAccountViewController.embeddedInNavigationController
         navController.modalPresentationStyle = .fullScreen
         source.present(navController, animated: true)
@@ -32,28 +30,27 @@ class AddAccountFlow {
 }
 
 private extension AddAccountFlow {
-    func setupEvents(publisher: AnyPublisher<AddAccountEvent, Never>) {
+    func setupEvents(addAccountViewController: AddAccountViewController, publisher: AnyPublisher<AddAccountEvent, Never>) {
         addAccountEventCancellable = publisher
             .receive(on: DispatchQueue.main)
-            .sink { [weak self] event in
-                guard let self = self else { return }
+            .sink { [weak addAccountViewController] event in
                 switch event {
                 case .doneDidPress:
-                    self.addAccountViewController?.dismiss(animated: true)
+                    addAccountViewController?.dismiss(animated: true)
                 case .failedToStartCamera:
                     let alert = UIAlertController(title: "Error", message: "Failed to open camera", preferredStyle: .alert)
                     alert.addAction(.init(title: "Ok", style: .default, handler: { _ in
-                        self.addAccountViewController?.dismiss(animated: true)
+                        addAccountViewController?.dismiss(animated: true)
                     }))
-                    self.addAccountViewController?.present(alert, animated: true)
+                    addAccountViewController?.present(alert, animated: true)
                 case .qrCodeReadDidFail(let error):
                     let alert = UIAlertController(title: "Error", message: "\(error)", preferredStyle: .alert)
                     alert.addAction(.init(title: "Ok", style: .default, handler: { _ in
-                        self.addAccountViewController?.addAccountView.resumeSession()
+                        addAccountViewController?.addAccountView.resumeSession()
                     }))
-                    self.addAccountViewController?.present(alert, animated: true)
+                    addAccountViewController?.present(alert, animated: true)
                 case .didCreateAccount:
-                    self.addAccountViewController?.dismiss(animated: true)
+                    addAccountViewController?.dismiss(animated: true)
                 }
             }
     }

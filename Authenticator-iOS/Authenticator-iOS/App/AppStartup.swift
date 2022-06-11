@@ -8,7 +8,7 @@
 import Resolver
 
 class AppStartup {
-    let migrationRunner: FileSystemPersistentStorageMigrationRunner
+    private let migrationRunner: FileSystemPersistentStorageMigrationRunner
 
     init() {
         Resolver.registerDependencies()

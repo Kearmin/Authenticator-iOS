@@ -12,8 +12,8 @@ import AuthenticatorListView
 import Resolver
 
 class AppFlow {
-    var overlayFlow: OverlayFlow?
-    var listEventCancellable: AnyCancellable?
+    private var overlayFlow: OverlayFlow?
+    private var listEventCancellable: AnyCancellable?
 
     func start(with windowScene: UIWindowScene, sceneDelegate: SceneDelegate) {
         overlayFlow = .init(
@@ -44,7 +44,7 @@ private extension AppFlow {
         switch event {
         case .addAccountDidPress:
             let addAccountFlow = AddAccountFlow(source: listViewController)
-            addAccountFlow.start(dependencies: Resolver.resolve())
+            addAccountFlow.start(with: Resolver.resolve())
         case .deleteAccountDidPress(let context):
             let deleteAccountFlow = DeleteAccountFlow(source: listViewController, didPressDelete: context.callback)
             deleteAccountFlow.start()

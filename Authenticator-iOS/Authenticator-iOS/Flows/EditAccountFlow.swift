@@ -9,9 +9,9 @@ import UIKit
 import AuthenticatorListBusiness
 
 class EditAccountFlow {
-    let account: AuthenticatorListRowContent
-    let source: UIViewController?
-    var didFinishUpdate: (_ issuer: String?, _ username: String?) -> Void
+    private let account: AuthenticatorListRowContent
+    private let source: UIViewController?
+    private let didFinishUpdate: (_ issuer: String?, _ username: String?) -> Void
 
     init(account: AuthenticatorListRowContent, source: UIViewController?, didFinishUpdate: @escaping (_ issuer: String?, _ username: String?) -> Void) {
         self.account = account
