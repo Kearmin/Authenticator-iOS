@@ -63,7 +63,7 @@ class AuthenticatorListOutputAdapter: AuthenticatorListViewOutput, Authenticator
                     onDidPress: { [weak self] in
                         UIPasteboard.general.string = item.TOTPCode
                         onMainWithAnimation(.easeInOut(duration: 0.2)) {
-                            self?.listViewController?.viewModel.toast = "Copied to clipboard"
+                            self?.listViewController?.viewModel.toast = "Copied to clipboard".localized
                         }
                         self?.hideToastSubject.send()
                     },
@@ -81,6 +81,6 @@ class AuthenticatorListOutputAdapter: AuthenticatorListViewOutput, Authenticator
     }
 
     public func receive(error: Error) {
-        listEventPublisher.send(.onError(.init(title: "Error", message: "\(error)")))
+        listEventPublisher.send(.onError(.init(title: "Error".localized, message: "\(error)")))
     }
 }

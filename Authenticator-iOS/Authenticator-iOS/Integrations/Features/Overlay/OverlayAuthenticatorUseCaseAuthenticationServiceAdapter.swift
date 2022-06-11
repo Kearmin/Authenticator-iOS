@@ -45,7 +45,7 @@ class OverlayAuthenticatorUseCaseAuthenticationServiceAdapter: OverlayAuthentica
 
     func startAuthentication() {
         let context = LAContext()
-        context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "Unlock your accounts") { success, _ in
+        context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "Unlock your accounts".localized) { success, _ in
             if success {
                 self.usecase?.receiveAuthenticationSuccess()
             } else {
