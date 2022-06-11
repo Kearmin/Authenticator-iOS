@@ -59,8 +59,8 @@ class AuthenticatorListIntegrationTests: XCTestCase {
         env.sutViewController.loadViewIfNeeded()
         let model = anAccountModel()
         let model2 = anAccountModel(secret: "anotherSecret")
-        let expectedParam = TOTPProviderMock.Params(secret: model.secret, date: Date(), digits: 6, timeInterval: 30, algorithm: .sha1)
-        let expectedParam2 = TOTPProviderMock.Params(secret: model2.secret, date: Date(), digits: 6, timeInterval: 30, algorithm: .sha1)
+        let expectedParam = TOTPProviderMock.Params(secret: "secret", date: Date(), digits: 6, timeInterval: 30, algorithm: .sha1)
+        let expectedParam2 = TOTPProviderMock.Params(secret: "anotherSecret", date: Date(), digits: 6, timeInterval: 30, algorithm: .sha1)
         env.loader.readAccountsLoader.completeLoading(with: [model, model2])
         XCTAssertEqual(env.totpProvider.capturedParams.count, 2)
         XCTAssertEqual(env.totpProvider.capturedParams.first, expectedParam)
@@ -128,7 +128,7 @@ class AuthenticatorListIntegrationTests: XCTestCase {
         let spy = PublisherSpy(env.sutViewModel.$sections.dropFirst().eraseToAnyPublisher())
         env.totpProvider.result = "someTOTP"
         env.loader.readAccountsLoader.completeLoading(with: [model])
-        spy.values[0][0].rows[0].onDidPress()
+        spy.values.first?.accountSection.rows[0].onDidPress()
         XCTAssertEqual(UIPasteboard.general.string, "someTOTP")
     }
 
@@ -139,8 +139,8 @@ class AuthenticatorListIntegrationTests: XCTestCase {
         let sectionSpy = PublisherSpy(env.sutViewModel.$sections.dropFirst().eraseToAnyPublisher())
         let toastSpy = PublisherSpy(env.sutViewModel.$toast.dropFirst().eraseToAnyPublisher())
         env.loader.readAccountsLoader.completeLoading(with: [model])
-        sectionSpy.values[0][0].rows[0].onDidPress()
-        XCTAssertEqual(toastSpy.valueCount, 1)
+        sectionSpy.values.first?.accountSection.rows[0].onDidPress()
+        XCTAssertEqual(toastSpy.resultCount, 1)
         XCTAssertEqual(toastSpy.values.first, "Copied to clipboard")
     }
 
@@ -152,8 +152,8 @@ class AuthenticatorListIntegrationTests: XCTestCase {
         let eventSpy = env.eventPublisherSpy
         let spy = PublisherSpy(env.sutViewModel.$sections.dropFirst().eraseToAnyPublisher())
         env.loader.readAccountsLoader.completeLoading(with: [model, toDeleteModel])
-        spy.values[0][0].rows[1].onDeletePress()
-        XCTAssertEqual(eventSpy.valueCount, 1)
+        spy.values.first?.accountSection.rows[1].onDeletePress()
+        XCTAssertEqual(eventSpy.resultCount, 1)
         let deleteEvent = try XCTUnwrap(eventSpy.values.first)
         XCTAssertEqual(deleteEvent, .deleteAccountDidPress(.init(callback: {})))
         if case let ListEvent.deleteAccountDidPress(context) = deleteEvent {
@@ -173,8 +173,8 @@ class AuthenticatorListIntegrationTests: XCTestCase {
         let eventSpy = env.eventPublisherSpy
         let spy = PublisherSpy(env.sutViewModel.$sections.dropFirst().eraseToAnyPublisher())
         env.loader.readAccountsLoader.completeLoading(with: [model, toEditModel])
-        spy.values[0][0].rows[1].onEditPress()
-        XCTAssertEqual(eventSpy.valueCount, 1)
+        spy.values.first?.accountSection.rows[1].onEditPress()
+        XCTAssertEqual(eventSpy.resultCount, 1)
         let editEvent = try XCTUnwrap(eventSpy.values.first)
         let row = AuthenticatorListRowContent(id: toEditModel.id, issuer: toEditModel.issuer, username: toEditModel.username, TOTPCode: "", isFavourite: toEditModel.isFavourite)
         XCTAssertEqual(editEvent, .editDidPress(.init(item: row, callback: {_,_ in })))
@@ -189,7 +189,6 @@ class AuthenticatorListIntegrationTests: XCTestCase {
         }
     }
 
-
     func test_ListfavouritesAccount_IfFavouriteIsClicked() throws {
         let model = anAccountModel()
         let toFavouriteModel = anAccountModel()
@@ -197,7 +196,7 @@ class AuthenticatorListIntegrationTests: XCTestCase {
         env.sutViewController.loadViewIfNeeded()
         let spy = PublisherSpy(env.sutViewModel.$sections.dropFirst().eraseToAnyPublisher())
         env.loader.readAccountsLoader.completeLoading(with: [model, toFavouriteModel])
-        spy.values[0][0].rows[1].onFavouritePress()
+        spy.values.first?.accountSection.rows[1].onFavouritePress()
         XCTAssertEqual(env.loader.favouriteCallCount, 1)
         XCTAssertEqual(env.loader.favouriteCallIDs.first, toFavouriteModel.id)
     }
@@ -222,17 +221,17 @@ class AuthenticatorListIntegrationTests: XCTestCase {
         let spy = PublisherSpy(env.sutViewModel.$sections.dropFirst().eraseToAnyPublisher(), expectation: expectation)
         env.sutViewModel.searchText = filterText
         waitForExpectations(timeout: 1.0) { _ in
-            XCTAssertEqual(spy.valueCount, 1)
+            XCTAssertEqual(spy.resultCount, 1)
             self.assertThat(spy.values[0], isRendering: filteredAccounts)
         }
     }
 
-    private func assertList(canRender dates: [(TimeInterval, String)], countDownSpy: PublisherSpy<String>, clockLoader: PassthroughSubject<Date, Never>) {
+    private func assertList(canRender dates: [(TimeInterval, String)], countDownSpy: PublisherSpy<String, Never>, clockLoader: PassthroughSubject<Date, Never>) {
         for date in dates {
             clockLoader.send(Date(timeIntervalSince1970: date.0))
             XCTAssertEqual(countDownSpy.values.last, date.1)
         }
-        XCTAssertEqual(countDownSpy.valueCount, dates.count)
+        XCTAssertEqual(countDownSpy.resultCount, dates.count)
     }
 
     private func assertListCan(render models: [AuthenticatorAccountModel]) {
@@ -258,24 +257,21 @@ class AuthenticatorListIntegrationTests: XCTestCase {
 
             let favouriteAccounts = accounts.filter({ $0.isFavourite })
             let normalAccounts = accounts.filter({ !$0.isFavourite })
-            let normalIndex = favouriteAccounts.isEmpty ? 0 : 1
 
             normalAccounts.enumerated().forEach { index, account in
-                XCTAssertEqual(sections[normalIndex].rows[index].id, account.id)
-                XCTAssertEqual(sections[normalIndex].rows[index].username, account.username)
-                XCTAssertEqual(sections[normalIndex].rows[index].issuer, account.issuer)
-                XCTAssertEqual(sections[normalIndex].rows[index].isFavourite, account.isFavourite)
-                XCTAssertEqual(sections[normalIndex].rows[index].TOTPCode, totp)
+                XCTAssertEqual(sections.accountSection.rows[index].id, account.id)
+                XCTAssertEqual(sections.accountSection.rows[index].username, account.username)
+                XCTAssertEqual(sections.accountSection.rows[index].issuer, account.issuer)
+                XCTAssertEqual(sections.accountSection.rows[index].isFavourite, account.isFavourite)
+                XCTAssertEqual(sections.accountSection.rows[index].TOTPCode, totp)
             }
-
-            if normalIndex == 1 {
-                favouriteAccounts.enumerated().forEach { index, account in
-                    XCTAssertEqual(sections[0].rows[index].id, account.id)
-                    XCTAssertEqual(sections[0].rows[index].username, account.username)
-                    XCTAssertEqual(sections[0].rows[index].issuer, account.issuer)
-                    XCTAssertEqual(sections[0].rows[index].isFavourite, account.isFavourite)
-                    XCTAssertEqual(sections[0].rows[index].TOTPCode, totp)
-                }
+            guard !favouriteAccounts.isEmpty else { return }
+            favouriteAccounts.enumerated().forEach { index, account in
+                XCTAssertEqual(sections.favouriteSection.rows[index].id, account.id)
+                XCTAssertEqual(sections.favouriteSection.rows[index].username, account.username)
+                XCTAssertEqual(sections.favouriteSection.rows[index].issuer, account.issuer)
+                XCTAssertEqual(sections.favouriteSection.rows[index].isFavourite, account.isFavourite)
+                XCTAssertEqual(sections.favouriteSection.rows[index].TOTPCode, totp)
             }
         }
 
@@ -295,14 +291,17 @@ class AuthenticatorListIntegrationTests: XCTestCase {
     }
 
     class TestEnvironment {
-        var loader: ListLoaderStub
-        var sutView: AuthenticatorListView
-        var sutViewController: AuthenticatorListViewController
-        var sutViewModel: AuthenticatorListViewModel
-        var totpProvider: TOTPProviderMock
-        var eventPublisher: AnyPublisher<ListEvent, Never>
-        var eventPublisherSpy: PublisherSpy<ListEvent> { .init(eventPublisher) }
-        var analyticsMock: AnalyticsMock
+        let loader: ListLoaderStub
+        let sutView: AuthenticatorListView
+        let sutViewController: AuthenticatorListViewController
+        let sutViewModel: AuthenticatorListViewModel
+        let totpProvider: TOTPProviderMock
+        let eventPublisher: AnyPublisher<ListEvent, Never>
+        let analyticsMock: AnalyticsMock
+
+        var eventPublisherSpy: PublisherSpy<ListEvent, Never> {
+            .init(eventPublisher)
+        }
 
         init(loader: ListLoaderStub = .init()) {
             self.loader = loader
@@ -328,25 +327,9 @@ class AuthenticatorListIntegrationTests: XCTestCase {
     }
 }
 
-class PublisherSpy<Output> {
-    var cancellable: AnyCancellable?
-    var values: [Output] = []
-    var valueCount: Int {
-        values.count
-    }
-
-    init(_ publisher: AnyPublisher<Output, Never>, expectation: XCTestExpectation? = nil) {
-        cancellable = publisher
-            .sink(receiveValue: { [unowned self] output in
-                self.values.append(output)
-                expectation?.fulfill()
-            })
-    }
-}
-
-extension AuthenticatorListViewModel {
+extension Array where Element == AuthenticatorListViewSection {
     var hasFavouriteSection: Bool {
-        sections.count > 1
+        count > 1
     }
 
     var favouriteSection: AuthenticatorListViewSection {
@@ -354,162 +337,14 @@ extension AuthenticatorListViewModel {
             XCTFail("Expected to have favourite section")
             fatalError("Expected to have favourite section")
         }
-        return sections[1]
+        return self[0]
     }
 
     var accountSection: AuthenticatorListViewSection {
         if hasFavouriteSection {
-            return sections[1]
+            return self[1]
         } else {
-            return sections[0]
+            return self[0]
         }
-    }
-
-    func row(at index: Int, in section: AuthenticatorListViewSection) -> AuthenticatorListRow {
-        section.rows[index]
-    }
-}
-
-extension XCTestCase {
-    func trackForMemoryLeaks(_ instance: AnyObject, file: StaticString = #filePath, line: UInt = #line) {
-        addTeardownBlock { [weak instance] in
-            XCTAssertNil(instance, "Instance should have been deallocated. Potential memory leak.", file: file, line: line)
-        }
-    }
-}
-
-class ListLoaderStub {
-    lazy var readAccounts: () -> AnyPublisher<[AuthenticatorAccountModel], Never> = readAccountsLoader.startRequest
-    var readAccountsLoader = LoaderStub<[AuthenticatorAccountModel], Never>()
-    var readAccountsCallCount: Int { readAccountsLoader.requestCallCount }
-
-    var clockSubject = PassthroughSubject<Date, Never>()
-    lazy var clock: AnyPublisher<Date, Never> = clockSubject.eraseToAnyPublisher()
-
-    lazy var delete: (UUID) -> AnyPublisher<Void, Error> = { [unowned self] id in
-        deleteCallIDs.append(id)
-        return self.deleteLoader.startRequest()
-    }
-    var deleteCallIDs: [UUID] = []
-    var deleteLoader = LoaderStub<Void, Error>()
-    var deleteCallCount: Int { deleteLoader.requestCallCount }
-
-    lazy var favourite: (UUID) -> AnyPublisher<Void, Error> = { [unowned self] id in
-        self.favouriteCallIDs.append(id)
-        return favouriteLoader.startRequest()
-    }
-    var favouriteLoader = LoaderStub<Void, Error>()
-    var favouriteCallIDs: [UUID] = []
-    var favouriteCallCount: Int { favouriteLoader.requestCallCount }
-
-    var refresh: AnyPublisher<Void, Never> {
-        refreshSubject.eraseToAnyPublisher()
-    }
-    var refreshSubject = PassthroughSubject<Void, Never>()
-
-    lazy var update: (AuthenticatorAccountModel) -> AnyPublisher<Void, Error> = { [unowned self] model in
-        self.updateCallItems.append(model)
-        return self.updateLoader.startRequest()
-    }
-    var updateCallItems: [AuthenticatorAccountModel] = []
-    var updateLoader = LoaderStub<Void, Error>()
-    var updateCallCount: Int { updateLoader.requestCallCount }
-
-}
-
-class LoaderStub<Output, Failure: Error> {
-    private var requests: [PassthroughSubject<Output, Failure>] = []
-
-    var requestCallCount: Int {
-        return requests.count
-    }
-
-    func startRequest() -> AnyPublisher<Output, Failure> {
-        let publisher = PassthroughSubject<Output, Failure>()
-        requests.append(publisher)
-        return publisher.eraseToAnyPublisher()
-    }
-
-    func completeFeedLoadingWithError(with error: Failure, at index: Int = 0) {
-        requests[index].send(completion: .failure(error))
-    }
-
-    func completeLoading(with output: Output, at index: Int = 0) {
-        requests[index].send(output)
-        requests[index].send(completion: .finished)
-    }
-}
-
-struct SomeError: Error {
-    let message: String
-}
-
-func anError() -> NSError {
-    .init(domain: "an error", code: 0)
-}
-
-class TOTPProviderMock: AuthenticatorTOTPProvider {
-    struct Params: Equatable {
-        let secret: String
-        let date: Date
-        let digits: Int
-        let timeInterval: Int
-        let algorithm: AuthenticatorTOTPAlgorithm
-
-        static func == (lhs: Params, rhs: Params) -> Bool {
-            return lhs.secret == rhs.secret
-            && lhs.digits == rhs.digits
-            && lhs.timeInterval == rhs.timeInterval
-            && lhs.algorithm == rhs.algorithm
-            && abs(lhs.date.timeIntervalSinceReferenceDate - lhs.date.timeIntervalSinceReferenceDate) < 1
-        }
-    }
-
-    var result = ""
-    var capturedParams: [Params] = []
-
-    func totp(secret: String, date: Date, digits: Int, timeInterval: Int, algorithm: AuthenticatorTOTPAlgorithm) -> String? {
-        capturedParams.append(Params(
-            secret: secret,
-            date: date,
-            digits: digits,
-            timeInterval: timeInterval,
-            algorithm: algorithm))
-        return result
-    }
-
-    func totpPublisher(secret: String, date: Date, digits: Int, timeInterval: Int, algorithm: AuthenticatorTOTPAlgorithm) -> AnyPublisher<String?, Never> {
-        Empty().eraseToAnyPublisher()
-    }
-}
-
-
-extension UIControl {
-    func simulate(event: UIControl.Event) {
-        allTargets.forEach { target in
-            actions(forTarget: target, forControlEvent: event)?.forEach {
-                (target as NSObject).perform(Selector($0))
-            }
-        }
-    }
-}
-
-extension UIBarButtonItem {
-    var systemItem: SystemItem? {
-        (value(forKey: "systemItem") as? NSNumber).flatMap { SystemItem(rawValue: $0.intValue) }
-    }
-
-    func simulateTap() {
-        (target as? NSObject)?.perform(action)
-    }
-}
-
-class AnalyticsMock: AuthenticatorAnalytics {
-    func track(name: String) {
-
-    }
-
-    func track(name: String, properties: [String : Any]?) {
-
     }
 }

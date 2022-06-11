@@ -42,6 +42,7 @@
 		B06A5FE9283075D800433C58 /* AddAccountEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FE8283075D800433C58 /* AddAccountEvent.swift */; };
 		B06A5FEB28307F2700433C58 /* WeakRefProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FEA28307F2700433C58 /* WeakRefProxy.swift */; };
 		B06A5FEF2830878D00433C58 /* SwiftUIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FEE2830878D00433C58 /* SwiftUIHelpers.swift */; };
+		B06B857A28542265008F594A /* ListLoaderStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B857928542265008F594A /* ListLoaderStub.swift */; };
 		B0B2B961282FB78900BB7E00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B2B960282FB78900BB7E00 /* AppDelegate.swift */; };
 		B0B2B963282FB78900BB7E00 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B2B962282FB78900BB7E00 /* SceneDelegate.swift */; };
 		B0B2B96A282FB78900BB7E00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0B2B969282FB78900BB7E00 /* Assets.xcassets */; };
@@ -64,6 +65,12 @@
 		B0D4213828331D6C000ED580 /* OverlayView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0D4213628331D6C000ED580 /* OverlayView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0D4213A28331D71000ED580 /* OverlayBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D4213928331D71000ED580 /* OverlayBusiness.framework */; };
 		B0D4213B28331D71000ED580 /* OverlayBusiness.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0D4213928331D71000ED580 /* OverlayBusiness.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B0EA8AA828541F3900DC1670 /* UIKitHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EA8AA728541F3900DC1670 /* UIKitHelpers.swift */; };
+		B0EA8AAA28541F8600DC1670 /* SharedHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EA8AA928541F8600DC1670 /* SharedHelpers.swift */; };
+		B0EA8AAC28541FA500DC1670 /* LoaderStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EA8AAB28541FA500DC1670 /* LoaderStub.swift */; };
+		B0EA8AAF2854200700DC1670 /* TOTPProviderMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EA8AAE2854200700DC1670 /* TOTPProviderMock.swift */; };
+		B0EA8AB12854204000DC1670 /* PublisherSpy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EA8AB02854204000DC1670 /* PublisherSpy.swift */; };
+		B0EA8AB32854222A00DC1670 /* AnalyticsMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EA8AB22854222A00DC1670 /* AnalyticsMock.swift */; };
 		B0F7547028342FD10051038D /* OverlayComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F7546F28342FD10051038D /* OverlayComposer.swift */; };
 		B0F75474283459A60051038D /* OverlayAuthenticatorUseCaseAuthenticationServiceAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F75473283459A60051038D /* OverlayAuthenticatorUseCaseAuthenticationServiceAdapter.swift */; };
 		B0F75476283459DA0051038D /* OverlayAuthenticatorUseCaseOutputAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F75475283459DA0051038D /* OverlayAuthenticatorUseCaseOutputAdapter.swift */; };
@@ -156,6 +163,7 @@
 		B06A5FE8283075D800433C58 /* AddAccountEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountEvent.swift; sourceTree = "<group>"; };
 		B06A5FEA28307F2700433C58 /* WeakRefProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeakRefProxy.swift; sourceTree = "<group>"; };
 		B06A5FEE2830878D00433C58 /* SwiftUIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIHelpers.swift; sourceTree = "<group>"; };
+		B06B857928542265008F594A /* ListLoaderStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLoaderStub.swift; sourceTree = "<group>"; };
 		B0B2B95D282FB78900BB7E00 /* Authenticator-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Authenticator-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0B2B960282FB78900BB7E00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0B2B962282FB78900BB7E00 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -171,6 +179,12 @@
 		B0B2B97B282FB7C900BB7E00 /* FileSystemPersistentStorage.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = FileSystemPersistentStorage.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D4213628331D6C000ED580 /* OverlayView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OverlayView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D4213928331D71000ED580 /* OverlayBusiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OverlayBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0EA8AA728541F3900DC1670 /* UIKitHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitHelpers.swift; sourceTree = "<group>"; };
+		B0EA8AA928541F8600DC1670 /* SharedHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedHelpers.swift; sourceTree = "<group>"; };
+		B0EA8AAB28541FA500DC1670 /* LoaderStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoaderStub.swift; sourceTree = "<group>"; };
+		B0EA8AAE2854200700DC1670 /* TOTPProviderMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TOTPProviderMock.swift; sourceTree = "<group>"; };
+		B0EA8AB02854204000DC1670 /* PublisherSpy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublisherSpy.swift; sourceTree = "<group>"; };
+		B0EA8AB22854222A00DC1670 /* AnalyticsMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalyticsMock.swift; sourceTree = "<group>"; };
 		B0F7546F28342FD10051038D /* OverlayComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayComposer.swift; sourceTree = "<group>"; };
 		B0F75473283459A60051038D /* OverlayAuthenticatorUseCaseAuthenticationServiceAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayAuthenticatorUseCaseAuthenticationServiceAdapter.swift; sourceTree = "<group>"; };
 		B0F75475283459DA0051038D /* OverlayAuthenticatorUseCaseOutputAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayAuthenticatorUseCaseOutputAdapter.swift; sourceTree = "<group>"; };
@@ -237,7 +251,8 @@
 		B0505E5B283D677600D770F2 /* Authenticator-iOSIntegrationTests */ = {
 			isa = PBXGroup;
 			children = (
-				B0505E65283D686900D770F2 /* AuthenticatorListIntegrationTests.swift */,
+				B0EA8AAD28541FFB00DC1670 /* List */,
+				B0EA8AA628541F2B00DC1670 /* Helpers */,
 			);
 			path = "Authenticator-iOSIntegrationTests";
 			sourceTree = "<group>";
@@ -372,6 +387,28 @@
 				B0B2B97B282FB7C900BB7E00 /* FileSystemPersistentStorage.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B0EA8AA628541F2B00DC1670 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B0EA8AA728541F3900DC1670 /* UIKitHelpers.swift */,
+				B0EA8AA928541F8600DC1670 /* SharedHelpers.swift */,
+				B0EA8AAB28541FA500DC1670 /* LoaderStub.swift */,
+				B0EA8AB02854204000DC1670 /* PublisherSpy.swift */,
+				B0EA8AB22854222A00DC1670 /* AnalyticsMock.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B0EA8AAD28541FFB00DC1670 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				B0505E65283D686900D770F2 /* AuthenticatorListIntegrationTests.swift */,
+				B0EA8AAE2854200700DC1670 /* TOTPProviderMock.swift */,
+				B06B857928542265008F594A /* ListLoaderStub.swift */,
+			);
+			path = List;
 			sourceTree = "<group>";
 		};
 		B0F7546C28342ED70051038D /* Features */ = {
@@ -530,7 +567,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B06B857A28542265008F594A /* ListLoaderStub.swift in Sources */,
+				B0EA8AB32854222A00DC1670 /* AnalyticsMock.swift in Sources */,
+				B0EA8AAF2854200700DC1670 /* TOTPProviderMock.swift in Sources */,
+				B0EA8AB12854204000DC1670 /* PublisherSpy.swift in Sources */,
+				B0EA8AAC28541FA500DC1670 /* LoaderStub.swift in Sources */,
+				B0EA8AA828541F3900DC1670 /* UIKitHelpers.swift in Sources */,
 				B0505E66283D686900D770F2 /* AuthenticatorListIntegrationTests.swift in Sources */,
+				B0EA8AAA28541F8600DC1670 /* SharedHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
