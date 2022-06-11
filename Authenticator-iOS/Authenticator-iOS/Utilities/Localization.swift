@@ -12,7 +12,7 @@ extension String {
         NSLocalizedString(
             self,
             tableName: nil,
-            bundle: .main,
+            bundle: .current,
             value: self,
             comment: "")
     }
