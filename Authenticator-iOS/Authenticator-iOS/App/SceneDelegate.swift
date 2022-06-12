@@ -20,7 +20,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             appScene(scene, willConnectTo: session, options: connectionOptions)
         }
     }
+}
 
+private extension SceneDelegate {
     func appScene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         AppStartup().runStartup()
         guard let windowScene = (scene as? UIWindowScene) else { return }
