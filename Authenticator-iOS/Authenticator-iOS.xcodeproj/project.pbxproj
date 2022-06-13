@@ -27,6 +27,8 @@
 		B036FAE7284E39A600866F02 /* DeleteAccountFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B036FAE6284E39A600866F02 /* DeleteAccountFlow.swift */; };
 		B036FAE9284E39B700866F02 /* ShowErrorFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B036FAE8284E39B700866F02 /* ShowErrorFlow.swift */; };
 		B036FAEB284E55C300866F02 /* AddAccountFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B036FAEA284E55C300866F02 /* AddAccountFlow.swift */; };
+		B03B6B6D285655D600C52645 /* BiometricAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03B6B6C285655D600C52645 /* BiometricAuthenticator.swift */; };
+		B03B6B6F285655E200C52645 /* AppEventPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03B6B6E285655E200C52645 /* AppEventPublishers.swift */; };
 		B0505E66283D686900D770F2 /* AuthenticatorListIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0505E65283D686900D770F2 /* AuthenticatorListIntegrationTests.swift */; };
 		B06A5FCF282FFDF100433C58 /* AuthenticatorListPresenterServiceAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FCE282FFDF100433C58 /* AuthenticatorListPresenterServiceAdapter.swift */; };
 		B06A5FD1282FFE1A00433C58 /* AuthenticatorListOutputAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FD0282FFE1A00433C58 /* AuthenticatorListOutputAdapter.swift */; };
@@ -61,6 +63,7 @@
 		B0C10D692855343D0014BE33 /* Repository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0C10D682855343D0014BE33 /* Repository.framework */; };
 		B0C10D6A2855343D0014BE33 /* Repository.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0C10D682855343D0014BE33 /* Repository.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0C10D6C28553F6B0014BE33 /* Localization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C10D6B28553F6B0014BE33 /* Localization.swift */; };
+		B0C10D702856124B0014BE33 /* Resolver+Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C10D6F2856124B0014BE33 /* Resolver+Overlay.swift */; };
 		B0D4213728331D6C000ED580 /* OverlayView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D4213628331D6C000ED580 /* OverlayView.framework */; };
 		B0D4213828331D6C000ED580 /* OverlayView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B0D4213628331D6C000ED580 /* OverlayView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B0D4213A28331D71000ED580 /* OverlayBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0D4213928331D71000ED580 /* OverlayBusiness.framework */; };
@@ -146,6 +149,8 @@
 		B036FAE6284E39A600866F02 /* DeleteAccountFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteAccountFlow.swift; sourceTree = "<group>"; };
 		B036FAE8284E39B700866F02 /* ShowErrorFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowErrorFlow.swift; sourceTree = "<group>"; };
 		B036FAEA284E55C300866F02 /* AddAccountFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountFlow.swift; sourceTree = "<group>"; };
+		B03B6B6C285655D600C52645 /* BiometricAuthenticator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BiometricAuthenticator.swift; sourceTree = "<group>"; };
+		B03B6B6E285655E200C52645 /* AppEventPublishers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEventPublishers.swift; sourceTree = "<group>"; };
 		B04FFF04283C68230052178B /* AddAccountView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AddAccountView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0505E5A283D677600D770F2 /* Authenticator-iOSIntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Authenticator-iOSIntegrationTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0505E65283D686900D770F2 /* AuthenticatorListIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorListIntegrationTests.swift; sourceTree = "<group>"; };
@@ -178,6 +183,7 @@
 		B0C10D6628552FEE0014BE33 /* JSONFileSystemPersistanceMigrations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFileSystemPersistanceMigrations.swift; sourceTree = "<group>"; };
 		B0C10D682855343D0014BE33 /* Repository.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Repository.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0C10D6B28553F6B0014BE33 /* Localization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localization.swift; sourceTree = "<group>"; };
+		B0C10D6F2856124B0014BE33 /* Resolver+Overlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Resolver+Overlay.swift"; sourceTree = "<group>"; };
 		B0D4213628331D6C000ED580 /* OverlayView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OverlayView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0D4213928331D71000ED580 /* OverlayBusiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = OverlayBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0EA8AA728541F3900DC1670 /* UIKitHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIKitHelpers.swift; sourceTree = "<group>"; };
@@ -318,6 +324,8 @@
 				B021897A2831CEB000918B8D /* Images.swift */,
 				B0F7548128346A2D0051038D /* AppConfig.swift */,
 				B0C10D6B28553F6B0014BE33 /* Localization.swift */,
+				B03B6B6C285655D600C52645 /* BiometricAuthenticator.swift */,
+				B03B6B6E285655E200C52645 /* AppEventPublishers.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -439,6 +447,7 @@
 				B0F75475283459DA0051038D /* OverlayAuthenticatorUseCaseOutputAdapter.swift */,
 				B0F75479283461220051038D /* OverlayEvent.swift */,
 				B0F7547B283464160051038D /* Analytics+Overlay.swift */,
+				B0C10D6F2856124B0014BE33 /* Resolver+Overlay.swift */,
 			);
 			path = Overlay;
 			sourceTree = "<group>";
@@ -585,12 +594,14 @@
 			files = (
 				B06A5FE12830525D00433C58 /* UIKitHelpers.swift in Sources */,
 				B0F7547A283461220051038D /* OverlayEvent.swift in Sources */,
+				B03B6B6D285655D600C52645 /* BiometricAuthenticator.swift in Sources */,
 				B06A5FD1282FFE1A00433C58 /* AuthenticatorListOutputAdapter.swift in Sources */,
 				B06A5FE7283069C700433C58 /* AddAccountSaveServiceAdapter.swift in Sources */,
 				B036FAEB284E55C300866F02 /* AddAccountFlow.swift in Sources */,
 				B06A5FE32830531F00433C58 /* Resolver+AuthenticatorList.swift in Sources */,
 				B06A5FD52830111D00433C58 /* AccountRepositoryExtensions.swift in Sources */,
 				B0F7547E283464F60051038D /* ListEvent.swift in Sources */,
+				B03B6B6F285655E200C52645 /* AppEventPublishers.swift in Sources */,
 				B0F75480283465670051038D /* Constants.swift in Sources */,
 				B0F7547028342FD10051038D /* OverlayComposer.swift in Sources */,
 				B06A5FCF282FFDF100433C58 /* AuthenticatorListPresenterServiceAdapter.swift in Sources */,
@@ -618,6 +629,7 @@
 				B02189792831BB5F00918B8D /* Analytics+AuthenticatorList.swift in Sources */,
 				B008CA76284EA78900561409 /* AppStartup.swift in Sources */,
 				B06A5FEF2830878D00433C58 /* SwiftUIHelpers.swift in Sources */,
+				B0C10D702856124B0014BE33 /* Resolver+Overlay.swift in Sources */,
 				B0C10D652854FF370014BE33 /* AddAccountViewDelegateAdapter.swift in Sources */,
 				B02189772831748100918B8D /* Analytics+AddAccount.swift in Sources */,
 				B008CA71284E9C9F00561409 /* AppFlow.swift in Sources */,

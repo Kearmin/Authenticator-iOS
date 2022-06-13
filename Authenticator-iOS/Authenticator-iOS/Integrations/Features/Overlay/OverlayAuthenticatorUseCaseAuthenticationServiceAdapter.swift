@@ -12,20 +12,23 @@ import LocalAuthentication
 
 class OverlayAuthenticatorUseCaseAuthenticationServiceAdapter: OverlayAuthenticatorUseCaseAuthenticationService {
     var usecase: OverlayAuthenticatorUseCase?
-    var subscriptions = Set<AnyCancellable>()
+    private let authentication: () -> AnyPublisher<Bool, Error>
+    private var subscriptions = Set<AnyCancellable>()
 
-    init() {
-        let notificationCenter = NotificationCenter.default
-        notificationCenter
-            .publisher(for: UIApplication.willResignActiveNotification)
-            .sink { [weak self] _ in
+    init(
+        willResignActivePublisher: AnyPublisher<Void, Never>,
+        didBecomeActivePublisher: AnyPublisher<Void, Never>,
+        authentication: @escaping () -> AnyPublisher<Bool, Error>
+    ) {
+        self.authentication = authentication
+        willResignActivePublisher
+            .sink { [weak self] in
                 self?.usecase?.lock()
             }
             .store(in: &subscriptions)
 
-        notificationCenter
-            .publisher(for: UIApplication.didBecomeActiveNotification)
-            .sink { [weak self] _ in
+        didBecomeActivePublisher
+            .sink { [weak self] in
                 self?.unlock()
             }
             .store(in: &subscriptions)
@@ -44,13 +47,15 @@ class OverlayAuthenticatorUseCaseAuthenticationServiceAdapter: OverlayAuthentica
     }
 
     func startAuthentication() {
-        let context = LAContext()
-        context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "Unlock your accounts".localized) { success, _ in
-            if success {
-                self.usecase?.receiveAuthenticationSuccess()
-            } else {
-                self.skipnext = true
+        authentication()
+            .sink { _ in
+            } receiveValue: { success in
+                if success {
+                    self.usecase?.receiveAuthenticationSuccess()
+                } else {
+                    self.skipnext = true
+                }
             }
-        }
+            .store(in: &subscriptions)
     }
 }

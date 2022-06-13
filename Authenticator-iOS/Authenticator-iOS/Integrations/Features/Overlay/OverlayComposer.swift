@@ -13,10 +13,21 @@ import LocalAuthentication
 import Combine
 import UIKit
 
+typealias OverlayFactory = () -> (OverlayViewController, OverlayEventPublisher)
+
 enum OverlayComposer {
-    static func overlay(analytics: AuthenticatorAnalytics) -> (OverlayViewController, OverlayEventPublisher) {
+    struct Dependencies {
+        let willResignActivePublisher: AnyPublisher<Void, Never>
+        let didBecomeActivePublisher: AnyPublisher<Void, Never>
+        let authentication: () -> AnyPublisher<Bool, Error>
+        let analytics: AuthenticatorAnalytics
+    }
+    static func overlay(dependencies: Dependencies) -> (OverlayViewController, OverlayEventPublisher) {
         let eventSubject = PassthroughSubject<OverlayEvent, Never>()
-        let serviceAdapter = OverlayAuthenticatorUseCaseAuthenticationServiceAdapter()
+        let serviceAdapter = OverlayAuthenticatorUseCaseAuthenticationServiceAdapter(
+            willResignActivePublisher: dependencies.willResignActivePublisher,
+            didBecomeActivePublisher: dependencies.didBecomeActivePublisher,
+            authentication: dependencies.authentication)
         let outputAdapter = OverlayAuthenticatorUseCaseOutputAdapter(eventSubject: eventSubject)
         let useCase = OverlayAuthenticatorUseCase(
             output: outputAdapter,
@@ -29,7 +40,7 @@ enum OverlayComposer {
         viewController.onViewDidLoad = {
             useCase.lock()
         }
-        let trackedEventPublisher = eventSubject.eraseToAnyPublisher().trackOverlayEvents(analytics: analytics)
+        let trackedEventPublisher = eventSubject.eraseToAnyPublisher().trackOverlayEvents(analytics: dependencies.analytics)
         return (viewController, trackedEventPublisher)
     }
 }

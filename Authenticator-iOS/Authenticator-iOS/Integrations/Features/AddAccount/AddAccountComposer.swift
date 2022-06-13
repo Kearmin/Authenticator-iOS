@@ -12,6 +12,8 @@ import Combine
 import Repository
 import AuthenticatorListBusiness
 
+typealias AddAccountFactory = () -> (AddAccountViewController, AddAccountEventPublisher)
+
 enum AddAccountComposer {
     struct Dependencies {
         let saveAccountPublisher: (AuthenticatorAccountModel) -> AnyPublisher<Void, Error>

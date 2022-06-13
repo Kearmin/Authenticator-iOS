@@ -18,5 +18,9 @@ extension Resolver {
                 saveAccountPublisher: resolver.resolve(AccountRepository.self).savePublisher(account:),
                 analytics: resolver.resolve())
         }
+
+        register(AddAccountFactory.self) { resolver in
+            { AddAccountComposer.addAccount(with: resolver.resolve()) }
+        }
     }
 }

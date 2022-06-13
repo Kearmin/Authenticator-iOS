@@ -33,7 +33,15 @@ extension Resolver {
         .scope(.application)
 
         register {
-            AppFlow()
+            NotificationCenter.default
+        }
+        .scope(.application)
+
+        register { resolver in
+            AppFlow(
+                listFactory: resolver.resolve(),
+                overlayFlow: resolver.resolve(),
+                addAccountFlow: resolver.resolve())
         }
         .scope(.cached)
 
@@ -57,6 +65,14 @@ extension Resolver {
         .scope(.cached)
 
         register { resolver in
+            OverlayFlow(overlayFactory: resolver.resolve())
+        }
+
+        register { resolver in
+            AddAccountFlow(addAccountFactory: resolver.resolve())
+        }
+
+        register { resolver in
             FileSystemPersistentStorageMigrationRunner(
                 migrations: [AddFavouriteMigration(), AddTimeStampMigration()],
                 persistance: resolver.resolve(),
@@ -67,10 +83,19 @@ extension Resolver {
         register(AuthenticatorTOTPProvider.self) {
             SwiftOTPTOTPProvider()
         }
+
+        register { resolver in
+            AppEventPublishers(notificationCenter: resolver.resolve())
+        }
+
+        register {
+            BiometricAuthenticator()
+        }
     }
 
     static func registerFeatureDependencies() {
         registerListDependencies()
         registerAddAccountDependencies()
+        registerOverlayDependencies()
     }
 }

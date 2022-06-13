@@ -27,6 +27,10 @@ extension Resolver {
                 clockPublisher: clock.clockPublisher,
                 analytics: resolver.resolve())
         }
+
+        register(ListFactory.self) { resolver in
+            { ListComposer.list(dependencies: resolver.resolve()) }
+        }
     }
 
     static func deletePublisher(repository: AccountRepository) -> (UUID) -> AnyPublisher<Void, Error> {

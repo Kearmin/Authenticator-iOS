@@ -12,6 +12,7 @@ import Repository
 import Combine
 import Resolver
 
+typealias ListFactory = () -> (AuthenticatorListViewController, ListEventPublisher)
 
 enum ListComposer {
     struct Dependencies {

@@ -13,20 +13,22 @@ import Resolver
 
 
 class OverlayFlow {
-    private weak var sceneDelegate: SceneDelegate?
-    private let appWindow: UIWindow?
+    private var appWindow: UIWindow?
     private var overlayWindow: UIWindow?
     private var overlayEventCancellable: AnyCancellable?
+    private weak var sceneDelegate: SceneDelegate?
+    private let overlayFactory: OverlayFactory
 
-    init(appWindow: UIWindow?, sceneDelegate: SceneDelegate) {
-        self.appWindow = appWindow
-        self.sceneDelegate = sceneDelegate
+    init(overlayFactory: @escaping OverlayFactory) {
+        self.overlayFactory = overlayFactory
     }
 
-    func start(with windowScene: UIWindowScene) {
+    func start(with windowScene: UIWindowScene, appWindow: UIWindow?, sceneDelegate: SceneDelegate) {
         self.overlayWindow = makeOverlayWindow(with: windowScene)
-        sceneDelegate?.window = overlayWindow
-        sceneDelegate?.window?.makeKeyAndVisible()
+        self.sceneDelegate = sceneDelegate
+        self.appWindow = appWindow
+        sceneDelegate.window = overlayWindow
+        sceneDelegate.window?.makeKeyAndVisible()
     }
 }
 
@@ -38,7 +40,7 @@ private extension OverlayFlow {
     }
 
     func makeOverlayViewController() -> OverlayViewController {
-        let (viewController, eventSubject) = OverlayComposer.overlay(analytics: Resolver.resolve())
+        let (viewController, eventSubject) = overlayFactory()
         overlayEventCancellable = eventSubject
             .receive(on: DispatchQueue.main)
             .sink(receiveValue: handleOverlayEvent(_:))

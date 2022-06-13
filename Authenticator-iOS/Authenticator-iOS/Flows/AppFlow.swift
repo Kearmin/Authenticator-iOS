@@ -9,17 +9,28 @@ import Foundation
 import UIKit
 import Combine
 import AuthenticatorListView
-import Resolver
 
 class AppFlow {
-    private var overlayFlow: OverlayFlow?
+    private let overlayFlow: OverlayFlow
+    private let addAccountFlow: AddAccountFlow
+    private let listFactory: ListFactory
     private var listEventCancellable: AnyCancellable?
 
+    init(
+        listFactory: @escaping ListFactory,
+        overlayFlow: OverlayFlow,
+        addAccountFlow: AddAccountFlow
+    ) {
+        self.listFactory = listFactory
+        self.overlayFlow = overlayFlow
+        self.addAccountFlow = addAccountFlow
+    }
+
     func start(with windowScene: UIWindowScene, sceneDelegate: SceneDelegate) {
-        overlayFlow = .init(
+        overlayFlow.start(
+            with: windowScene,
             appWindow: makeListWindow(with: windowScene),
             sceneDelegate: sceneDelegate)
-        overlayFlow?.start(with: windowScene)
     }
 }
 
@@ -31,9 +42,8 @@ private extension AppFlow {
     }
 
     func makeListViewController() -> AuthenticatorListViewController {
-        let (viewController, listEventPublisher) = ListComposer.list(dependencies: Resolver.resolve())
+        let (viewController, listEventPublisher) = listFactory()
         listEventCancellable = listEventPublisher
-            .receive(on: DispatchQueue.main)
             .sink { [weak viewController] in
                 self.handleListEvent($0, listViewController: viewController)
             }
@@ -43,17 +53,13 @@ private extension AppFlow {
     func handleListEvent(_ event: ListEvent, listViewController: AuthenticatorListViewController?) {
         switch event {
         case .addAccountDidPress:
-            let addAccountFlow = AddAccountFlow(source: listViewController)
-            addAccountFlow.start(with: Resolver.resolve())
+            addAccountFlow.start(with: listViewController)
         case .deleteAccountDidPress(let context):
-            let deleteAccountFlow = DeleteAccountFlow(source: listViewController, didPressDelete: context.callback)
-            deleteAccountFlow.start()
+            DeleteAccountFlow.start(source: listViewController, didPressDelete: context.callback)
         case .editDidPress(let context):
-            let editFlow = EditAccountFlow(account: context.item, source: listViewController, didFinishUpdate: context.callback)
-            editFlow.start()
+            EditAccountFlow.start(account: context.item, source: listViewController, didFinishUpdate: context.callback)
         case .onError(let context):
-            let showErrorFlow = ShowErrorFlow(source: listViewController, title: context.title, message: context.message)
-            showErrorFlow.start()
+            ShowErrorFlow.start(with: listViewController, title: context.title, message: context.message)
         default:
             break
         }

@@ -7,24 +7,16 @@
 
 import UIKit
 
-class DeleteAccountFlow {
-    private let source: UIViewController?
-    private let didPressDelete: () -> Void
-
-    internal init(source: UIViewController?, didPressDelete: @escaping () -> Void) {
-        self.source = source
-        self.didPressDelete = didPressDelete
-    }
-
-    func start() {
+enum DeleteAccountFlow {
+    static func start(source: UIViewController?, didPressDelete: @escaping () -> Void) {
         guard let source = source else { return }
         let alert = UIAlertController(
-            title: "Confirm",
-            message: "Do you really want to delete this account?",
+            title: "Confirm".localized,
+            message: "Do you really want to delete this account?".localized,
             preferredStyle: .alert)
-        alert.addAction(.init(title: "Cancel", style: .cancel, handler: nil))
-        alert.addAction(.init(title: "Delete", style: .destructive, handler: { _ in
-            self.didPressDelete()
+        alert.addAction(.init(title: "Cancel".localized, style: .cancel, handler: nil))
+        alert.addAction(.init(title: "Delete".localized, style: .destructive, handler: { _ in
+            didPressDelete()
         }))
         onMain {
             source.present(alert, animated: true)
