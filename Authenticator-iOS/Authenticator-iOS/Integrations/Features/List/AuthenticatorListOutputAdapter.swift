@@ -14,17 +14,17 @@ import Combine
 class AuthenticatorListOutputAdapter: AuthenticatorListViewOutput, AuthenticatorListErrorOutput {
     weak var listViewController: AuthenticatorListViewController?
     var listEventPublisher: PassthroughSubject<ListEvent, Never>
-    var presenter: AuthenticatorListBusiness?
+    var businessFacade: AuthenticatorListBusiness?
     var hideToastCancellable: AnyCancellable?
     var hideToastSubject = PassthroughSubject<Void, Never>()
 
     internal init(
         listViewController: AuthenticatorListViewController? = nil,
-        presenter: AuthenticatorListBusiness? = nil,
+        businessFacade: AuthenticatorListBusiness? = nil,
         listEventPublisher: PassthroughSubject<ListEvent, Never>
     ) {
         self.listViewController = listViewController
-        self.presenter = presenter
+        self.businessFacade = businessFacade
         self.listEventPublisher = listEventPublisher
 
         hideToastCancellable = hideToastSubject
@@ -51,12 +51,12 @@ class AuthenticatorListOutputAdapter: AuthenticatorListViewOutput, Authenticator
                     username: item.username,
                     TOTPCode: item.TOTPCode,
                     isFavourite: item.isFavourite,
-                    onFavouritePress: { [presenter] in
-                        presenter?.favourite(id: item.id)
+                    onFavouritePress: { [businessFacade] in
+                        businessFacade?.favourite(id: item.id)
                     },
                     onDeletePress: { [listEventPublisher] in
                         let context = DeleteAccountContext { [weak self] in
-                            self?.presenter?.delete(id: item.id)
+                            self?.businessFacade?.delete(id: item.id)
                         }
                         listEventPublisher.send(.deleteAccountDidPress(context))
                     },
@@ -69,7 +69,7 @@ class AuthenticatorListOutputAdapter: AuthenticatorListViewOutput, Authenticator
                     },
                     onEditPress: { [listEventPublisher] in
                         let context = EditAccountContext(item: item) { [weak self] issuer, username in
-                            self?.presenter?.update(id: item.id, issuer: issuer, username: username)
+                            self?.businessFacade?.update(id: item.id, issuer: issuer, username: username)
                         }
                         listEventPublisher.send(.editDidPress(context))
                     })

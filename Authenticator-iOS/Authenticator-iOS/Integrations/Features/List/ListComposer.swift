@@ -29,7 +29,7 @@ enum ListComposer {
     static func list(dependencies: ListComposer.Dependencies) -> (AuthenticatorListViewController, ListEventPublisher) {
         let eventSubject = PassthroughSubject<ListEvent, Never>()
         let viewModel = AuthenticatorListViewModel()
-        let presenterService = AuthenticatorListPresenterServiceAdapter(
+        let businessFacadeService = AuthenticatorListBusinessFacadeServiceAdapter(
             totpProvider: dependencies.totpProvider,
             clockPublisher: dependencies.clockPublisher,
             refreshPublisher: dependencies.refreshPublisher,
@@ -39,8 +39,8 @@ enum ListComposer {
             searchTextPublisher: viewModel.$searchText.eraseToAnyPublisher(),
             update: dependencies.update
         )
-        let presenter = AuthenticatorListBusiness(service: presenterService, cycleLength: Constants.appCycleLength)
-        presenterService.presenter = presenter
+        let businessFacade = AuthenticatorListBusiness(service: businessFacadeService, cycleLength: Constants.appCycleLength)
+        businessFacadeService.facade = businessFacade
         let viewConfiguration = AuthenticatorListView.Configuration(searchPlaceholder: "Search".localized, editText: "Edit".localized)
         let rootView = AuthenticatorListView(viewModel: viewModel, configuration: viewConfiguration)
         let viewController = AuthenticatorListViewController(
@@ -49,15 +49,15 @@ enum ListComposer {
             didPressAddAccount: { _ in eventSubject.send(.addAccountDidPress) },
             onViewDidLoad: {
                 eventSubject.send(.viewDidLoad)
-                presenter.load()
+                businessFacade.load()
             })
         viewController.title = "Authenticator".localized
         let adapter = AuthenticatorListOutputAdapter(
             listViewController: viewController,
-            presenter: presenter,
+            businessFacade: businessFacade,
             listEventPublisher: eventSubject)
-        presenter.output = adapter
-        presenter.errorOutput = adapter
+        businessFacade.output = adapter
+        businessFacade.errorOutput = adapter
         let trackedEventPublisher = eventSubject.eraseToAnyPublisher().trackListEvents(analytics: dependencies.analytics)
         return (viewController, trackedEventPublisher)
     }

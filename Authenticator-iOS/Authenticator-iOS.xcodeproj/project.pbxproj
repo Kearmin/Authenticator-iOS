@@ -30,7 +30,7 @@
 		B03B6B6D285655D600C52645 /* BiometricAuthenticator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03B6B6C285655D600C52645 /* BiometricAuthenticator.swift */; };
 		B03B6B6F285655E200C52645 /* AppEventPublishers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03B6B6E285655E200C52645 /* AppEventPublishers.swift */; };
 		B0505E66283D686900D770F2 /* AuthenticatorListIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0505E65283D686900D770F2 /* AuthenticatorListIntegrationTests.swift */; };
-		B06A5FCF282FFDF100433C58 /* AuthenticatorListPresenterServiceAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FCE282FFDF100433C58 /* AuthenticatorListPresenterServiceAdapter.swift */; };
+		B06A5FCF282FFDF100433C58 /* AuthenticatorListBusinessFacadeServiceAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FCE282FFDF100433C58 /* AuthenticatorListBusinessFacadeServiceAdapter.swift */; };
 		B06A5FD1282FFE1A00433C58 /* AuthenticatorListOutputAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FD0282FFE1A00433C58 /* AuthenticatorListOutputAdapter.swift */; };
 		B06A5FD52830111D00433C58 /* AccountRepositoryExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FD42830111D00433C58 /* AccountRepositoryExtensions.swift */; };
 		B06A5FD82830115700433C58 /* FileSystemPersistentStorage+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FD72830115700433C58 /* FileSystemPersistentStorage+Extensions.swift */; };
@@ -154,7 +154,7 @@
 		B04FFF04283C68230052178B /* AddAccountView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = AddAccountView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0505E5A283D677600D770F2 /* Authenticator-iOSIntegrationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Authenticator-iOSIntegrationTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0505E65283D686900D770F2 /* AuthenticatorListIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorListIntegrationTests.swift; sourceTree = "<group>"; };
-		B06A5FCE282FFDF100433C58 /* AuthenticatorListPresenterServiceAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorListPresenterServiceAdapter.swift; sourceTree = "<group>"; };
+		B06A5FCE282FFDF100433C58 /* AuthenticatorListBusinessFacadeServiceAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorListBusinessFacadeServiceAdapter.swift; sourceTree = "<group>"; };
 		B06A5FD0282FFE1A00433C58 /* AuthenticatorListOutputAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorListOutputAdapter.swift; sourceTree = "<group>"; };
 		B06A5FD42830111D00433C58 /* AccountRepositoryExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountRepositoryExtensions.swift; sourceTree = "<group>"; };
 		B06A5FD72830115700433C58 /* FileSystemPersistentStorage+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileSystemPersistentStorage+Extensions.swift"; sourceTree = "<group>"; };
@@ -266,7 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				B025FDD6282FD353008D1DF1 /* ListComposer.swift */,
-				B06A5FCE282FFDF100433C58 /* AuthenticatorListPresenterServiceAdapter.swift */,
+				B06A5FCE282FFDF100433C58 /* AuthenticatorListBusinessFacadeServiceAdapter.swift */,
 				B06A5FD0282FFE1A00433C58 /* AuthenticatorListOutputAdapter.swift */,
 				B06A5FE22830531F00433C58 /* Resolver+AuthenticatorList.swift */,
 				B02189782831BB5F00918B8D /* Analytics+AuthenticatorList.swift */,
@@ -604,7 +604,7 @@
 				B03B6B6F285655E200C52645 /* AppEventPublishers.swift in Sources */,
 				B0F75480283465670051038D /* Constants.swift in Sources */,
 				B0F7547028342FD10051038D /* OverlayComposer.swift in Sources */,
-				B06A5FCF282FFDF100433C58 /* AuthenticatorListPresenterServiceAdapter.swift in Sources */,
+				B06A5FCF282FFDF100433C58 /* AuthenticatorListBusinessFacadeServiceAdapter.swift in Sources */,
 				B025FDD5282FCC88008D1DF1 /* Threading.swift in Sources */,
 				B0C10D6C28553F6B0014BE33 /* Localization.swift in Sources */,
 				B008CA6F284E8BBB00561409 /* OverlayFlow.swift in Sources */,

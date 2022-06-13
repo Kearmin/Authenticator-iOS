@@ -1,5 +1,5 @@
 //
-//  AuthenticatorListPresenterServiceAdapter.swift
+//  AuthenticatorListfacadeServiceAdapter.swift
 //  Authenticator-iOS
 //
 //  Created by Kertész Jenő Ármin on 2022. 05. 14..
@@ -9,7 +9,7 @@ import Repository
 import AuthenticatorListBusiness
 import Combine
 
-class AuthenticatorListPresenterServiceAdapter: AuthenticatorListBusinessService {
+class AuthenticatorListBusinessFacadeServiceAdapter: AuthenticatorListBusinessService {
     private let totpProvider: AuthenticatorTOTPProvider
     private let currentTimeSubject = CurrentValueSubject<Date, Never>(Date())
     private var subscriptions = Set<AnyCancellable>()
@@ -23,11 +23,11 @@ class AuthenticatorListPresenterServiceAdapter: AuthenticatorListBusinessService
     private var update: (_ account: AuthenticatorAccountModel) -> AnyPublisher<Void, Error>
     private var searchTextPublisher: AnyPublisher<String, Never>
 
-    weak var presenter: AuthenticatorListBusiness? {
+    weak var facade: AuthenticatorListBusiness? {
         didSet {
             subjectSubscription = currentTimeSubject
-                .sink(receiveValue: { [weak presenter] date in
-                    presenter?.receive(currentDate: date)
+                .sink(receiveValue: { [weak facade] date in
+                    facade?.receive(currentDate: date)
                 })
         }
     }
@@ -62,15 +62,15 @@ class AuthenticatorListPresenterServiceAdapter: AuthenticatorListBusinessService
             .dropFirst()
             .debounce(for: .seconds(0.3), scheduler: RunLoop.main)
             .sink { [weak self] searchText in
-                self?.presenter?.filter(by: searchText)
+                self?.facade?.filter(by: searchText)
             }
             .store(in: &subscriptions)
     }
 
     func loadAccounts() {
         readAccounts()
-            .sink { [presenter] accounts in
-                presenter?.receive(result: .success(accounts))
+            .sink { [facade] accounts in
+                facade?.receive(result: .success(accounts))
             }
             .store(in: &subscriptions)
     }
@@ -93,9 +93,9 @@ class AuthenticatorListPresenterServiceAdapter: AuthenticatorListBusinessService
 
     func executeOperation(operation: AnyPublisher<Void, Error>) {
         operation
-            .sink { [presenter] completion in
+            .sink { [facade] completion in
                 if case let .failure(error) = completion {
-                    presenter?.receive(error: error)
+                    facade?.receive(error: error)
                 }
             } receiveValue: { _ in }
             .store(in: &subscriptions)
