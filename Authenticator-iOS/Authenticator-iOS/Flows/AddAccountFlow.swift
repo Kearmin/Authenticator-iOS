@@ -25,7 +25,9 @@ class AddAccountFlow {
         setupEvents(addAccountViewController: addAccountViewController, publisher: addAccountEventPublisher)
         let navController = addAccountViewController.embeddedInNavigationController
         navController.modalPresentationStyle = .fullScreen
-        source.present(navController, animated: true)
+        onMain {
+            source.present(navController, animated: true)
+        }
     }
 }
 
