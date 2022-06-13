@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B010326D2857C136005B8AF2 /* AuthenticatorListModelUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B010326C2857C136005B8AF2 /* AuthenticatorListModelUseCase.swift */; };
+		B010326E2857C136005B8AF2 /* AuthenticatorListModelUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B010326C2857C136005B8AF2 /* AuthenticatorListModelUseCase.swift */; };
+		B01032702857C4A2005B8AF2 /* AuthenticatorListDateUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B010326F2857C4A2005B8AF2 /* AuthenticatorListDateUsecase.swift */; };
+		B01032712857C4A2005B8AF2 /* AuthenticatorListDateUsecase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B010326F2857C4A2005B8AF2 /* AuthenticatorListDateUsecase.swift */; };
+		B01032732857C692005B8AF2 /* AuthenticatorListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01032722857C692005B8AF2 /* AuthenticatorListPresenter.swift */; };
+		B01032742857C692005B8AF2 /* AuthenticatorListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B01032722857C692005B8AF2 /* AuthenticatorListPresenter.swift */; };
 		B067D380284ABBBF00A539EE /* AuthenticatorAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B067D37F284ABBBF00A539EE /* AuthenticatorAccountModel.swift */; };
 		B067D381284ABBBF00A539EE /* AuthenticatorAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B067D37F284ABBBF00A539EE /* AuthenticatorAccountModel.swift */; };
 		B067D383284ABBE300A539EE /* AuthenticatorListContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B067D382284ABBE300A539EE /* AuthenticatorListContent.swift */; };
@@ -15,8 +21,8 @@
 		B0A906712812DA9C00F72F87 /* AuthenticatorListBusiness_MacOs.h in Headers */ = {isa = PBXBuildFile; fileRef = B0A906702812DA9C00F72F87 /* AuthenticatorListBusiness_MacOs.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B0A906822812DB1300F72F87 /* AuthenticatorListBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A9066E2812DA9C00F72F87 /* AuthenticatorListBusiness.framework */; };
 		B0A906892812DB2200F72F87 /* AuthenticatorListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A906882812DB2200F72F87 /* AuthenticatorListTests.swift */; };
-		B0A906912812DD1D00F72F87 /* AuthenticatorListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9068F2812DD0F00F72F87 /* AuthenticatorListPresenter.swift */; };
-		B0A906922812DD2100F72F87 /* AuthenticatorListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9068F2812DD0F00F72F87 /* AuthenticatorListPresenter.swift */; };
+		B0A906912812DD1D00F72F87 /* AuthenticatorListBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9068F2812DD0F00F72F87 /* AuthenticatorListBusiness.swift */; };
+		B0A906922812DD2100F72F87 /* AuthenticatorListBusiness.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A9068F2812DD0F00F72F87 /* AuthenticatorListBusiness.swift */; };
 		B0A906A92812E66000F72F87 /* AuthenticatorListBusiness.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B0A9065D2812DA2600F72F87 /* AuthenticatorListBusiness.framework */; };
 		B0A906B22812E6D100F72F87 /* AuthenticatorListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0A906882812DB2200F72F87 /* AuthenticatorListTests.swift */; };
 /* End PBXBuildFile section */
@@ -39,6 +45,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B010326C2857C136005B8AF2 /* AuthenticatorListModelUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorListModelUseCase.swift; sourceTree = "<group>"; };
+		B010326F2857C4A2005B8AF2 /* AuthenticatorListDateUsecase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorListDateUsecase.swift; sourceTree = "<group>"; };
+		B01032722857C692005B8AF2 /* AuthenticatorListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorListPresenter.swift; sourceTree = "<group>"; };
 		B067D37F284ABBBF00A539EE /* AuthenticatorAccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorAccountModel.swift; sourceTree = "<group>"; };
 		B067D382284ABBE300A539EE /* AuthenticatorListContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorListContent.swift; sourceTree = "<group>"; };
 		B0A9065D2812DA2600F72F87 /* AuthenticatorListBusiness.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AuthenticatorListBusiness.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -47,7 +56,7 @@
 		B0A906702812DA9C00F72F87 /* AuthenticatorListBusiness_MacOs.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthenticatorListBusiness_MacOs.h; sourceTree = "<group>"; };
 		B0A9067E2812DB1300F72F87 /* AuthenticatorListBusinessTests_MacOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AuthenticatorListBusinessTests_MacOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0A906882812DB2200F72F87 /* AuthenticatorListTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticatorListTests.swift; sourceTree = "<group>"; };
-		B0A9068F2812DD0F00F72F87 /* AuthenticatorListPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticatorListPresenter.swift; sourceTree = "<group>"; };
+		B0A9068F2812DD0F00F72F87 /* AuthenticatorListBusiness.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticatorListBusiness.swift; sourceTree = "<group>"; };
 		B0A906A52812E66000F72F87 /* AuthenticatorListBusinessTests_iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AuthenticatorListBusinessTests_iOS.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -150,9 +159,12 @@
 		B0A906B02812E6B600F72F87 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				B0A9068F2812DD0F00F72F87 /* AuthenticatorListPresenter.swift */,
+				B0A9068F2812DD0F00F72F87 /* AuthenticatorListBusiness.swift */,
 				B067D37F284ABBBF00A539EE /* AuthenticatorAccountModel.swift */,
 				B067D382284ABBE300A539EE /* AuthenticatorListContent.swift */,
+				B010326C2857C136005B8AF2 /* AuthenticatorListModelUseCase.swift */,
+				B010326F2857C4A2005B8AF2 /* AuthenticatorListDateUsecase.swift */,
+				B01032722857C692005B8AF2 /* AuthenticatorListPresenter.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -340,9 +352,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0A906912812DD1D00F72F87 /* AuthenticatorListPresenter.swift in Sources */,
+				B0A906912812DD1D00F72F87 /* AuthenticatorListBusiness.swift in Sources */,
+				B01032702857C4A2005B8AF2 /* AuthenticatorListDateUsecase.swift in Sources */,
+				B01032732857C692005B8AF2 /* AuthenticatorListPresenter.swift in Sources */,
 				B067D380284ABBBF00A539EE /* AuthenticatorAccountModel.swift in Sources */,
 				B067D383284ABBE300A539EE /* AuthenticatorListContent.swift in Sources */,
+				B010326D2857C136005B8AF2 /* AuthenticatorListModelUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,9 +365,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B0A906922812DD2100F72F87 /* AuthenticatorListPresenter.swift in Sources */,
+				B0A906922812DD2100F72F87 /* AuthenticatorListBusiness.swift in Sources */,
+				B01032712857C4A2005B8AF2 /* AuthenticatorListDateUsecase.swift in Sources */,
+				B01032742857C692005B8AF2 /* AuthenticatorListPresenter.swift in Sources */,
 				B067D381284ABBBF00A539EE /* AuthenticatorAccountModel.swift in Sources */,
 				B067D384284ABBE300A539EE /* AuthenticatorListContent.swift in Sources */,
+				B010326E2857C136005B8AF2 /* AuthenticatorListModelUseCase.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

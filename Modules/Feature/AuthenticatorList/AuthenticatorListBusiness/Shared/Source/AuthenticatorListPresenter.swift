@@ -1,147 +1,21 @@
 //
 //  AuthenticatorListPresenter.swift
-//  Authenticator-iOS
+//  AuthenticatorListBusiness
 //
-//  Created by Kertész Jenő Ármin on 2022. 04. 22..
+//  Created by Kertész Jenő Ármin on 2022. 06. 13..
 //
 
-import Combine
 import Foundation
 
-public protocol AuthenticatorListPresenterService {
-    func loadAccounts()
-    func getTOTP(secret: String, timeInterval: Int, date: Date) -> String
-    func deleteAccount(id: UUID)
-    func favourite(_ account: UUID)
-    func update(_ account: AuthenticatorAccountModel)
-}
+final class AuthenticatorListPresenter {
+    private let calculateTOTP: (_ secret: String) -> String
 
-public protocol AuthenticatorListViewOutput: AnyObject {
-    func receive(countDown: String)
-    func receive(content: AuthenticatorListContent)
-}
-
-public protocol AuthenticatorListErrorOutput: AnyObject {
-    func receive(error: Error)
-}
-
-public final class AuthenticatorListPresenter {
-    private var service: AuthenticatorListPresenterService
-    private var latestDate: Date?
-    private var models: [AuthenticatorAccountModel] = []
-    private var currentFilter: String?
-
-    let cycleLength: Int
-
-    public var output: AuthenticatorListViewOutput? {
-        didSet {
-            // Get first value immediately
-            guard let latestDate = latestDate else { return }
-            output?.receive(countDown: "\(latestDate.countDownValue(cycleLength: cycleLength))")
-        }
-    }
-    public var errorOutput: AuthenticatorListErrorOutput?
-
-    public init(service: AuthenticatorListPresenterService, cycleLength: Int) {
-        self.service = service
-        self.cycleLength = cycleLength
+    init(calculateTOTP: @escaping (_ secret: String) -> String) {
+        self.calculateTOTP = calculateTOTP
     }
 
-    public func load() {
-        service.loadAccounts()
-    }
-
-    public func refresh(date: Date = Date()) {
-        guard let latestDate = latestDate else { return }
-        let countDown = latestDate.countDownValue(cycleLength: cycleLength)
-        if latestDate.timeIntervalSince1970 + Double(countDown) > date.timeIntervalSince1970 { return }
-        self.latestDate = date
-        recalculateTOTPs()
-    }
-
-    public func receive(currentDate date: Date) {
-        latestDate = date
-        let countDown = date.countDownValue(cycleLength: cycleLength)
-        output?.receive(countDown: "\(countDown)")
-        if countDown == cycleLength {
-            recalculateTOTPs()
-        }
-    }
-
-    public func receive(result: Result<[AuthenticatorAccountModel], Error>) {
-        do {
-            let models = try result.get()
-            self.models = models
-            sendFilteredOutput()
-        } catch {
-            errorOutput?.receive(error: error)
-        }
-    }
-
-    public func update(id: UUID, issuer: String?, username: String?) {
-        guard let issuer = issuer,
-              let username = username,
-               let account = models.first(where: { $0.id == id })
-        else {
-            return
-        }
-        if account.issuer == issuer && account.username == username {
-            return
-        }
-        let newAccount = AuthenticatorAccountModel(
-            id: account.id,
-            issuer: issuer,
-            username: username,
-            secret: account.secret,
-            isFavourite: account.isFavourite,
-            createdAt: account.createdAt)
-        service.update(newAccount)
-    }
-
-    public func favourite(id: UUID) {
-        service.favourite(id)
-    }
-
-    public func delete(id: UUID) {
-        service.deleteAccount(id: id)
-    }
-
-    public func delete(atOffset offset: Int) {
-        guard models.indices.contains(offset) else {
-            return
-        }
-        let id = models[offset].id
-        service.deleteAccount(id: id)
-    }
-
-    public func filter(by text: String) {
-        currentFilter = text.isEmpty ? nil : text
-        sendFilteredOutput()
-    }
-
-    public func receive(error: Error) {
-        errorOutput?.receive(error: error)
-    }
-}
-
-// MARK: - Private
-private extension AuthenticatorListPresenter {
-    func rowContent(from model: AuthenticatorAccountModel) -> AuthenticatorListRowContent {
-        let totp = service.getTOTP(
-            secret: model.secret,
-            timeInterval: cycleLength,
-            date: latestDate ?? Date())
-
-        return .init(
-            id: model.id,
-            issuer: model.issuer,
-            username: model.username,
-            TOTPCode: totp,
-            isFavourite: model.isFavourite)
-    }
-
-    func rowContent(from models: [AuthenticatorAccountModel]) -> [AuthenticatorListRowContent] {
-        models.map { rowContent(from: $0) }
+    func countDownString(from countDown: Int) -> String {
+        "\(countDown)"
     }
 
     func sectionContent(from models: [AuthenticatorAccountModel]) -> [AuthencticatorListSection] {
@@ -162,25 +36,18 @@ private extension AuthenticatorListPresenter {
         return sections
     }
 
-    func recalculateTOTPs() {
-        sendFilteredOutput()
+    private func rowContent(from model: AuthenticatorAccountModel) -> AuthenticatorListRowContent {
+        let totp = calculateTOTP(model.secret)
+
+        return .init(
+            id: model.id,
+            issuer: model.issuer,
+            username: model.username,
+            TOTPCode: totp,
+            isFavourite: model.isFavourite)
     }
 
-    func sendFilteredOutput() {
-        var filteredModels: [AuthenticatorAccountModel]
-        if let filterText = currentFilter?.lowercased() {
-            filteredModels = models.filter { model in
-                model.username.lowercased().contains(filterText) || model.issuer.lowercased().contains(filterText)
-            }
-        } else {
-            filteredModels = models
-        }
-        output?.receive(content: sectionContent(from: filteredModels))
-    }
-}
-
-private extension Date {
-    func countDownValue(cycleLength: Int) -> Int {
-        cycleLength - (Int(self.timeIntervalSince1970) % cycleLength)
+    private func rowContent(from models: [AuthenticatorAccountModel]) -> [AuthenticatorListRowContent] {
+        models.map { rowContent(from: $0) }
     }
 }

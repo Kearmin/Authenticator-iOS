@@ -9,7 +9,7 @@ import Repository
 import AuthenticatorListBusiness
 import Combine
 
-class AuthenticatorListPresenterServiceAdapter: AuthenticatorListPresenterService {
+class AuthenticatorListPresenterServiceAdapter: AuthenticatorListBusinessService {
     private let totpProvider: AuthenticatorTOTPProvider
     private let currentTimeSubject = CurrentValueSubject<Date, Never>(Date())
     private var subscriptions = Set<AnyCancellable>()
@@ -23,7 +23,7 @@ class AuthenticatorListPresenterServiceAdapter: AuthenticatorListPresenterServic
     private var update: (_ account: AuthenticatorAccountModel) -> AnyPublisher<Void, Error>
     private var searchTextPublisher: AnyPublisher<String, Never>
 
-    weak var presenter: AuthenticatorListPresenter? {
+    weak var presenter: AuthenticatorListBusiness? {
         didSet {
             subjectSubscription = currentTimeSubject
                 .sink(receiveValue: { [weak presenter] date in

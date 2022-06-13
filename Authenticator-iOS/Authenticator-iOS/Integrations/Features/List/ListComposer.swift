@@ -39,7 +39,7 @@ enum ListComposer {
             searchTextPublisher: viewModel.$searchText.eraseToAnyPublisher(),
             update: dependencies.update
         )
-        let presenter = AuthenticatorListPresenter(service: presenterService, cycleLength: Constants.appCycleLength)
+        let presenter = AuthenticatorListBusiness(service: presenterService, cycleLength: Constants.appCycleLength)
         presenterService.presenter = presenter
         let viewConfiguration = AuthenticatorListView.Configuration(searchPlaceholder: "Search".localized, editText: "Edit".localized)
         let rootView = AuthenticatorListView(viewModel: viewModel, configuration: viewConfiguration)

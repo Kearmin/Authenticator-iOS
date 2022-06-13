@@ -14,13 +14,13 @@ import Combine
 class AuthenticatorListOutputAdapter: AuthenticatorListViewOutput, AuthenticatorListErrorOutput {
     weak var listViewController: AuthenticatorListViewController?
     var listEventPublisher: PassthroughSubject<ListEvent, Never>
-    var presenter: AuthenticatorListPresenter?
+    var presenter: AuthenticatorListBusiness?
     var hideToastCancellable: AnyCancellable?
     var hideToastSubject = PassthroughSubject<Void, Never>()
 
     internal init(
         listViewController: AuthenticatorListViewController? = nil,
-        presenter: AuthenticatorListPresenter? = nil,
+        presenter: AuthenticatorListBusiness? = nil,
         listEventPublisher: PassthroughSubject<ListEvent, Never>
     ) {
         self.listViewController = listViewController

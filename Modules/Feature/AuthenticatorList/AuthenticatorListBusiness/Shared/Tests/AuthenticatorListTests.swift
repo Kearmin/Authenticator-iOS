@@ -11,7 +11,7 @@ import AuthenticatorListBusiness
 
 class AuthenticatorListTests: XCTestCase {
 
-    weak var weakSUT: AuthenticatorListPresenter?
+    weak var weakSUT: AuthenticatorListBusiness?
 
     override func tearDown() {
         super.tearDown()
@@ -287,7 +287,7 @@ class AuthenticatorListTests: XCTestCase {
     }
 
     private func testMultipleInputsInSuccession(
-        sut: AuthenticatorListPresenter,
+        sut: AuthenticatorListBusiness,
         mock: AuthenticatorListPresenterServiceMock,
         spy: AuthenticatorListPresenterSpy,
         inputs: [(epoch: TimeInterval, expected: String)])
@@ -302,8 +302,8 @@ class AuthenticatorListTests: XCTestCase {
         }
     }
 
-    func makeSUT(mock: AuthenticatorListPresenterServiceMock = .init(), cycleLength: Int = 30) -> AuthenticatorListPresenter {
-        let sut = AuthenticatorListPresenter(service: mock, cycleLength: cycleLength)
+    func makeSUT(mock: AuthenticatorListPresenterServiceMock = .init(), cycleLength: Int = 30) -> AuthenticatorListBusiness {
+        let sut = AuthenticatorListBusiness(service: mock, cycleLength: cycleLength)
         weakSUT = sut
         return sut
     }
@@ -331,7 +331,7 @@ class AuthenticatorListPresenterSpy: AuthenticatorListViewOutput, AuthenticatorL
     }
 }
 
-class AuthenticatorListPresenterServiceMock: AuthenticatorListPresenterService {
+class AuthenticatorListPresenterServiceMock: AuthenticatorListBusinessService {
     var loadAccountCallCount = 0
     var getTOTPResult: String = ""
     var deleteCallIDS: [UUID] = []
