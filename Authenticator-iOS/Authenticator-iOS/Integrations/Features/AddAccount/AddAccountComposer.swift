@@ -26,7 +26,9 @@ enum AddAccountComposer {
             createAccountPublisher: dependencies.saveAccountPublisher,
             eventSubject: eventSubject)
         let useCase = AddAccountUseCase(saveService: useCaseAdapter)
+        let view = AddAccountView(frame: .zero, objectTypes: [.qr])
         let viewController = AddAccountViewController(
+            addAccountView: view,
             doneDidPress: { _ in
                 eventSubject.send(.doneDidPress)
             })

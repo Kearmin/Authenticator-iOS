@@ -19,10 +19,10 @@ public final class AddAccountViewController: UIViewController {
     }
 
     public init(
-        objectTypes: [AVMetadataObject.ObjectType] = [.qr],
+        addAccountView: AddAccountView,
         doneDidPress: @escaping (AddAccountViewController) -> Void
     ) {
-        addAccountView = AddAccountView(frame: .zero, objectTypes: objectTypes)
+        self.addAccountView = addAccountView
         self.doneDidPress = doneDidPress
         super.init(nibName: nil, bundle: nil)
     }

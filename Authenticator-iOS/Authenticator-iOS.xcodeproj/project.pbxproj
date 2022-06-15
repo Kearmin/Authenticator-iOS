@@ -42,6 +42,7 @@
 		B06A5FE9283075D800433C58 /* AddAccountEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FE8283075D800433C58 /* AddAccountEvent.swift */; };
 		B06A5FEF2830878D00433C58 /* SwiftUIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06A5FEE2830878D00433C58 /* SwiftUIHelpers.swift */; };
 		B06B857A28542265008F594A /* ListLoaderStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B857928542265008F594A /* ListLoaderStub.swift */; };
+		B08BD53F2859408D00410853 /* AddAccountIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08BD53E2859408D00410853 /* AddAccountIntegrationTests.swift */; };
 		B0B2B961282FB78900BB7E00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B2B960282FB78900BB7E00 /* AppDelegate.swift */; };
 		B0B2B963282FB78900BB7E00 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B2B962282FB78900BB7E00 /* SceneDelegate.swift */; };
 		B0B2B96A282FB78900BB7E00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0B2B969282FB78900BB7E00 /* Assets.xcassets */; };
@@ -166,6 +167,7 @@
 		B06A5FE8283075D800433C58 /* AddAccountEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountEvent.swift; sourceTree = "<group>"; };
 		B06A5FEE2830878D00433C58 /* SwiftUIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIHelpers.swift; sourceTree = "<group>"; };
 		B06B857928542265008F594A /* ListLoaderStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLoaderStub.swift; sourceTree = "<group>"; };
+		B08BD53E2859408D00410853 /* AddAccountIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountIntegrationTests.swift; sourceTree = "<group>"; };
 		B0B2B95D282FB78900BB7E00 /* Authenticator-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Authenticator-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0B2B960282FB78900BB7E00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0B2B962282FB78900BB7E00 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -256,6 +258,7 @@
 		B0505E5B283D677600D770F2 /* Authenticator-iOSIntegrationTests */ = {
 			isa = PBXGroup;
 			children = (
+				B08BD53D2859406800410853 /* AddAccount */,
 				B0EA8AAD28541FFB00DC1670 /* List */,
 				B0EA8AA628541F2B00DC1670 /* Helpers */,
 			);
@@ -339,6 +342,14 @@
 				B02189762831748100918B8D /* Analytics+AddAccount.swift */,
 				B06A5FE42830532F00433C58 /* Resolver+AddAccount.swift */,
 				B0C10D642854FF370014BE33 /* AddAccountViewDelegateAdapter.swift */,
+			);
+			path = AddAccount;
+			sourceTree = "<group>";
+		};
+		B08BD53D2859406800410853 /* AddAccount */ = {
+			isa = PBXGroup;
+			children = (
+				B08BD53E2859408D00410853 /* AddAccountIntegrationTests.swift */,
 			);
 			path = AddAccount;
 			sourceTree = "<group>";
@@ -577,6 +588,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B08BD53F2859408D00410853 /* AddAccountIntegrationTests.swift in Sources */,
 				B06B857A28542265008F594A /* ListLoaderStub.swift in Sources */,
 				B0EA8AB32854222A00DC1670 /* AnalyticsMock.swift in Sources */,
 				B0EA8AAF2854200700DC1670 /* TOTPProviderMock.swift in Sources */,
