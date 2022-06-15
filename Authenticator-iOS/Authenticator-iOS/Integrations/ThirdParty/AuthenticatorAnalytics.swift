@@ -9,6 +9,7 @@ import Foundation
 import Combine
 import Resolver
 import AddAccountBusiness
+import OSLog
 
 protocol AuthenticatorAnalytics {
     func track(name: String)
@@ -16,11 +17,17 @@ protocol AuthenticatorAnalytics {
 }
 
 class LogAnalytics: AuthenticatorAnalytics {
+    private let logger: Logger
+
+    init(logger: Logger) {
+        self.logger = logger
+    }
+
     func track(name: String) {
         track(name: name, properties: nil)
     }
 
     func track(name: String, properties: [String: Any]?) {
-        print("AnalyticsEvent: name: \(name), properties: \(properties ?? [:])")
+        logger.debug("AnalyticsEvent: name: \(name), properties: \(properties ?? [:])")
     }
 }

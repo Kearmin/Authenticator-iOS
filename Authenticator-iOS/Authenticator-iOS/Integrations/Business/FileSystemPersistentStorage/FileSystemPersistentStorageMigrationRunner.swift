@@ -8,23 +8,27 @@
 import Foundation
 import FileSystemPersistentStorage
 import Resolver
+import OSLog
 
 class FileSystemPersistentStorageMigrationRunner {
     private let persistance: AccountJSONFileSystemPersistance
     private let analytics: AuthenticatorAnalytics
     private let userDefaults: UserDefaults
     private let migrations: [JSONFileSystemPersistanceMigration]
+    private let logger: Logger
 
     init(
         migrations: [JSONFileSystemPersistanceMigration],
         persistance: AccountJSONFileSystemPersistance,
         analytics: AuthenticatorAnalytics,
-        userDefaults: UserDefaults
+        userDefaults: UserDefaults,
+        logger: Logger
     ) {
         self.persistance = persistance
         self.analytics = analytics
         self.userDefaults = userDefaults
         self.migrations = migrations
+        self.logger = logger
     }
 
     func runMigrations() {
@@ -37,7 +41,7 @@ class FileSystemPersistentStorageMigrationRunner {
                 userDefaults.set(Constants.accountVersion, forKey: Keys.accountMigrations)
                 analytics.track(name: "Successfully ran migrations")
             } else {
-                print("No eligible migrations ran")
+                logger.log(level: .debug, "No eligible migrations ran")
             }
         } catch {
             analytics.track(name: "Failed to run migrations", properties: ["Error": error])

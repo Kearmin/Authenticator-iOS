@@ -9,6 +9,7 @@ import Foundation
 import Resolver
 import Combine
 import Clock
+import OSLog
 
 import FileSystemPersistentStorage
 import Repository
@@ -22,8 +23,12 @@ extension Resolver {
     }
 
     static func registerAppDependencies() {
-        register(AuthenticatorAnalytics.self) {
-            LogAnalytics()
+        register {
+            Logger(subsystem: "com.jenci.Authenticator-iOS", category: "main")
+        }
+
+        register(AuthenticatorAnalytics.self) { resolver in
+            LogAnalytics(logger: resolver.resolve())
         }
         .scope(.application)
 
@@ -77,7 +82,8 @@ extension Resolver {
                 migrations: [AddFavouriteMigration(), AddTimeStampMigration()],
                 persistance: resolver.resolve(),
                 analytics: resolver.resolve(),
-                userDefaults: resolver.resolve())
+                userDefaults: resolver.resolve(),
+                logger: resolver.resolve())
         }
 
         register(AuthenticatorTOTPProvider.self) {

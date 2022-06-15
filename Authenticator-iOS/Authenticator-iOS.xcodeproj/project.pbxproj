@@ -44,6 +44,7 @@
 		B06B857A28542265008F594A /* ListLoaderStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06B857928542265008F594A /* ListLoaderStub.swift */; };
 		B08BD53F2859408D00410853 /* AddAccountIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08BD53E2859408D00410853 /* AddAccountIntegrationTests.swift */; };
 		B08BD5422859617D00410853 /* ImagesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08BD5412859617D00410853 /* ImagesTests.swift */; };
+		B0938F712859678B00A8746B /* AppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0938F702859678B00A8746B /* AppTests.swift */; };
 		B0B2B961282FB78900BB7E00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B2B960282FB78900BB7E00 /* AppDelegate.swift */; };
 		B0B2B963282FB78900BB7E00 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0B2B962282FB78900BB7E00 /* SceneDelegate.swift */; };
 		B0B2B96A282FB78900BB7E00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0B2B969282FB78900BB7E00 /* Assets.xcassets */; };
@@ -170,6 +171,7 @@
 		B06B857928542265008F594A /* ListLoaderStub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListLoaderStub.swift; sourceTree = "<group>"; };
 		B08BD53E2859408D00410853 /* AddAccountIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAccountIntegrationTests.swift; sourceTree = "<group>"; };
 		B08BD5412859617D00410853 /* ImagesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesTests.swift; sourceTree = "<group>"; };
+		B0938F702859678B00A8746B /* AppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTests.swift; sourceTree = "<group>"; };
 		B0B2B95D282FB78900BB7E00 /* Authenticator-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Authenticator-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0B2B960282FB78900BB7E00 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B0B2B962282FB78900BB7E00 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 			isa = PBXGroup;
 			children = (
 				B08BD5412859617D00410853 /* ImagesTests.swift */,
+				B0938F702859678B00A8746B /* AppTests.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -608,6 +611,7 @@
 				B0EA8AA828541F3900DC1670 /* UIKitHelpers.swift in Sources */,
 				B0505E66283D686900D770F2 /* AuthenticatorListIntegrationTests.swift in Sources */,
 				B0EA8AAA28541F8600DC1670 /* SharedHelpers.swift in Sources */,
+				B0938F712859678B00A8746B /* AppTests.swift in Sources */,
 				B08BD5422859617D00410853 /* ImagesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
