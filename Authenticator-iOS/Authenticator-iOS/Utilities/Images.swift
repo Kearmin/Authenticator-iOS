@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-enum Images: String {
+enum Images: String, CaseIterable {
     case zyzzSticker = "ZyzzSticker"
 
     var image: UIImage? {
