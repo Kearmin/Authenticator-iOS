@@ -13,7 +13,7 @@ import OSLog
 
 protocol AuthenticatorAnalytics {
     func track(name: String)
-    func track(name: String, properties: [String: Any]?)
+    func track(name: String, properties: [String: String]?)
 }
 
 class LogAnalytics: AuthenticatorAnalytics {
@@ -27,7 +27,7 @@ class LogAnalytics: AuthenticatorAnalytics {
         track(name: name, properties: nil)
     }
 
-    func track(name: String, properties: [String: Any]?) {
+    func track(name: String, properties: [String: String]?) {
         logger.debug("AnalyticsEvent: name: \(name), properties: \(properties ?? [:])")
     }
 }

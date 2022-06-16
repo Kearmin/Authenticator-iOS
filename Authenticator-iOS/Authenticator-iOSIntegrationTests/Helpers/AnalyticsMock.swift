@@ -8,9 +8,21 @@
 @testable import Authenticator_iOS
 
 class AnalyticsMock: AuthenticatorAnalytics {
-    func track(name: String) {
+    struct AnalyticsCall: Equatable {
+        let name: String
+        let properties: [String: String]?
     }
 
-    func track(name: String, properties: [String: Any]?) {
+    var calls: [AnalyticsCall] = []
+    var callCount: Int {
+        calls.count
+    }
+
+    func track(name: String) {
+        track(name: name, properties: nil)
+    }
+
+    func track(name: String, properties: [String: String]?) {
+        calls.append(.init(name: name, properties: properties))
     }
 }

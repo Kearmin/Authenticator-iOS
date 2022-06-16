@@ -18,7 +18,7 @@ extension AnyPublisher where Output == AddAccountEvent {
             case .failedToStartCamera:
                 analytics.track(name: "Failed to start camera")
             case .qrCodeReadDidFail(error: let error):
-                var properties: [String: Any] = [:]
+                var properties: [String: String] = [:]
                 if let useCaseError = error as? AddAccountUseCaseErrors {
                     switch useCaseError {
                     case .invalidURL:

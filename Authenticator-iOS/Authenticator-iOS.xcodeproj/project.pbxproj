@@ -11,6 +11,7 @@
 		B008CA71284E9C9F00561409 /* AppFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = B008CA70284E9C9F00561409 /* AppFlow.swift */; };
 		B008CA74284EA36000561409 /* FileSystemPersistentStorageMigrationRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B008CA73284EA36000561409 /* FileSystemPersistentStorageMigrationRunner.swift */; };
 		B008CA76284EA78900561409 /* AppStartup.swift in Sources */ = {isa = PBXBuildFile; fileRef = B008CA75284EA78900561409 /* AppStartup.swift */; };
+		B0135CAA285A976D00F2DFD7 /* OverlayIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0135CA9285A976D00F2DFD7 /* OverlayIntegrationTests.swift */; };
 		B02189712831559D00918B8D /* AuthenticatorAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02189702831559D00918B8D /* AuthenticatorAnalytics.swift */; };
 		B02189772831748100918B8D /* Analytics+AddAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02189762831748100918B8D /* Analytics+AddAccount.swift */; };
 		B02189792831BB5F00918B8D /* Analytics+AuthenticatorList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02189782831BB5F00918B8D /* Analytics+AuthenticatorList.swift */; };
@@ -136,6 +137,7 @@
 		B008CA70284E9C9F00561409 /* AppFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFlow.swift; sourceTree = "<group>"; };
 		B008CA73284EA36000561409 /* FileSystemPersistentStorageMigrationRunner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileSystemPersistentStorageMigrationRunner.swift; sourceTree = "<group>"; };
 		B008CA75284EA78900561409 /* AppStartup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStartup.swift; sourceTree = "<group>"; };
+		B0135CA9285A976D00F2DFD7 /* OverlayIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverlayIntegrationTests.swift; sourceTree = "<group>"; };
 		B02189702831559D00918B8D /* AuthenticatorAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticatorAnalytics.swift; sourceTree = "<group>"; };
 		B0218972283159E000918B8D /* Segment.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Segment.xcframework; path = ../Carthage/Build/Segment.xcframework; sourceTree = "<group>"; };
 		B02189762831748100918B8D /* Analytics+AddAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Analytics+AddAccount.swift"; sourceTree = "<group>"; };
@@ -237,6 +239,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B0135CA8285A96FF00F2DFD7 /* Overlay */ = {
+			isa = PBXGroup;
+			children = (
+				B0135CA9285A976D00F2DFD7 /* OverlayIntegrationTests.swift */,
+			);
+			path = Overlay;
+			sourceTree = "<group>";
+		};
 		B021896F2831558300918B8D /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
@@ -265,6 +275,7 @@
 				B08BD5402859616E00410853 /* App */,
 				B08BD53D2859406800410853 /* AddAccount */,
 				B0EA8AAD28541FFB00DC1670 /* List */,
+				B0135CA8285A96FF00F2DFD7 /* Overlay */,
 				B0EA8AA628541F2B00DC1670 /* Helpers */,
 			);
 			path = "Authenticator-iOSIntegrationTests";
@@ -611,6 +622,7 @@
 				B0EA8AA828541F3900DC1670 /* UIKitHelpers.swift in Sources */,
 				B0505E66283D686900D770F2 /* AuthenticatorListIntegrationTests.swift in Sources */,
 				B0EA8AAA28541F8600DC1670 /* SharedHelpers.swift in Sources */,
+				B0135CAA285A976D00F2DFD7 /* OverlayIntegrationTests.swift in Sources */,
 				B0938F712859678B00A8746B /* AppTests.swift in Sources */,
 				B08BD5422859617D00410853 /* ImagesTests.swift in Sources */,
 			);

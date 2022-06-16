@@ -19,8 +19,7 @@ public extension OverlayView {
 
 public struct OverlayView: View {
     public var imageName: String
-    private var isDebug: Bool
-    private var onUnlockDidPress: () -> Void
+    public var onUnlockDidPress: () -> Void
     private let configuration: Configuration
 
     public init(
@@ -29,7 +28,6 @@ public struct OverlayView: View {
         onUnlockDidPress: @escaping () -> Void = { }
     ) {
         self.imageName = imageName
-        self.isDebug = false
         self.configuration = configuration
         self.onUnlockDidPress = onUnlockDidPress
     }
@@ -37,7 +35,6 @@ public struct OverlayView: View {
     fileprivate init() { // swiftlint:disable:this strict_fileprivate
         imageName = ""
         onUnlockDidPress = { }
-        isDebug = true
         configuration = .init(unlockText: "unlock")
     }
 
@@ -46,7 +43,6 @@ public struct OverlayView: View {
             Image(imageName)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
-                .background(isDebug ? .red : .clear)
                 .padding(.horizontal)
                 .padding(.bottom, 150)
             Button {

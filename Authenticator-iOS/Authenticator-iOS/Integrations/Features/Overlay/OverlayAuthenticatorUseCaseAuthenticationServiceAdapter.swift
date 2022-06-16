@@ -48,7 +48,13 @@ class OverlayAuthenticatorUseCaseAuthenticationServiceAdapter: OverlayAuthentica
 
     func startAuthentication() {
         authentication()
-            .sink { _ in
+            .sink { completion in
+                switch completion {
+                case .failure:
+                    self.skipnext = true
+                default:
+                    break
+                }
             } receiveValue: { success in
                 if success {
                     self.usecase?.receiveAuthenticationSuccess()

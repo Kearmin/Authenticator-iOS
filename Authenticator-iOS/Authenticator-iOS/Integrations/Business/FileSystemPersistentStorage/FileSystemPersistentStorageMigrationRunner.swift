@@ -44,7 +44,7 @@ class FileSystemPersistentStorageMigrationRunner {
                 logger.log(level: .debug, "No eligible migrations ran")
             }
         } catch {
-            analytics.track(name: "Failed to run migrations", properties: ["Error": error])
+            analytics.track(name: "Failed to run migrations", properties: ["Error": error.localizedDescription])
         }
     }
 }
