@@ -12,9 +12,11 @@ import AddAccountView
 class AddAccountFlow {
     private var addAccountEventCancellable: AnyCancellable?
     private let addAccountFactory: AddAccountFactory
+    private let showErrorFlow: ShowErrorFlow
 
-    init(addAccountFactory: @escaping AddAccountFactory) {
+    init(addAccountFactory: @escaping AddAccountFactory, showErrorFlow: ShowErrorFlow) {
         self.addAccountFactory = addAccountFactory
+        self.showErrorFlow = showErrorFlow
     }
 
     func start(with source: UIViewController?) {
@@ -34,7 +36,7 @@ class AddAccountFlow {
 private extension AddAccountFlow {
     func setupEvents(addAccountViewController: AddAccountViewController, publisher: AnyPublisher<AddAccountEvent, Never>) {
         addAccountEventCancellable = publisher
-            .sink { [weak addAccountViewController] event in
+            .sink { [weak addAccountViewController, showErrorFlow] event in
                 switch event {
                 case .doneDidPress:
                     onMain {
@@ -46,14 +48,14 @@ private extension AddAccountFlow {
                         message: "Failed to open camera".localized) { [weak addAccountViewController] in
                             addAccountViewController?.dismiss(animated: true)
                         }
-                    ShowErrorFlow().start(context: context, source: addAccountViewController)
+                    self.showErrorFlow.start(context: context, source: addAccountViewController)
                 case .qrCodeReadDidFail(let error):
                     let context = ErrorContext(
                         title: "Error".localized,
-                        message: "\(error)") { [weak addAccountViewController] in
+                        message: "\(error.localizedDescription)") { [weak addAccountViewController] in
                             addAccountViewController?.addAccountView.resumeSession()
                         }
-                    ShowErrorFlow().start(context: context, source: addAccountViewController)
+                    showErrorFlow.start(context: context, source: addAccountViewController)
                 case .didCreateAccount:
                     onMain {
                         addAccountViewController?.dismiss(animated: true)

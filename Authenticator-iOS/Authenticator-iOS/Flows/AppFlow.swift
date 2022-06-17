@@ -14,16 +14,25 @@ class AppFlow {
     private let overlayFlow: OverlayFlow
     private let addAccountFlow: AddAccountFlow
     private let listFactory: ListFactory
+    private let deleteAccountFlow: DeleteAccountFlow
+    private let editAccountFlow: EditAccountFlow
+    private let showErrorFlow: ShowErrorFlow
     private var listEventCancellable: AnyCancellable?
 
     init(
         listFactory: @escaping ListFactory,
         overlayFlow: OverlayFlow,
-        addAccountFlow: AddAccountFlow
+        addAccountFlow: AddAccountFlow,
+        deleteAccountFlow: DeleteAccountFlow,
+        editAccountFlow: EditAccountFlow,
+        showErrorFlow: ShowErrorFlow
     ) {
         self.listFactory = listFactory
         self.overlayFlow = overlayFlow
         self.addAccountFlow = addAccountFlow
+        self.deleteAccountFlow = deleteAccountFlow
+        self.editAccountFlow = editAccountFlow
+        self.showErrorFlow = showErrorFlow
     }
 
     func start(with windowScene: UIWindowScene, sceneDelegate: SceneDelegate) {
@@ -55,11 +64,11 @@ private extension AppFlow {
         case .addAccountDidPress:
             addAccountFlow.start(with: listViewController)
         case .deleteAccountDidPress(let context):
-            DeleteAccountFlow().start(context: context, source: listViewController)
+            deleteAccountFlow.start(context: context, source: listViewController)
         case .editDidPress(let context):
-            EditAccountFlow().start(context: context, source: listViewController)
+            editAccountFlow.start(context: context, source: listViewController)
         case .onError(let context):
-            ShowErrorFlow().start(context: context, source: listViewController)
+            showErrorFlow.start(context: context, source: listViewController)
         default:
             break
         }

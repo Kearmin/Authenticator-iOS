@@ -8,8 +8,12 @@
 import Foundation
 import XCTest
 
-struct SomeError: Error {
+struct SomeError: LocalizedError {
     let message: String
+
+    var errorDescription: String? {
+        message
+    }
 }
 
 func anError() -> NSError {

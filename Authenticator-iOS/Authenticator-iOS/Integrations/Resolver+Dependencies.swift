@@ -46,7 +46,10 @@ extension Resolver {
             AppFlow(
                 listFactory: resolver.resolve(),
                 overlayFlow: resolver.resolve(),
-                addAccountFlow: resolver.resolve())
+                addAccountFlow: resolver.resolve(),
+                deleteAccountFlow: resolver.resolve(),
+                editAccountFlow: resolver.resolve(),
+                showErrorFlow: resolver.resolve())
         }
         .scope(.cached)
 
@@ -74,7 +77,19 @@ extension Resolver {
         }
 
         register { resolver in
-            AddAccountFlow(addAccountFactory: resolver.resolve())
+            AddAccountFlow(addAccountFactory: resolver.resolve(), showErrorFlow: resolver.resolve())
+        }
+
+        register {
+            DeleteAccountFlow()
+        }
+
+        register {
+            EditAccountFlow()
+        }
+
+        register {
+            ShowErrorFlow()
         }
 
         register { resolver in

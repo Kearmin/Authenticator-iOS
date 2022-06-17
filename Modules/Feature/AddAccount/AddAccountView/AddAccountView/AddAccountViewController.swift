@@ -8,7 +8,7 @@
 import AVFoundation
 import UIKit
 
-public final class AddAccountViewController: UIViewController {
+open class AddAccountViewController: UIViewController {
     public let addAccountView: AddAccountView
     private let doneDidPress: (AddAccountViewController) -> Void
 
@@ -41,7 +41,7 @@ public final class AddAccountViewController: UIViewController {
     }
 
     @available(*, unavailable)
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }

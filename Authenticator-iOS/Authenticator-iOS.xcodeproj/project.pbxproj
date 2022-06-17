@@ -87,6 +87,7 @@
 		B0F75480283465670051038D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F7547F283465670051038D /* Constants.swift */; };
 		B0F7548228346A2D0051038D /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F7548128346A2D0051038D /* AppConfig.swift */; };
 		B0F98B2E285D01AE007926C1 /* AddAccountFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F98B2D285D01AE007926C1 /* AddAccountFlowTests.swift */; };
+		B0F98B31285D0CD7007926C1 /* FlowMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F98B30285D0CD7007926C1 /* FlowMocks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -210,6 +211,7 @@
 		B0F7547F283465670051038D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B0F7548128346A2D0051038D /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		B0F98B2D285D01AE007926C1 /* AddAccountFlowTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAccountFlowTests.swift; sourceTree = "<group>"; };
+		B0F98B30285D0CD7007926C1 /* FlowMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowMocks.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -495,6 +497,7 @@
 			isa = PBXGroup;
 			children = (
 				B0F98B2D285D01AE007926C1 /* AddAccountFlowTests.swift */,
+				B0F98B30285D0CD7007926C1 /* FlowMocks.swift */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -625,6 +628,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B08BD53F2859408D00410853 /* AddAccountIntegrationTests.swift in Sources */,
+				B0F98B31285D0CD7007926C1 /* FlowMocks.swift in Sources */,
 				B06B857A28542265008F594A /* ListLoaderStub.swift in Sources */,
 				B0EA8AB32854222A00DC1670 /* AnalyticsMock.swift in Sources */,
 				B0F98B2E285D01AE007926C1 /* AddAccountFlowTests.swift in Sources */,
