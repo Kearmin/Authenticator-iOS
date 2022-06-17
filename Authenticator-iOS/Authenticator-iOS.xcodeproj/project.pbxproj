@@ -86,6 +86,7 @@
 		B0F7547E283464F60051038D /* ListEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F7547D283464F60051038D /* ListEvent.swift */; };
 		B0F75480283465670051038D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F7547F283465670051038D /* Constants.swift */; };
 		B0F7548228346A2D0051038D /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F7548128346A2D0051038D /* AppConfig.swift */; };
+		B0F98B2E285D01AE007926C1 /* AddAccountFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F98B2D285D01AE007926C1 /* AddAccountFlowTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -208,6 +209,7 @@
 		B0F7547D283464F60051038D /* ListEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListEvent.swift; sourceTree = "<group>"; };
 		B0F7547F283465670051038D /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		B0F7548128346A2D0051038D /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
+		B0F98B2D285D01AE007926C1 /* AddAccountFlowTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAccountFlowTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -373,6 +375,7 @@
 		B08BD5402859616E00410853 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				B0F98B2C285D01AE007926C1 /* Flows */,
 				B08BD5412859617D00410853 /* ImagesTests.swift */,
 				B0938F702859678B00A8746B /* AppTests.swift */,
 			);
@@ -486,6 +489,14 @@
 				B0C10D6F2856124B0014BE33 /* Resolver+Overlay.swift */,
 			);
 			path = Overlay;
+			sourceTree = "<group>";
+		};
+		B0F98B2C285D01AE007926C1 /* Flows */ = {
+			isa = PBXGroup;
+			children = (
+				B0F98B2D285D01AE007926C1 /* AddAccountFlowTests.swift */,
+			);
+			path = Flows;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -616,6 +627,7 @@
 				B08BD53F2859408D00410853 /* AddAccountIntegrationTests.swift in Sources */,
 				B06B857A28542265008F594A /* ListLoaderStub.swift in Sources */,
 				B0EA8AB32854222A00DC1670 /* AnalyticsMock.swift in Sources */,
+				B0F98B2E285D01AE007926C1 /* AddAccountFlowTests.swift in Sources */,
 				B0EA8AAF2854200700DC1670 /* TOTPProviderMock.swift in Sources */,
 				B0EA8AB12854204000DC1670 /* PublisherSpy.swift in Sources */,
 				B0EA8AAC28541FA500DC1670 /* LoaderStub.swift in Sources */,

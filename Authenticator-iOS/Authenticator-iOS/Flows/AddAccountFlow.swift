@@ -41,19 +41,19 @@ private extension AddAccountFlow {
                         addAccountViewController?.dismiss(animated: true)
                     }
                 case .failedToStartCamera:
-                    ShowErrorFlow.start(
-                        with: addAccountViewController,
+                    let context = ErrorContext(
                         title: "Error".localized,
                         message: "Failed to open camera".localized) { [weak addAccountViewController] in
                             addAccountViewController?.dismiss(animated: true)
                         }
+                    ShowErrorFlow().start(context: context, source: addAccountViewController)
                 case .qrCodeReadDidFail(let error):
-                    ShowErrorFlow.start(
-                        with: addAccountViewController,
+                    let context = ErrorContext(
                         title: "Error".localized,
                         message: "\(error)") { [weak addAccountViewController] in
                             addAccountViewController?.addAccountView.resumeSession()
                         }
+                    ShowErrorFlow().start(context: context, source: addAccountViewController)
                 case .didCreateAccount:
                     onMain {
                         addAccountViewController?.dismiss(animated: true)

@@ -55,11 +55,11 @@ private extension AppFlow {
         case .addAccountDidPress:
             addAccountFlow.start(with: listViewController)
         case .deleteAccountDidPress(let context):
-            DeleteAccountFlow.start(source: listViewController, didPressDelete: context.callback)
+            DeleteAccountFlow().start(context: context, source: listViewController)
         case .editDidPress(let context):
-            EditAccountFlow.start(account: context.item, source: listViewController, didFinishUpdate: context.callback)
+            EditAccountFlow().start(context: context, source: listViewController)
         case .onError(let context):
-            ShowErrorFlow.start(with: listViewController, title: context.title, message: context.message)
+            ShowErrorFlow().start(context: context, source: listViewController)
         default:
             break
         }

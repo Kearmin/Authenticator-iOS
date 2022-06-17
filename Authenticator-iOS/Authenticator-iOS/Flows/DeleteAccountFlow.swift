@@ -7,8 +7,8 @@
 
 import UIKit
 
-enum DeleteAccountFlow {
-    static func start(source: UIViewController?, didPressDelete: @escaping () -> Void) {
+class DeleteAccountFlow {
+    func start(context: DeleteAccountContext, source: UIViewController?) {
         guard let source = source else { return }
         let alert = UIAlertController(
             title: "Confirm".localized,
@@ -16,7 +16,7 @@ enum DeleteAccountFlow {
             preferredStyle: .alert)
         alert.addAction(.init(title: "Cancel".localized, style: .cancel, handler: nil))
         alert.addAction(.init(title: "Delete".localized, style: .destructive, handler: { _ in
-            didPressDelete()
+            context.callback()
         }))
         onMain {
             source.present(alert, animated: true)

@@ -7,15 +7,15 @@
 
 import UIKit
 
-enum ShowErrorFlow {
-    static func start(with source: UIViewController?, title: String, message: String, okAction: (() -> Void)? = nil) {
+class ShowErrorFlow {
+    func start(context: ErrorContext, source: UIViewController?) {
         guard let source = source else { return }
         let alert = UIAlertController(
-            title: title,
-            message: message,
+            title: context.title,
+            message: context.message,
             preferredStyle: .alert)
         alert.addAction(.init(title: "Ok".localized, style: .default, handler: { _ in
-            okAction?()
+            context.okAction?()
         }))
         onMain {
             source.present(alert, animated: true, completion: nil)

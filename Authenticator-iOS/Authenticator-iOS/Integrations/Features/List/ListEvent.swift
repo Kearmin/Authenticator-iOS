@@ -30,6 +30,18 @@ struct EditAccountContext: Equatable {
 struct ErrorContext: Equatable {
     let title: String
     let message: String
+    let okAction: (() -> Void)?
+
+    init(title: String, message: String, okAction: (() -> Void)? = nil) {
+        self.title = title
+        self.message = message
+        self.okAction = okAction
+    }
+
+    static func == (lhs: ErrorContext, rhs: ErrorContext) -> Bool {
+        lhs.title == rhs.title
+        && lhs.message == rhs.message
+    }
 }
 
 enum ListEvent: Equatable {
