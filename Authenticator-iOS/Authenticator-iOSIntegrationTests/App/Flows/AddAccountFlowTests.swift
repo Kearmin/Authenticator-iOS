@@ -50,7 +50,7 @@ class AddAccountFlowTests: XCTestCase {
     }
 
     func makeSUT() -> TestEnvironment {
-        .init()
+        return .init()
     }
 
     class TestEnvironment {

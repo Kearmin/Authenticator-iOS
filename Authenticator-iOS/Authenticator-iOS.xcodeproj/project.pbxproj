@@ -88,6 +88,7 @@
 		B0F7548228346A2D0051038D /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F7548128346A2D0051038D /* AppConfig.swift */; };
 		B0F98B2E285D01AE007926C1 /* AddAccountFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F98B2D285D01AE007926C1 /* AddAccountFlowTests.swift */; };
 		B0F98B31285D0CD7007926C1 /* FlowMocks.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F98B30285D0CD7007926C1 /* FlowMocks.swift */; };
+		B0F98B33285D3108007926C1 /* ShowErrorFlowTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F98B32285D3108007926C1 /* ShowErrorFlowTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -212,6 +213,7 @@
 		B0F7548128346A2D0051038D /* AppConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		B0F98B2D285D01AE007926C1 /* AddAccountFlowTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddAccountFlowTests.swift; sourceTree = "<group>"; };
 		B0F98B30285D0CD7007926C1 /* FlowMocks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowMocks.swift; sourceTree = "<group>"; };
+		B0F98B32285D3108007926C1 /* ShowErrorFlowTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowErrorFlowTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -498,6 +500,7 @@
 			children = (
 				B0F98B2D285D01AE007926C1 /* AddAccountFlowTests.swift */,
 				B0F98B30285D0CD7007926C1 /* FlowMocks.swift */,
+				B0F98B32285D3108007926C1 /* ShowErrorFlowTests.swift */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -640,6 +643,7 @@
 				B0EA8AAA28541F8600DC1670 /* SharedHelpers.swift in Sources */,
 				B0135CAA285A976D00F2DFD7 /* OverlayIntegrationTests.swift in Sources */,
 				B0938F712859678B00A8746B /* AppTests.swift in Sources */,
+				B0F98B33285D3108007926C1 /* ShowErrorFlowTests.swift in Sources */,
 				B08BD5422859617D00410853 /* ImagesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
