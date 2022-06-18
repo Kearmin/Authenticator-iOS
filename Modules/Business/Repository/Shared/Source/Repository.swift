@@ -51,13 +51,13 @@ public final class Repository<Item: Identifiable, Provider: RepositoryProvider> 
         }
         var mutableInMemory = inMemory ?? []
         mutableInMemory.append(item)
-        try save(mutableInMemory)
+        save(mutableInMemory)
     }
 
     public func update(item: Item) throws {
         if var mutableInMemory = inMemory, let index = mutableInMemory.firstIndex(where: { $0.id == item.id }) {
             mutableInMemory[index] = item
-            try save(mutableInMemory)
+            save(mutableInMemory)
         } else {
             try add(item: item)
         }
@@ -67,19 +67,21 @@ public final class Repository<Item: Identifiable, Provider: RepositoryProvider> 
         return inMemory ?? []
     }
 
-    public func item(for id: Item.ID) throws -> Item {
+    public func item(for id: Item.ID) throws -> Item  {
         guard let item = inMemory?.first(where: { $0.id == id }) else {
             throw RepositoryError.accountNotFound
         }
         return item
     }
 
-    public func delete(itemID: Item.ID) throws {
-        guard var mutableInMemory = inMemory else { return }
-        mutableInMemory.removeAll { inMemoryAccount in
-            inMemoryAccount.id == itemID
-        }
-        try save(mutableInMemory)
+    public func delete(itemID: Item.ID) {
+        guard var mutableInMemory = inMemory,
+              let indexToRemove = mutableInMemory.firstIndex(where: { inMemoryAccount in
+                  inMemoryAccount.id == itemID
+              })
+        else { return }
+        mutableInMemory.remove(at: indexToRemove)
+        save(mutableInMemory)
     }
 
     public func swap(from fromID: Item.ID, to toID: Item.ID) throws {
@@ -90,7 +92,7 @@ public final class Repository<Item: Identifiable, Provider: RepositoryProvider> 
         else { throw RepositoryError.accountNotFound }
         guard fromIndex != toIndex else { return }
         mutableMemory.swapAt(fromIndex, toIndex)
-        try save(mutableMemory)
+        save(mutableMemory)
     }
 
     public func move(from fromID: Item.ID, after toID: Item.ID) throws {
@@ -113,13 +115,18 @@ public final class Repository<Item: Identifiable, Provider: RepositoryProvider> 
             }
             mutableMemory[toIndex] = fromValue
         }
-        try save(mutableMemory)
+        save(mutableMemory)
+    }
+
+    public func persistState() throws {
+        let inMemory = inMemory ?? []
+        try provider.save(items: inMemory.map(mapper))
     }
 }
 
 private extension Repository {
-    func save(_ items: [Item]) throws {
-        try provider.save(items: items.map(mapper))
+    func save(_ items: [Item]) {
+//        try provider.save(items: items.map(mapper))
         inMemory = items
         didSaveSubject.send()
     }

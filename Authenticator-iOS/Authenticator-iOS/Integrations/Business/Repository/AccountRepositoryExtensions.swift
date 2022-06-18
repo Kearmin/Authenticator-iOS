@@ -19,10 +19,8 @@ extension AccountRepository {
     }
 
     func deletePublisher(accountID: UUID) -> AnyPublisher<Void, Error> {
-        Future { completion in
-            completion(Result { try self.delete(itemID: accountID) })
-        }
-        .eraseToAnyPublisher()
+        delete(itemID: accountID)
+        return Just(()).setFailureType(to: Error.self).eraseToAnyPublisher()
     }
 
     func savePublisher(account: AuthenticatorAccountModel) -> AnyPublisher<Void, Error> {

@@ -13,6 +13,11 @@ import Combine
 class RepositoryTests: XCTestCase {
     private var cancellable: AnyCancellable?
 
+    override func setUp() {
+        super.setUp()
+        continueAfterFailure = false
+    }
+
     func test_CanInitWithMappers() {
         _ = Repository<MockAccount, AccountRepositoryMock>(
             provider: AccountRepositoryMock(),
@@ -34,7 +39,7 @@ class RepositoryTests: XCTestCase {
         let mock = AccountRepositoryMock()
         let sut = makeSUT(mock: mock)
         XCTAssertNoThrow(try sut.add(item: account))
-        XCTAssertEqual(mock.savedAccounts.first, account)
+        XCTAssertEqual(sut.readAccounts().first, account)
     }
 
     func test_RepositoryCanSaveMultipleDiffenrentAccounts() {
@@ -46,7 +51,7 @@ class RepositoryTests: XCTestCase {
         let sut = makeSUT(mock: mock)
         XCTAssertNoThrow(try sut.add(item: account))
         XCTAssertNoThrow(try sut.add(item: account2))
-        XCTAssertEqual(mock.savedAccounts, [account, account2])
+        XCTAssertEqual(sut.readAccounts(), [account, account2])
     }
 
     func test_RepositoryThrowsErrorOnAccountWithSameID() {
@@ -67,40 +72,17 @@ class RepositoryTests: XCTestCase {
         let mock = AccountRepositoryMock()
         mock.readAccountResults = [.success([account])]
         let sut = makeSUT(mock: mock)
-        XCTAssertNoThrow(try sut.delete(itemID: account.id))
+        sut.delete(itemID: account.id)
         XCTAssertEqual(mock.savedAccountCount, 0)
-    }
-
-    func test_addThrowsIfProviderFails() {
-        let mock = AccountRepositoryMock()
-        let sut = makeSUT(mock: mock)
-        mock.shouldSaveThrowError = true
-        XCTAssertThrowsError(try sut.add(item: account()))
-    }
-
-    func test_deleteThrowsIfProviderFails() {
-        let mock = AccountRepositoryMock()
-        let sut = makeSUT(mock: mock)
-        mock.shouldSaveThrowError = true
-        XCTAssertThrowsError(try sut.delete(itemID: account().id))
-    }
-
-    func test_readingIfNotChangedWillReadOnlyCachedValues() {
-        let mock = AccountRepositoryMock()
-        let sut = makeSUT(mock: mock)
-        _ = sut.readAccounts()
-        _ = sut.readAccounts()
-        _ = sut.readAccounts()
-        XCTAssertEqual(mock.readAccountCallCount, 1)
     }
 
     func test_repositoryAddsItem_IfUpdateIsCalledButDoesNotExists() {
         let mock = AccountRepositoryMock()
         let sut = makeSUT(mock: mock)
         let newItem = MockAccount(id: 0)
-        XCTAssertNoThrow( try sut.update(item: newItem))
-        XCTAssertEqual(mock.savedAccountCount, 1)
-        XCTAssertEqual(mock.savedAccounts.first, newItem)
+        XCTAssertNoThrow(try sut.update(item: newItem))
+        XCTAssertEqual(sut.readAccounts().count, 1)
+        XCTAssertEqual(sut.readAccounts().first, newItem)
     }
 
     func test_repositoryUpdatesItem_ifUpdateIsCalledAndItemExists() {
@@ -111,8 +93,8 @@ class RepositoryTests: XCTestCase {
         mock.readAccountResults = [.success([originalItem])]
         let sut = makeSUT(mock: mock)
         XCTAssertNoThrow(try sut.update(item: updatedItem))
-        XCTAssertEqual(mock.savedAccountCount, 1)
-        XCTAssertEqual(mock.savedAccounts.first, updatedItem)
+        XCTAssertEqual(sut.readAccounts().count, 1)
+        XCTAssertEqual(sut.readAccounts().first, updatedItem)
     }
 
     func test_repositoryCanSwap() {
@@ -126,18 +108,20 @@ class RepositoryTests: XCTestCase {
             .init(id: id3)
         ])]
         let sut = makeSUT(mock: mock)
-        mock.savedAccounts = sut.readAccounts()
-        XCTAssertEqual(mock.savedAccounts[0].id, id1)
-        XCTAssertEqual(mock.savedAccounts[1].id, id2)
-        XCTAssertEqual(mock.savedAccounts[2].id, id3)
+        var savedAccounts = sut.readAccounts()
+        XCTAssertEqual(savedAccounts[0].id, id1)
+        XCTAssertEqual(savedAccounts[1].id, id2)
+        XCTAssertEqual(savedAccounts[2].id, id3)
         XCTAssertNoThrow(try sut.swap(from: id1, to: id2))
-        XCTAssertEqual(mock.savedAccounts[0].id, id2)
-        XCTAssertEqual(mock.savedAccounts[1].id, id1)
-        XCTAssertEqual(mock.savedAccounts[2].id, id3)
+        savedAccounts = sut.readAccounts()
+        XCTAssertEqual(savedAccounts[0].id, id2)
+        XCTAssertEqual(savedAccounts[1].id, id1)
+        XCTAssertEqual(savedAccounts[2].id, id3)
         XCTAssertNoThrow(try sut.swap(from: id1, to: id3))
-        XCTAssertEqual(mock.savedAccounts[0].id, id2)
-        XCTAssertEqual(mock.savedAccounts[1].id, id3)
-        XCTAssertEqual(mock.savedAccounts[2].id, id1)
+        savedAccounts = sut.readAccounts()
+        XCTAssertEqual(savedAccounts[0].id, id2)
+        XCTAssertEqual(savedAccounts[1].id, id3)
+        XCTAssertEqual(savedAccounts[2].id, id1)
     }
 
     func test_repositoryDoestnSwapIfDoesntContainItem() {
@@ -170,13 +154,15 @@ class RepositoryTests: XCTestCase {
         ])]
         let sut = makeSUT(mock: mock)
         XCTAssertNoThrow(try sut.move(from: id1, after: id2))
-        XCTAssertEqual(mock.savedAccounts[0].id, id2)
-        XCTAssertEqual(mock.savedAccounts[1].id, id1)
-        XCTAssertEqual(mock.savedAccounts[2].id, id3)
+        var savedAccounts = sut.readAccounts()
+        XCTAssertEqual(savedAccounts[0].id, id2)
+        XCTAssertEqual(savedAccounts[1].id, id1)
+        XCTAssertEqual(savedAccounts[2].id, id3)
         XCTAssertNoThrow(try sut.move(from: id2, after: id3))
-        XCTAssertEqual(mock.savedAccounts[0].id, id1)
-        XCTAssertEqual(mock.savedAccounts[1].id, id3)
-        XCTAssertEqual(mock.savedAccounts[2].id, id2)
+        savedAccounts = sut.readAccounts()
+        XCTAssertEqual(savedAccounts[0].id, id1)
+        XCTAssertEqual(savedAccounts[1].id, id3)
+        XCTAssertEqual(savedAccounts[2].id, id2)
     }
 
     func test_canMoveItemsBackward() {
@@ -190,18 +176,22 @@ class RepositoryTests: XCTestCase {
             .init(id: id3)
         ])]
         let sut = makeSUT(mock: mock)
+        var savedAccounts: [MockAccount] = []
         XCTAssertNoThrow(try sut.move(from: id3, after: id1))
-        XCTAssertEqual(mock.savedAccounts[0].id, id3)
-        XCTAssertEqual(mock.savedAccounts[1].id, id1)
-        XCTAssertEqual(mock.savedAccounts[2].id, id2)
+        savedAccounts = sut.readAccounts()
+        XCTAssertEqual(savedAccounts[0].id, id3)
+        XCTAssertEqual(savedAccounts[1].id, id1)
+        XCTAssertEqual(savedAccounts[2].id, id2)
         XCTAssertNoThrow(try sut.move(from: id1, after: id3))
-        XCTAssertEqual(mock.savedAccounts[0].id, id1)
-        XCTAssertEqual(mock.savedAccounts[1].id, id3)
-        XCTAssertEqual(mock.savedAccounts[2].id, id2)
+        savedAccounts = sut.readAccounts()
+        XCTAssertEqual(savedAccounts[0].id, id1)
+        XCTAssertEqual(savedAccounts[1].id, id3)
+        XCTAssertEqual(savedAccounts[2].id, id2)
         XCTAssertNoThrow(try sut.move(from: id2, after: id3))
-        XCTAssertEqual(mock.savedAccounts[0].id, id1)
-        XCTAssertEqual(mock.savedAccounts[1].id, id2)
-        XCTAssertEqual(mock.savedAccounts[2].id, id3)
+        savedAccounts = sut.readAccounts()
+        XCTAssertEqual(savedAccounts[0].id, id1)
+        XCTAssertEqual(savedAccounts[1].id, id2)
+        XCTAssertEqual(savedAccounts[2].id, id3)
     }
 
     func test_movingSameAccount_doesNothing() {
@@ -222,7 +212,7 @@ class RepositoryTests: XCTestCase {
         }
     }
 
-    func test_RepositorySendEvent_ifSaved() {
+    func test_RepositorySendEvent_ifSaved() throws {
         let mock = AccountRepositoryMock()
         mock.readAccountResults = [
             .success([
@@ -239,7 +229,7 @@ class RepositoryTests: XCTestCase {
                 expectation.fulfill()
             }
         XCTAssertNoThrow(try sut.add(item: .init(id: 3)))
-        XCTAssertNoThrow(try sut.delete(itemID: 3))
+        sut.delete(itemID: 3)
         XCTAssertNoThrow(try sut.move(from: 0, after: 1))
         XCTAssertNoThrow(try sut.swap(from: 0, to: 1))
         XCTAssertNoThrow(try sut.update(item: .init(id: 0)))
@@ -274,6 +264,14 @@ class RepositoryTests: XCTestCase {
         XCTAssertThrowsError(try sut.item(for: 0)) { error in
             XCTAssertEqual(error as? RepositoryError, .accountNotFound)
         }
+    }
+
+    func test_RepositoryPersistsState_ifPersistIsCalled() {
+        let mock = AccountRepositoryMock()
+        let sut = makeSUT(mock: mock)
+        XCTAssertNoThrow(try sut.add(item: .init(id: 0)))
+        XCTAssertNoThrow(try sut.add(item: .init(id: 1)))
+        XCTAssertNoThrow(try sut.persistState())
     }
 
     func makeSUT(mock: AccountRepositoryMock = .init()) -> Repository<MockAccount, AccountRepositoryMock> {

@@ -9,6 +9,7 @@ import UIKit
 import Resolver
 import AuthenticatorListView
 import Combine
+import OSLog
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
@@ -18,6 +19,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             unitTestScene(scene, willConnectTo: session, options: connectionOptions)
         } else {
             appScene(scene, willConnectTo: session, options: connectionOptions)
+        }
+    }
+
+    func sceneWillResignActive(_ scene: UIScene) {
+        do {
+            try Resolver.resolve(AccountRepository.self).persistState()
+        } catch {
+            Resolver.resolve(Logger.self).error("Failed to persist state")
         }
     }
 }
